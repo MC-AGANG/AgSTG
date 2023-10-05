@@ -1,0 +1,10 @@
+F:\code\AgSTG\ResourcePack.TH17\bin\Release\ResourcePack.TH17.dll
+F:\code\AgSTG\ResourcePack.TH17\bin\Release\ResourcePack.TH17.pdb
+F:\code\AgSTG\ResourcePack.TH17\bin\Release\ResourcePack.TH17.xml
+F:\code\AgSTG\ResourcePack.TH17\obj\Release\ResourcePack.TH17.Resources.resources
+F:\code\AgSTG\ResourcePack.TH17\obj\Release\ResourcePack.TH17.MyResource.resources
+F:\code\AgSTG\ResourcePack.TH17\obj\Release\ResourcePack.TH17.vbproj.GenerateResource.cache
+F:\code\AgSTG\ResourcePack.TH17\obj\Release\ResourcePack.TH17.vbproj.CoreCompileInputs.cache
+F:\code\AgSTG\ResourcePack.TH17\obj\Release\ResourcePack.TH17.dll
+F:\code\AgSTG\ResourcePack.TH17\obj\Release\ResourcePack.TH17.xml
+F:\code\AgSTG\ResourcePack.TH17\obj\Release\ResourcePack.TH17.pdb

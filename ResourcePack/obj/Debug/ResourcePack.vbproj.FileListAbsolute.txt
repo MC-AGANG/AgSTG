@@ -1,0 +1,11 @@
+F:\code\AgSTG\ResourcePack\obj\Debug\ResourcePack.Resources.resources
+F:\code\AgSTG\ResourcePack\obj\Debug\ResourcePack.vbproj.GenerateResource.cache
+F:\code\AgSTG\ResourcePack\obj\Debug\ResourcePack.vbproj.CoreCompileInputs.cache
+F:\code\AgSTG\ResourcePack\obj\Debug\ResourcePack.xml
+F:\code\AgSTG\ResourcePack\bin\Debug\ResourcePack.dll
+F:\code\AgSTG\ResourcePack\bin\Debug\ResourcePack.pdb
+F:\code\AgSTG\ResourcePack\bin\Debug\ResourcePack.xml
+F:\code\AgSTG\ResourcePack\obj\Debug\ResourcePack.dll
+F:\code\AgSTG\ResourcePack\obj\Debug\ResourcePack.pdb
+F:\code\AgSTG\ResourcePack\obj\Debug\ResourcePack.MyResource.resources
+F:\code\AgSTG\ResourcePack\obj\Debug\ResourcePack.vbproj.AssemblyReference.cache
