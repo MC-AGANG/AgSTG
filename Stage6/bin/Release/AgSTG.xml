@@ -1,0 +1,1039 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+AgSTG
+</name>
+</assembly>
+<members>
+<member name="T:AgSTG.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:AgSTG.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:AgSTG.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:AgSTG.Bullet">
+ <summary>
+ 表示敌机子弹
+ </summary>
+</member>
+<member name="P:AgSTG.Bullet.BulletType">
+ <summary>
+ 获取或设置子弹种类
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Bullet.BulletColor">
+ <summary>
+ 获取或设置子弹颜色
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Bullet.Speed">
+ <summary>
+ 获取或设置子弹速度
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Bullet.Direction">
+ <summary>
+ 获取或设置子弹方向，单位：角度
+ 以向上为0度，顺时针递增
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Bullet.SoundEffect">
+ <summary>
+ 获取或设置子弹生成时播放的音效
+ 默认为“tan00.wav”
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Bullet.Grazed">
+ <summary>
+ 获取或设置这个子弹是否已经擦弹过了
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.Bullet.#ctor(AgSTG.BulletType,AgSTG.BulletColor,System.Double,System.Double,System.Double,System.Double,System.Double)">
+ <summary>
+ 创建新的子弹
+ </summary>
+ <param name="BulletType">子弹种类</param>
+ <param name="BulletColor">子弹颜色</param>
+ <param name="X">初始X坐标</param>
+ <param name="Y">初始Y坐标</param>
+ <param name="Speed">子弹速度</param>
+ <param name="Direction">子弹方向</param>
+ <param name="Delta">随机附加的方向偏移量，默认为0</param>
+</member>
+<member name="M:AgSTG.Bullet.#ctor(AgSTG.BulletType,AgSTG.BulletColor,System.Double,System.Double,System.Double,System.Double)">
+ <summary>
+ 创建一个自机狙子弹
+ </summary>
+ <param name="BulletType"></param>
+ <param name="BulletColor"></param>
+ <param name="X"></param>
+ <param name="Y"></param>
+ <param name="Speed"></param>
+ <param name="Delta"></param>
+</member>
+<member name="M:AgSTG.Bullet.#ctor(AgSTG.BulletType,AgSTG.BulletColor,System.Double,System.Double,System.Double,System.Double,System.Windows.Media.MediaPlayer,System.Double)">
+ <summary>
+ 创建新的子弹，并指定音效
+ </summary>
+ <param name="BulletType">子弹种类</param>
+ <param name="BulletColor">子弹颜色</param>
+ <param name="X">初始X坐标</param>
+ <param name="Y">初始Y坐标</param>
+ <param name="Speed">子弹速度</param>
+ <param name="Direction">子弹方向</param>
+ <param name="SoundEffect">子弹生成时播放的音效</param>
+ <param name="Delta">随机附加的方向偏移量，默认为0</param>
+</member>
+<member name="M:AgSTG.Bullet.#ctor(AgSTG.BulletType,AgSTG.BulletColor,System.Double,System.Double,System.Double,System.Windows.Media.MediaPlayer,System.Double)">
+ <summary>
+ 创建一个自机狙子弹，并指定音效
+ </summary>
+ <param name="BulletType"></param>
+ <param name="BulletColor"></param>
+ <param name="X"></param>
+ <param name="Y"></param>
+ <param name="Speed"></param>
+ <param name="SoundEffect">子弹生成时播放的音效</param>
+ <param name="Delta"></param>
+</member>
+<member name="M:AgSTG.Bullet.Break(System.Boolean)">
+ <summary>
+ 消弹并产生信仰点
+ </summary>
+ <param name="Drop">消弹后是否产生信仰点，默认产生</param>
+</member>
+<member name="T:AgSTG.BulletType">
+ <summary>
+ 枚举子弹种类
+ </summary>
+</member>
+<member name="T:AgSTG.CardLabel">
+<summary>
+CardLabel
+</summary>
+</member>
+<member name="M:AgSTG.CardLabel.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="P:AgSTG.Dialog.Content">
+ <summary>
+ 获取或设置对话内容
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Dialog.Image1">
+ <summary>
+ 获取或设置己方立绘<br/>
+ 若为Nothing则表示保持现状
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Dialog.Image2">
+ <summary>
+ 获取或设置敌方立绘<br/>
+ 若为Nothing则表示保持现状
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Dialog.Target">
+ <summary>
+ 获取或设置对话来源
+ </summary>
+ <returns>True代表己方，False代表敌方</returns>
+</member>
+<member name="P:AgSTG.Dialog.CD">
+ <summary>
+ 获取或设置经过多少时间之后才能进入下一条对话
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Dialog.Action">
+ <summary>
+ 获取或设置此条对话结束后执行的操作
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Dialog.EnemyName">
+ <summary>
+ 获取或设置要显示的敌方名称
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.Dialog.#ctor(System.String,System.Boolean,System.Int32,AgSTG.DialogAction,System.Windows.Media.ImageBrush,System.Windows.Media.ImageBrush,System.Windows.Media.ImageBrush)">
+ <summary>
+ 创建一条新的对话
+ </summary>
+ <param name="Content">对话内容</param>
+ <param name="target">对话来源，True代表己方，False代表敌方</param>
+ <param name="CD">经过多少时间之后才能进入下一条对话，默认为5帧</param>
+ <param name="Action">此条对话结束后执行的操作，默认为进入下一条</param>
+ <param name="image1">己方立绘，默认为保持不变</param>
+ <param name="image2">敌方立绘，默认为保持不变</param>
+ <param name="EnemyName">敌方立绘，默认为保持不变</param>
+</member>
+<member name="M:AgSTG.Dialog.Show">
+ <summary>
+ 显示当前对话
+ </summary>
+</member>
+<member name="T:AgSTG.DialogAction">
+ <summary>
+ 枚举对话后执行的操作
+ </summary>
+</member>
+<member name="F:AgSTG.DialogAction.Default">
+ <summary>
+ 进入下一条对话
+ </summary>
+</member>
+<member name="F:AgSTG.DialogAction.Battle">
+ <summary>
+ 开始战斗
+ </summary>
+</member>
+<member name="F:AgSTG.DialogAction.NextStage">
+ <summary>
+ 进入下一关
+ </summary>
+</member>
+<member name="T:AgSTG.Enemy">
+ <summary>
+ 表示敌机单位
+ </summary>
+</member>
+<member name="P:AgSTG.Enemy.EnemyType">
+ <summary>
+ 获取或设置敌机的类型
+ 当这个属性100时，代表Boss
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Enemy.Color">
+ <summary>
+ 获取或设置敌机的颜色
+ 当敌机为Boss时，这个属性代表Boss的编号
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Enemy.HP">
+ <summary>
+ 获取或设置敌机的血量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Enemy.Defence">
+ <summary>
+ 获取或设置敌机的防御值，范围为0到1
+ </summary>
+</member>
+<member name="P:AgSTG.Enemy.DropItems">
+ <summary>
+ 获取或设置掉落物
+ 格式为一连串掉落物编号
+ 示例：0011代表掉落2个P点和2个蓝点
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Enemy.Life">
+ <summary>
+ 获取或设置敌机的最大存在时间
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Enemy.Speed">
+ <summary>
+ 获取或设置敌机的移动速度
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Enemy.Direction">
+ <summary>
+ 获取或设置敌机的移动方向，单位：角度
+ 以向上为0度，顺时针递增
+ </summary>
+ <returns></returns>
+</member>
+<member name="F:AgSTG.Enemy.Act">
+ <summary>
+ 为敌机设置的弹幕脚本<br/>
+ 可在关卡脚本中使用扩展方法来创建<br/>
+ 并且在初始化时使用with语句来添加
+ </summary>
+</member>
+<member name="M:AgSTG.Enemy.#ctor(AgSTG.EnemyType,System.Byte,System.Double,System.Double,System.Double,System.String,System.Int32,System.Double,System.Double,System.Double)">
+ <summary>
+ 创建新的敌机单位
+ </summary>
+ <param name="EnemyType">种类（指外观）</param>
+ <param name="Color">颜色（指细分的种类）</param>
+ <param name="X">初始X坐标</param>
+ <param name="Y">初始Y坐标</param>
+ <param name="HP">血量</param>
+ <param name="DropItems">掉落物</param>
+ <param name="Life">存在时间</param>
+ <param name="Defence">防御值，默认为0</param>
+ <param name="Speed">移动速度，默认为0</param>
+ <param name="Direction">方向，默认为0，即向上</param>
+</member>
+<member name="M:AgSTG.Enemy.Damage(System.Double)">
+ <summary>
+ 使敌机受到伤害
+ </summary>
+ <param name="Value">伤害的量</param>
+</member>
+<member name="P:AgSTG.Enemy.Boss.CurrentSpell">
+ <summary>
+ 获取或设置进行到第几张符卡<br/>
+ 当这个数值等于-1时，表示战斗还未开始
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Enemy.Boss.SpellCards">
+ <summary>
+ 获取或设置Boss的符卡列表
+ </summary>
+ <returns></returns>
+</member>
+<member name="F:AgSTG.Enemy.Boss.Init">
+ <summary>
+ Boss初始化脚本程序
+ 可以在关卡脚本中使用扩展方法来添加
+ </summary>
+</member>
+<member name="M:AgSTG.Enemy.Boss.Render">
+ <summary>
+ Boss单位子类建议重写并调用此方法<br/>
+ 否则会导致部分功能无法自动运行
+ </summary>
+</member>
+<member name="M:AgSTG.Enemy.Boss.DefaultMove(System.Int32)">
+ <summary>
+ 按默认程序移动<br/>
+ 算法为：X轴80%概率向玩家所在的方向移动，Y轴随机<br/>
+ 如果到达边缘附近，则必然往相反方向运动
+ </summary>
+ <param name="time">移动持续时间</param>
+</member>
+<member name="M:AgSTG.Enemy.Boss.SpellFinish(System.Boolean)">
+ <summary>
+ 结束当前符卡或非符
+ <paramref name="IsBreak">符卡或非符有没有被击破</paramref>
+ </summary>
+</member>
+<member name="M:AgSTG.Enemy.Boss.NextSpell">
+ <summary>
+ 进入下一张符卡，可根据需求重写
+ </summary>
+</member>
+<member name="M:AgSTG.Enemy.Boss.MoveToCenter(System.Int32)">
+ <summary>
+ 将Boss移动到X轴中央（X=192,Y=128）
+ </summary>
+ <param name="time">移动持续时间</param>
+</member>
+<member name="M:AgSTG.Enemy.Boss.MoveTo(System.Double,System.Double,System.Int32)">
+ <summary>
+ 将Boss移动到指定位置
+ </summary>
+ <param name="X">X坐标</param>
+ <param name="Y">Y坐标</param>
+ <param name="Time">移动持续时间</param>
+</member>
+<member name="T:AgSTG.EnemyType">
+ <summary>
+ 枚举敌机的种类
+ </summary>
+</member>
+<member name="P:AgSTG.GameObject.X">
+ <summary>
+ 获取或设置对象的X坐标
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.GameObject.Y">
+ <summary>
+ 获取或设置对象的Y坐标
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.GameObject.HitboxSize">
+ <summary>
+ 获取或设置对象的碰撞体积
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.GameObject.FrameCount">
+ <summary>
+ 获取或设置对象的已存在的时间<br/>
+ 不建议手动修改
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.GameObject.ObjectType">
+ <summary>
+ 获取或设置对象的类型
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.GameObject.IsEnabled">
+ <summary>
+ 获取或设置对象是否处于可交互的状态
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.GameObject.#ctor(AgSTG.ObjectType,System.Double,System.Double)">
+ <summary>
+ 创建新的游戏实体，只能在继承时使用
+ </summary>
+ <param name="ObjectType">对象类型</param>
+ <param name="X">初始X坐标</param>
+ <param name="Y">初始Y坐标</param>
+</member>
+<member name="M:AgSTG.GameObject.SetSize(System.Double,System.Double,System.Double)">
+ <summary>
+ 设置对象的大小和碰撞体积
+ </summary>
+ <param name="Width">宽度</param>
+ <param name="Height">高度</param>
+ <param name="HitboxSize">碰撞体积</param>
+</member>
+<member name="M:AgSTG.GameObject.Clear">
+ <summary>
+ 从游戏中移除这个对象
+ </summary>
+</member>
+<member name="M:AgSTG.GameObject.Render">
+ <summary>
+ 用于控制对象的行为<br/>
+ 每一帧都会被执行一次<br/>
+ 一切对象必须重写这个方法
+ </summary>
+</member>
+<member name="M:AgSTG.GameObject.SetCenter">
+ <summary>
+ 将对象的坐标锚点从左上角移动到对象的中心点
+ </summary>
+</member>
+<member name="M:AgSTG.GameObject.Move">
+ <summary>
+ 把对象的实际坐标渲染到画面上
+ </summary>
+</member>
+<member name="M:AgSTG.GameObject.IsHit(AgSTG.GameObject,AgSTG.GameObject)">
+ <summary>
+ 判断两个对象是否碰撞
+ </summary>
+ <param name="obj1">第一个对象</param>
+ <param name="obj2">第二个对象</param>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.GameObject.IsHit(AgSTG.GameObject)">
+ <summary>
+ 判断这个对象自身与目标对象是否碰撞
+ </summary>
+ <param name="Target">要判定的目标</param>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.GameObject.GetDistance(AgSTG.GameObject,AgSTG.GameObject)">
+ <summary>
+ 获取两个对象之间的距离
+ </summary>
+ <param name="obj1">第一个对象</param>
+ <param name="obj2">第二个对象</param>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.GameObject.GetDistance(AgSTG.GameObject)">
+ <summary>
+ 获取这个对象与目标对象之间的距离
+ </summary>
+ <param name="Target">目标对象</param>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.GameObject.GetLaserDistance(System.Double,System.Double,System.Double,System.Double,AgSTG.GameObject)">
+ <summary>
+ 测量一个对象到一个激光的垂直距离
+ </summary>
+ <param name="StartX">激光起始点X坐标</param>
+ <param name="StartY">激光起始点Y坐标</param>
+ <param name="EndX">激光终止点X坐标</param>
+ <param name="EndY">激光终止点Y坐标</param>
+ <param name="Target">要测量的对象</param>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.GameObject.GetLaserDistance(System.Double,System.Double,System.Double,AgSTG.GameObject)">
+ <summary>
+ 测量一个对象到一个激光的垂直距离
+ </summary>
+ <param name="StartX">激光起始点X坐标</param>
+ <param name="StartY">激光起始点Y坐标</param>
+ <param name="Direction">激光方向</param>
+ <param name="Target">要测量的对象</param>
+ <returns></returns>
+</member>
+<member name="F:AgSTG.GameObject._Me_Rotate">
+<summary>
+Me_Rotate Name Field
+</summary>
+</member>
+<member name="M:AgSTG.GameObject.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:AgSTG.ObjectType">
+ <summary>
+ 枚举游戏对象类型
+ </summary>
+</member>
+<member name="F:AgSTG.ObjectType.Bullet">
+ <summary>
+ 敌机子弹
+ </summary>
+</member>
+<member name="F:AgSTG.ObjectType.Enemy">
+ <summary>
+ 敌机
+ </summary>
+</member>
+<member name="F:AgSTG.ObjectType.Player">
+ <summary>
+ 自机
+ </summary>
+</member>
+<member name="F:AgSTG.ObjectType.PlayerBullet">
+ <summary>
+ 自机子弹
+ </summary>
+</member>
+<member name="F:AgSTG.ObjectType.PlayerOption">
+ <summary>
+ 子机
+ </summary>
+</member>
+<member name="F:AgSTG.ObjectType.Bomb">
+ <summary>
+ 自机符卡的子弹
+ </summary>
+</member>
+<member name="F:AgSTG.ObjectType.Item">
+ <summary>
+ 掉落物
+ </summary>
+</member>
+<member name="T:AgSTG.HPBar">
+<summary>
+HPBar
+</summary>
+</member>
+<member name="P:AgSTG.HPBar.UsualHP">
+ <summary>
+ 获取或设置非符血量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.HPBar.SpellHP">
+ <summary>
+ 获取或设置符卡血量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.HPBar.UsualPercent">
+ <summary>
+ 获取或设置非符在血条中的占比
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.HPBar.SpellStages">
+ <summary>
+ 获取或设置符卡有几个阶段
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.HPBar.StagePercent">
+ <summary>
+ 获取或设置符卡每个阶段的占比
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.HPBar.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:AgSTG.Item">
+ <summary>
+ 表示掉落物
+ </summary>
+</member>
+<member name="P:AgSTG.Item.ItemType">
+ <summary>
+ 获取或设置掉落物种类
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Item.ForceCollect">
+ <summary>
+ 获取或设置掉落物是否会主动飞向自机
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.Item.#ctor(AgSTG.ItemType,System.Double,System.Double)">
+ <summary>
+ 创建新的掉落物
+ </summary>
+ <param name="ItemType">掉落物种类</param>
+ <param name="X">初始X坐标</param>
+ <param name="Y">初始Y坐标</param>
+</member>
+<member name="T:AgSTG.ItemType">
+ <summary>
+ 枚举掉落物种类
+ </summary>
+</member>
+<member name="F:AgSTG.ItemType.Power">
+ <summary>
+ P点
+ </summary>
+</member>
+<member name="F:AgSTG.ItemType.Point">
+ <summary>
+ 蓝点
+ </summary>
+</member>
+<member name="F:AgSTG.ItemType.PointValue">
+ <summary>
+ 信仰点
+ </summary>
+</member>
+<member name="F:AgSTG.ItemType.Life">
+ <summary>
+ 残机
+ </summary>
+</member>
+<member name="F:AgSTG.ItemType.LifePiece">
+ <summary>
+ 残机碎片
+ </summary>
+</member>
+<member name="F:AgSTG.ItemType.Spell">
+ <summary>
+ 符卡（B）
+ </summary>
+</member>
+<member name="F:AgSTG.ItemType.SpellPiece">
+ <summary>
+ 符卡（B）碎片
+ </summary>
+</member>
+<member name="T:AgSTG.MediaTimer">
+ <summary>
+ 用于表示媒体定时器
+ 此定时器具有极高的精度
+ 可用于使游戏按一定速率稳定运行
+ </summary>
+</member>
+<member name="E:AgSTG.MediaTimer.Tick">
+ <summary>
+ 到达时间间隔时触发
+ </summary>
+ <param name="MSPT">这一刻处理完负载所需要的时间，单位：毫秒</param>
+</member>
+<member name="P:AgSTG.MediaTimer.TPS">
+ <summary>
+ 获取或设置定时器每秒运行多少次
+ 当工作负载超过计算机处理能力时，实际的TPS会下降
+ </summary>
+ <returns></returns>
+</member>
+<member name="F:AgSTG.MediaTimer.Act">
+ <summary>
+ 获取或设置这个定时器的工作负载
+ 由于定时器使用异步线程，此方法需要委托
+ </summary>
+</member>
+<member name="M:AgSTG.MediaTimer.#ctor(System.Double,System.Action)">
+ <summary>
+ 创建新的MediaTimer
+ </summary>
+ <param name="TPS">定时器每秒运行的次数</param>
+ <param name="Act">定时器的工作负载，需要委托</param>
+</member>
+<member name="M:AgSTG.MediaTimer.Start">
+ <summary>
+ 启动定时器
+ </summary>
+</member>
+<member name="M:AgSTG.MediaTimer.Stop">
+ <summary>
+ 使定时器停止
+ </summary>
+</member>
+<member name="M:AgSTG.MediaTimer.IsEnabled">
+ <summary>
+ 获取定时器是否处于工作状态
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:AgSTG.Player">
+ <summary>
+ 表示自机
+ 此类只能作为继承类使用
+ </summary>
+</member>
+<member name="P:AgSTG.Player.Invin">
+ <summary>
+ 获取或设置自机无敌帧的剩余时间
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Player.Speed">
+ <summary>
+ 获取或设置机体高速状态下的移速
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.Player.PlayerType">
+ <summary>
+ 获取或设置机体类型
+ </summary>
+ <returns></returns>
+</member>
+<member name="F:AgSTG.Player.Options">
+ <summary>
+ 包含所有的子机
+ </summary>
+</member>
+<member name="M:AgSTG.Player.#ctor">
+ <summary>
+ 创建新的自机，此类通常由STG创建
+ </summary>
+</member>
+<member name="M:AgSTG.Player.Miss">
+ <summary>
+ 触发撞弹
+ </summary>
+</member>
+<member name="M:AgSTG.Player.Graze">
+ <summary>
+ 触发擦弹
+ </summary>
+</member>
+<member name="T:AgSTG.Player.Player0">
+ <summary>
+ 灵梦机体
+ </summary>
+</member>
+<member name="T:AgSTG.PlayerType">
+ <summary>
+ 枚举机体类型
+ </summary>
+</member>
+<member name="T:AgSTG.PlayerBullet">
+ <summary>
+ 表示玩家的子弹
+ 此类只能作为继承类使用
+ </summary>
+</member>
+<member name="T:AgSTG.PlayerBullet.Pl0M">
+ <summary>
+ 灵梦主炮子弹
+ </summary>
+</member>
+<member name="T:AgSTG.PlayerOption">
+ <summary>
+ 表示子机
+ 此类只能作为继承类使用
+ </summary>
+</member>
+<member name="M:AgSTG.PlayerOption.#ctor(System.Byte)">
+ <summary>
+ 创建新的子机
+ 这个方法通常由Player执行
+ </summary>
+</member>
+<member name="T:AgSTG.PlayerOption.Option0">
+ <summary>
+ 灵梦子机
+ </summary>
+</member>
+<member name="T:AgSTG.PropertyBoard">
+<summary>
+PropertyBoard
+</summary>
+</member>
+<member name="M:AgSTG.PropertyBoard.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:AgSTG.SpellCard">
+ <summary>
+ 表示Boss的符卡<br/>
+ 此类只能作为继承类使用
+ </summary>
+</member>
+<member name="P:AgSTG.SpellCard.IsEnabled">
+ <summary>
+ 获取或设置符卡是否正在运行
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.FrameCount">
+ <summary>
+ 获取或设置符卡已运行时间
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.Owner">
+ <summary>
+ 获取或设置符卡的所有者
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.Name">
+ <summary>
+ 获取或设置符卡名称
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.Type">
+ <summary>
+ 获取或设置符卡类型
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.HaveUsual">
+ <summary>
+ 获取或设置符卡是否拥有非符阶段
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.StageCount">
+ <summary>
+ 获取或设置符卡有几个阶段（不包括非符，时符无效）
+ </summary>
+</member>
+<member name="P:AgSTG.SpellCard.Items">
+ <summary>
+ 获取或设置符卡掉落物
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.UsualHP">
+ <summary>
+ 获取或设置非符血量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.UsualTime">
+ <summary>
+ 获取或设置非符时间限制
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.SpellHP">
+ <summary>
+ 获取或设置符卡各个阶段血量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.SpellTime">
+ <summary>
+ 获取或设置符卡时间限制
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.Score">
+ <summary>
+ 获取或设置击破符卡后的加分
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.SpellCard.AtSpell">
+ <summary>
+ 获取或设置是否处于符卡阶段
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.SpellCard.Render">
+ <summary>
+ 控制符卡的行为<br/>
+ 所有符卡必须重写这个方法
+ </summary>
+</member>
+<member name="M:AgSTG.SpellCard.Break">
+ <summary>
+ 符卡或非符阶段被击破
+ </summary>
+ <returns>是否要进入下一张符卡</returns>
+</member>
+<member name="T:AgSTG.SpellType">
+ <summary>
+ 枚举符卡类型
+ </summary>
+</member>
+<member name="F:AgSTG.SpellType.None">
+ <summary>
+ 仅非符
+ </summary>
+</member>
+<member name="F:AgSTG.SpellType.Life">
+ <summary>
+ 普通符卡
+ </summary>
+</member>
+<member name="F:AgSTG.SpellType.Time">
+ <summary>
+ 时符
+ </summary>
+</member>
+<member name="E:AgSTG.STG.StageClear">
+ <summary>
+ 通过当前关卡
+ </summary>
+</member>
+<member name="F:AgSTG.STG.Objects">
+ <summary>
+ 游戏内所有实体的集合
+ </summary>
+</member>
+<member name="F:AgSTG.STG.Objects_rm">
+ <summary>
+ 需要移除的对象
+ 里面的内容将在一帧的末尾被清理
+ </summary>
+</member>
+<member name="F:AgSTG.STG.Objects_Add">
+ <summary>
+ 在穷举对象过程中需要添加对象时请先将对象添加到此处
+ </summary>
+</member>
+<member name="F:AgSTG.STG.MainBoard">
+ <summary>
+ 可视化渲染的区域
+ </summary>
+</member>
+<member name="F:AgSTG.STG._Player">
+ <summary>
+ 自机
+ </summary>
+</member>
+<member name="P:AgSTG.STG.HiScore">
+ <summary>
+ 获取或设置历史最高分数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.Score">
+ <summary>
+ 获取或设置当前分数
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.Life">
+ <summary>
+ 获取或设置当前残机数量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.LifePiece">
+ <summary>
+ 获取或设置当前残机碎片数量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.Spell">
+ <summary>
+ 获取或设置当前符卡数量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.SpellPiece">
+ <summary>
+ 获取或设置当前符卡碎片数量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.Power">
+ <summary>
+ 获取或设置当前火力
+ </summary>
+</member>
+<member name="P:AgSTG.STG.PointValue">
+ <summary>
+ 获取或设置当前最大得点
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.Graze">
+ <summary>
+ 获取或设置当前擦弹数量
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.ShakeFrame">
+ <summary>
+ 获取或设置视角摇晃还会持续多久
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.BossAttack">
+ <summary>
+ 获取或设置是否处于Boss战状态
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.DialogMode">
+ <summary>
+ 获取或设置是否处于对话状态
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:AgSTG.STG.ReplayMode">
+ <summary>
+ 获取或设置是否处于回放状态
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:AgSTG.STG.Reset">
+ <summary>
+ 重置STG
+ </summary>
+</member>
+<member name="M:AgSTG.STG.NextDialog">
+ <summary>
+ 转到下一条对话
+ </summary>
+</member>
+<member name="M:AgSTG.STG.UpdateTime(System.Int32)">
+ <summary>
+ 更新符卡计时器
+ </summary>
+ <param name="Value">倒计时剩余时间</param>
+</member>
+<member name="M:AgSTG.STG.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+</members>
+</doc>
