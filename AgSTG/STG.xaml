@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="STG"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AgSTG"
+             mc:Ignorable="d" 
+             d:DesignHeight="448" d:DesignWidth="384"
+             ClipToBounds="True"
+             Loaded="UserControl_Loaded">
+    <UserControl.RenderTransform>
+        <TransformGroup>
+            <TranslateTransform x:Name="me_translate"/>
+        </TransformGroup>
+    </UserControl.RenderTransform>
+    <Grid Name="BL">
+        <Canvas Name="mb" Panel.ZIndex="1">
+            
+        </Canvas>
+        <Canvas Height="16" Width="60" VerticalAlignment="Top" Margin="0,8,0,0" Name="timearea" Visibility="Hidden" Panel.ZIndex="1">
+            <Rectangle Name="time10" Height="16" Width="16" Canvas.Left="0"></Rectangle>
+            <Rectangle Name="time1" Height="16" Width="16" Canvas.Left="12"></Rectangle>
+            <Rectangle Name="time0" Height="16" Width="16" Canvas.Left="24"></Rectangle>
+            <Rectangle Name="time01" Height="16" Width="16" Canvas.Left="36"></Rectangle>
+            <Rectangle Name="time001" Height="16" Width="16" Canvas.Left="48"></Rectangle>
+        </Canvas>
+        <Grid x:Name="DA" Visibility="Hidden" Panel.ZIndex="1">
+            <Rectangle Width="192" Height="320" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="DI1"/>
+            <Rectangle Width="192" Height="320" HorizontalAlignment="Right" VerticalAlignment="Bottom" Name="DI2"/>
+            <Rectangle Width="192" Height="64" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,128" Name="DN"/>
+            <Rectangle Height="128" VerticalAlignment="Bottom" Name="DB">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF000080" x:Name="DBCU" Offset="0"/>
+                        <GradientStop Color="#00000080" x:Name="DBCD" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label VerticalAlignment="Bottom" Height="128" Foreground="White" FontSize="18">
+                <TextBlock TextWrapping="Wrap" Name="DT">1234</TextBlock>
+            </Label>
+        </Grid>
+        <local:CardLabel x:Name="SA" Panel.ZIndex="1"/>
+    </Grid>
+</UserControl>
