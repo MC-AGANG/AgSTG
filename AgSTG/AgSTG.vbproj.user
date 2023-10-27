@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="CardLabel.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="GameObject.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="HPBar.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PropertyBoard.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="STG.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="CardLabel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GameObject.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="HPBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PropertyBoard.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="STG.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControl1.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
