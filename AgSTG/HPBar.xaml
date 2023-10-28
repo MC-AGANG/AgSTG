@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="HPBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AgSTG"
+             mc:Ignorable="d" 
+             d:DesignHeight="128" d:DesignWidth="128"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <Canvas>
+            <Rectangle Name="back" Height="128" Width="128"/>
+            <Path Name="front">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="64,0">
+                            <ArcSegment x:Name="r" Point="64,0" Size="64,64" SweepDirection="Counterclockwise"/>
+                            <LineSegment Point="0,64"/>
+                            <LineSegment Point="64,0" x:Name="r2"/>
+                            <LineSegment Point="64,64"/>
+                            <LineSegment Point="64,0"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+        <Rectangle Width="10" Height="12" Name="s0" Visibility="Hidden">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform Y="-60"/>
+                    <RotateTransform x:Name="s0_r" CenterX="4.5" CenterY="5.5"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Width="10" Height="12" Name="s1" Visibility="Hidden">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform Y="-60"/>
+                    <RotateTransform x:Name="s1_r" CenterX="4.5" CenterY="5.5"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Width="10" Height="12" Name="s2" Visibility="Hidden">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform Y="-60"/>
+                    <RotateTransform x:Name="s2_r" CenterX="4.5" CenterY="5.5"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Width="10" Height="12" Name="s3" Visibility="Hidden">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform Y="-60"/>
+                    <RotateTransform x:Name="s3_r" CenterX="4.5" CenterY="5.5"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+    </Grid>
+</UserControl>
