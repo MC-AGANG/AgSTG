@@ -7,6 +7,7 @@ Public Class Stage6
     Private DownBlock(15) As Media3D.MeshGeometry3D
     Public Shared BossStage As Integer = 0
     Public Shared cardback As Rectangle
+    Public Particles3D(31) As Particle3D
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         t1.Brush = Textures.st06a
         t2.Brush = Textures.st06a
@@ -68,6 +69,13 @@ Public Class Stage6
         Width = 384
         CB.Fill = Textures.cdbg06b
         cardback = CB
+        For i = 0 To 31
+            Particles3D(i) = New Particle3D(Rnd() * 6 - 3, -2 + Rnd() * 8, Rnd() * 8 - 4, 0.16, 0.16, New Media3D.Vector3D(0.008 * Rnd() - 0.004, 0.01 + Rnd() * 0.01, 0.012 * Rnd() - 0.006), Particle3DLayer, Brushes.White) With {
+                .Angular = Rnd() * 4,
+                .Act = New Action(AddressOf .P61)
+            }
+            Particles3D(i).Rotation.Axis = New Media3D.Vector3D(Rnd(), Rnd(), Rnd())
+        Next
     End Sub
     Public Sub Render()
         FrameCount += 1
@@ -78,8 +86,30 @@ Public Class Stage6
         End If
         EnemySpawn()
         RenderBackground()
+        RenderParticle()
+    End Sub
+    Public Sub RenderParticle()
+        If FrameCount > 2 Then
+            For i = 0 To 31
+                Particles3D(i).Render()
+            Next
+            If BossStage = 2 AndAlso camera_particle.FieldOfView = 60 Then
+                For i = 0 To 31
+                    Particles3D(i).Speed = New Media3D.Vector3D(Particles3D(i).Speed.X, Particles3D(i).Speed.Y + 0.15, Particles3D(i).Speed.Z)
+                Next
+                camera_particle.FieldOfView = 90
+            ElseIf BossStage = 3 AndAlso camera_particle.FieldOfView = 90 Then
+                For i = 0 To 31
+                    Particles3D(i).Speed = New Media3D.Vector3D(Particles3D(i).Speed.X, Particles3D(i).Speed.Y - 0.15, Particles3D(i).Speed.Z)
+                Next
+                camera_particle.FieldOfView = 60
+                Light_particle.Color = Color.FromRgb(255, 160, 160)
+            End If
+        End If
+
     End Sub
     Private Sub EnemySpawn()
+
         Select Case FrameCount
             Case 240
                 For i = 0 To 7
@@ -91,6 +121,7 @@ Public Class Stage6
                     STG.Objects.Add(New Enemy(EnemyType.阴阳玉, 0, 128, 192, 50, "0000", 400, 0.5, i * 45) With {.Act = New Action(AddressOf .S6W1)})
                     STG.Objects.Add(New Enemy(EnemyType.阴阳玉, 0, 256, 192, 50, "0000", 400, 0.5, i * 45) With {.Act = New Action(AddressOf .S6W1)})
                 Next
+
                 Exit Select
             Case 1440
                 For i = 0 To 7
@@ -793,7 +824,7 @@ Module St6Enm
         With e
             If .IsEnabled Then
                 If .FrameCount = 60 OrElse .FrameCount = 240 Then
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.深蓝, .X, .Y, 2, 10))
+                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.深蓝, .X, .Y, 2, 10 * Rnd() - 5))
                 End If
             End If
         End With
@@ -926,6 +957,16 @@ Module St6Enm
                 Sounds.mu13.Play()
             End If
             .Layer3_translate.Y = 4 * Sin(e.FrameCount / 90 * PI)
+        End With
+    End Sub
+    <Extension>
+    Public Sub P61(e As Particle3D)
+        With e
+            If .Y >= 8 Then
+                .X = Rnd() * 6 - 3
+                .Y = -2
+                .Z = Rnd() * 8 - 4
+            End If
         End With
     End Sub
 End Module

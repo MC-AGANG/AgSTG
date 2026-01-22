@@ -702,6 +702,28 @@
                 </ModelVisual3D.Content>
             </ModelVisual3D>
         </Viewport3D>
+        <Viewport3D Opacity="0.65">
+            <Viewport3D.Effect>
+                <BlurEffect Radius="3"/>
+            </Viewport3D.Effect>
+            <Viewport3D.Camera>
+                <PerspectiveCamera
+            Position="-8,4,0"
+            LookDirection="8,-1,0"
+            FieldOfView="60"
+            UpDirection="0,1,0"
+            x:Name="camera_particle">
+                </PerspectiveCamera>
+            </Viewport3D.Camera>
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <Model3DGroup x:Name="Particle3DLayer">
+                        <AmbientLight Color="#AAFFFF" x:Name="Light_particle"/>
+
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+            </ModelVisual3D>
+        </Viewport3D>
         <Rectangle Name="FB">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -715,5 +737,8 @@
         </Rectangle>
         <Rectangle Name="FW" Fill="White" Opacity="0"/>
         <Rectangle Name="CB" Visibility="Hidden"/>
+        <Canvas Name="ParticleLayer">
+
+        </Canvas>
     </Grid>
 </UserControl>
