@@ -46,7 +46,7 @@ Public MustInherit Class GameObject
         Me.X = X
         Me.Y = Y
         STG.MainBoard.Children.Add(Me)
-        Move()
+            Move()
     End Sub
     ''' <summary>
     ''' 设置对象的大小和碰撞体积
@@ -135,29 +135,29 @@ Public MustInherit Class GameObject
         Dim vec As New Vector(X - Target.X, Y - Target.Y)
         Return vec.Length
     End Function
-    ''' <summary>
-    ''' 测量一个对象到一个激光的垂直距离
-    ''' </summary>
-    ''' <param name="StartX">激光起始点X坐标</param>
-    ''' <param name="StartY">激光起始点Y坐标</param>
-    ''' <param name="EndX">激光终止点X坐标</param>
-    ''' <param name="EndY">激光终止点Y坐标</param>
-    ''' <param name="Target">要测量的对象</param>
-    ''' <returns></returns>
-    Public Shared Function GetLaserDistance(StartX As Double, StartY As Double, EndX As Double, EndY As Double, Target As GameObject) As Double
-        Return 0
-    End Function
-    ''' <summary>
-    ''' 测量一个对象到一个激光的垂直距离
-    ''' </summary>
-    ''' <param name="StartX">激光起始点X坐标</param>
-    ''' <param name="StartY">激光起始点Y坐标</param>
-    ''' <param name="Direction">激光方向</param>
-    ''' <param name="Target">要测量的对象</param>
-    ''' <returns></returns>
-    Public Shared Function GetLaserDistance(StartX As Double, StartY As Double, Direction As Double, Target As GameObject) As Double
-        Return 0
-    End Function
+    '''' <summary>
+    '''' 测量一个对象到一个激光的垂直距离
+    '''' </summary>
+    '''' <param name="StartX">激光起始点X坐标</param>
+    '''' <param name="StartY">激光起始点Y坐标</param>
+    '''' <param name="EndX">激光终止点X坐标</param>
+    '''' <param name="EndY">激光终止点Y坐标</param>
+    '''' <param name="Target">要测量的对象</param>
+    '''' <returns></returns>
+    'Public Shared Function GetLaserDistance(StartX As Double, StartY As Double, EndX As Double, EndY As Double, Target As GameObject) As Double
+    '    Return 0
+    'End Function
+    '''' <summary>
+    '''' 测量一个对象到一个激光的垂直距离
+    '''' </summary>
+    '''' <param name="StartX">激光起始点X坐标</param>
+    '''' <param name="StartY">激光起始点Y坐标</param>
+    '''' <param name="Direction">激光方向</param>
+    '''' <param name="Target">要测量的对象</param>
+    '''' <returns></returns>
+    'Public Shared Function GetLaserDistance(StartX As Double, StartY As Double, Direction As Double, Target As GameObject) As Double
+    '    Return 0
+    'End Function
 End Class
 ''' <summary>
 ''' 枚举游戏对象类型

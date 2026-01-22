@@ -118,7 +118,7 @@ Public Class STG
         Width = 384
         MainBoard = mb
         BackLayer = BL
-        Player = New Player.Player0
+        Player = New Player.Player1
         Objects.Add(Player)
         time0.Fill = Textures.number(0, 11)
         timer10 = time10

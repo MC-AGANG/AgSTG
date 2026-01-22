@@ -349,15 +349,61 @@ Public MustInherit Class Player
         Inherits Player
         Public Sub New()
             MyBase.New
+            PlayerType = PlayerType.魔理沙
             SetSize(64, 64, 1.5)
             Speed = 4
             For i = 0 To 3
-                Options(i) = New PlayerOption.Option0(i)
+                Options(i) = New PlayerOption.Option1(i)
                 STG.Objects.Add(Options(i))
             Next
         End Sub
         Public Overrides Sub Render()
-            Throw New NotImplementedException()
+            Appearance()
+            Player_Move()
+            Shoot()
+        End Sub
+        Private Sub Shoot()
+            If KeyState.Shoot OrElse (ShootFrame > 0 AndAlso ShootFrame <= 36) Then
+                If ShootFrame Mod 4 = 0 Then
+                    STG.Objects_Add.Add(New PlayerBullet.PL1M(X - 8, Y - 16))
+                    STG.Objects_Add.Add(New PlayerBullet.PL1M(X + 8, Y - 16))
+                End If
+                ShootFrame += 1
+                Sounds.PlaySound(Sounds.plst00, 0.1)
+            ElseIf ShootFrame > 0 Then
+                ShootFrame = 0
+            End If
+            If KeyState.Shoot Then
+                For i = 0 To (STG.Power \ 100) - 1
+                    Options(i).Shoot()
+                Next
+            End If
+            If KeyState.Bomb Then
+                Spell()
+            End If
+            If SpellFrame > 0 Then
+                SpellFrame -= 1
+            End If
+        End Sub
+        Public Sub Spell()
+            If STG.Spell > 0 AndAlso SpellFrame = 0 AndAlso FadeOutFrame <= 3 Then
+                SpellFrame = 300
+                Invin = 300
+                STG.Spell -= 1
+                STG.Objects_Add.Add(New PlayerBullet.PL1B(X, Y))
+                Sounds.PlaySound(Sounds.nep00)
+                Sounds.PlaySound(Sounds.slash)
+                If FadeOutFrame > 0 Then
+                    Layer1.Visibility = Visibility.Visible
+                    Layer2.Visibility = Visibility.Visible
+                    Layer3.Visibility = Visibility.Visible
+                    Background = Nothing
+                    Me_Scale.ScaleX = 1
+                    Me_Scale.ScaleY = 1
+                    FadeOutFrame = 0
+                End If
+                STG.bonusfail = True
+            End If
         End Sub
     End Class
 End Class

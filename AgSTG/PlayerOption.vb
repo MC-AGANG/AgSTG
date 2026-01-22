@@ -151,7 +151,13 @@ Public MustInherit Class PlayerOption
             }
         End Sub
         Public Overrides Sub Shoot()
-            Throw New NotImplementedException()
+            If KeyState.Slow AndAlso STG.Player.ShootFrame Mod 8 = 0 Then
+                Sounds.PlaySound(Sounds.msl, 0.25)
+                STG.Objects_Add.Add(New PlayerBullet.PL1S(X, Y))
+            ElseIf Not KeyState.Slow AndAlso STG.Player.ShootFrame Mod 2 = 0 Then
+                Sounds.PlaySound(Sounds.lazer02, 0.1)
+                STG.Objects_Add.Add(New PlayerBullet.PL1F(X, Y, presetdirection((STG.Power \ 100) - 1, ID)) With {.Background = Textures.player_bullet(1, 1, (FrameCount Mod 16) \ 2), .OID = ID})
+            End If
         End Sub
 
         Public Overrides Sub Render()
@@ -162,6 +168,7 @@ Public MustInherit Class PlayerOption
             Else
                 Opacity = 0
             End If
+            Option_Move()
         End Sub
     End Class
 End Class

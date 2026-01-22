@@ -222,6 +222,9 @@ Public Class Enemy
         If Not IsNothing(Act) Then
             Act()
         End If
+        If IsEnabled Then
+            Judge()
+        End If
     End Sub
     Private Sub FadeOut()
         If FadeOutFrame <= 16 Then
@@ -251,10 +254,17 @@ Public Class Enemy
         End If
     End Sub
     Public Sub Judge()
+        Static judgecd As Integer = 0
         If IsEnabled AndAlso STG.Player.Invin = 0 Then
-            If IsHit(STG.Player) Then
-                STG.Player.Miss()
+            If judgecd = 0 Then
+                If IsHit(STG.Player) Then
+                    STG.Player.Miss()
+                    judgecd = 30
+                End If
+            Else
+                judgecd -= 1
             End If
+
         End If
     End Sub
     Private Class GhostFire
