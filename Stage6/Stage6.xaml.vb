@@ -3,7 +3,7 @@ Imports AgSTG
 Imports System.Math
 Imports System.Runtime.CompilerServices
 Public Class Stage6
-    Public Shared FrameCount As Long = -5
+    Public Shared Ticks As Long = -5
     Private DownBlock(15) As Media3D.MeshGeometry3D
     Public Shared BossStage As Integer = 0
     Public Shared cardback As Rectangle
@@ -78,8 +78,8 @@ Public Class Stage6
         Next
     End Sub
     Public Sub Render()
-        FrameCount += 1
-        If FrameCount = 0 Then
+        Ticks += 1
+        If Ticks = 0 Then
             STG.BackLayer.Children.Add(Me)
             Sounds.mu12.Position = New TimeSpan(0)
             Sounds.mu12.Play()
@@ -89,7 +89,7 @@ Public Class Stage6
         RenderParticle()
     End Sub
     Public Sub RenderParticle()
-        If FrameCount > 2 Then
+        If Ticks > 2 Then
             For i = 0 To 31
                 Particles3D(i).Render()
             Next
@@ -109,8 +109,7 @@ Public Class Stage6
 
     End Sub
     Private Sub EnemySpawn()
-
-        Select Case FrameCount
+        Select Case Ticks
             Case 240
                 For i = 0 To 7
                     STG.Objects.Add(New Enemy(EnemyType.阴阳玉, 0, 192, 192, 50, "0000", 400, 0.5, i * 45) With {.Act = New Action(AddressOf .S6W1)})
@@ -121,7 +120,6 @@ Public Class Stage6
                     STG.Objects.Add(New Enemy(EnemyType.阴阳玉, 0, 128, 192, 50, "0000", 400, 0.5, i * 45) With {.Act = New Action(AddressOf .S6W1)})
                     STG.Objects.Add(New Enemy(EnemyType.阴阳玉, 0, 256, 192, 50, "0000", 400, 0.5, i * 45) With {.Act = New Action(AddressOf .S6W1)})
                 Next
-
                 Exit Select
             Case 1440
                 For i = 0 To 7
@@ -138,7 +136,7 @@ Public Class Stage6
             Case 2200
                 STG.Objects.Add(New Enemy.Boss(0, 192, -50) With {.Init = New Action(AddressOf .S6B0I), .Act = New Action(AddressOf .S6B0A)})
             Case 3600 To 4500
-                If FrameCount Mod 30 = 0 Then
+                If Ticks Mod 30 = 0 Then
                     Dim temp As Integer = Int(Rnd() * 3)
                     If temp = 0 Then
                         STG.Objects.Add(New Enemy(EnemyType.幽灵, 0, Rnd() * 320 + 32, -16, 40, "01", 400, 0.5, 180 + Rnd() * 40 - 20) With {.Act = New Action(AddressOf .S6W2)})
@@ -150,7 +148,7 @@ Public Class Stage6
                 End If
                 Exit Select
             Case 4501 To 5400
-                If FrameCount Mod 15 = 0 Then
+                If Ticks Mod 15 = 0 Then
                     Dim temp As Integer = Int(Rnd() * 3)
                     If temp = 0 Then
                         STG.Objects.Add(New Enemy(EnemyType.幽灵, 0, Rnd() * 320 + 32, -16, 40, "01", 400, 0.5, 180 + Rnd() * 40 - 20) With {.Act = New Action(AddressOf .S6W2)})
@@ -167,29 +165,29 @@ Public Class Stage6
         End Select
     End Sub
     Private Sub RenderBackground()
-        If FrameCount = 0 Then
+        If Ticks = 0 Then
             camera.Position = New Media3D.Point3D(-2, 6, 0)
             camera.LookDirection = New Media3D.Vector3D(4, -2, 0)
             Textures.st06d.Opacity = 0
         End If
-        If FrameCount > 0 Then
+        If Ticks > 0 Then
             If BossStage = 0 Then
-                If FrameCount <= 480 Then
-                    camera.Position = New Media3D.Point3D(-2, 6 - FrameCount / 120, 0)
-                    camera.LookDirection = New Media3D.Vector3D(4, -2 + FrameCount / 480, 0)
-                ElseIf FrameCount <= 1440 Then
-                    If FrameCount >= 960 AndAlso FrameCount <= 1080 Then
-                        Textures.st06d.Opacity = (FrameCount - 960) / 120
+                If Ticks <= 480 Then
+                    camera.Position = New Media3D.Point3D(-2, 6 - Ticks / 120, 0)
+                    camera.LookDirection = New Media3D.Vector3D(4, -2 + Ticks / 480, 0)
+                ElseIf Ticks <= 1440 Then
+                    If Ticks >= 960 AndAlso Ticks <= 1080 Then
+                        Textures.st06d.Opacity = (Ticks - 960) / 120
                     End If
-                    camera.Position = New Media3D.Point3D(((FrameCount / 30) Mod 16) - 2, 2, 0)
-                ElseIf FrameCount <= 3600 Then
-                    camera.Position = New Media3D.Point3D(((FrameCount / 30) Mod 16) - 2, 2 + Abs(0.25 * Sin(FrameCount / 720 * PI)), 0.5 * Sin(FrameCount / 720 * PI))
-                    camera_rotate.Angle = Sin(FrameCount / 720 * PI) * 10
-                ElseIf FrameCount <= 5760 Then
-                    camera.Position = New Media3D.Point3D(((FrameCount / 15) Mod 16) - 2, 2 + Abs(0.5 * Sin(FrameCount / 720 * PI)), Sin(FrameCount / 720 * PI))
-                    camera_rotate.Angle = Sin(FrameCount / 720 * PI) * 20
+                    camera.Position = New Media3D.Point3D(((Ticks / 30) Mod 16) - 2, 2, 0)
+                ElseIf Ticks <= 3600 Then
+                    camera.Position = New Media3D.Point3D(((Ticks / 30) Mod 16) - 2, 2 + Abs(0.25 * Sin(Ticks / 720 * PI)), 0.5 * Sin(Ticks / 720 * PI))
+                    camera_rotate.Angle = Sin(Ticks / 720 * PI) * 10
+                ElseIf Ticks <= 5760 Then
+                    camera.Position = New Media3D.Point3D(((Ticks / 15) Mod 16) - 2, 2 + Abs(0.5 * Sin(Ticks / 720 * PI)), Sin(Ticks / 720 * PI))
+                    camera_rotate.Angle = Sin(Ticks / 720 * PI) * 20
                 End If
-                Light.Color = Color.FromRgb(128, Int(96 + 90 * Sin(FrameCount / 45)), Int(160 + 90 * Sin(FrameCount / 45)))
+                Light.Color = Color.FromRgb(128, Int(96 + 90 * Sin(Ticks / 45)), Int(160 + 90 * Sin(Ticks / 45)))
                 Dim endx As Boolean
                 For i = 0 To 15
                     endx = False
@@ -219,13 +217,13 @@ Public Class Stage6
                         End If
                     Next
                 Next
-                If FrameCount <= 100060 Then
+                If Ticks <= 100060 Then
                     camera.Position = New Media3D.Point3D(camera.Position.X - 0.08, 2, 0)
                     If camera.Position.X < 8 Then
                         camera.Position = New Media3D.Point3D(camera.Position.X + 8, 2, 0)
                     End If
-                    FR.Opacity = (FrameCount - 100000) / 60
-                ElseIf FrameCount < 100120 Then
+                    FR.Opacity = (Ticks - 100000) / 60
+                ElseIf Ticks < 100120 Then
                     camera.Position = New Media3D.Point3D(camera.Position.X - 0.15, 2, 0)
                     If camera.Position.X < 8 Then
                         camera.Position = New Media3D.Point3D(camera.Position.X + 8, 2, 0)
@@ -252,7 +250,7 @@ Public Class Stage6
                     Next
                 Next
 
-                If FrameCount > 200060 AndAlso FrameCount <= 200420 Then
+                If Ticks > 200060 AndAlso Ticks <= 200420 Then
                     camera.Position = New Media3D.Point3D(camera.Position.X, camera.Position.Y + 0.05, 0)
                     camera.LookDirection = New Media3D.Vector3D(4, camera.LookDirection.Y - 0.05, 0)
                 End If
@@ -261,8 +259,8 @@ Public Class Stage6
                     camera.Position = New Media3D.Point3D(camera.Position.X + 8, camera.Position.Y, 0)
                 End If
             ElseIf BossStage = 3 Then
-                If FrameCount < 300120 Then
-                    If FrameCount = 300030 Then
+                If Ticks < 300120 Then
+                    If Ticks = 300030 Then
                         ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.big)
                     End If
                     Dim endx As Boolean
@@ -283,10 +281,10 @@ Public Class Stage6
                     If camera.Position.X < 8 Then
                         camera.Position = New Media3D.Point3D(camera.Position.X + 8, camera.Position.Y, 0)
                     End If
-                    If FrameCount > 300060 Then
-                        FW.Opacity = (FrameCount - 300060) / 60
+                    If Ticks > 300060 Then
+                        FW.Opacity = (Ticks - 300060) / 60
                     End If
-                ElseIf FrameCount = 300120 Then
+                ElseIf Ticks = 300120 Then
                     FW.Opacity = 1
                     camera.Position = New Media3D.Point3D(-15, 0.5, 0)
                     camera.LookDirection = New Media3D.Vector3D(-4, -1, 0)
@@ -295,11 +293,11 @@ Public Class Stage6
                     FB.Opacity = 0
                     BB.Fill = Textures.st06f
                     Light.Color = Color.FromRgb(255, 255, 255)
-                ElseIf FrameCount <= 300180 Then
-                    FW.Opacity = (60 - (FrameCount - 300120)) / 60
+                ElseIf Ticks <= 300180 Then
+                    FW.Opacity = (60 - (Ticks - 300120)) / 60
                     camera.Position = New Media3D.Point3D(camera.Position.X + 0.2, camera.Position.Y + 0.058, 0)
-                ElseIf FrameCount >= 300360 Then
-                    camera_rotate.Angle = 8 * Sin((FrameCount - 300360) / 1000 * PI)
+                ElseIf Ticks >= 300360 Then
+                    camera_rotate.Angle = 8 * Sin((Ticks - 300360) / 1000 * PI)
                 End If
             End If
         End If
@@ -320,9 +318,9 @@ Public Class B0S0
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
-        If FrameCount > 10 Then
+        If Ticks > 10 Then
             corner += 1
-            If FrameCount Mod 10 = 0 Then
+            If Ticks Mod 10 = 0 Then
                 For i = 0 To 4
                     STG.Objects_Add.Add(New Bullet(BulletType.箭头, 6, Owner.X + Sin((corner - i * 5) / 180 * PI) * i * 48, Owner.Y + Cos((corner - i * 5) / 180 * PI) * i * 48, 2, -corner + 90 - 15, 0))
                     STG.Objects_Add.Add(New Bullet(BulletType.箭头, 6, Owner.X - Sin((corner + i * 5) / 180 * PI) * i * 32, Owner.Y - Cos((corner + i * 5) / 180 * PI) * i * 32, 2, -corner + 90 + 15, 0))
@@ -349,26 +347,26 @@ Public Class B1S0
     Public Overrides Sub Render()
         MyBase.Render()
         If Not AtSpell Then
-            If FrameCount > 10 Then
+            If Ticks > 10 Then
                 corner += 1
-                If FrameCount Mod 10 = 0 Then
+                If Ticks Mod 10 = 0 Then
                     Preset0(corner)
                     Preset0(-corner)
                 End If
             End If
         Else
-            If FrameCount = 0 Then
+            If Ticks = 0 Then
                 Stage6.cardback.Visibility = Visibility.Visible
                 Owner.IsEnabled = True
             End If
-            If FrameCount > 10 Then
+            If Ticks > 10 Then
                 corner += 1
-                If FrameCount Mod 300 < 150 Then
-                    If FrameCount Mod 50 = 0 Then
+                If Ticks Mod 300 < 150 Then
+                    If Ticks Mod 50 = 0 Then
                         Preset1(corner)
                     End If
-                ElseIf FrameCount Mod 300 < 240 Then
-                    If FrameCount Mod 20 = 0 Then
+                ElseIf Ticks Mod 300 < 240 Then
+                    If Ticks Mod 20 = 0 Then
                         Preset1(corner)
                     End If
                 End If
@@ -380,7 +378,7 @@ Public Class B1S0
         If AtSpell Then
             Stage6.cardback.Visibility = Visibility.Hidden
             Stage6.BossStage = 2
-            Stage6.FrameCount = 200000
+            Stage6.Ticks = 200000
         End If
         Return MyBase.Break()
     End Function
@@ -422,8 +420,8 @@ Public Class B1S1
         MyBase.Render()
         If Not AtSpell Then
             Dim zerovec As New Vector(0, -1)
-            If FrameCount > 60 Then
-                If FrameCount Mod 15 = 0 Then
+            If Ticks > 60 Then
+                If Ticks Mod 15 = 0 Then
                     If corner > 90 Then
                         deltacorner = -16
                     ElseIf corner < -90 Then
@@ -435,33 +433,33 @@ Public Class B1S1
                 End If
             End If
         Else
-            If FrameCount = 0 Then
+            If Ticks = 0 Then
                 Stage6.cardback.Visibility = Visibility.Visible
                 Owner.IsEnabled = True
             End If
-            If FrameCount > 60 AndAlso FrameCount <= 260 Then
+            If Ticks > 60 AndAlso Ticks <= 260 Then
                 For i = 0 To 4
-                    If FrameCount Mod 5 = 0 Then
-                        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X + 64 * Sin((FrameCount \ 5) * 9 / 180 * PI), Owner.Y + 64 * Cos((FrameCount \ 5) * 9 / 180 * PI), 0) With {.Tag = i * 100 + (FrameCount \ 5) - 13})
+                    If Ticks Mod 5 = 0 Then
+                        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X + 64 * Sin((Ticks \ 5) * 9 / 180 * PI), Owner.Y + 64 * Cos((Ticks \ 5) * 9 / 180 * PI), 0) With {.Tag = i * 100 + (Ticks \ 5) - 13})
                     End If
                 Next
             End If
-            If FrameCount = 600 Then
+            If Ticks = 600 Then
                 For i = 0 To 4
                     Preset1(i, i * 72)
                 Next
             End If
-            If FrameCount = 700 Then
+            If Ticks = 700 Then
                 For i = 0 To 4
                     Preset3(i)
                 Next
             End If
-            If FrameCount = 800 Then
+            If Ticks = 800 Then
                 For i = 0 To 4
                     Preset2(i)
                 Next
             End If
-            If FrameCount = 900 Then
+            If Ticks = 900 Then
                 For i = 0 To 4
                     Preset3(i)
                 Next
@@ -472,7 +470,7 @@ Public Class B1S1
         Stage6.cardback.Visibility = Visibility.Hidden
         If AtSpell Then
             Stage6.BossStage = 3
-            Stage6.FrameCount = 300000
+            Stage6.Ticks = 300000
         End If
         Return MyBase.Break()
     End Function
@@ -535,19 +533,19 @@ Public Class B1S2
         MyBase.Render()
         If Not AtSpell Then
             Dim zerovec As New Vector(0, -1)
-            If FrameCount > 60 Then
-                If FrameCount Mod 15 = 0 Then
+            If Ticks > 60 Then
+                If Ticks Mod 15 = 0 Then
                     Preset0()
                 End If
             End If
         Else
-            If FrameCount = 0 Then
+            If Ticks = 0 Then
                 Stage6.cardback.Visibility = Visibility.Visible
                 Owner.IsEnabled = True
             End If
-            If FrameCount Mod 400 = 80 Then
-                Preset1(FrameCount)
-            ElseIf FrameCount Mod 400 = 300 Then
+            If Ticks Mod 400 = 80 Then
+                Preset1(Ticks)
+            ElseIf Ticks Mod 400 = 300 Then
                 Owner.DefaultMove(60)
             End If
             Preset2()
@@ -613,8 +611,8 @@ Public Class B1S3
         MyBase.Render()
         If Not AtSpell Then
             Dim zerovec As New Vector(0, -1)
-            If FrameCount > 60 Then
-                If FrameCount Mod 60 = 0 Then
+            If Ticks > 60 Then
+                If Ticks Mod 60 = 0 Then
                     For i = 0 To 15
                         Preset0(i * 22.5)
                     Next
@@ -622,18 +620,18 @@ Public Class B1S3
                 End If
             End If
         Else
-            If FrameCount = 0 Then
+            If Ticks = 0 Then
                 Stage6.cardback.Visibility = Visibility.Visible
                 Owner.IsEnabled = True
                 Owner.MoveToCenter(60)
             End If
-            If FrameCount Mod 300 = 60 Then
+            If Ticks Mod 300 = 60 Then
                 For i = 64 To 320 Step 64
                     Dim te As New Enemy(60, 0, Owner.X - 192 + i, Owner.Y, 300, "1100", 300, 0, 180) With {.Act = New Action(AddressOf .S6W3)}
                     te.S6W3I()
                     STG.Objects_Add.Add(te)
                 Next
-            ElseIf FrameCount Mod 300 = 180 Then
+            ElseIf Ticks Mod 300 = 180 Then
                 Owner.DefaultMove(30)
             End If
         End If
@@ -671,20 +669,20 @@ Public Class B1S4
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
-        If FrameCount = 0 Then
+        If Ticks = 0 Then
             Stage6.cardback.Visibility = Visibility.Visible
             Owner.IsEnabled = True
             Owner.MoveToCenter(60)
         End If
-        If FrameCount > 60 Then
+        If Ticks > 60 Then
             For i = 0 To 3
-                If FrameCount Mod 30 <= 20 Then
-                    If FrameCount Mod 2 = 0 Then
-                        STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.红, Owner.X + 64 * Sin((FrameCount + 90 * i) / 180 * PI), Owner.Y + 64 * Cos((FrameCount + 90 * i) / 180 * PI), 1, FrameCount - 90 * i, 0))
+                If Ticks Mod 30 <= 20 Then
+                    If Ticks Mod 2 = 0 Then
+                        STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.红, Owner.X + 64 * Sin((Ticks + 90 * i) / 180 * PI), Owner.Y + 64 * Cos((Ticks + 90 * i) / 180 * PI), 1, Ticks - 90 * i, 0))
                     End If
                 End If
             Next
-            If FrameCount Mod 300 = 0 Then
+            If Ticks Mod 300 = 0 Then
                 Preset1(0)
                 Preset1(45)
             End If
@@ -714,15 +712,15 @@ Public Class B1S5
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
-        If FrameCount = 0 Then
+        If Ticks = 0 Then
             Stage6.cardback.Visibility = Visibility.Visible
             Owner.IsEnabled = True
             Owner.MoveToCenter(60)
         End If
-        If FrameCount > 50 Then
-            If FrameCount Mod 240 >= 60 Then
-                If FrameCount Mod 18 = 0 Then
-                    Preset1(9 - ((FrameCount Mod 240) - 60) \ 18)
+        If Ticks > 50 Then
+            If Ticks Mod 240 >= 60 Then
+                If Ticks Mod 18 = 0 Then
+                    Preset1(9 - ((Ticks Mod 240) - 60) \ 18)
                 End If
             End If
         End If
@@ -756,13 +754,13 @@ Public Class B1S6
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
-        If FrameCount = 0 Then
+        If Ticks = 0 Then
             Stage6.cardback.Visibility = Visibility.Visible
             Owner.IsEnabled = True
             Owner.MoveToCenter(60)
         End If
-        If FrameCount > 50 Then
-            If FrameCount Mod 6 = 0 Then
+        If Ticks > 50 Then
+            If Ticks Mod 6 = 0 Then
                 If Owner.HP > 12000 Then
                     Preset0()
                 ElseIf Owner.HP > 8000 Then
@@ -799,22 +797,22 @@ Public Class B1S6
     End Function
     Private Sub Preset0()
         For i = 0 To 2
-            STG.Objects_Add.Add(New Bullet(BulletType.苦无, BulletColor.红, Owner.X + 64 + 64 * Sin(Owner.FrameCount / 180 * PI), Owner.Y + 0 + 64 * Cos(Owner.FrameCount / 180 * PI), 1.5, i * 120 + Owner.FrameCount * 4, 0))
+            STG.Objects_Add.Add(New Bullet(BulletType.苦无, BulletColor.红, Owner.X + 64 + 64 * Sin(Owner.Ticks / 180 * PI), Owner.Y + 0 + 64 * Cos(Owner.Ticks / 180 * PI), 1.5, i * 120 + Owner.Ticks * 4, 0))
         Next
     End Sub
     Private Sub Preset1()
         For i = 0 To 2
-            STG.Objects_Add.Add(New Bullet(BulletType.苦无, BulletColor.蓝, Owner.X + 0 + 64 * Sin((Owner.FrameCount + 90) / 180 * PI), Owner.Y + 64 + 64 * Cos((Owner.FrameCount + 90) / 180 * PI), 1.5, i * 120 + Owner.FrameCount * 4, 0))
+            STG.Objects_Add.Add(New Bullet(BulletType.苦无, BulletColor.蓝, Owner.X + 0 + 64 * Sin((Owner.Ticks + 90) / 180 * PI), Owner.Y + 64 + 64 * Cos((Owner.Ticks + 90) / 180 * PI), 1.5, i * 120 + Owner.Ticks * 4, 0))
         Next
     End Sub
     Private Sub Preset2()
         For i = 0 To 2
-            STG.Objects_Add.Add(New Bullet(BulletType.苦无, BulletColor.黄, Owner.X - 64 + 64 * Sin((Owner.FrameCount + 180) / 180 * PI), Owner.Y + 0 + 64 * Cos((Owner.FrameCount + 180) / 180 * PI), 1.5, i * 120 + Owner.FrameCount * 4, 0))
+            STG.Objects_Add.Add(New Bullet(BulletType.苦无, BulletColor.黄, Owner.X - 64 + 64 * Sin((Owner.Ticks + 180) / 180 * PI), Owner.Y + 0 + 64 * Cos((Owner.Ticks + 180) / 180 * PI), 1.5, i * 120 + Owner.Ticks * 4, 0))
         Next
     End Sub
     Private Sub Preset3()
         For i = 0 To 2
-            STG.Objects_Add.Add(New Bullet(BulletType.苦无, BulletColor.品红, Owner.X + 0 + 64 * Sin((Owner.FrameCount + 270) / 180 * PI), Owner.Y - 64 + 64 * Cos((Owner.FrameCount + 270) / 180 * PI), 1.5, i * 120 + Owner.FrameCount * 4, 0))
+            STG.Objects_Add.Add(New Bullet(BulletType.苦无, BulletColor.品红, Owner.X + 0 + 64 * Sin((Owner.Ticks + 270) / 180 * PI), Owner.Y - 64 + 64 * Cos((Owner.Ticks + 270) / 180 * PI), 1.5, i * 120 + Owner.Ticks * 4, 0))
         Next
     End Sub
 End Class
@@ -823,7 +821,7 @@ Module St6Enm
     Public Sub S6W1(e As Enemy)
         With e
             If .IsEnabled Then
-                If .FrameCount = 60 OrElse .FrameCount = 240 Then
+                If .Ticks = 60 OrElse .Ticks = 240 Then
                     STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.深蓝, .X, .Y, 2, 10 * Rnd() - 5))
                 End If
             End If
@@ -833,7 +831,7 @@ Module St6Enm
     Public Sub S6W2(e As Enemy)
         With e
             If .IsEnabled Then
-                If .FrameCount = 240 Then
+                If .Ticks = 240 Then
                     STG.Objects_Add.Add(New Bullet(BulletType.中玉, 1, .X, .Y, 2, 15))
                 End If
             End If
@@ -850,13 +848,13 @@ Module St6Enm
     Public Sub S6W3(e As Enemy)
         With e
             If .IsEnabled Then
-                .Background = Textures.st6enm(0, (.FrameCount \ 10) Mod 3)
-                If .FrameCount Mod 120 > 30 AndAlso .FrameCount Mod 120 <= 60 Then
-                    If .FrameCount Mod 3 = 0 Then
+                .Background = Textures.st6enm(0, (.Ticks \ 10) Mod 3)
+                If .Ticks Mod 120 > 30 AndAlso .Ticks Mod 120 <= 60 Then
+                    If .Ticks Mod 3 = 0 Then
                         STG.Objects_Add.Add(New Bullet(BulletType.箭头, 6, .X, .Y, 0.5, 330, 0) With {.Act = New Action(AddressOf .S6W3B1)})
                         STG.Objects_Add.Add(New Bullet(BulletType.箭头, 6, .X, .Y, 0.5, 30, 0) With {.Act = New Action(AddressOf .S6W3B1)})
                     End If
-                ElseIf .FrameCount Mod 120 = 90 Then
+                ElseIf .Ticks Mod 120 = 90 Then
                     For i = 0 To 9
                         STG.Objects_Add.Add(New Bullet(BulletType.箭头, 3, .X, .Y, 2, 270 + i * 20, 0))
                     Next
@@ -889,10 +887,10 @@ Module St6Enm
     Public Sub S6B1B1(e As Bullet)
         With e
             If .IsEnabled Then
-                If .FrameCount = .Tag * 18 + 65 Then
+                If .Ticks = .Tag * 18 + 65 Then
                     .Speed = 1.5
                     .Direction = 180 + .Direction
-                ElseIf .FrameCount = .Tag * 18 + 5 Then
+                ElseIf .Ticks = .Tag * 18 + 5 Then
                     .Speed = 0
                 End If
             End If
@@ -912,15 +910,15 @@ Module St6Enm
     <Extension>
     Public Sub S6B0A(e As Enemy.Boss)
         With e
-            .Layer3.Fill = Textures.boss(0, (.FrameCount \ 8) Mod 6)
-            If .FrameCount = 0 Then
+            .Layer3.Fill = Textures.boss(0, (.Ticks \ 8) Mod 6)
+            If .Ticks = 0 Then
                 .MoveToCenter(60)
             End If
-            If .FrameCount = 290 Then
+            If .Ticks = 290 Then
                 .IsEnabled = True
                 .NextSpell()
             End If
-            .Layer3_translate.Y = 4 * Sin(e.FrameCount / 90 * PI)
+            .Layer3_translate.Y = 4 * Sin(e.Ticks / 90 * PI)
         End With
     End Sub
     <Extension>
@@ -942,21 +940,34 @@ Module St6Enm
     End Sub
     <Extension>
     Public Sub S6B1A(e As Enemy.Boss)
+        Static switched As Boolean = False
+        Dim s As String()
         With e
-            .Layer3.Fill = Textures.boss(1, (.FrameCount \ 8) Mod 5)
-            If .FrameCount = 0 Then
+            .Layer3.Fill = Textures.boss(1, (.Ticks \ 8) Mod 5)
+
+            If .Ticks = 0 Then
                 .MoveToCenter(60)
+                Texts.dialog0603.ReadLine()
+                s = Texts.dialog0603.ReadLine().Split(",")
+                STG.DialogArea.LoadPlayer(Textures.illustrations(s(0)))
+                STG.DialogArea.LoadEnemy(Textures.illustrations(s(1)))
+                STG.DialogArea.LoadDialog(Texts.dialog0603)
+                STG.DialogArea.Show()
             End If
-            If .FrameCount = 90 Then
+            If STG.DialogArea.Position = 32 And Not switched Then
                 Stage6.BossStage = 1
-                Stage6.FrameCount = 100000
-                .IsEnabled = True
-                .NextSpell()
+                Stage6.Ticks = 100000
                 Sounds.mu12.Stop()
                 Sounds.mu13.Position = New TimeSpan(0)
                 Sounds.mu13.Play()
+                switched = True
             End If
-            .Layer3_translate.Y = 4 * Sin(e.FrameCount / 90 * PI)
+            If STG.DialogArea.Finished AndAlso switched Then
+                .IsEnabled = True
+                .NextSpell()
+                switched = False
+            End If
+            .Layer3_translate.Y = 4 * Sin(e.Ticks / 90 * PI)
         End With
     End Sub
     <Extension>
