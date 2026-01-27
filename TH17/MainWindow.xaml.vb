@@ -1,10 +1,9 @@
-﻿Imports System.Security.Permissions
-Imports AgSTG
+﻿Imports AgSTG
 Class MainWindow
     Public FullScreen As Boolean
-    Public Timer1 As MediaTimer
+    Public WithEvents Timer1 As MediaTimer
     Public Stage6 As New Stage6.Stage6
-    Public framecount As Long
+    Public Ticks As Long
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
         If FillArea.ActualHeight / 3 > FillArea.ActualWidth / 4 Then
             me_scale.ScaleX = FillArea.ActualWidth / 640
@@ -20,6 +19,7 @@ Class MainWindow
         ResourcePack.Sounds.Load()
         ResourcePack.TH17.Textures.Load()
         ResourcePack.TH17.Sounds.Load()
+        ResourcePack.TH17.Texts.Load()
         If FullScreen Then
             Height += 480 - FillArea.ActualHeight
             Width += 640 - FillArea.ActualWidth
@@ -40,29 +40,16 @@ Class MainWindow
     End Sub
     Private Sub Main()
         Dispatcher.Invoke(Sub()
-                              If framecount >= 60 Then
+                              If Ticks >= 60 Then
                                   GP.STG.Render()
                                   Stage6.Render()
                                   GP.PropertyBoard.Update()
                               Else
-                                  framecount += 1
+                                  Ticks += 1
                               End If
-                              DoEvents()
                           End Sub)
 
     End Sub
-    <SecurityPermissionAttribute(SecurityAction.Demand, Flags:=SecurityPermissionFlag.UnmanagedCode)>
-    Public Sub DoEvents()
-        Dim frame As New Threading.DispatcherFrame()
-        Threading.Dispatcher.CurrentDispatcher.BeginInvoke(Threading.DispatcherPriority.Background, New Threading.DispatcherOperationCallback(AddressOf ExitFrame), frame)
-        Threading.Dispatcher.PushFrame(frame)
-    End Sub
-    Public Function ExitFrame(ByVal f As Object) As Object
-        CType(f, Threading.DispatcherFrame).Continue = False
-
-        Return Nothing
-    End Function
-
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)
         Select Case e.Key
             Case Key.Escape
