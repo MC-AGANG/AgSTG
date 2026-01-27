@@ -84,41 +84,25 @@ Public Class STG
     ''' <returns></returns>
     Public Shared Property BossAttack As Boolean
     ''' <summary>
-    ''' 获取或设置是否处于对话状态
-    ''' </summary>
-    ''' <returns></returns>
-    Public Shared Property DialogMode As Boolean
-    ''' <summary>
     ''' 获取或设置是否处于回放状态
     ''' </summary>
     ''' <returns></returns>
     Public Shared Property ReplayMode As Boolean
     Public Shared BackLayer As Grid
-    Public Shared CurrentDialog As Integer = -1
-    Public Shared DialogList As List(Of Dialog)
-    Public Shared DialogCD As Integer
     Public Shared timer10 As Rectangle
     Public Shared timer1 As Rectangle
     Public Shared timer01 As Rectangle
     Public Shared timer001 As Rectangle
     Public Shared timerarea As Canvas
-    Public Shared DialogArea As Grid
-    Public Shared DialogImage1 As Rectangle
-    Public Shared DialogImage2 As Rectangle
-    Public Shared DialogBack As Rectangle
-    Public Shared DialogText As TextBlock
-    Public Shared DialogBackUp As GradientStop
-    Public Shared DialogBackDown As GradientStop
-    Public Shared DialogName As Rectangle
     Public Shared SpellCardLabel As CardLabel
     Public Shared bonusfail As Boolean = False
-
+    Public Shared DialogArea As DialogArea
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
         MainBoard = mb
         BackLayer = BL
-        Player = New Player.Player1
+        Player = New Player.Player0
         Objects.Add(Player)
         time0.Fill = Textures.number(0, 11)
         timer10 = time10
@@ -126,19 +110,13 @@ Public Class STG
         timer01 = time01
         timer001 = time001
         timerarea = timearea
-        DialogArea = DA
-        DialogImage1 = DI1
-        DialogImage2 = DI2
-        DialogBack = DB
-        DialogText = DT
-        DialogBackUp = DBCU
-        DialogBackDown = DBCD
-        DialogName = DN
+
         SpellCardLabel = SA
+        DialogArea = DA
     End Sub
     Public Sub Render()
         For Each obj In Objects
-            obj.FrameCount += 1
+            obj.Ticks += 1
             obj.Render()
             obj.Move()
         Next
@@ -150,11 +128,11 @@ Public Class STG
             Objects.Remove(obj)
         Next
         Objects_rm.Clear()
-        Dialogs()
         SpellCardLabel.Render()
         If ShakeFrame > 0 Then
             Shake()
         End If
+        DialogArea.Render()
     End Sub
     Public Shared Sub ClearBullet()
         Dim temp As Bullet
@@ -197,41 +175,6 @@ Public Class STG
     ''' </summary>
     Public Shared Sub Reset()
 
-    End Sub
-    ''' <summary>
-    ''' 转到下一条对话
-    ''' </summary>
-    Public Shared Sub NextDialog()
-        If CurrentDialog + 1 <= DialogList.Count Then
-            If CurrentDialog >= 0 Then
-                If DialogList(CurrentDialog).Action = DialogAction.Battle Then
-                    Dim tempboss As Enemy.Boss
-                    For Each obj In SearchEnemy()
-                        If obj.EnemyType = EnemyType.Boss Then
-                            tempboss = obj
-                            tempboss.NextSpell()
-                        End If
-                    Next
-                ElseIf DialogList(CurrentDialog).Action = DialogAction.NextStage Then
-                    RaiseEvent StageClear()
-                    CurrentDialog = -1
-                End If
-            Else
-                CurrentDialog += 1
-                DialogList(CurrentDialog).Show()
-            End If
-        End If
-    End Sub
-    Public Sub Dialogs()
-        If DialogMode Then
-            If DialogCD > 0 Then
-                DialogCD -= 1
-            Else
-                If KeyState.Shoot Then
-                    NextDialog()
-                End If
-            End If
-        End If
     End Sub
     ''' <summary>
     ''' 更新符卡计时器

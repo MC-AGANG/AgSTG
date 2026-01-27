@@ -87,11 +87,11 @@ Public MustInherit Class Player
     End Sub
     Private Sub GrazeMove()
         For Each gp In GrazeParticles
-            gp.Framecount += 1
-            Canvas.SetLeft(gp.Rec, 28 + gp.Framecount * 4 * Sin(gp.Direction / 180 * PI))
-            Canvas.SetTop(gp.Rec, 28 + gp.Framecount * 4 * Cos(gp.Direction / 180 * PI))
-            gp.Rec.Opacity = (16 - gp.Framecount) / 32
-            If gp.Framecount > 16 Then
+            gp.Ticks += 1
+            Canvas.SetLeft(gp.Rec, 28 + gp.Ticks * 4 * Sin(gp.Direction / 180 * PI))
+            Canvas.SetTop(gp.Rec, 28 + gp.Ticks * 4 * Cos(gp.Direction / 180 * PI))
+            gp.Rec.Opacity = (16 - gp.Ticks) / 32
+            If gp.Ticks > 16 Then
                 rm_GrazeParticles.Add(gp)
             End If
         Next
@@ -114,7 +114,7 @@ Public MustInherit Class Player
                 Background = Nothing
                 Me_Scale.ScaleX = 1
                 Me_Scale.ScaleY = 1
-                FrameCount = 0
+                Ticks = 0
                 FadeOutFrame = 0
                 Opacity = 1
                 Invin = 120
@@ -128,9 +128,9 @@ Public MustInherit Class Player
     End Sub
     Private Sub Player_Move()
         GrazeMove()
-        If FrameCount <= 40 Then
-            Y = 464 - (FrameCount * 2)
-            If FrameCount = 40 Then
+        If Ticks <= 40 Then
+            Y = 464 - (Ticks * 2)
+            If Ticks = 40 Then
                 IsEnabled = True
             End If
         ElseIf FadeOutFrame = 0 Then
@@ -223,26 +223,26 @@ Public MustInherit Class Player
             If XMoveFrame <= 4 Then
                 Layer1.Fill = Textures.player(PlayerType, 2, XMoveFrame - 1)
             Else
-                If FrameCount Mod 4 = 0 Then
-                    Layer1.Fill = Textures.player(PlayerType, 2, ((FrameCount \ 4) Mod 4) + 4)
+                If Ticks Mod 4 = 0 Then
+                    Layer1.Fill = Textures.player(PlayerType, 2, ((Ticks \ 4) Mod 4) + 4)
                 End If
             End If
         ElseIf XMoveFrame < 0 Then
             If XMoveFrame >= -4 Then
                 Layer1.Fill = Textures.player(PlayerType, 1, Abs(XMoveFrame) - 1)
             Else
-                If FrameCount Mod 4 = 0 Then
-                    Layer1.Fill = Textures.player(PlayerType, 1, ((FrameCount \ 4) Mod 4) + 4)
+                If Ticks Mod 4 = 0 Then
+                    Layer1.Fill = Textures.player(PlayerType, 1, ((Ticks \ 4) Mod 4) + 4)
                 End If
             End If
         Else
-            If FrameCount Mod 4 = 0 Then
-                Layer1.Fill = Textures.player(PlayerType, 0, (FrameCount \ 4) Mod 8)
+            If Ticks Mod 4 = 0 Then
+                Layer1.Fill = Textures.player(PlayerType, 0, (Ticks \ 4) Mod 8)
             End If
         End If
         If KeyState.Slow Then
-            Layer2_rotate.Angle = FrameCount Mod 360
-            Layer3_rotate.Angle = -FrameCount Mod 360
+            Layer2_rotate.Angle = Ticks Mod 360
+            Layer3_rotate.Angle = -Ticks Mod 360
             If SlowFrame <= 10 Then
                 Layer2.Opacity = SlowFrame / 10
                 Layer2_scale.ScaleX = SlowFrame / 8
@@ -263,8 +263,8 @@ Public MustInherit Class Player
                 SlowFrame += 1
             End If
         ElseIf SlowFrame > 0 Then
-            Layer2_rotate.Angle = FrameCount Mod 360
-            Layer3_rotate.Angle = -FrameCount Mod 360
+            Layer2_rotate.Angle = Ticks Mod 360
+            Layer3_rotate.Angle = -Ticks Mod 360
             SlowFrame -= 1
             Layer2_scale.ScaleX = SlowFrame / 10
             Layer2_scale.ScaleY = SlowFrame / 10
@@ -276,7 +276,7 @@ Public MustInherit Class Player
         Public Property Direction As Double
         Public Property X As Double
         Public Property Y As Double
-        Public Property Framecount As Integer = 0
+        Public Property Ticks As Integer = 0
         Public Rec As Rectangle
         Public Sub New()
             Direction = Rnd() * 360
@@ -301,7 +301,9 @@ Public MustInherit Class Player
         Public Overrides Sub Render()
             Appearance()
             Player_Move()
-            Shoot()
+            If STG.DialogArea.Visibility = Visibility.Hidden Then
+                Shoot()
+            End If
         End Sub
         Private Sub Shoot()
             If KeyState.Shoot OrElse (ShootFrame > 0 AndAlso ShootFrame <= 36) Then
@@ -360,7 +362,9 @@ Public MustInherit Class Player
         Public Overrides Sub Render()
             Appearance()
             Player_Move()
-            Shoot()
+            If STG.DialogArea.Visibility = Visibility.Hidden Then
+                Shoot()
+            End If
         End Sub
         Private Sub Shoot()
             If KeyState.Shoot OrElse (ShootFrame > 0 AndAlso ShootFrame <= 36) Then
