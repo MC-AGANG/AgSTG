@@ -13,6 +13,7 @@ Public Class Textures
     Public Shared boss(1, 5) As ImageBrush
     Public Shared st6enm(0, 2) As ImageBrush
     Public Shared st6s(6) As ImageBrush
+    Public Shared illustrations(9)() As ImageBrush
     Public Shared Sub Load()
         st06a = New ImageBrush(B2I(MyResource.st06a))
         st06d = New ImageBrush(B2I(MyResource.st06d))
@@ -33,6 +34,14 @@ Public Class Textures
         For i = 0 To 6
             st6s(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("st6s" + CStr(i))))
         Next
+        Dim it6(7) As ImageBrush
+        Dim it8(7) As ImageBrush
+        For i = 0 To 7
+            it6(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("illustration060" + CStr(i + 1))))
+            it8(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("illustration080" + CStr(i + 1))))
+        Next
+        illustrations(6) = it6
+        illustrations(8) = it8
     End Sub
     Public Shared Function B2I(byteArray As Byte()) As BitmapImage
         Using stream As Stream = New MemoryStream(byteArray)
@@ -69,5 +78,12 @@ Public Class Sounds
         Sound.Position = New TimeSpan(0)
         Sound.Volume = Volume
         Sound.Play()
+    End Sub
+End Class
+
+Public Class Texts
+    Public Shared dialog0603 As StreamReader
+    Public Shared Sub Load()
+        dialog0603 = New StreamReader(New MemoryStream(MyResource.dialog0603))
     End Sub
 End Class

@@ -232,4 +232,55 @@
   <data name="stg5bg2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\stg5bg2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="illustration0601" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0601.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0602" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0602.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0603" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0603.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0604" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0604.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0605" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0605.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0606" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0606.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0607" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0607.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0608" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0608.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0801" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0801.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0802" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0802.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0803" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0803.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0804" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0804.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0805" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0805.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0806" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0806.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0807" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0807.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0808" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0808.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0603" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0603.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
