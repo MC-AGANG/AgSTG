@@ -14,7 +14,7 @@ Public Class Dialog
     ''' <param name="Content">对话内容</param>
     ''' <param name="CD">对话后冷却时间</param>
     ''' <param name="Auto">冷却结束后是否自动进入下一句对话</param>
-    Public Sub New(Speaker As Speakers, Content As String, illustration As Integer, Optional CD As Integer = 10, Optional Auto As Boolean = False)
+    Public Sub New(Speaker As Speakers, Content As String, illustration As Integer, Optional CD As Integer = 30, Optional Auto As Boolean = False)
         Me.Content = Content
         Me.Speaker = Speaker
         Me.Illustration = illustration

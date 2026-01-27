@@ -12,7 +12,7 @@ Public MustInherit Class SpellCard
     ''' 获取或设置符卡已运行时间
     ''' </summary>
     ''' <returns></returns>
-    Public Property FrameCount As Long = 0
+    Public Property Ticks As Long = 0
     ''' <summary>
     ''' 获取或设置符卡的所有者
     ''' </summary>
@@ -84,14 +84,14 @@ Public MustInherit Class SpellCard
     ''' </summary>
     Public Overridable Sub Render()
         STG.timerarea.Visibility = Visibility.Visible
-        If FrameCount = 0 Then
+        If Ticks = 0 Then
             If Not HaveUsual Then
                 AtSpell = True
                 Owner.HP = SpellHP
             End If
         End If
         If AtSpell Then
-            If FrameCount = 0 Then
+            If Ticks = 0 Then
                 STG.SpellCardLabel.Show(SpellName)
                 STG.bonusfail = False
             Else
@@ -102,15 +102,15 @@ Public MustInherit Class SpellCard
             If Score - 20 > 0 Then
                 Score -= 20
             End If
-            STG.UpdateTime(SpellTime - FrameCount)
-            If FrameCount > SpellTime Then
+            STG.UpdateTime(SpellTime - Ticks)
+            If Ticks > SpellTime Then
                 Owner.SpellFinish(False)
                 STG.timerarea.Visibility = Visibility.Hidden
             End If
             STG.SpellCardLabel.Update(Score)
         Else
-            STG.UpdateTime(UsualTime - FrameCount)
-            If FrameCount > UsualTime Then
+            STG.UpdateTime(UsualTime - Ticks)
+            If Ticks > UsualTime Then
                 Owner.SpellFinish(False)
                 STG.timerarea.Visibility = Visibility.Hidden
             End If
@@ -134,7 +134,7 @@ Public MustInherit Class SpellCard
                 STG.timerarea.Visibility = Visibility.Hidden
                 Return True
             Else
-                FrameCount = 0
+                Ticks = 0
                 AtSpell = True
                 Owner.HP = SpellHP
                 Return False

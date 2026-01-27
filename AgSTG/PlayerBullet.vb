@@ -53,7 +53,7 @@ Public MustInherit Class PlayerBullet
         Public Overrides Sub Render()
             If FadeOutFrame = 0 Then
                 Judge()
-                Background = Textures.player_bullet(0, 0, (FrameCount \ 2) Mod 2)
+                Background = Textures.player_bullet(0, 0, (Ticks \ 2) Mod 2)
             Else
                 FadeOut()
             End If
@@ -129,7 +129,7 @@ Public MustInherit Class PlayerBullet
         Public Overrides Sub Render()
             If FadeOutFrame = 0 Then
                 Judge()
-                Background = Textures.player_bullet(0, 2, (FrameCount \ 2) Mod 2)
+                Background = Textures.player_bullet(0, 2, (Ticks \ 2) Mod 2)
             Else
                 FadeOut()
             End If
@@ -191,28 +191,28 @@ Public MustInherit Class PlayerBullet
             Dim Target As Enemy = Nothing
             Dim targetdistance As Double = 114514
             If FadeOutFrame = 0 Then
-                If FrameCount < 20 Then
+                If Ticks < 20 Then
                     X += STG.Player.X - CenterX
                     CenterX = STG.Player.X
                     Y += STG.Player.Y - CenterY
                     CenterY = STG.Player.Y
-                ElseIf FrameCount = 20 Then
+                ElseIf Ticks = 20 Then
                     Direction += 90
                     Speed = 4
                     X += STG.Player.X - CenterX
                     CenterX = STG.Player.X
                     Y += STG.Player.Y - CenterY
                     CenterY = STG.Player.Y
-                ElseIf FrameCount > 20 AndAlso FrameCount <= (100 + 10 * ID) Then
+                ElseIf Ticks > 20 AndAlso Ticks <= (100 + 10 * ID) Then
                     Direction += 2
                     X += STG.Player.X - CenterX
                     CenterX = STG.Player.X
                     Y += STG.Player.Y - CenterY
                     CenterY = STG.Player.Y
-                ElseIf FrameCount = 250 Then
+                ElseIf Ticks = 250 Then
                     FadeOutFrame = 1
                     Layer1.Opacity = 0
-                ElseIf FrameCount > 20 Then
+                ElseIf Ticks > 20 Then
                     For Each tenemy In STG.SearchEnemy
                         If tenemy.IsEnabled Then
                             Distance = New Vector(tenemy.X - X, tenemy.Y - (Y - 16))
@@ -237,10 +237,10 @@ Public MustInherit Class PlayerBullet
                 Layer1_rotate.Angle += 2
                 Layer2_rotate.Angle += 5
                 Layer3_rotate.Angle += 5
-                Layer2_translate.X = Sin((FrameCount - ID) / 10) * 16
-                Layer2_translate.Y = Cos((FrameCount - ID) / 8) * 16
-                Layer3_translate.X = -Sin((FrameCount - ID) / 8) * 16
-                Layer3_translate.Y = -Cos((FrameCount - ID) / 10) * 16
+                Layer2_translate.X = Sin((Ticks - ID) / 10) * 16
+                Layer2_translate.Y = Cos((Ticks - ID) / 8) * 16
+                Layer3_translate.X = -Sin((Ticks - ID) / 8) * 16
+                Layer3_translate.Y = -Cos((Ticks - ID) / 10) * 16
                 X += Speed * Sin(Direction / 180 * PI)
                 Y += Speed * Cos(Direction / 180 * PI)
                 Canvas.SetLeft(Me, X - Width / 2)
@@ -265,10 +265,10 @@ Public MustInherit Class PlayerBullet
                     Next
                     Sounds.PlaySound(Sounds.tan00)
                 End If
-                Layer2_translate.X = Sin((FrameCount - FadeOutFrame) / 10) * FadeOutFrame * 2
-                Layer2_translate.Y = Cos((FrameCount - FadeOutFrame) / 10) * FadeOutFrame * 2
-                Layer3_translate.X = -Sin((FrameCount - FadeOutFrame) / 10) * FadeOutFrame * 2
-                Layer3_translate.Y = -Cos((FrameCount - FadeOutFrame) / 10) * FadeOutFrame * 2
+                Layer2_translate.X = Sin((Ticks - FadeOutFrame) / 10) * FadeOutFrame * 2
+                Layer2_translate.Y = Cos((Ticks - FadeOutFrame) / 10) * FadeOutFrame * 2
+                Layer3_translate.X = -Sin((Ticks - FadeOutFrame) / 10) * FadeOutFrame * 2
+                Layer3_translate.Y = -Cos((Ticks - FadeOutFrame) / 10) * FadeOutFrame * 2
                 Layer2_scale.ScaleX -= 0.045
                 Layer2_scale.ScaleY -= 0.045
                 Layer3_scale.ScaleX -= 0.045
@@ -384,13 +384,13 @@ Public MustInherit Class PlayerBullet
             Opacity = 0.75
         End Sub
         Public Overrides Sub Render()
-            If FrameCount < 20 Then
+            If Ticks < 20 Then
                 Speed += 0.4
             End If
             If FadeOutFrame = 0 Then
                 Judge()
-                If FrameCount Mod 4 = 0 Then
-                    Background = Textures.player_bullet(1, 2, (FrameCount \ 4) Mod 2)
+                If Ticks Mod 4 = 0 Then
+                    Background = Textures.player_bullet(1, 2, (Ticks \ 4) Mod 2)
                 End If
             Else
                 FadeOut()
@@ -441,9 +441,9 @@ Public MustInherit Class PlayerBullet
             Damage = 10
         End Sub
         Public Overrides Sub Render()
-            If FrameCount < 10 Then
+            If Ticks < 10 Then
                 Opacity += 0.1
-            ElseIf FrameCount < 250 Then
+            ElseIf Ticks < 250 Then
                 For Each tenemy In STG.SearchEnemy
                     If tenemy.IsEnabled Then
                         If tenemy.Y < STG.Player.Y Then
@@ -463,7 +463,7 @@ Public MustInherit Class PlayerBullet
                         End If
                     End If
                 Next
-            ElseIf FrameCount < 270 Then
+            ElseIf Ticks < 270 Then
                 Opacity -= 0.5
             Else
                 STG.Player.Speed = 5
@@ -481,8 +481,8 @@ Public MustInherit Class PlayerBullet
             End If
             X = STG.Player.X
             Y = STG.Player.Y
-            Canvas.SetTop(Layer2, 240 - (FrameCount * 8 Mod 512))
-            Canvas.SetTop(Layer3, 240 - ((FrameCount * 8 + 256) Mod 512))
+            Canvas.SetTop(Layer2, 240 - (Ticks * 8 Mod 512))
+            Canvas.SetTop(Layer3, 240 - ((Ticks * 8 + 256) Mod 512))
             If Canvas.GetTop(Layer2) >= 112 Then
                 Layer2_scale.ScaleX = (240 - Canvas.GetTop(Layer2)) / 128
                 Layer2.Opacity = (240 - Canvas.GetTop(Layer2)) / 128

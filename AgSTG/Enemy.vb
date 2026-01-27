@@ -144,8 +144,8 @@ Public Class Enemy
         End Select
     End Sub
     Private Sub Appearance0()
-        Layer1_rotate.Angle = (-FrameCount * 4) Mod 360
-        Layer2_rotate.Angle = (FrameCount * 8) Mod 360
+        Layer1_rotate.Angle = (-Ticks * 4) Mod 360
+        Layer2_rotate.Angle = (Ticks * 8) Mod 360
     End Sub
     Private Sub Appearance1234()
         If Abs(TurnFrame) <> 0 AndAlso Abs(TurnFrame) < 17 Then
@@ -161,18 +161,18 @@ Public Class Enemy
                 TurnFrame -= 1
             ElseIf Sign(TurnFrame) < GetXDirection() Then
                 TurnFrame += 1
-            ElseIf TurnFrame = 0 AndAlso FrameCount Mod 6 = 0 Then
-                If FrameCount Mod 6 = 0 Then
-                    Background = Textures.enemy(EnemyType, Color, (FrameCount \ 6) Mod 4)
+            ElseIf TurnFrame = 0 AndAlso Ticks Mod 6 = 0 Then
+                If Ticks Mod 6 = 0 Then
+                    Background = Textures.enemy(EnemyType, Color, (Ticks \ 6) Mod 4)
                 End If
-            ElseIf FrameCount Mod 6 = 0 Then
-                Background = Textures.enemy(EnemyType, Color, ((FrameCount \ 6) Mod 4) + 8)
+            ElseIf Ticks Mod 6 = 0 Then
+                Background = Textures.enemy(EnemyType, Color, ((Ticks \ 6) Mod 4) + 8)
             End If
         End If
     End Sub
     Private Sub Appearance5()
-        Background = Textures.enemy(EnemyType, Color, (FrameCount \ 2) Mod 8)
-        If FrameCount Mod 2 = 0 Then
+        Background = Textures.enemy(EnemyType, Color, (Ticks \ 2) Mod 8)
+        If Ticks Mod 2 = 0 Then
             ghostfires.Add(New GhostFire(Me))
         End If
         For Each g In ghostfires
@@ -200,9 +200,9 @@ Public Class Enemy
         End If
     End Function
     Public Overrides Sub Render()
-        If FrameCount <= 30 Then
-            Opacity = FrameCount / 30
-            If FrameCount = 30 Then
+        If Ticks <= 30 Then
+            Opacity = Ticks / 30
+            If Ticks = 30 Then
                 IsEnabled = True
             End If
         End If
@@ -215,7 +215,7 @@ Public Class Enemy
         Else
             FadeOut()
         End If
-        If （FrameCount > Life AndAlso IsEnabled） OrElse (HP <= 0 AndAlso IsEnabled) Then
+        If （Ticks > Life AndAlso IsEnabled） OrElse (HP <= 0 AndAlso IsEnabled) Then
             FadeOutFrame = 1
             IsEnabled = False
         End If
@@ -270,7 +270,7 @@ Public Class Enemy
     Private Class GhostFire
         Public X As Double
         Public Y As Double
-        Public framecount As Integer
+        Public ticks As Integer
         Public rec As Rectangle
         Private owner As Enemy
         Public Sub New(owner As Enemy)
@@ -285,13 +285,13 @@ Public Class Enemy
         Public Sub Render()
             Y -= 4
             X = Rnd() * 16 - 8
-            framecount += 1
+            ticks += 1
             rec.Height -= 2
             rec.Width -= 2
             Canvas.SetLeft(rec, X - rec.Width / 2 + 16)
             Canvas.SetTop(rec, Y - rec.Height / 2)
-            rec.Fill = Textures.enemy(owner.EnemyType, owner.Color, (framecount \ 2) Mod 8)
-            If framecount >= 8 Then
+            rec.Fill = Textures.enemy(owner.EnemyType, owner.Color, (ticks \ 2) Mod 8)
+            If ticks >= 8 Then
                 owner.MainBoard.Children.Remove(rec)
                 owner.rm_ghostfires.Add(Me)
             End If
@@ -345,7 +345,7 @@ Public Class Enemy
         ''' 否则会导致部分功能无法自动运行
         ''' </summary>
         Public Overrides Sub Render()
-            If FrameCount = 0 Then
+            If Ticks = 0 Then
                 Init()
             End If
             Boss_Move()
@@ -353,7 +353,7 @@ Public Class Enemy
             If CurrentSpell > -1 Then
                 If SpellCards(CurrentSpell).IsEnabled Then
                     SpellCards(CurrentSpell).Render()
-                    SpellCards(CurrentSpell).FrameCount += 1
+                    SpellCards(CurrentSpell).Ticks += 1
                     HPBar.Update(SpellCards(CurrentSpell).AtSpell, HP)
                 End If
             End If
@@ -382,13 +382,13 @@ Public Class Enemy
         Private Sub MagicSquare()
             If CurrentSpell > -1 Then
                 If SpellCards(CurrentSpell).IsEnabled Then
-                    Layer1_rotate.Angle = (FrameCount * 5) Mod 360
-                    If SpellCards(CurrentSpell).FrameCount < 60 Then
-                        Layer1_scale.ScaleX = SpellCards(CurrentSpell).FrameCount / 30
-                        Layer1_scale.ScaleY = SpellCards(CurrentSpell).FrameCount / 30
+                    Layer1_rotate.Angle = (Ticks * 5) Mod 360
+                    If SpellCards(CurrentSpell).Ticks < 60 Then
+                        Layer1_scale.ScaleX = SpellCards(CurrentSpell).Ticks / 30
+                        Layer1_scale.ScaleY = SpellCards(CurrentSpell).Ticks / 30
                     Else
-                        Layer1_scale.ScaleX = (0.2 * Sin((SpellCards(CurrentSpell).FrameCount - 60) / 20)) + 2
-                        Layer1_scale.ScaleY = (0.2 * Sin((SpellCards(CurrentSpell).FrameCount - 60) / 20)) + 2
+                        Layer1_scale.ScaleX = (0.2 * Sin((SpellCards(CurrentSpell).Ticks - 60) / 20)) + 2
+                        Layer1_scale.ScaleY = (0.2 * Sin((SpellCards(CurrentSpell).Ticks - 60) / 20)) + 2
                     End If
                 Else
                     Layer1_scale.ScaleX = 0

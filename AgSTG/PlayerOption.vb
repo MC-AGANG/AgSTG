@@ -92,8 +92,8 @@ Public MustInherit Class PlayerOption
             }
         End Sub
         Public Overrides Sub Render()
-            Layer1_rotate.Angle = (-FrameCount * 4) Mod 360
-            Layer2_rotate.Angle = (FrameCount * 2) Mod 360
+            Layer1_rotate.Angle = (-Ticks * 4) Mod 360
+            Layer2_rotate.Angle = (Ticks * 2) Mod 360
             Option_Move()
             If (STG.Power \ 100) - 1 >= ID Then
                 Opacity = 1
@@ -156,13 +156,13 @@ Public MustInherit Class PlayerOption
                 STG.Objects_Add.Add(New PlayerBullet.PL1S(X, Y))
             ElseIf Not KeyState.Slow AndAlso STG.Player.ShootFrame Mod 2 = 0 Then
                 Sounds.PlaySound(Sounds.lazer02, 0.1)
-                STG.Objects_Add.Add(New PlayerBullet.PL1F(X, Y, presetdirection((STG.Power \ 100) - 1, ID)) With {.Background = Textures.player_bullet(1, 1, (FrameCount Mod 16) \ 2), .OID = ID})
+                STG.Objects_Add.Add(New PlayerBullet.PL1F(X, Y, presetdirection((STG.Power \ 100) - 1, ID)) With {.Background = Textures.player_bullet(1, 1, (Ticks Mod 16) \ 2), .OID = ID})
             End If
         End Sub
 
         Public Overrides Sub Render()
-            Layer1_scale.ScaleX = Sin(FrameCount / 10) * 0.1 + 1
-            Layer1_scale.ScaleY = Sin(FrameCount / 10) * 0.1 + 1
+            Layer1_scale.ScaleX = Sin(Ticks / 10) * 0.1 + 1
+            Layer1_scale.ScaleY = Sin(Ticks / 10) * 0.1 + 1
             If (STG.Power \ 100) - 1 >= ID Then
                 Opacity = 1
             Else

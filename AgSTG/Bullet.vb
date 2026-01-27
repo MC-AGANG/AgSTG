@@ -158,9 +158,9 @@ Public Class Bullet
         End Select
     End Sub
     Public Overrides Sub Render()
-        If FrameCount <= 10 Then
-            Opacity = (10 - FrameCount) / 10
-        ElseIf FrameCount = 11 Then
+        If Ticks <= 10 Then
+            Opacity = (10 - Ticks) / 10
+        ElseIf Ticks = 11 Then
             Opacity = 1
             Background = Textures.bullet(BulletType, BulletColor)
             IsEnabled = True
@@ -232,18 +232,18 @@ Public Class Bullet
             Me.Life = Life
         End Sub
         Public Overrides Sub Render()
-            If FrameCount > 30 AndAlso FrameCount <= 60 Then
-                Width = (FrameCount - 30) / 30 * LaserWidth
+            If Ticks > 30 AndAlso Ticks <= 60 Then
+                Width = (Ticks - 30) / 30 * LaserWidth
                 Me_Translate.X = -Width / 2
 
-                If FrameCount = 60 Then
+                If Ticks = 60 Then
                     IsEnabled = True
                 End If
             End If
-            If FadeOutFrame = 0 AndAlso FrameCount > 30 Then
-                Opacity = 0.8 + 0.2 * Sin(FrameCount)
+            If FadeOutFrame = 0 AndAlso Ticks > 30 Then
+                Opacity = 0.8 + 0.2 * Sin(Ticks)
             End If
-            If FadeOutFrame = 0 AndAlso FrameCount > Life Then
+            If FadeOutFrame = 0 AndAlso Ticks > Life Then
                 Break(False)
             ElseIf FadeOutFrame > 0 Then
                 FadeOutFrame += 1
@@ -257,10 +257,27 @@ Public Class Bullet
         End Sub
         Public Overrides Sub Judge()
             If IsEnabled AndAlso STG.Player.IsEnabled Then
-                If STG.Player.Y < Y - 0.125 * Height * Cos(Direction * PI / 180) AndAlso STG.Player.Y > Y - 0.875 * Height * Cos(Direction * PI / 180) AndAlso STG.Player.X > X - 0.25 * Width * Cos(Direction * PI / 180) - Tan(Direction * PI / 180) * (STG.Player.Y - Y) AndAlso STG.Player.X < X + 0.25 * Width * Cos(Direction * PI / 180) - Tan(Direction * PI / 180) * (STG.Player.Y - Y) Then
+                Dim td, tx, ty As Double
+                Direction = (Direction + 360) Mod 360
+                If Direction > 90 AndAlso Direction < 270 Then
+                    td = (Direction + 180) Mod 360
+                    tx = X - (STG.Player.X - X)
+                    ty = Y - (STG.Player.Y - Y)
+                Else
+                    td = Direction
+                    tx = STG.Player.X
+                    ty = STG.Player.Y
+                End If
+                If ty < Y - 0.125 * Height * Cos(td * PI / 180) AndAlso
+                    ty > Y - 0.875 * Height * Cos(td * PI / 180) AndAlso
+                    tx > X - 0.25 * Width * Cos(td * PI / 180) - Tan(td * PI / 180) * (ty - Y) AndAlso
+                    tx < X + 0.25 * Width * Cos(td * PI / 180) - Tan(td * PI / 180) * (ty - Y) Then
                     STG.Player.Miss()
-                ElseIf STG.Player.Y < Y AndAlso STG.Player.Y > Y - Height * Cos(Direction * PI / 180) AndAlso STG.Player.X > X - 4 * Width * Cos(Direction * PI / 180) - Tan(Direction * PI / 180) * (STG.Player.Y - Y) AndAlso STG.Player.X < X + 4 * Width * Cos(Direction * PI / 180) - Tan(Direction * PI / 180) * (STG.Player.Y - Y) Then
-                    If FrameCount Mod 4 = 0 Then
+                ElseIf ty < Y AndAlso
+                    ty > Y - Height * Cos(td * PI / 180) AndAlso
+                    tx > X - 4 * Width * Cos(td * PI / 180) - Tan(td * PI / 180) * (ty - Y) AndAlso
+                    tx < X + 4 * Width * Cos(td * PI / 180) - Tan(td * PI / 180) * (ty - Y) Then
+                    If Ticks Mod 4 = 0 Then
                         STG.Player.Graze()
                     End If
                 End If

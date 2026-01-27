@@ -55,8 +55,8 @@ Public Class Item
         End Select
     End Sub
     Public Overrides Sub Render()
-        If FrameCount <= 30 AndAlso ItemType <> ItemType.PointValue AndAlso IsEnabled Then
-            Me_Rotate.Angle = FrameCount * 24
+        If Ticks <= 30 AndAlso ItemType <> ItemType.PointValue AndAlso IsEnabled Then
+            Me_Rotate.Angle = Ticks * 24
         End If
         Judge()
         If FadeOutFrame > 0 Then
@@ -75,8 +75,8 @@ Public Class Item
             X += 8 * Distance.X
             Y += 8 * Distance.Y
         Else
-            If FrameCount <= 30 Then
-                Y -= (30 - FrameCount) / 5
+            If Ticks <= 30 Then
+                Y -= (30 - Ticks) / 5
             Else
                 If ItemType = ItemType.PointValue Then
                     ForceCollect = True

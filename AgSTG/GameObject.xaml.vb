@@ -23,7 +23,7 @@ Public MustInherit Class GameObject
     ''' 不建议手动修改
     ''' </summary>
     ''' <returns></returns>
-    Public Property FrameCount As Long = -1
+    Public Property Ticks As Long = -1
     ''' <summary>
     ''' 获取或设置对象的类型
     ''' </summary>
