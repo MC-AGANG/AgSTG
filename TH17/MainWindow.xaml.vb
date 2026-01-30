@@ -2,7 +2,6 @@
 Class MainWindow
     Public FullScreen As Boolean
     Public WithEvents Timer1 As MediaTimer
-    Public Stage6 As New Stage6.Stage6
     Public Ticks As Long
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
         If FillArea.ActualHeight / 3 > FillArea.ActualWidth / 4 Then
@@ -35,14 +34,16 @@ Class MainWindow
         End If
         GameArea.Height = 480
         GameArea.Width = 640
+        STG.stages.add(New Stage6.Stage6(2))
         Timer1 = New MediaTimer(60, New Action(AddressOf Main))
         Timer1.Start()
+
     End Sub
     Private Sub Main()
         Dispatcher.Invoke(Sub()
                               If Ticks >= 60 Then
                                   GP.STG.Render()
-                                  Stage6.Render()
+                                  STG.NextStage()
                                   GP.PropertyBoard.Update()
                               Else
                                   Ticks += 1
