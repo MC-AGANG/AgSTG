@@ -5,10 +5,6 @@ Imports ResourcePack
 ''' </summary>
 Public Class STG
     ''' <summary>
-    ''' 通过当前关卡
-    ''' </summary>
-    Public Shared Event StageClear()
-    ''' <summary>
     ''' 游戏内所有实体的集合
     ''' </summary>
     Public Shared Objects As New List(Of GameObject)
@@ -88,6 +84,11 @@ Public Class STG
     ''' </summary>
     ''' <returns></returns>
     Public Shared Property ReplayMode As Boolean
+    ''' <summary>
+    ''' 获取或设置当前关卡列表
+    ''' </summary>
+    Public Shared Stages As New List(Of Stage)
+    Public Shared CurrentStage As Integer = -1
     Public Shared BackLayer As Grid
     Public Shared timer10 As Rectangle
     Public Shared timer1 As Rectangle
@@ -97,6 +98,8 @@ Public Class STG
     Public Shared SpellCardLabel As CardLabel
     Public Shared bonusfail As Boolean = False
     Public Shared DialogArea As DialogArea
+    Public Shared Event GameClear()
+    Public Shared Event GameOver()
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
@@ -133,6 +136,9 @@ Public Class STG
             Shake()
         End If
         DialogArea.Render()
+        If CurrentStage >= 0 Then
+            Stages(CurrentStage).Render()
+        End If
     End Sub
     Public Shared Sub ClearBullet()
         Dim temp As Bullet
@@ -174,7 +180,8 @@ Public Class STG
     ''' 重置STG
     ''' </summary>
     Public Shared Sub Reset()
-
+        Stages.Clear()
+        CurrentStage = -1
     End Sub
     ''' <summary>
     ''' 更新符卡计时器
@@ -228,6 +235,20 @@ Public Class STG
         Else
             me_translate.X = ShakeFrame * Rnd() - ShakeFrame / 2
             me_translate.Y = ShakeFrame * Rnd() - ShakeFrame / 2
+        End If
+    End Sub
+    ''' <summary>
+    ''' 进入下一关
+    ''' </summary>
+    Public Shared Sub NextStage()
+        If CurrentStage < Stages.Count - 1 Then
+            If CurrentStage >= 0 Then
+                Stages(CurrentStage).Unload()
+            End If
+            CurrentStage += 1
+            Stages(CurrentStage).Load()
+        Else
+            RaiseEvent GameClear()
         End If
     End Sub
 End Class

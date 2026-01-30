@@ -5,6 +5,9 @@
     <Compile Update="CardLabel.xaml.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="DialogArea.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GameObject.xaml.vb">
       <SubType>Code</SubType>
     </Compile>

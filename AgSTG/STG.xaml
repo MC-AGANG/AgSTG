@@ -13,11 +13,14 @@
             <TranslateTransform x:Name="me_translate"/>
         </TransformGroup>
     </UserControl.RenderTransform>
-    <Grid Name="BL">
-        <Canvas Name="mb" Panel.ZIndex="1">
+    <Grid>
+        <Grid Name="BL">
+            
+        </Grid>
+        <Canvas Name="mb">
 
         </Canvas>
-        <Canvas Height="16" Width="60" VerticalAlignment="Top" Margin="0,8,0,0" Name="timearea" Visibility="Hidden" Panel.ZIndex="1">
+        <Canvas Height="16" Width="60" VerticalAlignment="Top" Margin="0,8,0,0" Name="timearea" Visibility="Hidden">
             <Rectangle Name="time10" Height="16" Width="16" Canvas.Left="0"></Rectangle>
             <Rectangle Name="time1" Height="16" Width="16" Canvas.Left="12"></Rectangle>
             <Rectangle Name="time0" Height="16" Width="16" Canvas.Left="24"></Rectangle>
