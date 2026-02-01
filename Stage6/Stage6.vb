@@ -12,12 +12,15 @@ Public Class Stage6
     Public Overrides Sub Initialize()
         Background = New Stage6bg
         BG = Background
+        Title = Textures.stagetitle(6)
     End Sub
 
-    Public Overrides Sub Render()
-        Ticks += 1
+    Public Overrides Sub action()
         EnemySpawn()
         CType(Background, Stage6bg).Render()
+        If Ticks = 800 Then
+            ShowTitle()
+        End If
     End Sub
     Public Overrides Sub Reset()
         MyBase.Reset()
