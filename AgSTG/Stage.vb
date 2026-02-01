@@ -18,13 +18,33 @@ Public MustInherit Class Stage
     ''' <returns></returns>
     Public Property Difficulty As Difficulty
     ''' <summary>
+    ''' 获取或设置关卡标题图片。
+    ''' </summary>
+    Public Title As ImageBrush
+    Private TitleTick As Integer = 0
+    ''' <summary>
     ''' 初始化关卡，继承后必须重写。
     ''' </summary>
     Public MustOverride Sub Initialize()
     ''' <summary>
-    ''' 运行这个关卡的主循环，继承后必须重写。
+    ''' 运行这个关卡的主循环。
     ''' </summary>
-    Public MustOverride Sub Render()
+    Public Overridable Sub Render()
+        Action()
+        Ticks += 1
+        If TitleTick > 0 Then
+            TitleTick -= 1
+            If TitleTick >= 250 Then
+                STG.TitleArea.Opacity = (300 - TitleTick) / 50
+            ElseIf TitleTick <= 50 Then
+                STG.TitleArea.Opacity = TitleTick / 50
+            End If
+        End If
+    End Sub
+    ''' <summary>
+    ''' 设置关卡脚本，继承后必须重写。
+    ''' </summary>
+    Public MustOverride Sub Action()
     ''' <summary>
     ''' 创建新的关卡实例。
     ''' </summary>
@@ -32,6 +52,10 @@ Public MustInherit Class Stage
     Public Sub New(Difficulty As Difficulty)
         Me.Difficulty = Difficulty
         Initialize()
+    End Sub
+    Public Sub ShowTitle()
+        STG.TitleArea.Fill = Title
+        TitleTick = 300
     End Sub
     ''' <summary>
     ''' 加载关卡到游戏中。

@@ -29,5 +29,6 @@
         </Canvas>
         <local:DialogArea x:Name="DA" Panel.ZIndex="1" Visibility="Hidden"/>
         <local:CardLabel x:Name="SA" Panel.ZIndex="1"/>
+        <Rectangle Name="TA" Height="128" Width="256" Margin="64,80,64,240"></Rectangle>
     </Grid>
 </UserControl>
