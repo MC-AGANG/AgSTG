@@ -14,6 +14,7 @@ Public Class Textures
     Public Shared st6enm(0, 2) As ImageBrush
     Public Shared st6s(6) As ImageBrush
     Public Shared illustrations(9)() As ImageBrush
+    Public Shared stagetitle(8) As ImageBrush
     Public Shared Sub Load()
         st06a = New ImageBrush(B2I(MyResource.st06a))
         st06d = New ImageBrush(B2I(MyResource.st06d))
@@ -42,6 +43,7 @@ Public Class Textures
         Next
         illustrations(6) = it6
         illustrations(8) = it8
+        stagetitle(6) = New ImageBrush(B2I(MyResource.stagetitle06))
     End Sub
     Public Shared Function B2I(byteArray As Byte()) As BitmapImage
         Using stream As Stream = New MemoryStream(byteArray)

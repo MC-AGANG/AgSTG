@@ -283,4 +283,7 @@
   <data name="dialog0603" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\dialog0603.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="stagetitle06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\stagetitle06.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

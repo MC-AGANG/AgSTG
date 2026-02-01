@@ -607,6 +607,16 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Byte[] 类型的本地化资源。
         '''</summary>
+        Friend Shared ReadOnly Property stagetitle06() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("stagetitle06", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
         Friend Shared ReadOnly Property stg5bg2() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("stg5bg2", resourceCulture)
