@@ -21,6 +21,9 @@ Public Class Stage6
         If Ticks = 800 Then
             ShowTitle()
         End If
+        If Ticks = 0 Then
+            Showmusic("エレクトリックヘリテージ")
+        End If
     End Sub
     Public Overrides Sub Reset()
         MyBase.Reset()
@@ -739,6 +742,7 @@ Module St6Enm
                 Sounds.mu12.Stop()
                 Sounds.mu13.Position = New TimeSpan(0)
                 Sounds.mu13.Play()
+                Stage.Showmusic("偶像に世界を委ねて　～ Idoratrize World")
                 switched = True
             End If
             If STG.DialogArea.Finished AndAlso switched Then
