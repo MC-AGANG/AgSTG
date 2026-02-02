@@ -22,6 +22,7 @@ Public MustInherit Class Stage
     ''' </summary>
     Public Title As ImageBrush
     Private TitleTick As Integer = 0
+    Private Shared MusicTick As Integer = 0
     ''' <summary>
     ''' 初始化关卡，继承后必须重写。
     ''' </summary>
@@ -40,6 +41,14 @@ Public MustInherit Class Stage
                 STG.TitleArea.Opacity = TitleTick / 50
             End If
         End If
+        If MusicTick > 0 Then
+            MusicTick -= 1
+            If MusicTick >= 280 Then
+                STG.MusicArea.Margin = New Thickness(0, 0, -(MusicTick - 280) * 8, 0)
+            ElseIf MusicTick <= 40 Then
+                STG.MusicArea.Margin = New Thickness(0, 0, -(40 - MusicTick) * 8, 0)
+            End If
+        End If
     End Sub
     ''' <summary>
     ''' 设置关卡脚本，继承后必须重写。
@@ -56,6 +65,10 @@ Public MustInherit Class Stage
     Public Sub ShowTitle()
         STG.TitleArea.Fill = Title
         TitleTick = 300
+    End Sub
+    Public Shared Sub Showmusic(s As String)
+        STG.MusicArea.Content = s
+        MusicTick = 320
     End Sub
     ''' <summary>
     ''' 加载关卡到游戏中。

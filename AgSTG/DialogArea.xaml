@@ -21,7 +21,10 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Label VerticalAlignment="Bottom" Height="128" Foreground="White" FontSize="18">
+        <Label VerticalAlignment="Bottom" Height="128" Foreground="White" FontSize="18" Padding="8,8,8,8">
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="0" ShadowDepth="2"/>
+            </Label.Effect>
             <TextBlock TextWrapping="Wrap" Name="TB_DialogContent"></TextBlock>
         </Label>
     </Grid>

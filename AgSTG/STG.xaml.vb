@@ -99,6 +99,7 @@ Public Class STG
     Public Shared bonusfail As Boolean = False
     Public Shared DialogArea As DialogArea
     Public Shared TitleArea As Rectangle
+    Public Shared MusicArea As Label
     Public Shared Event GameClear()
     Public Shared Event GameOver()
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
@@ -117,7 +118,8 @@ Public Class STG
 
         SpellCardLabel = SA
         DialogArea = DA
-        TitleArea = TA
+        TitleArea = RC_Title
+        MusicArea = LB_Music
     End Sub
     Public Sub Render()
         For Each obj In Objects

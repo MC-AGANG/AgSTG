@@ -27,8 +27,13 @@
             <Rectangle Name="time01" Height="16" Width="16" Canvas.Left="36"></Rectangle>
             <Rectangle Name="time001" Height="16" Width="16" Canvas.Left="48"></Rectangle>
         </Canvas>
-        <local:DialogArea x:Name="DA" Panel.ZIndex="1" Visibility="Hidden"/>
-        <local:CardLabel x:Name="SA" Panel.ZIndex="1"/>
-        <Rectangle Name="TA" Height="128" Width="256" Margin="64,80,64,240"></Rectangle>
+        <local:DialogArea x:Name="DA" Visibility="Hidden"/>
+        <local:CardLabel x:Name="SA"/>
+        <Rectangle Name="RC_Title" Height="128" Width="256" Margin="64,80,64,240" Opacity="0"></Rectangle>
+        <Label Name="LB_Music" Height="32" Width="320" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="16" VerticalContentAlignment="Bottom" HorizontalContentAlignment="Right" Padding="0,0,8,0" Foreground="White" Margin="0,0,-320,0">
+            <Label.Effect>
+                <DropShadowEffect Color="Black" ShadowDepth="2" Opacity="1" BlurRadius="0"/>
+            </Label.Effect>
+        </Label>
     </Grid>
 </UserControl>
