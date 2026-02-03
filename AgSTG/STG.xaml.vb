@@ -97,7 +97,7 @@ Public Class STG
     Public Shared timerarea As Canvas
     Public Shared SpellCardLabel As CardLabel
     Public Shared bonusfail As Boolean = False
-    Public Shared DialogArea As DialogArea
+    Public Shared WithEvents DialogArea As DialogArea
     Public Shared TitleArea As Rectangle
     Public Shared MusicArea As Label
     Public Shared Event GameClear()

@@ -29,6 +29,8 @@ Public Class DialogArea
     Private CL_PlayerBottom As Color = Color.FromArgb(0, 0, 0, 128)
     Private CL_EnemyTop As Color = Color.FromArgb(192, 128, 0, 0)
     Private CL_EnemyBottom As Color = Color.FromArgb(0, 128, 0, 0)
+    Public Event Changed(position As Integer, speaker As Speakers)
+    Private EventHandlers As New List(Of ChangedEventHandler)
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
 
     End Sub
@@ -51,7 +53,6 @@ Public Class DialogArea
         Position = 0
         RC_EnemyIllustration.Fill = Nothing
         RC_PlayerIllustration.Fill = Nothing
-
     End Sub
     ''' <summary>
     ''' 加载玩家角色立绘
@@ -106,10 +107,16 @@ Public Class DialogArea
             For Each s In content
                 TB_DialogContent.Inlines.Add(s)
             Next
+            RaiseEvent Changed(Position, Dialogs(Position).Speaker)
             Position += 1
         Else
             Finished = True
             Hide()
+            RaiseEvent Changed(-1, 0)
+            For Each handler In EventHandlers
+                RemoveHandler Changed, handler
+            Next
+            EventHandlers.Clear()
         End If
     End Sub
     ''' <summary>
@@ -134,11 +141,25 @@ Public Class DialogArea
     Public Sub Show()
         Visibility = Visibility.Visible
         [Next]()
+        HideName()
     End Sub
     ''' <summary>
     ''' 隐藏对话区域
     ''' </summary>
     Public Sub Hide()
         Visibility = Visibility.Hidden
+        HideName()
+    End Sub
+    Public Sub ShowName(s As String)
+        LB_EnemyName.Content = s
+        LB_EnemyName.Visibility = Visibility.Visible
+    End Sub
+    Public Sub HideName()
+        LB_EnemyName.Content = ""
+        LB_EnemyName.Visibility = Visibility.Hidden
+    End Sub
+    Public Sub AddChangedHandler(handler As ChangedEventHandler)
+        AddHandler Changed, handler
+        EventHandlers.Add(handler)
     End Sub
 End Class
