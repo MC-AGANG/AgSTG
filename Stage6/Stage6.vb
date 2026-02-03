@@ -722,7 +722,6 @@ Module St6Enm
     End Sub
     <Extension>
     Public Sub S6B1A(e As Enemy.Boss)
-        Static switched As Boolean = False
         Dim s As String()
         With e
             .Layer3.Fill = Textures.boss(1, (.Ticks \ 8) Mod 5)
@@ -735,23 +734,27 @@ Module St6Enm
                 STG.DialogArea.LoadEnemy(Textures.illustrations(s(1)))
                 STG.DialogArea.LoadDialog(Texts.dialog0603)
                 STG.DialogArea.Show()
+                STG.DialogArea.AddChangedHandler(AddressOf S6B1D)
             End If
-            If STG.DialogArea.Position = 32 And Not switched Then
-                Stage6.BossStage = 1
-                CType(Stage6.BG, Stage6bg).Ticks = 100000
-                Sounds.mu12.Stop()
-                Sounds.mu13.Position = New TimeSpan(0)
-                Sounds.mu13.Play()
-                Stage.Showmusic("偶像に世界を委ねて　～ Idoratrize World")
-                switched = True
-            End If
-            If STG.DialogArea.Finished AndAlso switched Then
+            If STG.DialogArea.Finished AndAlso Not .IsEnabled Then
                 .IsEnabled = True
                 .NextSpell()
-                switched = False
             End If
             .Layer3_translate.Y = 4 * Sin(e.Ticks / 90 * PI)
         End With
     End Sub
-
+    Public Sub S6B1D(Position As Integer, Speaker As Speakers)
+        If Position = 6 Then
+            STG.DialogArea.ShowName("埴安神 袿姬")
+        ElseIf Position = 10 Then
+            STG.DialogArea.HideName()
+        ElseIf Position = 32 Then
+            Stage6.BossStage = 1
+            CType(Stage6.BG, Stage6bg).Ticks = 100000
+            Sounds.mu12.Stop()
+            Sounds.mu13.Position = New TimeSpan(0)
+            Sounds.mu13.Play()
+            Stage.Showmusic("偶像に世界を委ねて　～ Idoratrize World")
+        End If
+    End Sub
 End Module
