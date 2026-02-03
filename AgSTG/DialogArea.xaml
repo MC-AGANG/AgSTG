@@ -12,7 +12,11 @@
             <Rectangle Width="256" Height="320" Canvas.Left="192" Canvas.Top="128" Opacity="0.75" Name="RC_EnemyIllustration"/>
             <Rectangle Width="256" Height="320" Canvas.Left="0" Canvas.Top="128" Opacity="1" Name="RC_PlayerIllustration"/>
         </Canvas>
-        <Rectangle Width="192" Height="64" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,128" Name="RC_EnemyName"/>
+        <Label Width="192" Height="64" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,128" x:Name="LB_EnemyName" Foreground="White" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom">
+            <Label.Effect>
+                <DropShadowEffect BlurRadius="0" ShadowDepth="2"/>
+            </Label.Effect>
+        </Label>
         <Rectangle Height="128" VerticalAlignment="Bottom" Name="RC_Background">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
