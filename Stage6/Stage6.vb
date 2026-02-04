@@ -698,6 +698,7 @@ Module St6Enm
             End If
             If .Ticks = 290 Then
                 .IsEnabled = True
+                STG.NameArea.Initialize("Joutougu Mayumi", 1)
                 .NextSpell()
             End If
             .Layer3_translate.Y = 4 * Sin(e.Ticks / 90 * PI)
@@ -738,6 +739,7 @@ Module St6Enm
             End If
             If STG.DialogArea.Finished AndAlso Not .IsEnabled Then
                 .IsEnabled = True
+                STG.NameArea.Initialize("Haniyasushin Keiki", 7)
                 .NextSpell()
             End If
             .Layer3_translate.Y = 4 * Sin(e.Ticks / 90 * PI)
