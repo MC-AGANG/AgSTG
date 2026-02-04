@@ -2686,4 +2686,7 @@
   <data name="stageclear" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\stageclear.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="enemyspell" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\enemyspell.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

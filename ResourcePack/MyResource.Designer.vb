@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  一个强类型的资源类，用于查找本地化的字符串等。
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>  _
     Friend Class MyResource
@@ -5507,6 +5507,16 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Byte[] 类型的本地化资源。
         '''</summary>
+        Friend Shared ReadOnly Property enemyspell() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("enemyspell", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
         Friend Shared ReadOnly Property failed() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("failed", resourceCulture)
@@ -7250,16 +7260,6 @@ Namespace My.Resources
         Friend Shared ReadOnly Property pl0_bullets1() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("pl0_bullets1", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  查找 System.Byte[] 类型的本地化资源。
-        '''</summary>
-        Friend Shared ReadOnly Property pl0_face() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("pl0_face", resourceCulture)
                 Return CType(obj,Byte())
             End Get
         End Property
