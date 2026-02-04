@@ -100,6 +100,7 @@ Public Class STG
     Public Shared WithEvents DialogArea As DialogArea
     Public Shared TitleArea As Rectangle
     Public Shared MusicArea As Label
+    Public Shared NameArea As BossName
     Public Shared Event GameClear()
     Public Shared Event GameOver()
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
@@ -120,6 +121,7 @@ Public Class STG
         DialogArea = DA
         TitleArea = RC_Title
         MusicArea = LB_Music
+        NameArea = BN
     End Sub
     Public Sub Render()
         For Each obj In Objects
@@ -143,6 +145,7 @@ Public Class STG
         If CurrentStage >= 0 Then
             Stages(CurrentStage).Render()
         End If
+        NameArea.Render()
     End Sub
     Public Shared Sub ClearBullet()
         Dim temp As Bullet

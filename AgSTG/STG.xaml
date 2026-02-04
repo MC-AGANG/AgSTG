@@ -35,5 +35,8 @@
                 <DropShadowEffect Color="Black" ShadowDepth="2" Opacity="1" BlurRadius="0"/>
             </Label.Effect>
         </Label>
+        <local:BossName Height="16" Width="80" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Hidden" x:Name="BN">
+            
+        </local:BossName>
     </Grid>
 </UserControl>

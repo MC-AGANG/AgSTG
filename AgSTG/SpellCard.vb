@@ -127,11 +127,13 @@ Public MustInherit Class SpellCard
         If Type = SpellType.None Then
             IsEnabled = False
             STG.timerarea.Visibility = Visibility.Hidden
+            STG.NameArea.Break()
             Return True
         Else
             If AtSpell Then
                 IsEnabled = False
                 STG.timerarea.Visibility = Visibility.Hidden
+                STG.NameArea.Break()
                 Return True
             Else
                 Ticks = 0

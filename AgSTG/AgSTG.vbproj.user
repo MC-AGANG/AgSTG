@@ -2,6 +2,9 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="BossName.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="CardLabel.xaml.vb">
       <SubType>Code</SubType>
     </Compile>
