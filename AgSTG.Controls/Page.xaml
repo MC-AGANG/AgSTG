@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AgSTG.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="480" d:DesignWidth="640">
+             d:DesignHeight="480" d:DesignWidth="640"
+             Loaded="UserControl_Loaded">
     <Grid>
         <Canvas Name="CV_Main" x:FieldModifier="public">
             
