@@ -242,5 +242,7 @@ Public Class PropertyBoard
             End With
             p_spellarea.Children.Add(spelli(i))
         Next
+        Height = 480
+        Width = 224
     End Sub
 End Class

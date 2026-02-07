@@ -1,5 +1,6 @@
 ﻿Imports ResourcePack
 Imports System.Math
+Imports AgSTG.Core
 ''' <summary>
 ''' 表示掉落物
 ''' </summary>

@@ -1,5 +1,6 @@
 ﻿Imports ResourcePack
 Imports System.Math
+Imports AgSTG.Core
 ''' <summary>
 ''' 表示玩家的子弹
 ''' 此类只能作为继承类使用

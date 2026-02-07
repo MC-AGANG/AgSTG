@@ -106,11 +106,16 @@ Public Class STG
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
-        MainBoard = mb
-        BackLayer = BL
+
         Player = New Player.Player0
         Objects.Add(Player)
         time0.Fill = Textures.number(0, 11)
+
+    End Sub
+    Public Sub New()
+        InitializeComponent()
+        MainBoard = mb
+        BackLayer = BL
         timer10 = time10
         timer1 = time1
         timer01 = time01

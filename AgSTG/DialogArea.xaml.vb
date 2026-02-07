@@ -1,4 +1,5 @@
 ﻿Imports System.IO
+Imports AgSTG.Core
 ''' <summary>
 ''' 表示对话区域
 ''' </summary>

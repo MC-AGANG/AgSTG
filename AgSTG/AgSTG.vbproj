@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AgSTG.Core\AgSTG.Core.vbproj" />
     <ProjectReference Include="..\ResourcePack\ResourcePack.vbproj" />
   </ItemGroup>
 

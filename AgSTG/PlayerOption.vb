@@ -1,5 +1,6 @@
 ﻿Imports ResourcePack
 Imports System.Math
+Imports AgSTG.Core
 ''' <summary>
 ''' 表示子机
 ''' 此类只能作为继承类使用
