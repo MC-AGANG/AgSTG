@@ -12,13 +12,11 @@
         Loaded="Window_Loaded">
     <Grid Name="FillArea">
         <Rectangle Fill="Black"/>
-        <Grid Name="GameArea" HorizontalAlignment="Center" VerticalAlignment="Center" Height="480" Width="640">
+        <Grid Name="GameArea" HorizontalAlignment="Center" VerticalAlignment="Center" Height="480" Width="640" RenderOptions.BitmapScalingMode="NearestNeighbor">
             <Grid.RenderTransform>
                 <ScaleTransform x:Name="me_scale" CenterX="320" CenterY="240"/>
             </Grid.RenderTransform>
-            <local:GamePage x:Name="GP">
 
-            </local:GamePage>
         </Grid>
     </Grid>
 </Window>

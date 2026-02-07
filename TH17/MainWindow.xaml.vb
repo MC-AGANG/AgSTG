@@ -1,8 +1,12 @@
 ﻿Imports AgSTG
+Imports AgSTG.Core
+Imports AgSTG.Controls
+Imports ResourcePack.TH17
 Class MainWindow
     Public FullScreen As Boolean
     Public WithEvents Timer1 As MediaTimer
     Public Ticks As Long
+    Public GP As GamePage
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
         If FillArea.ActualHeight / 3 > FillArea.ActualWidth / 4 Then
             me_scale.ScaleX = FillArea.ActualWidth / 640
@@ -34,21 +38,16 @@ Class MainWindow
         End If
         GameArea.Height = 480
         GameArea.Width = 640
+        GP = New GamePage
+        GameArea.Children.Add(GP)
         STG.stages.add(New Stage6.Stage6(2))
-        Timer1 = New MediaTimer(60, New Action(AddressOf Main))
+        Timer1 = New MediaTimer(60)
         Timer1.Start()
+        GP.Timer = Timer1
 
-    End Sub
-    Private Sub Main()
-        Dispatcher.Invoke(Sub()
-                              If Ticks >= 60 Then
-                                  GP.STG.Render()
-                                  STG.NextStage()
-                                  GP.PropertyBoard.Update()
-                              Else
-                                  Ticks += 1
-                              End If
-                          End Sub)
+        GP.Activated = True
+        GP.SetBackground(Textures.game_background)
+        STG.NextStage()
 
     End Sub
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)

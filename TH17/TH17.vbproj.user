@@ -9,17 +9,11 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="GamePage.xaml.vb">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Launcher.xaml.vb">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="GamePage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Launcher.xaml">
       <SubType>Designer</SubType>
     </Page>

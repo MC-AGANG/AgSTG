@@ -28,6 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AgSTG.Controls\AgSTG.Controls.vbproj" />
+    <ProjectReference Include="..\AgSTG.Core\AgSTG.Core.vbproj" />
     <ProjectReference Include="..\AgSTG\AgSTG.vbproj" />
     <ProjectReference Include="..\ResourcePack.TH17\ResourcePack.TH17.vbproj" />
     <ProjectReference Include="..\ResourcePack\ResourcePack.vbproj" />
