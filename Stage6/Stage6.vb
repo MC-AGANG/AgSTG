@@ -28,6 +28,7 @@ Public Class Stage6
     Public Overrides Sub Reset()
         MyBase.Reset()
         BossStage = 0
+        Stage6bg.Ticks = 0
     End Sub
     Private Sub EnemySpawn()
         Select Case Ticks
