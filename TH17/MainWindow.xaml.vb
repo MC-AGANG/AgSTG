@@ -7,6 +7,8 @@ Class MainWindow
     Public WithEvents Timer1 As MediaTimer
     Public Ticks As Long
     Public GP As GamePage
+    Public PP As PausePage
+
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
         If FillArea.ActualHeight / 3 > FillArea.ActualWidth / 4 Then
             me_scale.ScaleX = FillArea.ActualWidth / 640
@@ -20,9 +22,9 @@ Class MainWindow
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
         ResourcePack.Textures.Load()
         ResourcePack.Sounds.Load()
-        ResourcePack.TH17.Textures.Load()
-        ResourcePack.TH17.Sounds.Load()
-        ResourcePack.TH17.Texts.Load()
+        Textures.Load()
+        Sounds.Load()
+        Texts.Load()
         If FullScreen Then
             Height += 480 - FillArea.ActualHeight
             Width += 640 - FillArea.ActualWidth
@@ -43,8 +45,12 @@ Class MainWindow
         STG.stages.add(New Stage6.Stage6(2))
         Timer1 = New MediaTimer(60)
         Timer1.Start()
+        PP = New PausePage
+        GameArea.Children.Add(PP.Page)
+        PP.Page.Visibility = Visibility.Hidden
+        PP.Page.Timer = Timer1
         GP.Timer = Timer1
-
+        PP.MW = Me
         GP.Activated = True
         GP.SetBackground(Textures.game_background)
         STG.NextStage()
@@ -53,8 +59,15 @@ Class MainWindow
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)
         Select Case e.Key
             Case Key.Escape
-                Timer1.Stop()
-                Close()
+                If GP.Activated Then
+                    GP.Activated = False
+                    PP.Page.Activated = True
+                    PP.Page.Visibility = Visibility.Visible
+                ElseIf PP.Page.Activated Then
+                    PP.Page.Activated = False
+                    GP.Activated = True
+                    PP.Page.Visibility = Visibility.Hidden
+                End If
                 Exit Select
             Case Key.F11
                 If WindowStyle = WindowStyle.None Then
