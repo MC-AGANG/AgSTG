@@ -1,8 +1,18 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Collections.Specialized
 Imports AgSTG.Core
+''' <summary>
+''' 表示页面。
+''' </summary>
 Public Class Page
+    ''' <summary>
+    ''' 获取或设置这个页面的时钟。
+    ''' </summary>
     Public Timer As MediaTimer
+    ''' <summary>
+    ''' 获取或设置这个页面是否处于活动状态。
+    ''' </summary>
+    ''' <returns>若为False则页面不会运行</returns>
     Public Property Activated As Boolean
         Get
             Return _Activated
@@ -16,20 +26,36 @@ Public Class Page
             End If
         End Set
     End Property
-    Private _Activated As Boolean
+    Private _Activated As Boolean = False
+    ''' <summary>
+    ''' 获取或设置页面运行时间。
+    ''' </summary>
     Public Ticks As Long = 0
+    ''' <summary>
+    ''' 获取或设置页面中包含的控件。
+    ''' </summary>
     Public WithEvents Controls As New ObservableCollection(Of Control)
+    ''' <summary>
+    ''' 初始化页面。
+    ''' </summary>
     Public Overridable Sub Initialize()
-
+        Height = 480
+        Width = 640
     End Sub
-    Public Overridable Sub Act()
+    ''' <summary>
+    ''' 页面的循环脚本。
+    ''' </summary>
+    Public Act As Action
 
-    End Sub
+    ''' <summary>
+    ''' 渲染当前页面。
+    ''' </summary>
     Public Sub Render()
         Ticks += 1
         Dispatcher.Invoke(Sub()
-                              Act()
-
+                              If Not IsNothing(Act) Then
+                                  Act()
+                              End If
                               For Each c In Controls
                                   c.Render()
                               Next
@@ -37,18 +63,22 @@ Public Class Page
     End Sub
     Private Sub Update(sender As Object, e As NotifyCollectionChangedEventArgs)
         If e.Action = NotifyCollectionChangedAction.Add Then
-            For Each ctl As Button In e.NewItems
+            For Each ctl As Control In e.NewItems
                 CV_Main.Children.Add(ctl)
             Next
         ElseIf e.Action = NotifyCollectionChangedAction.Remove Then
-            For Each ctl As Button In e.OldItems
+            For Each ctl As Control In e.OldItems
                 CV_Main.Children.Remove(ctl)
             Next
         End If
     End Sub
 
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
-        AddHandler Controls.CollectionChanged, AddressOf Update
+
         Initialize()
+    End Sub
+    Public Sub New()
+        InitializeComponent()
+        AddHandler Controls.CollectionChanged, AddressOf Update
     End Sub
 End Class
