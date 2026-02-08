@@ -15,6 +15,10 @@ Public Class Textures
     Public Shared st6s(6) As ImageBrush
     Public Shared illustrations(9)() As ImageBrush
     Public Shared stagetitle(8) As ImageBrush
+
+    Public Shared bt_continue(1) As ImageBrush
+    Public Shared bt_retry(1) As ImageBrush
+    Public Shared bt_title(1) As ImageBrush
     Public Shared Sub Load()
         st06a = New ImageBrush(B2I(MyResource.st06a))
         st06d = New ImageBrush(B2I(MyResource.st06d))
@@ -44,6 +48,13 @@ Public Class Textures
         illustrations(6) = it6
         illustrations(8) = it8
         stagetitle(6) = New ImageBrush(B2I(MyResource.stagetitle06))
+
+        bt_continue(0) = New ImageBrush(B2I(MyResource.bt_continue))
+        bt_continue(1) = New ImageBrush(B2I(MyResource.bt_continue_b))
+        bt_retry(0) = New ImageBrush(B2I(MyResource.bt_retry))
+        bt_retry(1) = New ImageBrush(B2I(MyResource.bt_retry_b))
+        bt_title(0) = New ImageBrush(B2I(MyResource.bt_title))
+        bt_title(1) = New ImageBrush(B2I(MyResource.bt_title_b))
     End Sub
     Public Shared Function B2I(byteArray As Byte()) As BitmapImage
         Using stream As Stream = New MemoryStream(byteArray)

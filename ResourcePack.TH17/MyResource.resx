@@ -286,4 +286,22 @@
   <data name="stagetitle06" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\stagetitle06.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="bt_continue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_continue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_retry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_retry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_title" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_title.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_continue_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_continue_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_retry_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_retry_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_title_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_title_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
