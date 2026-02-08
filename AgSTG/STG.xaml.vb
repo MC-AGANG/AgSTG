@@ -192,8 +192,26 @@ Public Class STG
     ''' 重置STG
     ''' </summary>
     Public Shared Sub Reset()
-        Stages.Clear()
+        Stages(CurrentStage).Unload()
+
+        For Each s In Stages
+            s.Reset()
+        Next
         CurrentStage = -1
+        NextStage()
+        For Each e In Objects
+            e.Clear()
+        Next
+        Player = New Player.Player0
+        Objects.Add(Player)
+        Score = 0
+        Life = 2
+        LifePiece = 0
+        Spell = 3
+        SpellPiece = 0
+        Graze = 0
+        PointValue = 10000
+        Power = 400
     End Sub
     ''' <summary>
     ''' 更新符卡计时器
