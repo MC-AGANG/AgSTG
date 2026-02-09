@@ -13,6 +13,9 @@
             <TranslateTransform x:Name="me_translate"/>
         </TransformGroup>
     </UserControl.RenderTransform>
+    <UserControl.Effect>
+        <BlurEffect x:Name="Me_Blur" Radius="0"/>
+    </UserControl.Effect>
     <Grid>
         <Grid Name="BL">
             

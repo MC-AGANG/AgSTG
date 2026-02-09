@@ -103,6 +103,7 @@ Public Class STG
     Public Shared NameArea As BossName
     Public Shared Event GameClear()
     Public Shared Event GameOver()
+    Public Shared Blur As Effects.BlurEffect
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
@@ -127,6 +128,7 @@ Public Class STG
         TitleArea = RC_Title
         MusicArea = LB_Music
         NameArea = BN
+        Blur = Me_Blur
     End Sub
     Public Sub Render()
         For Each obj In Objects
