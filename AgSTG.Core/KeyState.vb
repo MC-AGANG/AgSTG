@@ -6,6 +6,7 @@
     Public Shared Slow As Boolean
     Public Shared Shoot As Boolean
     Public Shared Bomb As Boolean
+    Public Shared Escape As Boolean
     Public Shared Function Encode() As Byte
         Encode = 0
         If Up Then Encode += 1
