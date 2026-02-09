@@ -1,5 +1,6 @@
 ﻿Imports System.Math
 Imports AgSTG.Core
+Imports ResourcePack
 ''' <summary>
 ''' 表示按钮控件，此按钮使用键盘操作。
 ''' </summary>
@@ -44,6 +45,10 @@ Public Class Button
     ''' <param name="sender">被按下的按钮。</param>
     Public Event Clicked(sender As Button)
     ''' <summary>
+    ''' 按下按钮时要播放的音效
+    ''' </summary>
+    Public SoundEffect As MediaPlayer
+    ''' <summary>
     ''' 创建新的按钮
     ''' </summary>
     ''' <param name="Width">宽度</param>
@@ -51,10 +56,12 @@ Public Class Button
     Public Sub New(Width As Double, Height As Double)
         MyBase.New(Width, Height)
         Selected = False
+        SoundEffect = Sounds.ok00
     End Sub
     Public Sub New(X As Double, Y As Double, Width As Double, Height As Double)
         MyBase.New(X, Y, Width, Height)
         Selected = False
+        SoundEffect = Sounds.ok00
     End Sub
     ''' <summary>
     ''' 渲染这个按钮
@@ -63,6 +70,7 @@ Public Class Button
         If Selected Then
             ForeLayer.Opacity = Sin(PI / 60 * Tick) * 0.5 + 0.5
             If KeyState.Shoot Then
+                Sounds.PlaySound(SoundEffect)
                 RaiseEvent Clicked(Me)
             End If
             Tick += 1

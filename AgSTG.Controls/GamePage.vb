@@ -22,7 +22,6 @@ Public Class GamePage
     End Sub
     Public Sub New()
         MyBase.New()
-        MyBase.Act = AddressOf Action
     End Sub
     Public Overrides Sub Initialize()
         MyBase.Initialize()
@@ -33,8 +32,11 @@ Public Class GamePage
         Canvas.SetTop(PropertyBoard, 16)
         CV_Main.Children.Add(PropertyBoard)
     End Sub
-    Public Sub Action()
-        STG.Render()
-        PropertyBoard.Update()
+    Public Overrides Sub Render()
+        MyBase.Render()
+        Dispatcher.Invoke(Sub()
+                              STG.Render()
+                              PropertyBoard.Update()
+                          End Sub)
     End Sub
 End Class

@@ -50,7 +50,7 @@ Public Class Page
     ''' <summary>
     ''' 渲染当前页面。
     ''' </summary>
-    Public Sub Render()
+    Public Overridable Sub Render()
         Ticks += 1
         Dispatcher.Invoke(Sub()
                               If Not IsNothing(Act) Then

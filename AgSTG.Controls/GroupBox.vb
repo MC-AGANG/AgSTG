@@ -1,6 +1,7 @@
 ﻿Imports System.Collections.ObjectModel
 Imports System.Collections.Specialized
 Imports AgSTG.Core
+Imports ResourcePack
 ''' <summary>
 ''' 表示组控件，可用于管理多个按钮。
 ''' </summary>
@@ -27,6 +28,7 @@ Public Class GroupBox
                 If SelectedIndex >= Buttons.Count Then SelectedIndex = 0
                 Buttons(SelectedIndex).Selected = True
                 switchcd = 10
+                Sounds.PlaySound(Sounds.select00)
             End If
         ElseIf KeyState.Up Then
             If switchcd = 0 Then
@@ -35,6 +37,7 @@ Public Class GroupBox
                 If SelectedIndex < 0 Then SelectedIndex = Buttons.Count - 1
                 Buttons(SelectedIndex).Selected = True
                 switchcd = 10
+                Sounds.PlaySound(Sounds.select00)
             End If
         End If
         If switchcd > 0 Then
