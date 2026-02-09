@@ -42,7 +42,7 @@ Class MainWindow
         GameArea.Width = 640
         GP = New GamePage
         GameArea.Children.Add(GP)
-        STG.stages.add(New Stage6.Stage6(2))
+        STG.Stages.Add(New Stage6.Stage6(2))
         Timer1 = New MediaTimer(60)
         Timer1.Start()
         PP = New PausePage
@@ -54,20 +54,12 @@ Class MainWindow
         GP.Activated = True
         GP.SetBackground(Textures.game_background)
         STG.NextStage()
-
+        GP.Act = AddressOf GamePage_Action
     End Sub
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)
         Select Case e.Key
             Case Key.Escape
-                If GP.Activated Then
-                    GP.Activated = False
-                    PP.Page.Activated = True
-                    PP.Page.Visibility = Visibility.Visible
-                ElseIf PP.Page.Activated Then
-                    PP.Page.Activated = False
-                    GP.Activated = True
-                    PP.Page.Visibility = Visibility.Hidden
-                End If
+                KeyState.Escape = True
                 Exit Select
             Case Key.F11
                 If WindowStyle = WindowStyle.None Then
@@ -107,6 +99,9 @@ Class MainWindow
     Private Sub Window_KeyUp(sender As Object, e As KeyEventArgs)
         If Not STG.ReplayMode Then
             Select Case e.Key
+                Case Key.Escape
+                    KeyState.Escape = False
+                    Exit Select
                 Case Key.Up
                     KeyState.Up = False
                     Exit Select
@@ -130,5 +125,21 @@ Class MainWindow
                     Exit Select
             End Select
         End If
+    End Sub
+    Private Sub GamePage_Action()
+        Static pausecd As Integer = 10
+        If pausecd = 0 Then
+            If KeyState.Escape AndAlso GP.Activated Then
+                GP.Activated = False
+                PP.Page.Activated = True
+                PP.Page.Visibility = Visibility.Visible
+                ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.pause)
+                pausecd = 10
+                STG.Blur.Radius = 5
+            End If
+        Else
+            pausecd -= 1
+        End If
+
     End Sub
 End Class
