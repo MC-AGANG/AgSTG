@@ -130,7 +130,9 @@ Public MustInherit Class PlayerBullet
         Public Overrides Sub Render()
             If FadeOutFrame = 0 Then
                 Judge()
-                Background = Textures.player_bullet(0, 2, (Ticks \ 2) Mod 2)
+                Layer1.Fill = Textures.player_bullet(0, 2, (Ticks \ 2) Mod 2)
+                Layer1.Height = 64
+                Layer1.Width = 16
             Else
                 FadeOut()
             End If
@@ -139,7 +141,7 @@ Public MustInherit Class PlayerBullet
         Private Sub FadeOut()
             If FadeOutFrame = 1 Then
                 Speed = 3
-                Me_Rotate.Angle = (Rnd() * 30) - 15
+                Layer1_rotate.Angle = (Rnd() * 30) - 15
                 Opacity = 0.8
             End If
             Opacity -= 0.05
