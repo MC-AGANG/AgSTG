@@ -8,7 +8,7 @@ Class MainWindow
     Public Ticks As Long
     Public GP As GamePage
     Public PP As PausePage
-
+    Private SW_FPS As New Stopwatch
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
         If FillArea.ActualHeight / 3 > FillArea.ActualWidth / 4 Then
             me_scale.ScaleX = FillArea.ActualWidth / 640
@@ -141,5 +141,21 @@ Class MainWindow
             pausecd -= 1
         End If
 
+    End Sub
+    Private Sub Timer1_Tick() Handles Timer1.Tick
+        Static tick As Integer = 0
+        Static interval As Long
+        If tick = 120 Then
+            Dim fps As Double = 1200000000 / SW_FPS.ElapsedTicks
+            SW_FPS.Stop()
+            interval = SW_FPS.ElapsedTicks
+            Dispatcher.Invoke(Sub()
+                                  LB_FPS.Content = fps.ToString("F2") + " fps"
+                              End Sub)
+            SW_FPS.Restart()
+            tick = 0
+        Else
+            tick += 1
+        End If
     End Sub
 End Class
