@@ -20,7 +20,7 @@ Public Class MediaTimer
     ''' 获取或设置这个定时器的工作负载
     ''' 由于定时器使用异步线程，此方法需要委托
     ''' </summary>
-    Public Act As Action
+    Public Act As New List(Of Action)
     Private Enabled As Boolean
     Private T As Task
     Private SW As Stopwatch
@@ -31,7 +31,10 @@ Public Class MediaTimer
     ''' <param name="Act">定时器的工作负载，需要委托</param>
     Public Sub New(TPS As Double, Optional Act As Action = Nothing)
         Me.TPS = TPS
-        Me.Act = Act
+        If Not IsNothing(Act) Then
+            Me.Act.Add(Act)
+        End If
+
         SW = New Stopwatch
     End Sub
     ''' <summary>
@@ -56,9 +59,9 @@ Public Class MediaTimer
     Private Sub Main()
         Do While Enabled
             SW.Restart()
-            If Not IsNothing(Act) Then
-                Act()
-            End If
+            For i = 0 To Act.Count - 1
+                Act(i).Invoke
+            Next
             RaiseEvent Tick(SW.ElapsedTicks / 10000)
             Do Until SW.ElapsedTicks >= (10000000 / TPS)
                 Thread.Sleep(0)
