@@ -60,6 +60,5 @@ Public Class PausePage
                 STG.Blur.Radius = 0
             End If
         End If
-
     End Sub
 End Class

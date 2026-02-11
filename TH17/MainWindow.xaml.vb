@@ -55,6 +55,8 @@ Class MainWindow
         GP.SetBackground(Textures.game_background)
         STG.NextStage()
         GP.Act = AddressOf GamePage_Action
+        Timer1.Act.Add(AddressOf FpsUpdate)
+        Timer1.Act.Add(AddressOf KeyUpdate)
     End Sub
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)
         Select Case e.Key
@@ -72,59 +74,15 @@ Class MainWindow
                     WindowState = WindowState.Maximized
                 End If
                 Exit Select
-            Case Key.Up
-                KeyState.Up = True
-                Exit Select
-            Case Key.Down
-                KeyState.Down = True
-                Exit Select
-            Case Key.Left
-                KeyState.Left = True
-                Exit Select
-            Case Key.Right
-                KeyState.Right = True
-                Exit Select
-            Case Key.LeftShift
-                KeyState.Slow = True
-                Exit Select
-            Case Key.Z
-                KeyState.Shoot = True
-                Exit Select
-            Case Key.X
-                KeyState.Bomb = True
-                Exit Select
         End Select
     End Sub
 
     Private Sub Window_KeyUp(sender As Object, e As KeyEventArgs)
-        If Not STG.ReplayMode Then
-            Select Case e.Key
-                Case Key.Escape
-                    KeyState.Escape = False
-                    Exit Select
-                Case Key.Up
-                    KeyState.Up = False
-                    Exit Select
-                Case Key.Down
-                    KeyState.Down = False
-                    Exit Select
-                Case Key.Left
-                    KeyState.Left = False
-                    Exit Select
-                Case Key.Right
-                    KeyState.Right = False
-                    Exit Select
-                Case Key.LeftShift
-                    KeyState.Slow = False
-                    Exit Select
-                Case Key.Z
-                    KeyState.Shoot = False
-                    Exit Select
-                Case Key.X
-                    KeyState.Bomb = False
-                    Exit Select
-            End Select
-        End If
+        Select Case e.Key
+            Case Key.Escape
+                KeyState.Escape = False
+                Exit Select
+        End Select
     End Sub
     Private Sub GamePage_Action()
         Static pausecd As Integer = 10
@@ -142,7 +100,7 @@ Class MainWindow
         End If
 
     End Sub
-    Private Sub Timer1_Tick() Handles Timer1.Tick
+    Private Sub FpsUpdate()
         Static tick As Integer = 0
         Static interval As Long
         If tick = 120 Then
@@ -157,5 +115,17 @@ Class MainWindow
         Else
             tick += 1
         End If
+    End Sub
+    Private Sub KeyUpdate()
+        Dispatcher.Invoke(Sub()
+                              KeyState.Up = Keyboard.IsKeyDown(Key.Up)
+                              KeyState.Down = Keyboard.IsKeyDown(Key.Down)
+                              KeyState.Left = Keyboard.IsKeyDown(Key.Left)
+                              KeyState.Right = Keyboard.IsKeyDown(Key.Right)
+                              KeyState.Slow = Keyboard.IsKeyDown(Key.LeftShift)
+                              KeyState.Shoot = Keyboard.IsKeyDown(Key.Z)
+                              KeyState.Bomb = Keyboard.IsKeyDown(Key.X)
+                          End Sub)
+
     End Sub
 End Class
