@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports AgSTG.Core
+Imports ResourcePack
 ''' <summary>
 ''' 表示对话区域
 ''' </summary>
@@ -110,6 +111,7 @@ Public Class DialogArea
             Next
             RaiseEvent Changed(Position, Dialogs(Position).Speaker)
             Position += 1
+            Sounds.PlaySound(Sounds.plst00, 0.8)
         Else
             Finished = True
             Hide()
