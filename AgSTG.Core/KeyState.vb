@@ -1,12 +1,47 @@
-﻿Public Class KeyState
+﻿''' <summary>
+''' 包含按键状态
+''' </summary>
+Public Class KeyState
+    ''' <summary>
+    ''' 获取或设置光标上键是否被按下
+    ''' </summary>
     Public Shared Up As Boolean
+    ''' <summary>
+    ''' 获取或设置光标下键是否被按下
+    ''' </summary>
     Public Shared Down As Boolean
+    ''' <summary>
+    ''' 获取或设置光标左键是否被按下
+    ''' </summary>
     Public Shared Left As Boolean
+    ''' <summary>
+    ''' 获取或设置光标右键是否被按下
+    ''' </summary>
     Public Shared Right As Boolean
+    ''' <summary>
+    ''' 获取或设置减速键是否被按下
+    ''' </summary>
     Public Shared Slow As Boolean
+    ''' <summary>
+    ''' 获取或设置开火键是否被按下
+    ''' </summary>
     Public Shared Shoot As Boolean
+    ''' <summary>
+    ''' 获取或设置大招键是否被按下
+    ''' </summary>
     Public Shared Bomb As Boolean
+    ''' <summary>
+    ''' 获取或设置扩展按键是否被按下
+    ''' </summary>
+    Public Shared Extend As Boolean
+    ''' <summary>
+    ''' 获取或设置退出键是否被按下（不会被编码）
+    ''' </summary>
     Public Shared Escape As Boolean
+    ''' <summary>
+    ''' 将当前按键状态编码为一个字节
+    ''' </summary>
+    ''' <returns></returns>
     Public Shared Function Encode() As Byte
         Encode = 0
         If Up Then Encode += 1
@@ -16,49 +51,33 @@
         If Slow Then Encode += 16
         If Shoot Then Encode += 32
         If Bomb Then Encode += 64
+        If Extend Then Encode += 128
     End Function
-    Public Shared Sub Decode(value As Byte)
-        If value >= 128 Then value -= 128
-        If value >= 64 Then
-            Bomb = True
-            value -= 64
-        Else
-            Bomb = False
-        End If
-        If value >= 32 Then
-            Shoot = True
-            value -= 32
-        Else
-            Shoot = False
-        End If
-        If value >= 16 Then
-            Slow = True
-            value -= 16
-        Else
-            Slow = False
-        End If
-        If value >= 8 Then
-            Right = True
-            value -= 8
-        Else
-            Right = False
-        End If
-        If value >= 4 Then
-            Left = True
-            value -= 4
-        Else
-            Left = False
-        End If
-        If value >= 2 Then
-            Down = True
-            value -= 2
-        Else
-            Down = False
-        End If
-        If value >= 1 Then
-            Up = True
-        Else
-            Up = False
-        End If
+    ''' <summary>
+    ''' 将一个字节解码为按键状态
+    ''' </summary>
+    ''' <param name="value">要被解码的字节</param>
+    Public Shared Sub Decode(value As Key)
+        Up = value.HasFlag(Key.Up)
+        Down = value.HasFlag(Key.Down)
+        Left = value.HasFlag(Key.Left)
+        Right = value.HasFlag(Key.Right)
+        Slow = value.HasFlag(Key.Slow)
+        Shoot = value.HasFlag(Key.Shoot)
+        Bomb = value.HasFlag(Key.Bomb)
+        Extend = value.HasFlag(Key.Extend)
     End Sub
+    ''' <summary>
+    ''' 枚举按键
+    ''' </summary>
+    Public Enum Key As Byte
+        Up = 1
+        Down = 2
+        Left = 4
+        Right = 8
+        Slow = 16
+        Shoot = 32
+        Bomb = 64
+        Extend = 128
+    End Enum
 End Class
