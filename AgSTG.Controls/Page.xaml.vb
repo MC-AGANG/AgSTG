@@ -20,9 +20,9 @@ Public Class Page
         Set(value As Boolean)
             _Activated = value
             If Activated Then
-                Timer.Act = AddressOf Render
+                Timer.Act.Add(AddressOf Render)
             Else
-                Timer.Act = Nothing
+                Timer.Act.Remove(AddressOf Render)
             End If
         End Set
     End Property
