@@ -304,4 +304,31 @@
   <data name="bt_title_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bt_title_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="bt_quit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_quit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_quit_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_quit_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_replay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_replay.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_replay_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_replay_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_start.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_start_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_start_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="title_bk00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\title_bk00.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="title_ch00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\title_ch00.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="title_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\title_logo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

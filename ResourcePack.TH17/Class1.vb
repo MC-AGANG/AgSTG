@@ -19,6 +19,13 @@ Public Class Textures
     Public Shared bt_continue(1) As ImageBrush
     Public Shared bt_retry(1) As ImageBrush
     Public Shared bt_title(1) As ImageBrush
+    Public Shared bt_start(1) As ImageBrush
+    Public Shared bt_replay(1) As ImageBrush
+    Public Shared bt_quit(1) As ImageBrush
+
+    Public Shared title_bk As ImageBrush
+    Public Shared title_ch As ImageBrush
+    Public Shared title_logo As ImageBrush
     Public Shared Sub Load()
         st06a = New ImageBrush(B2I(MyResource.st06a))
         st06d = New ImageBrush(B2I(MyResource.st06d))
@@ -55,6 +62,16 @@ Public Class Textures
         bt_retry(1) = New ImageBrush(B2I(MyResource.bt_retry_b))
         bt_title(0) = New ImageBrush(B2I(MyResource.bt_title))
         bt_title(1) = New ImageBrush(B2I(MyResource.bt_title_b))
+        bt_start(0) = New ImageBrush(B2I(MyResource.bt_start))
+        bt_start(1) = New ImageBrush(B2I(MyResource.bt_start_b))
+        bt_replay(0) = New ImageBrush(B2I(MyResource.bt_replay))
+        bt_replay(1) = New ImageBrush(B2I(MyResource.bt_replay_b))
+        bt_quit(0) = New ImageBrush(B2I(MyResource.bt_quit))
+        bt_quit(1) = New ImageBrush(B2I(MyResource.bt_quit_b))
+
+        title_bk = New ImageBrush(B2I(MyResource.title_bk00))
+        title_ch = New ImageBrush(B2I(MyResource.title_ch00))
+        title_logo = New ImageBrush(B2I(MyResource.title_logo))
     End Sub
     Public Shared Function B2I(byteArray As Byte()) As BitmapImage
         Using stream As Stream = New MemoryStream(byteArray)
@@ -70,12 +87,17 @@ Public Class Textures
     End Function
 End Class
 Public Class Sounds
+    Public Shared mu01 As New MediaPlayer
     Public Shared mu12 As New MediaPlayer
     Public Shared mu13 As New MediaPlayer
     Public Shared Sub Load()
+        mu01.Open(New Uri(Environment.CurrentDirectory + "\audio\th17_01.mp3"))
         mu12.Open(New Uri(Environment.CurrentDirectory + "\audio\th17_12.mp3"))
         mu13.Open(New Uri(Environment.CurrentDirectory + "\audio\th17_13.mp3"))
         SetLoop()
+    End Sub
+    Public Shared Sub Loop01()
+        mu01.Position = New TimeSpan(0)
     End Sub
     Public Shared Sub Loop12()
         mu12.Position = New TimeSpan(0, 0, 12)
@@ -84,6 +106,7 @@ Public Class Sounds
         mu12.Position = New TimeSpan(0, 0, 0, 22, 580)
     End Sub
     Public Shared Sub SetLoop()
+        AddHandler mu01.MediaEnded, AddressOf Loop01
         AddHandler mu12.MediaEnded, AddressOf Loop12
         AddHandler mu13.MediaEnded, AddressOf Loop13
     End Sub
