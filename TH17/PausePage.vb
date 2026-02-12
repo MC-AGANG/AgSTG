@@ -3,13 +3,12 @@ Imports AgSTG.Controls
 Imports AgSTG.Core
 Imports ResourcePack.TH17
 Public Class PausePage
-    Public Page As New Page
+    Public WithEvents Page As New Page
     Private Group As New GroupBox(48, 192, 256, 256)
     Private WithEvents BT_Continue As New Button(0, 0, 256, 32)
     Private WithEvents BT_Title As New Button(0, 40, 256, 32)
     Private WithEvents BT_Retry As New Button(0, 80, 256, 32)
     Public MW As MainWindow
-    Private pausecd As Integer = 10
     Public Sub Initialize()
         BT_Continue.ForeLayer.Fill = Textures.bt_continue(0)
         BT_Continue.BackLayer.Fill = Textures.bt_continue(1)
@@ -28,17 +27,17 @@ Public Class PausePage
         Initialize()
     End Sub
     Private Sub BT_Continue_Clicked() Handles BT_Continue.Clicked
-        If pausecd = 0 Then
-            Page.Activated = False
-            MW.GP.Activated = True
-            Page.Visibility = Visibility.Hidden
-            STG.Blur.Radius = 0
-            pausecd = 10
-        End If
+        Page.Activated = False
+        MW.GP.Activated = True
+        Page.Visibility = Visibility.Hidden
+        STG.CurrentMusic.Play()
     End Sub
     Private Sub BT_Title_Clicked() Handles BT_Title.Clicked
-        MW.Timer1.Stop()
-        MW.Close()
+        Page.Visibility = Visibility.Hidden
+        Page.Activated = False
+        MW.TP.Page.Activated = True
+        MW.TP.Page.Visibility = Visibility.Visible
+        MW.GP.Visibility = Visibility.Hidden
     End Sub
     Private Sub BT_Retry_Clicked() Handles BT_Retry.Clicked
         STG.Stages(STG.CurrentStage).Reset()
@@ -47,18 +46,17 @@ Public Class PausePage
         MW.GP.Activated = True
         Page.Visibility = Visibility.Hidden
     End Sub
+    Private Sub Page_ActivatedChanged(Activated As Boolean) Handles Page.ActivatedChanged
+        If Activated Then
+            STG.CurrentMusic.Pause()
+        End If
+    End Sub
     Private Sub Action()
-        If pausecd > 0 Then
-            pausecd -= 1
-        Else
-            If KeyState.Escape Then
-                pausecd = 10
-                Page.Activated = False
-                MW.GP.Activated = True
-                Page.Visibility = Visibility.Hidden
-                ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.cancel00)
-                STG.Blur.Radius = 0
-            End If
+        If KeyState.Escape OrElse KeyState.Bomb Then
+            Page.Activated = False
+            MW.GP.Activated = True
+            Page.Visibility = Visibility.Hidden
+            ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.cancel00)
         End If
     End Sub
 End Class
