@@ -758,6 +758,7 @@ Module St6Enm
             Sounds.mu13.Position = New TimeSpan(0)
             Sounds.mu13.Play()
             Stage.Showmusic("偶像に世界を委ねて　～ Idoratrize World")
+            STG.CurrentMusic = Sounds.mu13
         End If
     End Sub
 End Module

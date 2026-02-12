@@ -80,6 +80,7 @@ Public Class Stage6bg
         If Ticks = 0 Then
             Sounds.mu12.Position = New TimeSpan(0)
             Sounds.mu12.Play()
+            STG.CurrentMusic = Sounds.mu12
         End If
         RenderBackground()
         RenderParticle()
