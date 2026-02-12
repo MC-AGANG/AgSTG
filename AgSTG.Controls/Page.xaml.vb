@@ -21,12 +21,15 @@ Public Class Page
             _Activated = value
             If Activated Then
                 Timer.Act.Add(AddressOf Render)
+                FreezeTime = 15
             Else
                 Timer.Act.Remove(AddressOf Render)
             End If
+            RaiseEvent ActivatedChanged(Activated)
         End Set
     End Property
     Private _Activated As Boolean = False
+    Public FreezeTime As Integer = 0
     ''' <summary>
     ''' 获取或设置页面运行时间。
     ''' </summary>
@@ -35,6 +38,7 @@ Public Class Page
     ''' 获取或设置页面中包含的控件。
     ''' </summary>
     Public WithEvents Controls As New ObservableCollection(Of Control)
+    Public Event ActivatedChanged(Activated As Boolean)
     ''' <summary>
     ''' 初始化页面。
     ''' </summary>
@@ -52,6 +56,10 @@ Public Class Page
     ''' </summary>
     Public Overridable Sub Render()
         Ticks += 1
+        If FreezeTime > 0 Then
+            FreezeTime -= 1
+            Return
+        End If
         Dispatcher.Invoke(Sub()
                               If Not IsNothing(Act) Then
                                   Act()

@@ -8,7 +8,7 @@ Public Class GamePage
     ''' <summary>
     ''' 获取或设置游戏区域。
     ''' </summary>
-    Public STG As New STG
+    Public STG As New STG(0, Difficulty.Normal)
     ''' <summary>
     ''' 获取或设置属性面板。
     ''' </summary>
@@ -34,9 +34,19 @@ Public Class GamePage
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
+        If FreezeTime > 0 Then
+            Return
+        End If
         Dispatcher.Invoke(Sub()
                               STG.Render()
                               PropertyBoard.Update()
                           End Sub)
+    End Sub
+    Private Sub GamePage_ActivatedChanged(Activated As Boolean) Handles Me.ActivatedChanged
+        If Activated Then
+            STG.Blur.Radius = 0
+        Else
+            STG.Blur.Radius = 5
+        End If
     End Sub
 End Class
