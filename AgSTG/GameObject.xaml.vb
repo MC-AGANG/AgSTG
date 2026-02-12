@@ -46,7 +46,7 @@ Public MustInherit Class GameObject
         Me.X = X
         Me.Y = Y
         STG.MainBoard.Children.Add(Me)
-            Move()
+        Move()
     End Sub
     ''' <summary>
     ''' 设置对象的大小和碰撞体积

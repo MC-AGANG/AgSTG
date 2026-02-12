@@ -84,6 +84,7 @@ Public Class STG
     ''' </summary>
     ''' <returns></returns>
     Public Shared Property ReplayMode As Boolean
+    Public Shared Difficulty As Difficulty
     ''' <summary>
     ''' 获取或设置当前关卡列表
     ''' </summary>
@@ -104,16 +105,15 @@ Public Class STG
     Public Shared Event GameClear()
     Public Shared Event GameOver()
     Public Shared Blur As Effects.BlurEffect
+    Public Shared CurrentMusic As MediaPlayer
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
-
-        Player = New Player.Player0
         Objects.Add(Player)
         time0.Fill = Textures.number(0, 11)
 
     End Sub
-    Public Sub New()
+    Public Sub New(PlayerID As Integer, Difficulty As Difficulty)
         InitializeComponent()
         MainBoard = mb
         BackLayer = BL
@@ -129,6 +129,13 @@ Public Class STG
         MusicArea = LB_Music
         NameArea = BN
         Blur = Me_Blur
+        Select Case PlayerID
+            Case 0
+                Player = New Player.Player0
+            Case 1
+                Player = New Player.Player1
+        End Select
+        Me.Difficulty = Difficulty
     End Sub
     Public Sub Render()
         For Each obj In Objects
