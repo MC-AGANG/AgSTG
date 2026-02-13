@@ -10,11 +10,35 @@ Public Class Bullet
     ''' </summary>
     ''' <returns></returns>
     Public Property BulletType As Byte
+        Set(value As Byte)
+            _bullettype = value
+            If Ticks > 11 Then
+                InitAppearance()
+                Background = Textures.bullet(BulletType, BulletColor)
+            End If
+        End Set
+        Get
+            Return _bullettype
+        End Get
+    End Property
+    Private _bullettype As Byte
     ''' <summary>
     ''' 获取或设置子弹颜色
     ''' </summary>
     ''' <returns></returns>
     Public Property BulletColor As Byte
+        Set(value As Byte)
+            _bulletcolor = value
+            If Ticks > 11 Then
+                InitAppearance()
+                Background = Textures.bullet(BulletType, BulletColor)
+            End If
+        End Set
+        Get
+            Return _bulletcolor
+        End Get
+    End Property
+    Private _bulletcolor As Byte
     ''' <summary>
     ''' 获取或设置子弹速度
     ''' </summary>
