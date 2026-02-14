@@ -124,6 +124,10 @@ Public MustInherit Class Player
                     STG.Life -= 1
                 End If
                 STG.Spell = 3
+                STG.Power -= 50
+                For i = 1 To 7
+                    STG.Objects_Add.Add(New Item(ItemType.Power, STG.Player.X + 16 * (i - 4), STG.Player.Y + 4 * Abs(i - 4)))
+                Next
             End If
         End If
     End Sub
