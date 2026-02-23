@@ -171,8 +171,7 @@ Public Class Enemy
         End If
     End Sub
     Private Sub Appearance5()
-        Background = Textures.enemy(EnemyType, Color, (Ticks \ 2) Mod 8)
-        If Ticks Mod 1 = 0 Then
+        If Ticks Mod 4 = 0 Then
             ghostfires.Add(New GhostFire(Me))
         End If
         For Each g In ghostfires
@@ -275,22 +274,26 @@ Public Class Enemy
         Private owner As Enemy
         Public Sub New(owner As Enemy)
             Me.owner = owner
-            X = Rnd() * 16 - 8
+            X = 0
             Y = 16
             rec = New Rectangle
             owner.MainBoard.Children.Add(rec)
-            rec.Height = 16
-            rec.Width = 16
+            rec.Height = 32
+            rec.Width = 32
         End Sub
         Public Sub Render()
-            Y -= 2
-            X += 2 * Rnd() - 1
+            If ticks > 1 Then
+                Y -= 2 - owner.Speed * Cos(owner.Direction / 180 * PI)
+                X += 2 * Rnd() - 1 - owner.Speed * Sin(owner.Direction / 180 * PI)
+                rec.Height -= 2
+                rec.Width -= 2
+            End If
             ticks += 1
-            rec.Height -= 1
-            rec.Width -= 1
             Canvas.SetLeft(rec, X - rec.Width / 2 + 16)
             Canvas.SetTop(rec, Y - rec.Height / 2)
-            rec.Fill = Textures.enemy(owner.EnemyType, owner.Color, (ticks \ 2) Mod 8)
+            If ticks Mod 2 = 0 Then
+                rec.Fill = Textures.enemy(owner.EnemyType, owner.Color, Int(Rnd() * 8))
+            End If
             If ticks >= 16 Then
                 owner.MainBoard.Children.Remove(rec)
                 owner.rm_ghostfires.Add(Me)
