@@ -89,6 +89,7 @@ Public Class STG
     ''' 获取或设置当前关卡列表
     ''' </summary>
     Public Shared Stages As New List(Of Stage)
+
     Public Shared CurrentStage As Integer = -1
     Public Shared BackLayer As Grid
     Public Shared timer10 As Rectangle
@@ -281,6 +282,8 @@ Public Class STG
     ''' </summary>
     Public Shared Sub NextStage()
         If CurrentStage < Stages.Count - 1 Then
+            Dim seed As Double = Date.Now.Millisecond + Date.Now.Second * 1000
+            Randomize(seed)
             If CurrentStage >= 0 Then
                 Stages(CurrentStage).Unload()
             End If
