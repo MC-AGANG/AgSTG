@@ -1,5 +1,6 @@
 ﻿Imports System.Numerics
 Imports ResourcePack
+Imports AgSTG.Core
 ''' <summary>
 ''' 表示游戏事件发生的区域
 ''' </summary>
@@ -84,6 +85,10 @@ Public Class STG
     ''' </summary>
     ''' <returns></returns>
     Public Shared Property ReplayMode As Boolean
+    Public Shared Replays As New List(Of Replay)
+    ''' <summary>
+    ''' 获取或设置当前难度
+    ''' </summary>
     Public Shared Difficulty As Difficulty
     ''' <summary>
     ''' 获取或设置当前关卡列表
@@ -139,6 +144,9 @@ Public Class STG
         Me.Difficulty = Difficulty
     End Sub
     Public Sub Render()
+        If Not ReplayMode Then
+            Replays.Last.KeyData.Add(KeyState.Encode)
+        End If
         For Each obj In Objects
             obj.Ticks += 1
             obj.Render()
@@ -222,6 +230,7 @@ Public Class STG
         Graze = 0
         PointValue = 10000
         Power = 400
+        Replays.Clear()
     End Sub
     ''' <summary>
     ''' 更新符卡计时器
@@ -289,6 +298,7 @@ Public Class STG
             End If
             CurrentStage += 1
             Stages(CurrentStage).Load()
+            Replays.Add(New Replay(seed))
         Else
             RaiseEvent GameClear()
         End If
