@@ -1,0 +1,12 @@
+{
+  "name": "LilyTDS3",
+  "description": "An ESP32-S3 Arduino board",
+  "keywords": "LilyTDS3",
+  "authors": {
+    "name": "AGANG",
+    "url": "www.agang.org"
+  },
+  "version": "0.1.0",
+  "framework": "arduino",
+  "platforms": "esp32"
+}
