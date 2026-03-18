@@ -31,4 +31,11 @@
     <ProjectReference Include="..\ResourcePack\ResourcePack.vbproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="wpfpslib">
+      <HintPath>D:\dll\wpfpslib\wpfpslib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+
 </Project>
