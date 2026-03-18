@@ -341,6 +341,7 @@ Public Class Enemy
                 X += Speed * Sin(Direction / 180 * PI)
                 Y -= Speed * Cos(Direction / 180 * PI)
                 MoveFrame -= 1
+                STG.BackLayer_BlackHole.Position = New Point(X / 384, Y / 448)
             End If
         End Sub
         ''' <summary>
@@ -350,6 +351,7 @@ Public Class Enemy
         Public Overrides Sub Render()
             If Ticks = 0 Then
                 Init()
+                STG.BackLayer_BlackHole.Radius = 1
             End If
             Boss_Move()
             MagicSquare()
@@ -385,13 +387,12 @@ Public Class Enemy
         Private Sub MagicSquare()
             If CurrentSpell > -1 Then
                 If SpellCards(CurrentSpell).IsEnabled Then
-                    Layer1_rotate.Angle = (Ticks * 5) Mod 360
+                    Layer1_rotate.Angle = (Ticks Mod 360) / 2
                     If SpellCards(CurrentSpell).Ticks < 60 Then
-                        Layer1_scale.ScaleX = SpellCards(CurrentSpell).Ticks / 30
+                        Layer1_scale.ScaleX = ((0.3 * Sin((SpellCards(CurrentSpell).Ticks / 3 - 60) / 20)) + 2) * (SpellCards(CurrentSpell).Ticks / 60)
                         Layer1_scale.ScaleY = SpellCards(CurrentSpell).Ticks / 30
                     Else
-                        Layer1_scale.ScaleX = (0.2 * Sin((SpellCards(CurrentSpell).Ticks - 60) / 20)) + 2
-                        Layer1_scale.ScaleY = (0.2 * Sin((SpellCards(CurrentSpell).Ticks - 60) / 20)) + 2
+                        Layer1_scale.ScaleX = (0.3 * Sin((SpellCards(CurrentSpell).Ticks / 3 - 60) / 20)) + 2
                     End If
                 Else
                     Layer1_scale.ScaleX = 0
@@ -479,6 +480,7 @@ Public Class Enemy
                 FadeOutFrame = 1
                 Sounds.PlaySound(Sounds.enep01)
                 STG.BossAttack = False
+                STG.BackLayer_BlackHole.Radius = 0
             End If
         End Sub
         ''' <summary>
