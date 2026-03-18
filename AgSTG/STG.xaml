@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AgSTG"
+             xmlns:ps="clr-namespace:wpfpslib;assembly=wpfpslib"
              mc:Ignorable="d" 
              d:DesignHeight="448" d:DesignWidth="384"
              ClipToBounds="True"
@@ -18,7 +19,9 @@
     </UserControl.Effect>
     <Grid>
         <Grid Name="BL">
-            
+            <Grid.Effect>
+                <ps:BlackHoleEffect Dist="0.5" Aspectratio="1.1667" x:Name="BL_BH" Radius="0"/>
+            </Grid.Effect>
         </Grid>
         <Canvas Name="mb">
 

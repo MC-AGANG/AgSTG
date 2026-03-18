@@ -97,6 +97,7 @@ Public Class STG
 
     Public Shared CurrentStage As Integer = -1
     Public Shared BackLayer As Grid
+    Public Shared BackLayer_BlackHole As wpfpslib.BlackHoleEffect
     Public Shared timer10 As Rectangle
     Public Shared timer1 As Rectangle
     Public Shared timer01 As Rectangle
@@ -123,6 +124,7 @@ Public Class STG
         InitializeComponent()
         MainBoard = mb
         BackLayer = BL
+        BackLayer_BlackHole = BL_BH
         timer10 = time10
         timer1 = time1
         timer01 = time01
