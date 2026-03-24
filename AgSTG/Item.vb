@@ -147,6 +147,9 @@ Public Class Item
                     Exit Select
             End Select
         End If
+        If Y > 512 Then
+            Clear()
+        End If
     End Sub
     Private Sub FadeOut()
         Opacity = (60 - FadeOutFrame) / 60
