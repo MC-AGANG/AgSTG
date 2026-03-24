@@ -10,7 +10,7 @@ Public Class Textures
     Public Shared st05b As ImageBrush
     Public Shared cdbg06b As ImageBrush
     Public Shared game_background As ImageBrush
-    Public Shared boss(1, 5) As ImageBrush
+    Public Shared boss(1, 16) As ImageBrush
     Public Shared st6enm(0, 2) As ImageBrush
     Public Shared st6s(6) As ImageBrush
     Public Shared illustrations(9)() As ImageBrush
@@ -37,8 +37,8 @@ Public Class Textures
         For i = 0 To 5
             boss(0, i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("boss000" + CStr(i))))
         Next
-        For i = 0 To 4
-            boss(1, i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("boss010" + CStr(i))))
+        For i = 0 To 10
+            boss(1, i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("boss01" + i.ToString("D2"))))
         Next
         For i = 0 To 2
             st6enm(0, i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("st6e000" + CStr(i))))

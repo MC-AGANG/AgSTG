@@ -331,4 +331,22 @@
   <data name="title_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\title_logo.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="boss0105" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0105.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0106" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0106.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0107" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0107.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0108" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0108.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0109" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0109.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0110" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0110.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
