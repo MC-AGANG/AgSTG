@@ -125,7 +125,7 @@ Public Class B1S0
         Score = 6000000
         HaveUsual = True
         Items = "000000000011111111114"
-        SpellName = Textures.st6s(0)
+        SpellName = "方形「方形造形术」"
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
@@ -197,7 +197,7 @@ Public Class B1S1
         Score = 6000000
         HaveUsual = True
         Items = "000000000011111111114"
-        SpellName = Textures.st6s(1)
+        SpellName = "圆形「正圆造形术」"
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
@@ -310,7 +310,7 @@ Public Class B1S2
         Score = 6000000
         HaveUsual = True
         Items = "000000000011111111114"
-        SpellName = Textures.st6s(2)
+        SpellName = "线形「线形造形术」"
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
@@ -388,7 +388,7 @@ Public Class B1S3
         Score = 6000000
         HaveUsual = True
         Items = "000000000011111111114"
-        SpellName = Textures.st6s(3)
+        SpellName = "埴轮「偶像人马造形术」"
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
@@ -448,7 +448,7 @@ Public Class B1S4
         Score = 6000000
         HaveUsual = False
         Items = "000000000011111111114"
-        SpellName = Textures.st6s(4)
+        SpellName = "「鬼形造形术」"
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
@@ -491,7 +491,7 @@ Public Class B1S5
         Score = 6000000
         HaveUsual = False
         Items = "000000000011111111114"
-        SpellName = Textures.st6s(5)
+        SpellName = "「几何造物」"
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
@@ -533,7 +533,7 @@ Public Class B1S6
         StagePercent = {0.25, 0.5, 0.75, 1}
         HaveUsual = False
         Items = "000000000011111111114"
-        SpellName = Textures.st6s(6)
+        SpellName = "「造形恶魔」"
     End Sub
     Public Overrides Sub Render()
         MyBase.Render()
@@ -599,6 +599,7 @@ Public Class B1S6
         Next
     End Sub
 End Class
+
 Module St6Enm
     <Extension>
     Public Sub S6W1(e As Enemy)
