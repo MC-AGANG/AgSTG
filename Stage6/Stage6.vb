@@ -683,18 +683,21 @@ Module St6Enm
     <Extension>
     Public Sub S6B0I(e As Enemy.Boss)
         With e
+            For i = 0 To 5
+                .NormalTextures.Add(Textures.boss(0, i))
+            Next
             .SpellCards.Add(New B0S0(e))
             .Layer3.Height = 96
             .Layer3.Width = 96
             Canvas.SetLeft(.Layer3, 16)
             Canvas.SetTop(.Layer3, 16)
             .Layer3.Fill = Textures.boss(0, 0)
+
         End With
     End Sub
     <Extension>
     Public Sub S6B0A(e As Enemy.Boss)
         With e
-            .Layer3.Fill = Textures.boss(0, (.Ticks \ 8) Mod 6)
             If .Ticks = 0 Then
                 .MoveToCenter(60)
             End If
@@ -703,12 +706,17 @@ Module St6Enm
                 STG.NameArea.Initialize("Joutougu Mayumi", 1)
                 .NextSpell()
             End If
-            .Layer3_translate.Y = 4 * Sin(e.Ticks / 90 * PI)
         End With
     End Sub
     <Extension>
     Public Sub S6B1I(e As Enemy.Boss)
         With e
+            For i = 0 To 4
+                .NormalTextures.Add(Textures.boss(1, i))
+            Next
+            For i = 5 To 10
+                .MoveTextures.Add(Textures.boss(1, i))
+            Next
             .SpellCards.Add(New B1S0(e))
             .SpellCards.Add(New B1S1(e))
             .SpellCards.Add(New B1S2(e))
@@ -718,6 +726,7 @@ Module St6Enm
             .SpellCards.Add(New B1S6(e))
             .Layer3.Height = 112
             .Layer3.Width = 96
+            .Layer3_scale.CenterX = 48
             Canvas.SetLeft(.Layer3, 16)
             Canvas.SetTop(.Layer3, 8)
             .Layer3.Fill = Textures.boss(1, 0)
@@ -727,8 +736,6 @@ Module St6Enm
     Public Sub S6B1A(e As Enemy.Boss)
         Dim s As String()
         With e
-            .Layer3.Fill = Textures.boss(1, (.Ticks \ 8) Mod 5)
-
             If .Ticks = 0 Then
                 .MoveToCenter(60)
                 Texts.dialog0603.ReadLine()
@@ -744,7 +751,6 @@ Module St6Enm
                 STG.NameArea.Initialize("Haniyasushin Keiki", 7)
                 .NextSpell()
             End If
-            .Layer3_translate.Y = 4 * Sin(e.Ticks / 90 * PI)
         End With
     End Sub
     Public Sub S6B1D(Position As Integer, Speaker As Speakers)
