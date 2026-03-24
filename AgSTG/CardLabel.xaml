@@ -139,14 +139,17 @@
                 <RowDefinition Height="8"/>
             </Grid.RowDefinitions>
             <Rectangle Name="bg" Grid.Row="1" Grid.RowSpan="3" Opacity="0"/>
-            <Rectangle Name="cardname" Grid.Row="1">
-                <Rectangle.RenderTransform>
+            <Label Name="cardname" Grid.Row="1" Foreground="White" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,0,0">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="0" ShadowDepth="2" Color="Maroon"/>
+                </Label.Effect>
+                <Label.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform x:Name="cn_scale" CenterX="255" CenterY="11.5"/>
                         <TranslateTransform x:Name="cn_translate"/>
                     </TransformGroup>
-                </Rectangle.RenderTransform>
-            </Rectangle>
+                </Label.RenderTransform>
+            </Label>
             <Canvas Grid.Row="3">
                 <Rectangle Width="8" Height="9" Canvas.Left="100" Name="score8"/>
                 <Rectangle Width="8" Height="9" Canvas.Left="107" Name="score7"/>

@@ -76,7 +76,7 @@ Public MustInherit Class SpellCard
     ''' 获取或设置符卡名用于展示
     ''' </summary>
     ''' <returns></returns>
-    Public Property SpellName As ImageBrush
+    Public Property SpellName As String
     Public StagePercent() As Double
     ''' <summary>
     ''' 控制符卡的行为<br/>

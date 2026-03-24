@@ -109,9 +109,9 @@ Public Class CardLabel
             Next
         End If
     End Sub
-    Public Sub Show(CardName As ImageBrush)
+    Public Sub Show(CardName As String)
         Visibility = Visibility.Visible
-        Me.cardname.Fill = CardName
+        Me.cardname.Content = CardName
         bg.Visibility = Visibility.Visible
         Me.cardname.Visibility = Visibility.Visible
         FadeInFrame = 90
