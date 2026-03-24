@@ -320,7 +320,8 @@ Public Class Enemy
         Public Init As Action
         Private HPBar As New HPBar
         Private MoveFrame As Integer
-
+        Public NormalTextures As New List(Of ImageBrush)
+        Public MoveTextures As New List(Of ImageBrush)
         Public Sub New(BossID As Byte, X As Double, Y As Double)
             MyBase.New(EnemyType.Boss, BossID, X, Y, 99999, "", 99999)
             IsEnabled = False
@@ -337,12 +338,37 @@ Public Class Enemy
             STG.BossAttack = True
         End Sub
         Private Sub Boss_Move()
+            Static max_moveframe = 0
+            If (MoveFrame > 0 AndAlso max_moveframe = 0) OrElse max_moveframe < MoveFrame Then
+                max_moveframe = MoveFrame
+            End If
             If MoveFrame > 0 Then
                 X += Speed * Sin(Direction / 180 * PI)
                 Y -= Speed * Cos(Direction / 180 * PI)
                 MoveFrame -= 1
                 STG.BackLayer_BlackHole.Position = New Point(X / 384, Y / 448)
+                If MoveTextures.Count > 0 AndAlso Abs(Speed * Sin(Direction / 180 * PI)) > 0.1 Then
+                    If MoveFrame <= MoveTextures.Count * 8 Then
+                        Layer3.Fill = MoveTextures((MoveFrame - 1) \ 8)
+                    ElseIf max_moveframe - MoveFrame <= MoveTextures.Count * 8 Then
+                        Layer3.Fill = MoveTextures((max_moveframe - MoveFrame - 1) \ 8)
+                    End If
+                    If Speed * Sin(Direction / 180 * PI) >= 0 Then
+                        Layer3_scale.ScaleX = 1
+                    Else
+                        Layer3_scale.ScaleX = -1
+                    End If
+                End If
+            ElseIf MoveFrame = 0 Then
+                If max_moveframe <> 0 Then
+                    max_moveframe = 0
+                    Layer3_scale.ScaleX = 1
+                End If
+                If NormalTextures.Count > 0 Then
+                    Layer3.Fill = NormalTextures((Ticks \ 8) Mod NormalTextures.Count)
+                End If
             End If
+            Layer3_translate.Y = 4 * Sin(Ticks / 90 * PI)
         End Sub
         ''' <summary>
         ''' Boss单位子类建议重写并调用此方法<br/>

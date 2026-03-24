@@ -36,7 +36,7 @@
         <Rectangle Name="Layer3" x:FieldModifier="public">
             <Rectangle.RenderTransform>
                 <TransformGroup>
-                    <ScaleTransform x:Name="Layer3_scale"/>
+                    <ScaleTransform x:Name="Layer3_scale" x:FieldModifier="public"/>
                     <RotateTransform x:Name="Layer3_rotate"/>
                     <TranslateTransform x:Name="Layer3_translate" x:FieldModifier="public"/>
                 </TransformGroup>
