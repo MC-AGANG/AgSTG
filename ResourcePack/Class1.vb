@@ -7,7 +7,7 @@ Public Class Textures
 
     Public Shared number(4, 14) As ImageBrush
 
-    Public Shared bullet(18, 15) As ImageBrush
+    Public Shared bullet(20, 15) As ImageBrush
 
     Public Shared bulletbreak(15, 7) As ImageBrush
     Public Shared bulletin(15) As ImageBrush
@@ -59,6 +59,7 @@ Public Class Textures
     Public Shared player_option(1) As ImageBrush
 
     Public Shared particle_cherry As ImageBrush
+    Public Shared particle_snow As ImageBrush
 
     Public Shared enemyspell As ImageBrush
 
@@ -78,12 +79,17 @@ Public Class Textures
                 bullet(i, j) = New ImageBrush(b2i(MyResource.ResourceManager.GetObject("bullet" + i.ToString("D2") + j.ToString("D2"))))
             Next
         Next
+        For j = 0 To 15
+            bullet(19, j) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("bullet19" + j.ToString("D2"))))
+        Next
         For i = 11 To 18
             For j = 0 To 7
                 bullet(i, j) = New ImageBrush(b2i(MyResource.ResourceManager.GetObject("bullet" + i.ToString("D2") + j.ToString("D2"))))
             Next
         Next
-
+        For i = 0 To 3
+            bullet(20, i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("bullet20" + i.ToString("D2"))))
+        Next
         For i = 0 To 15
             For j = 0 To 7
                 bulletbreak(i, j) = New ImageBrush(b2i(MyResource.ResourceManager.GetObject("bulletbreak" + Color16to8(i).ToString("D1") + j.ToString("D1"))))
@@ -208,6 +214,7 @@ Public Class Textures
             player_option(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("pl" + CStr(i) + "_option")))
         Next
         particle_cherry = New ImageBrush(B2I(MyResource.cherry))
+        particle_snow = New ImageBrush(B2I(MyResource.snow))
 
         enemyspell = New ImageBrush(B2I(MyResource.enemyspell))
     End Sub
@@ -321,72 +328,141 @@ Public Class Sounds
     Public Shared wolf As New MediaPlayer
     Public Shared Sub Load()
         big.Open(New Uri(Environment.CurrentDirectory + "\audio\se_big.wav"))
+
         bonus.Open(New Uri(Environment.CurrentDirectory + "\audio\se_bonus.wav"))
+
         bonus2.Open(New Uri(Environment.CurrentDirectory + "\audio\se_bonus2.wav"))
+
         bonus4.Open(New Uri(Environment.CurrentDirectory + "\audio\se_bonus4.wav"))
+
         boon00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_boon00.wav"))
+
         boon01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_boon01.wav"))
+
         cancel00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_cancel00.wav"))
+
         cardget.Open(New Uri(Environment.CurrentDirectory + "\audio\se_cardget.wav"))
+
         cat00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_cat00.wav"))
+
         ch00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_ch00.wav"))
+
         ch01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_ch01.wav"))
+
         ch02.Open(New Uri(Environment.CurrentDirectory + "\audio\se_ch02.wav"))
+
         ch03.Open(New Uri(Environment.CurrentDirectory + "\audio\se_ch03.wav"))
+
         changeitem.Open(New Uri(Environment.CurrentDirectory + "\audio\se_changeitem.wav"))
+
         damage00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_damage00.wav"))
+
         damage01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_damage01.wav"))
+
         don00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_don00.wav"))
+
         enep00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_enep00.wav"))
+
         enep01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_enep01.wav"))
+
         enep02.Open(New Uri(Environment.CurrentDirectory + "\audio\se_enep02.wav"))
+
         etbreak.Open(New Uri(Environment.CurrentDirectory + "\audio\se_etbreak.wav"))
+
         extend.Open(New Uri(Environment.CurrentDirectory + "\audio\se_extend.wav"))
+
         extend2.Open(New Uri(Environment.CurrentDirectory + "\audio\se_extend2.wav"))
+
         fault.Open(New Uri(Environment.CurrentDirectory + "\audio\se_fault.wav"))
+
         graze.Open(New Uri(Environment.CurrentDirectory + "\audio\se_graze.wav"))
+
         gun00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_gun00.wav"))
+
         heal.Open(New Uri(Environment.CurrentDirectory + "\audio\se_heal.wav"))
+
         invalid.Open(New Uri(Environment.CurrentDirectory + "\audio\se_invalid.wav"))
+
         item00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_item00.wav"))
+
         item01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_item01.wav"))
+
         kira00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_kira00.wav"))
+
         kira01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_kira01.wav"))
+
         kira02.Open(New Uri(Environment.CurrentDirectory + "\audio\se_kira02.wav"))
+
         lazer00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_lazer00.wav"))
+
         lazer01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_lazer01.wav"))
+
         lazer02.Open(New Uri(Environment.CurrentDirectory + "\audio\se_lazer02.wav"))
+
         lgods1.Open(New Uri(Environment.CurrentDirectory + "\audio\se_lgods1.wav"))
+
         lgods2.Open(New Uri(Environment.CurrentDirectory + "\audio\se_lgods2.wav"))
+
         lgods3.Open(New Uri(Environment.CurrentDirectory + "\audio\se_lgods3.wav"))
+
         lgods4.Open(New Uri(Environment.CurrentDirectory + "\audio\se_lgods4.wav"))
+
         lgodsget.Open(New Uri(Environment.CurrentDirectory + "\audio\se_lgodsget.wav"))
+
         msl.Open(New Uri(Environment.CurrentDirectory + "\audio\se_msl.wav"))
+
         msl2.Open(New Uri(Environment.CurrentDirectory + "\audio\se_msl2.wav"))
+
         msl3.Open(New Uri(Environment.CurrentDirectory + "\audio\se_msl3.wav"))
+
         nep00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_nep00.wav"))
+
         nodamage.Open(New Uri(Environment.CurrentDirectory + "\audio\se_nodamage.wav"))
+
         noise.Open(New Uri(Environment.CurrentDirectory + "\audio\se_noise.wav"))
+
         ok00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_ok00.wav"))
+
         pause.Open(New Uri(Environment.CurrentDirectory + "\audio\se_pause.wav"))
+
         pin00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_pin00.wav"))
+
         pin01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_pin01.wav"))
+
         pldead00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_pldead00.wav"))
+
+
         pldead01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_pldead01.wav"))
+
         plst00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_plst00.wav"))
+
         power0.Open(New Uri(Environment.CurrentDirectory + "\audio\se_power0.wav"))
+
         power1.Open(New Uri(Environment.CurrentDirectory + "\audio\se_power1.wav"))
+
         powerup.Open(New Uri(Environment.CurrentDirectory + "\audio\se_powerup.wav"))
+
         release.Open(New Uri(Environment.CurrentDirectory + "\audio\se_release.wav"))
+
         select00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_select00.wav"))
+
         slash.Open(New Uri(Environment.CurrentDirectory + "\audio\se_slash.wav"))
+
+
         tan00.Open(New Uri(Environment.CurrentDirectory + "\audio\se_tan00.wav"))
+
         tan01.Open(New Uri(Environment.CurrentDirectory + "\audio\se_tan01.wav"))
+
         tan02.Open(New Uri(Environment.CurrentDirectory + "\audio\se_tan02.wav"))
+
         tan03.Open(New Uri(Environment.CurrentDirectory + "\audio\se_tan03.wav"))
+
         timeout.Open(New Uri(Environment.CurrentDirectory + "\audio\se_timeout.wav"))
+
         timeout2.Open(New Uri(Environment.CurrentDirectory + "\audio\se_timeout2.wav"))
+
         trophy.Open(New Uri(Environment.CurrentDirectory + "\audio\se_trophy.wav"))
+
         wolf.Open(New Uri(Environment.CurrentDirectory + "\audio\se_wolf.wav"))
     End Sub
     ''' <summary>

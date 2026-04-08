@@ -2477,6 +2477,206 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Byte[] 类型的本地化资源。
         '''</summary>
+        Friend Shared ReadOnly Property bullet1900() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1900", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1901() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1901", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1902() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1902", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1903() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1903", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1904() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1904", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1905() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1905", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1906() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1906", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1907() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1907", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1908() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1908", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1909() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1909", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1910() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1910", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1911() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1911", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1912() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1912", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1913() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1913", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1914() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1914", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet1915() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet1915", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet2000() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet2000", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet2001() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet2001", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet2002() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet2002", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bullet2003() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bullet2003", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
         Friend Shared ReadOnly Property bulletbreak00() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("bulletbreak00", resourceCulture)

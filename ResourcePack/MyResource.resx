@@ -2689,4 +2689,64 @@
   <data name="enemyspell" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\enemyspell.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="bullet1900" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1900.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1901" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1901.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1902" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1902.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1903" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1903.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1904" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1904.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1905" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1905.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1906" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1906.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1907" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1907.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1908" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1908.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1909" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1909.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1910" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1910.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1911" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1911.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1912" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1912.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1913" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1913.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1914" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1914.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet1915" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet1915.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet2000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet2000.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet2001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet2001.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet2002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet2002.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bullet2003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bullet2003.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
