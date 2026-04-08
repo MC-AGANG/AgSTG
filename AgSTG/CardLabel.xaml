@@ -135,11 +135,11 @@
                 <RowDefinition Height="8"/>
                 <RowDefinition Height="24"/>
                 <RowDefinition Height="8"/>
-                <RowDefinition/>
+                <RowDefinition Height="16"/>
                 <RowDefinition Height="8"/>
             </Grid.RowDefinitions>
             <Rectangle Name="bg" Grid.Row="1" Grid.RowSpan="3" Opacity="0"/>
-            <Label Name="cardname" Grid.Row="1" Foreground="White" FontSize="16" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Padding="0,0,0,0">
+            <Label x:FieldModifier="public" Name="cardname" Grid.Row="1" Foreground="White" FontSize="16" HorizontalContentAlignment="Right" Padding="0,0,0,0">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="0" ShadowDepth="2" Color="Maroon"/>
                 </Label.Effect>

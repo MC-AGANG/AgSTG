@@ -56,5 +56,13 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <Rectangle Width="10" Height="12" Name="s4" Visibility="Hidden">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <TranslateTransform Y="-60"/>
+                    <RotateTransform x:Name="s4_r" CenterX="4.5" CenterY="5.5"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
     </Grid>
 </UserControl>

@@ -91,20 +91,24 @@ Public MustInherit Class SpellCard
             End If
         End If
         If AtSpell Then
-            If Ticks = 0 Then
+            If Ticks = 1 Then
                 STG.SpellCardLabel.Show(SpellName)
                 STG.bonusfail = False
-            Else
+            ElseIf Ticks > 1 Then
                 If STG.bonusfail = True Then
                     Score = 0
                 End If
             End If
-            If Score - 20 > 0 Then
+            If Score - 20 > 0 AndAlso Type = SpellType.Life Then
                 Score -= 20
             End If
             STG.UpdateTime(SpellTime - Ticks)
             If Ticks > SpellTime Then
-                Owner.SpellFinish(False)
+                If Type = SpellType.Time Then
+                    Owner.SpellFinish(True)
+                Else
+                    Owner.SpellFinish(False)
+                End If
                 STG.timerarea.Visibility = Visibility.Hidden
             End If
             STG.SpellCardLabel.Update(Score)

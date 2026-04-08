@@ -59,7 +59,7 @@ Public Class STG
     ''' <summary>
     ''' 获取或设置当前火力
     ''' </summary>
-    Public Shared Property Power As Short = 400
+    Public Shared Property Power As Short = 100
     ''' <summary>
     ''' 获取或设置当前最大得点
     ''' </summary>
@@ -118,7 +118,7 @@ Public Class STG
         Width = 384
         Objects.Add(Player)
         time0.Fill = Textures.number(0, 11)
-
+        AddHandler Player.GameOver, AddressOf Player_GameOver
     End Sub
     Public Sub New(PlayerID As Integer, Difficulty As Difficulty)
         InitializeComponent()
@@ -292,6 +292,9 @@ Public Class STG
     ''' 进入下一关
     ''' </summary>
     Public Shared Sub NextStage()
+        If Not IsNothing(CurrentMusic) Then
+            CurrentMusic.Stop()
+        End If
         If CurrentStage < Stages.Count - 1 Then
             Dim seed As Double = Date.Now.Millisecond + Date.Now.Second * 1000
             Randomize(seed)
@@ -304,5 +307,9 @@ Public Class STG
         Else
             RaiseEvent GameClear()
         End If
+
+    End Sub
+    Private Sub Player_GameOver()
+        RaiseEvent GameOver()
     End Sub
 End Class

@@ -246,12 +246,12 @@ Public Class Item
                 Clear()
                 Exit Select
             Case 6
-                If STG.SpellPiece < 5 Then
+                If STG.SpellPiece < 4 Then
                     STG.SpellPiece += 1
                 Else
                     If STG.Spell < 8 Then
                         STG.Spell += 1
-                        STG.Spell = 0
+                        STG.SpellPiece = 0
                         Sounds.PlaySound(Sounds.cardget)
                     End If
                 End If

@@ -1,5 +1,6 @@
-﻿Imports ResourcePack
+﻿Imports System.Drawing.Drawing2D
 Imports System.Math
+Imports ResourcePack
 ''' <summary>
 ''' 表示敌机子弹
 ''' </summary>
@@ -61,6 +62,11 @@ Public Class Bullet
     ''' </summary>
     ''' <returns></returns>
     Public Property Grazed As Boolean = False
+    ''' <summary>
+    ''' 获取或设置这个子弹是否可被正常途径消弹
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property Breakable As Boolean = True
     ''' <summary>
     ''' 控制子弹行为的方法
     ''' 可在创建时使用with语句添加
@@ -179,6 +185,10 @@ Public Class Bullet
                 SetSize(32, 32, 3)
                 Me_Translate.Y = 8
                 Exit Select
+            Case 19
+                SetSize(8, 8, 3)
+            Case 20
+                SetSize(64, 64, 20)
         End Select
     End Sub
     Public Overrides Sub Render()
@@ -204,7 +214,7 @@ Public Class Bullet
         X += Speed * Sin(Direction / 180 * PI)
         Y -= Speed * Cos(Direction / 180 * PI)
         Judge()
-        If BulletType = 10 Or BulletType = 11 Then
+        If BulletType = 10 Or BulletType = 11 Or BulletType = 20 Then
             Me_Rotate.Angle += 8
         Else
             Me_Rotate.Angle = Direction
@@ -215,8 +225,10 @@ Public Class Bullet
         If IsEnabled Then
             If IsHit(STG.Player) AndAlso STG.Player.IsEnabled Then
                 Break(True)
-                IsEnabled = False
-                If STG.Player.Invin = 0 Then
+                If Breakable Then
+                    IsEnabled = False
+                End If
+                If STG.Player.Invin <= 0 Then
                     STG.Player.Miss()
                 End If
             End If
@@ -225,7 +237,9 @@ Public Class Bullet
                 Grazed = True
             End If
             If Y < -32 OrElse X > 400 OrElse X < -16 OrElse Y > 480 Then
-                Clear()
+                If Breakable Then
+                    Clear()
+                End If
             End If
         End If
     End Sub
@@ -233,11 +247,13 @@ Public Class Bullet
     ''' 消弹并产生信仰点
     ''' </summary>
     ''' <param name="Drop">消弹后是否产生信仰点，默认产生</param>
-    Public Overridable Sub Break(Optional Drop As Boolean = True)
-        IsEnabled = False
-        FadeOutFrame = 1
-        If Drop Then
-            STG.Objects_Add.Add(New Item(ItemType.PointValue, X, Y))
+    Public Overridable Sub Break(Optional Drop As Boolean = True, Optional Force As Boolean = False)
+        If Breakable OrElse Force Then
+            IsEnabled = False
+            FadeOutFrame = 1
+            If Drop Then
+                STG.Objects_Add.Add(New Item(ItemType.PointValue, X, Y))
+            End If
         End If
     End Sub
     Public Class Laser
@@ -278,41 +294,51 @@ Public Class Bullet
                 End If
             End If
             Judge()
+            If IsEnabled AndAlso Not IsNothing(Act) Then
+                Act()
+            End If
         End Sub
         Public Overrides Sub Judge()
             If IsEnabled AndAlso STG.Player.IsEnabled Then
-                Dim td, tx, ty As Double
-                Direction = (Direction + 360) Mod 360
-                If Direction > 90 AndAlso Direction < 270 Then
-                    td = (Direction + 180) Mod 360
-                    tx = X - (STG.Player.X - X)
-                    ty = Y - (STG.Player.Y - Y)
-                Else
-                    td = Direction
-                    tx = STG.Player.X
-                    ty = STG.Player.Y
-                End If
-                If ty < Y - 0.125 * Height * Cos(td * PI / 180) AndAlso
-                    ty > Y - 0.875 * Height * Cos(td * PI / 180) AndAlso
-                    tx > X - 0.25 * Width * Cos(td * PI / 180) - Tan(td * PI / 180) * (ty - Y) AndAlso
-                    tx < X + 0.25 * Width * Cos(td * PI / 180) - Tan(td * PI / 180) * (ty - Y) Then
+                If IsHitLaser(X, Y, LaserLength, Direction, LaserWidth - 1, STG.Player.X, STG.Player.Y) AndAlso STG.Player.Invin <= 0 Then
                     STG.Player.Miss()
-                ElseIf ty < Y AndAlso
-                    ty > Y - Height * Cos(td * PI / 180) AndAlso
-                    tx > X - 4 * Width * Cos(td * PI / 180) - Tan(td * PI / 180) * (ty - Y) AndAlso
-                    tx < X + 4 * Width * Cos(td * PI / 180) - Tan(td * PI / 180) * (ty - Y) Then
+                ElseIf IsHitLaser(X, Y, LaserLength, Direction, LaserWidth * 3, STG.Player.X, STG.Player.Y) Then
                     If Ticks Mod 4 = 0 Then
                         STG.Player.Graze()
                     End If
                 End If
             End If
         End Sub
-        Public Overrides Sub Break(Optional Drop As Boolean = True)
-            FadeOutFrame = 1
-            IsEnabled = False
-            If Drop Then
+        Public Shared Function IsHitLaser(x As Double, y As Double,
+                     length As Double, angle As Double,
+                     width As Double,
+                     px As Double, py As Double) As Boolean
+            Dim bx = x + length * Sin(angle / 180 * PI)
+            Dim by = y - length * Cos(angle / 180 * PI)
+            Dim abx = bx - x
+            Dim aby = by - y
+            Dim apx = px - x
+            Dim apy = py - y
+            Dim ab2 = abx * abx + aby * aby
+            Dim t = (apx * abx + apy * aby) / ab2
+            If t < 0 Then t = 0
+            If t > 1 Then t = 1
+            Dim cx = x + t * abx
+            Dim cy = y + t * aby
+            Dim dx = px - cx
+            Dim dy = py - cy
+            Dim dist2 = dx * dx + dy * dy
+            Return dist2 <= (width / 2) * (width / 2)
+        End Function
+        Public Overrides Sub Break(Optional Drop As Boolean = True, Optional Force As Boolean = False)
+            If Breakable OrElse False Then
+                FadeOutFrame = 1
+                IsEnabled = False
+                If Drop Then
 
+                End If
             End If
+
         End Sub
     End Class
 End Class
@@ -342,6 +368,8 @@ Public Enum BulletType As Byte
     心弹 = 16
     箭头 = 17
     小光玉 = 18
+    点弹 = 19
+    大玉 = 20
 End Enum
 Public Enum BulletColor As Byte
     灰 = 0

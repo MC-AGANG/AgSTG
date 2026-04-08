@@ -33,6 +33,7 @@ Public MustInherit Class Player
     Private FadeOutFrame As Byte
     Private GrazeParticles As New List(Of GrazeParticle)
     Private rm_GrazeParticles As New List(Of GrazeParticle)
+    Public Event GameOver()
 
     ''' <summary>
     ''' 创建新的自机，此类通常由STG创建
@@ -66,6 +67,7 @@ Public MustInherit Class Player
         Layer2.Visibility = Visibility.Hidden
         Layer3.Visibility = Visibility.Hidden
         STG.bonusfail = True
+        Invin = 30
     End Sub
     ''' <summary>
     ''' 触发擦弹
@@ -122,6 +124,8 @@ Public MustInherit Class Player
                 STG.ClearBullet()
                 If STG.Life > 0 Then
                     STG.Life -= 1
+                Else
+                    RaiseEvent GameOver()
                 End If
                 STG.Spell = 3
                 If STG.Power > 150 Then
@@ -129,6 +133,7 @@ Public MustInherit Class Player
                 Else
                     STG.Power = 100
                 End If
+
                 For i = -45 To 45 Step 15
                     STG.Objects_Add.Add(New Item(ItemType.Power, STG.Player.X + 96 * Sin(i / 180 * PI), STG.Player.Y + 32 - 96 * Cos(i / 180 * PI)))
                 Next
@@ -353,6 +358,7 @@ Public MustInherit Class Player
                     FadeOutFrame = 0
                 End If
                 STG.bonusfail = True
+                IsEnabled = True
             End If
         End Sub
     End Class
@@ -416,6 +422,7 @@ Public MustInherit Class Player
                     FadeOutFrame = 0
                 End If
                 STG.bonusfail = True
+                IsEnabled = True
             End If
         End Sub
     End Class

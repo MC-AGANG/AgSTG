@@ -25,14 +25,14 @@ Public Class HPBar
     ''' 获取或设置符卡每个阶段的占比
     ''' </summary>
     Public StagePercent() As Double
-    Private s(3) As Rectangle
-    Private s_r(3) As RotateTransform
+    Private s(4) As Rectangle
+    Private s_r(4) As RotateTransform
     Private FadeInFrame As Byte = 0
     Public Sub Preset(UsualHP As Double, SpellHP As Double, Optional Usualpercent As Double = 0.75)
         Me.SpellHP = SpellHP
         Me.UsualHP = UsualHP
         Me.UsualPercent = Usualpercent
-        For i = 0 To 3
+        For i = 0 To 4
             s(i).Visibility = Visibility.Hidden
         Next
         If SpellHP = 0 Then
@@ -49,7 +49,7 @@ Public Class HPBar
         Me.UsualHP = UsualHP
         Me.UsualPercent = Usualpercent
         Me.StagePercent = StagePercent
-        For i = 0 To 3
+        For i = 0 To 4
             s(i).Visibility = Visibility.Hidden
         Next
         If SpellHP = 0 Then
@@ -118,11 +118,13 @@ Public Class HPBar
         s(1) = s1
         s(2) = s2
         s(3) = s3
+        s(4) = s4
         s_r(0) = s0_r
         s_r(1) = s1_r
         s_r(2) = s2_r
         s_r(3) = s3_r
-        For i = 0 To 3
+        s_r(4) = s4_r
+        For i = 0 To 4
             s(i).Fill = Textures.hpbar(2)
         Next
     End Sub

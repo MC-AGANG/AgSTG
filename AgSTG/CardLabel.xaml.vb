@@ -100,13 +100,18 @@ Public Class CardLabel
             For i = 0 To 7
                 scorei(i).Visibility = Visibility.Hidden
             Next
-            failed.Visibility = Visibility.Visible
+            If FadeOutFrame = 0 Then
+                failed.Visibility = Visibility.Visible
+            End If
+
         Else
             failed.Visibility = Visibility.Hidden
-            For i = 0 To 7
-                scorei(i).Visibility = Visibility.Visible
-                scorei(i).Fill = Textures.number(4, (Score \ 10 ^ i) Mod 10)
-            Next
+            If FadeOutFrame = 0 Then
+                For i = 0 To 7
+                    scorei(i).Visibility = Visibility.Visible
+                    scorei(i).Fill = Textures.number(4, (Score \ 10 ^ i) Mod 10)
+                Next
+            End If
         End If
     End Sub
     Public Sub Show(CardName As String)
