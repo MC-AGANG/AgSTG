@@ -112,7 +112,7 @@ Public Class STG
     Public Shared Event GameClear()
     Public Shared Event GameOver()
     Public Shared Blur As Effects.BlurEffect
-    Public Shared CurrentMusic As MediaPlayer
+    Public Shared CurrentMusic As Integer
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
@@ -293,7 +293,7 @@ Public Class STG
     ''' </summary>
     Public Shared Sub NextStage()
         If Not IsNothing(CurrentMusic) Then
-            CurrentMusic.Stop()
+            Sounds.StopSound(CurrentMusic)
         End If
         If CurrentStage < Stages.Count - 1 Then
             Dim seed As Double = Date.Now.Millisecond + Date.Now.Second * 1000

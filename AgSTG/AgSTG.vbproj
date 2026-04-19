@@ -32,6 +32,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="ManagedBass">
+      <HintPath>D:\dll\Bass\ManagedBass.dll</HintPath>
+    </Reference>
     <Reference Include="wpfpslib">
       <HintPath>D:\dll\wpfpslib\wpfpslib.dll</HintPath>
       <Private>True</Private>
