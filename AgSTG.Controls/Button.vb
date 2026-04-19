@@ -1,6 +1,7 @@
 ﻿Imports System.Math
 Imports AgSTG.Core
 Imports ResourcePack
+Imports NAudio.Wave
 ''' <summary>
 ''' 表示按钮控件，此按钮使用键盘操作。
 ''' </summary>
@@ -47,7 +48,7 @@ Public Class Button
     ''' <summary>
     ''' 按下按钮时要播放的音效
     ''' </summary>
-    Public SoundEffect As MediaPlayer
+    Public SoundEffect As Integer
     ''' <summary>
     ''' 创建新的按钮
     ''' </summary>

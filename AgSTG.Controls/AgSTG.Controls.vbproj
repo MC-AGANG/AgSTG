@@ -24,4 +24,10 @@
     <ProjectReference Include="..\ResourcePack\ResourcePack.vbproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ManagedBass">
+      <HintPath>D:\dll\Bass\ManagedBass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
