@@ -2749,4 +2749,208 @@
   <data name="bullet2003" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bullet2003.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="se_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_big.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_bonus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_bonus.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_bonus2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_bonus2.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_bonus4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_bonus4.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_boon00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_boon00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_boon01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_boon01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_cancel00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_cancel00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_cardget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_cardget.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_cat00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_cat00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_ch00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_ch00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_ch01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_ch01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_ch02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_ch02.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_ch03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_ch03.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_changeitem" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_changeitem.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_damage00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_damage00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_damage01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_damage01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_don00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_don00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_enep00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_enep00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_enep01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_enep01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_enep02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_enep02.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_etbreak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_etbreak.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_extend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_extend.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_extend2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_extend2.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_fault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_fault.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_graze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_graze.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_gun00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_gun00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_heal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_heal.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_invalid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_invalid.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_item00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_item00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_item01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_item01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_kira00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_kira00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_kira01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_kira01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_kira02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_kira02.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_lazer00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_lazer00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_lazer01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_lazer01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_lazer02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_lazer02.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_lgods1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_lgods1.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_lgods2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_lgods2.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_lgods3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_lgods3.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_lgods4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_lgods4.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_lgodsget" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_lgodsget.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_msl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_msl.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_msl2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_msl2.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_msl3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_msl3.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_nep00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_nep00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_nodamage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_nodamage.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_noise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_noise.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_ok00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_ok00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_pause.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_pin00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_pin00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_pin01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_pin01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_pldead00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_pldead00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_pldead01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_pldead01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_plst00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_plst00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_power0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_power0.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_power1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_power1.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_powerup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_powerup.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_release" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_release.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_select00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_select00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_slash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_slash.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_tan00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_tan00.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_tan01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_tan01.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_tan02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_tan02.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_tan03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_tan03.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_timeout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_timeout.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_timeout2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_timeout2.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_trophy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_trophy.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="se_wolf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\se_wolf.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

@@ -8747,6 +8747,686 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Byte[] 类型的本地化资源。
         '''</summary>
+        Friend Shared ReadOnly Property se_big() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_big", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_bonus() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_bonus", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_bonus2() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_bonus2", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_bonus4() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_bonus4", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_boon00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_boon00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_boon01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_boon01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_cancel00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_cancel00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_cardget() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_cardget", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_cat00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_cat00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_ch00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_ch00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_ch01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_ch01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_ch02() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_ch02", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_ch03() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_ch03", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_changeitem() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_changeitem", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_damage00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_damage00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_damage01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_damage01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_don00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_don00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_enep00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_enep00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_enep01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_enep01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_enep02() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_enep02", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_etbreak() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_etbreak", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_extend() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_extend", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_extend2() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_extend2", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_fault() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_fault", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_graze() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_graze", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_gun00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_gun00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_heal() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_heal", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_invalid() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_invalid", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_item00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_item00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_item01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_item01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_kira00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_kira00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_kira01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_kira01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_kira02() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_kira02", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_lazer00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_lazer00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_lazer01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_lazer01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_lazer02() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_lazer02", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_lgods1() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_lgods1", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_lgods2() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_lgods2", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_lgods3() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_lgods3", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_lgods4() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_lgods4", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_lgodsget() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_lgodsget", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_msl() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_msl", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_msl2() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_msl2", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_msl3() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_msl3", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_nep00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_nep00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_nodamage() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_nodamage", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_noise() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_noise", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_ok00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_ok00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_pause() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_pause", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_pin00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_pin00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_pin01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_pin01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_pldead00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_pldead00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_pldead01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_pldead01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_plst00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_plst00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_power0() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_power0", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_power1() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_power1", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_powerup() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_powerup", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_release() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_release", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_select00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_select00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_slash() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_slash", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_tan00() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_tan00", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_tan01() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_tan01", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_tan02() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_tan02", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_tan03() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_tan03", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_timeout() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_timeout", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_timeout2() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_timeout2", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_trophy() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_trophy", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property se_wolf() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("se_wolf", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
         Friend Shared ReadOnly Property snow() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("snow", resourceCulture)

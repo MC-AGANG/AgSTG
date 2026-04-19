@@ -9,6 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="ManagedBass">
+      <HintPath>D:\dll\Bass\ManagedBass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="MyResource.Designer.vb">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
