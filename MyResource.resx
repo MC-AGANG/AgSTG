@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="boss0000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0000.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0001" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0001.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0002" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0002.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0003" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0003.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0004" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0004.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0100.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0101" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0101.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0102" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0102.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0103" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0103.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0104" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0104.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="game_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\game_background.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="stg5bg2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\stg5bg2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_continue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_continue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_retry" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_retry.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_title" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_title.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_continue_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_continue_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_retry_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_retry_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_title_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_title_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_quit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_quit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_quit_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_quit_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_replay" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_replay.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_replay_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_replay_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_start.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_start_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_start_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="title_bk00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\title00.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0105" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0105.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0106" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0106.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st01a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st01a.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st01b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st01b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st01c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st01c.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st02a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st02a.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0201" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0201.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st02b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st02b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st02c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st02c.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0000" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0000.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0100.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0101" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0101.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0102" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0102.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0103" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0103.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1100.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1101" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1101.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1102" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1102.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1103" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1103.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1104" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1104.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1105" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1105.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1201" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1201.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1202" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1202.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1203" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1203.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1204" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1204.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration1205" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration1205.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0101b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0101b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0101a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0101a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0201a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0201a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0201b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0201b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0202a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0202a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0202b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0202b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st03a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st03a.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st03b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st03b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0300" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0300.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0401" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0401.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0402" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0402.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0403" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0403.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0404" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0404.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0405" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0405.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0406" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0406.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0407" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0407.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0408" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0408.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0200" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0200.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0201" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0201.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0202" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0202.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0203" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0203.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0301a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0301a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0301b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0301b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0302a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0302a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0302b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0302b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st04a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st04a.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st04b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st04b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st04c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st04c.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st04d" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st04d.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st04e" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st04e.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st04f" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st04f.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0500" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0500.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0501" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0501.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0502" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0502.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0503" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0503.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="words0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\words0.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="words1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\words1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="words2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\words2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="words3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\words3.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0401a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0401a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0401b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0401b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st04g" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st04g.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0700" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0700.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0701" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0701.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0702" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0702.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0703" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0703.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0704" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0704.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0705" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0705.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0706" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0706.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0707" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0707.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0708" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0708.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0400" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0400.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0401" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0401.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0402" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0402.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0403" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0403.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st05a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st05a.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0501a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0501a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0501b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0501b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0502a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0502a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0502b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0502b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0800" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0800.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0801" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0801.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0802" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0802.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0804" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0804.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0500" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0500.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="illustration0501" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\illustration0501.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st06a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st06a.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st06b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st06b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="st06c" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\st06c.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0601a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0601a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0601b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0601b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0602a" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0602a.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dialog0602b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\dialog0602b.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="circle_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\circle_red.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="circle_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\circle_blue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="boss0803" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\boss0803.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="circle_cyan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\circle_cyan.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="circle_magenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\circle_magenta.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_01.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_02.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_03.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_04.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_05.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_06" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_06.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_07.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_08" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_08.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_09" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_09.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_10.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_11.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_12.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="th07_13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\th07_13.mp3;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ding" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ding.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>
