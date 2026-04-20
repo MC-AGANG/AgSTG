@@ -13,8 +13,7 @@ Public Class Stage5
 
     End Sub
     Public Overrides Sub Initialize()
-        Background = New Stage5bg
-        BG = Background
+        Reset()
     End Sub
 
     Public Overrides Sub Action()
@@ -44,7 +43,10 @@ Public Class Stage5
     End Sub
     Public Overrides Sub Reset()
         MyBase.Reset()
-        BG.Ticks = 0
+        Background = New Stage5bg
+        BG = Background
+        finished = False
+        EndFrame = 0
     End Sub
     Private Sub EnemySpawn()
         Select Case Ticks
@@ -68,9 +70,10 @@ Public Class B7S0
 
     Public Overrides Sub Render()
         MyBase.Render()
-        Static c As Double
+        Static c As Double = 0
         If Ticks = 0 Then
             Owner.IsEnabled = True
+            c = 0
         End If
         Dim t As Integer = Ticks Mod 240
         If Ticks > 60 Then
@@ -177,13 +180,13 @@ Public Class B7S2
         Dim t As Integer = Ticks Mod 600
         If Ticks >= 30 Then
             If t = 60 Then
-                Sounds.PlaySound(ResourcePack.Sounds.ch00)
+                ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.ch00)
             ElseIf t = 90 Then
                 STG.Objects_Add.Add(New Bullet(BulletType.大玉, 0, Owner.X, Owner.Y, 2) With {.Act = AddressOf .B7S2B1})
             ElseIf t = 270 Then
                 Owner.DefaultMove(30)
             ElseIf t = 360 Then
-                Sounds.PlaySound(ResourcePack.Sounds.ch00)
+                ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.ch00)
             ElseIf t >= 390 AndAlso t < 540 Then
                 If t Mod 5 = 0 Then
                     STG.Objects_Add.Add(New Bullet(BulletType.环弹, BulletColor.品红, 74 + (t - 390) * 2, 64, 0, Rnd() * 4 - 2, 0) With {.Act = AddressOf .B7S2B2})
@@ -326,7 +329,7 @@ Public Class B7S4
                 ElseIf Ticks > 150 AndAlso Ticks < 300 Then
                     If Owner.HP <= 9998 Then
                         Owner.IsEnabled = False
-                        Sounds.PlaySound(Sounds.ding)
+                        ResourcePack.Sounds.PlaySound(Sounds.ding)
                         Activated = True
                         px = STG.Player.X
                         py = STG.Player.Y
@@ -435,8 +438,8 @@ Module St5Enm
                 .IsEnabled = True
                 started = True
                 STG.NameArea.Initialize("Konpaku Youmu", 5)
-                Sounds.StopSound(STG.CurrentMusic)
-                Sounds.PlaySound(Sounds.mu11)
+                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+                ResourcePack.Sounds.PlaySound(Sounds.mu11)
                 Stage.Showmusic("広有射怪鳥事 ～ Till When?")
                 STG.CurrentMusic = Sounds.mu11
                 .NextSpell()

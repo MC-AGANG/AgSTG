@@ -5,8 +5,8 @@ Public Class Stage5bg
     Public Ticks As Long
     Public Sub Render()
         If Ticks = 0 Then
-            Sounds.StopSound(STG.CurrentMusic)
-            Sounds.PlaySound(Sounds.mu10)
+            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+            ResourcePack.Sounds.PlaySound(Sounds.mu10)
             STG.CurrentMusic = Sounds.mu10
         End If
         Ticks += 1
