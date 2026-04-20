@@ -266,7 +266,7 @@ Public MustInherit Class PlayerBullet
                             End If
                         End If
                     Next
-                    Sounds.PlaySound(Sounds.tan00)
+                    Sounds.PlaySound(Sounds.tan01)
                 End If
                 Layer2_translate.X = Sin((Ticks - FadeOutFrame) / 10) * FadeOutFrame * 2
                 Layer2_translate.Y = Cos((Ticks - FadeOutFrame) / 10) * FadeOutFrame * 2

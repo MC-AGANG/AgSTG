@@ -1,7 +1,6 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports System.Math
 Imports ResourcePack
-Imports NAudio.Wave
 ''' <summary>
 ''' 表示敌机子弹
 ''' </summary>
@@ -57,7 +56,7 @@ Public Class Bullet
     ''' 默认为“tan00.wav”
     ''' </summary>
     ''' <returns></returns>
-    Public Property SoundEffect As Integer
+    Public Property SoundEffect As Integer = Sounds.tan00
     ''' <summary>
     ''' 获取或设置这个子弹是否已经擦弹过了
     ''' </summary>
@@ -93,7 +92,6 @@ Public Class Bullet
         InitAppearance()
         IsEnabled = False
         Background = Textures.bulletin(BulletColor)
-        Sounds.PlaySound(Sounds.tan00, 0.2)
     End Sub
     ''' <summary>
     ''' 创建一个自机狙子弹
@@ -114,58 +112,8 @@ Public Class Bullet
         InitAppearance()
         IsEnabled = False
         Background = Textures.bulletin(BulletColor)
-        Sounds.PlaySound(Sounds.tan00, 0.2)
+
     End Sub
-    '''' <summary>
-    '''' 创建新的子弹，并指定音效
-    '''' </summary>
-    '''' <param name="BulletType">子弹种类</param>
-    '''' <param name="BulletColor">子弹颜色</param>
-    '''' <param name="X">初始X坐标</param>
-    '''' <param name="Y">初始Y坐标</param>
-    '''' <param name="Speed">子弹速度</param>
-    '''' <param name="Direction">子弹方向</param>
-    '''' <param name="SoundEffect">子弹生成时播放的音效</param>
-    '''' <param name="Delta">随机附加的方向偏移量，默认为0</param>
-    'Public Sub New(BulletType As BulletType, BulletColor As BulletColor, X As Double, Y As Double, Speed As Double, Direction As Double, SoundEffect As WaveOutEvent, Optional Delta As Double = 0)
-    '    MyBase.New(ObjectType.Bullet, X, Y)
-    '    Me.BulletType = BulletType
-    '    Me.BulletColor = BulletColor
-    '    Me.Speed = Speed
-    '    Me.Direction = Direction + Delta * Rnd() - Delta / 2
-    '    Me.SoundEffect = SoundEffect
-    '    InitAppearance()
-    '    IsEnabled = False
-    '    Background = Textures.bulletin(BulletColor)
-    '    If Not IsNothing(Me.SoundEffect) Then
-    '        Sounds.PlaySound(Me.SoundEffect, 0.2)
-    '    End If
-    'End Sub
-    '''' <summary>
-    '''' 创建一个自机狙子弹，并指定音效
-    '''' </summary>
-    '''' <param name="BulletType"></param>
-    '''' <param name="BulletColor"></param>
-    '''' <param name="X"></param>
-    '''' <param name="Y"></param>
-    '''' <param name="Speed"></param>
-    '''' <param name="SoundEffect">子弹生成时播放的音效</param>
-    '''' <param name="Delta"></param>
-    'Public Sub New(BulletType As BulletType, BulletColor As BulletColor, X As Double, Y As Double, Speed As Double, SoundEffect As WaveOutEvent, Optional Delta As Double = 0)
-    '    MyBase.New(ObjectType.Bullet, X, Y)
-    '    Dim zerovec As New Vector(0, -1)
-    '    Me.BulletType = BulletType
-    '    Me.BulletColor = BulletColor
-    '    Direction = Vector.AngleBetween(zerovec, New Vector(STG.Player.X - Me.X, STG.Player.Y - Me.Y)) + Delta
-    '    Me.SoundEffect = SoundEffect
-    '    Me.Speed = Speed
-    '    InitAppearance()
-    '    IsEnabled = False
-    '    Background = Textures.bulletin(BulletColor)
-    '    If Not IsNothing(Me.SoundEffect) Then
-    '        Sounds.PlaySound(Me.SoundEffect, 0.2)
-    '    End If
-    'End Sub
     Private Sub InitAppearance()
         Select Case BulletType
             Case 0
@@ -194,6 +142,11 @@ Public Class Bullet
     End Sub
     Public Overrides Sub Render()
         If Ticks <= 10 Then
+            If Ticks = 1 Then
+                If SoundEffect <> -1 Then
+                    Sounds.PlaySound(SoundEffect, 0.2)
+                End If
+            End If
             Opacity = (10 - Ticks) / 10
         ElseIf Ticks = 11 Then
             Opacity = 1
@@ -272,9 +225,13 @@ Public Class Bullet
             Me_Rotate.Angle = Direction
             Me_Translate.Y = -Length
             Me.Life = Life
+            SoundEffect = Sounds.lazer00
         End Sub
         Public Overrides Sub Render()
             If Ticks > 30 AndAlso Ticks <= 60 Then
+                If Ticks = 31 Then
+                    Sounds.PlaySound(SoundEffect, 0.2)
+                End If
                 Width = (Ticks - 30) / 30 * LaserWidth
                 Me_Translate.X = -Width / 2
 
