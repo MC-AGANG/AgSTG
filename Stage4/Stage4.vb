@@ -12,8 +12,7 @@ Public Class Stage4
 
     End Sub
     Public Overrides Sub Initialize()
-        Background = New Stage4bg
-        BG = Background
+        Reset()
     End Sub
 
     Public Overrides Sub Action()
@@ -43,12 +42,13 @@ Public Class Stage4
     End Sub
     Public Overrides Sub Reset()
         MyBase.Reset()
-        BG.Ticks = 0
+        Background = New Stage4bg
+        BG = Background
+        Finished = False
+        EndFrame = 0
     End Sub
     Private Sub EnemySpawn()
         Select Case Ticks
-            'Case 100
-            '    Ticks = 13150
             Case 440 To 680
                 If Ticks Mod 20 = 0 Then
                     STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, -32, 64 + Rnd() * 64, 10, "1", 160, 2, 90) With {.Act = AddressOf .S4W1})
@@ -789,8 +789,8 @@ Module St4Enm
             If .Ticks = 65 Then
                 .IsEnabled = True
                 STG.NameArea.Initialize("Lily White", 4)
-                Sounds.StopSound(STG.CurrentMusic)
-                Sounds.PlaySound(Sounds.mu09)
+                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+                ResourcePack.Sounds.PlaySound(Sounds.mu09)
                 Stage.Showmusic("云霄之上的花与舞")
                 STG.CurrentMusic = Sounds.mu09
                 .NextSpell()

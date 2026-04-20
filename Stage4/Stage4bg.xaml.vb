@@ -6,8 +6,8 @@ Public Class Stage4bg
     Public p2d(23) As Particle
     Public Sub Render()
         If Ticks = 0 Then
-            Sounds.StopSound(STG.CurrentMusic)
-            Sounds.PlaySound(Sounds.mu08)
+            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+            ResourcePack.Sounds.PlaySound(Sounds.mu08)
             STG.CurrentMusic = Sounds.mu08
         End If
 
