@@ -11,9 +11,7 @@ Public Class Stage6
         MyBase.New(Difficulty)
     End Sub
     Public Overrides Sub Initialize()
-        Background = New Stage6bg
-        BG = Background
-        Title = Textures.stagetitle(6)
+        Reset()
     End Sub
 
     Public Overrides Sub action()
@@ -45,7 +43,10 @@ Public Class Stage6
     End Sub
     Public Overrides Sub Reset()
         MyBase.Reset()
-        Stage6bg.Ticks = 0
+        Background = New Stage6bg
+        BG = Background
+        Finished = False
+        EndFrame = 0
     End Sub
     Private Sub EnemySpawn()
         Select Case Ticks
@@ -316,28 +317,28 @@ Public Class B8S4
                 ElseIf Owner.HP > 9000 Then
                     If Not cleared(0) Then
                         cleared(0) = True
-                        Sounds.PlaySound(ResourcePack.Sounds.cat00)
+                        ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.cat00)
                         STG.SpellCardLabel.cardname.Content += vbCrLf + "消化「爱德华·桑代克」"
                     End If
                     Preset2()
                 ElseIf Owner.HP > 6000 Then
                     If Not cleared(1) Then
                         cleared(1) = True
-                        Sounds.PlaySound(ResourcePack.Sounds.cat00)
+                        ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.cat00)
                         STG.SpellCardLabel.cardname.Content += vbCrLf + "吸收「让·皮亚傑」"
                     End If
                     Preset3()
                 ElseIf Owner.HP > 3000 Then
                     If Not cleared(2) Then
                         cleared(2) = True
-                        Sounds.PlaySound(ResourcePack.Sounds.cat00)
+                        ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.cat00)
                         STG.SpellCardLabel.cardname.Content += vbCrLf + "混交「梅拉尼·克莱因」"
                     End If
                     Preset4()
                 Else
                     If Not cleared(3) Then
                         cleared(3) = True
-                        Sounds.PlaySound(ResourcePack.Sounds.cat00)
+                        ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.cat00)
                         STG.SpellCardLabel.cardname.Content += vbCrLf + "吸收「安娜·弗洛伊德」"
                     End If
                     Preset4()
@@ -482,8 +483,8 @@ Module St6Enm
                 started = True
                 STG.NameArea.Initialize("Shion", 5)
 
-                Sounds.StopSound(STG.CurrentMusic)
-                Sounds.PlaySound(Sounds.mu13)
+                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+                ResourcePack.Sounds.PlaySound(Sounds.mu13)
                 Stage.Showmusic("縁から外れた名前")
                 STG.CurrentMusic = Sounds.mu13
                 .NextSpell()
@@ -767,7 +768,7 @@ Module St6Enm
                 If .X < 8 OrElse .X > 376 OrElse .Y < 8 OrElse .Y > 440 Then
                     .Direction = Vector.AngleBetween(New Vector(0, -1), New Vector(192 - .X, 224 - .Y))
                     .BulletColor = BulletColor.品红
-                    Sounds.PlaySound(ResourcePack.Sounds.kira00, 0.5)
+                    ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.kira00, 0.5)
                 End If
             End If
         End With
@@ -788,7 +789,7 @@ Module St6Enm
                 If .X < 8 OrElse .X > 376 OrElse .Y < 8 OrElse .Y > 440 Then
                     .Direction = Vector.AngleBetween(New Vector(0, -1), New Vector(192 - .X, 224 - .Y))
                     .BulletColor = BulletColor.品红
-                    Sounds.PlaySound(ResourcePack.Sounds.kira00, 0.5)
+                    ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.kira00, 0.5)
                 End If
             End If
             If .Tag < 10 AndAlso .BulletColor = BulletColor.红 Then

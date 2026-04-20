@@ -5,7 +5,7 @@ Imports ResourcePack.TH07
 Public Class Stage6bg
     Public Shared cardback As Rectangle
     Public Particles3D(31) As Particle3D
-    Public Shared Ticks As Long = 0
+    Public Ticks As Long = 0
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         cardback = CB
         cardback.Fill = Textures.st06b
@@ -23,8 +23,8 @@ Public Class Stage6bg
     End Sub
     Public Sub Render()
         If Ticks = 0 Then
-            Sounds.StopSound(STG.CurrentMusic)
-            Sounds.PlaySound(Sounds.mu13)
+            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+            ResourcePack.Sounds.PlaySound(Sounds.mu12)
             STG.CurrentMusic = Sounds.mu12
         End If
         RenderBackground()
