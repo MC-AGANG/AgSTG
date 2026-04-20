@@ -12,8 +12,7 @@ Public Class Stage3
 
     End Sub
     Public Overrides Sub Initialize()
-        Background = New Stage3bg
-        BG = Background
+        Reset()
     End Sub
 
     Public Overrides Sub Action()
@@ -43,7 +42,10 @@ Public Class Stage3
     End Sub
     Public Overrides Sub Reset()
         MyBase.Reset()
-        BG.Ticks = 0
+        Background = New Stage3bg
+        BG = Background
+        Finished = False
+        EndFrame = 0
     End Sub
     Private Sub EnemySpawn()
         Select Case Ticks
@@ -603,8 +605,8 @@ Module St3Enm
                 .IsEnabled = True
                 STG.NameArea.Initialize("Alice", 3)
                 .NextSpell()
-                Sounds.StopSound(STG.CurrentMusic)
-                Sounds.PlaySound(Sounds.mu07)
+                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+                ResourcePack.Sounds.PlaySound(Sounds.mu07)
                 Stage.Showmusic("the Grimoire of Alice")
                 STG.CurrentMusic = Sounds.mu07
             End If

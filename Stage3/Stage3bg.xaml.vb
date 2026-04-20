@@ -4,8 +4,8 @@ Public Class Stage3bg
     Public Ticks As Long
     Public Sub Render()
         If Ticks = 0 Then
-            Sounds.StopSound(STG.CurrentMusic)
-            Sounds.PlaySound(Sounds.mu06)
+            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+            ResourcePack.Sounds.PlaySound(Sounds.mu06)
             STG.CurrentMusic = Sounds.mu06
         End If
         If Ticks <= 9480 Then
