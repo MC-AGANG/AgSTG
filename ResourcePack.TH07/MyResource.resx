@@ -151,9 +151,6 @@
   <data name="game_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\game_background.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="stg5bg2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\stg5bg2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="bt_continue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bt_continue.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -552,5 +549,11 @@
   </data>
   <data name="ding" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ding.wav;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_save.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="bt_save_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\bt_save_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

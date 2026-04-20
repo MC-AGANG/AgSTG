@@ -14,6 +14,7 @@ Public Class Textures
     Public Shared bt_start(1) As ImageBrush
     Public Shared bt_replay(1) As ImageBrush
     Public Shared bt_quit(1) As ImageBrush
+    Public Shared bt_save(1) As ImageBrush
 
     Public Shared title_bk As ImageBrush
 
@@ -103,6 +104,8 @@ Public Class Textures
         bt_replay(1) = New ImageBrush(B2I(MyResource.bt_replay_b))
         bt_quit(0) = New ImageBrush(B2I(MyResource.bt_quit))
         bt_quit(1) = New ImageBrush(B2I(MyResource.bt_quit_b))
+        bt_save(0) = New ImageBrush(B2I(MyResource.bt_save))
+        bt_save(1) = New ImageBrush(B2I(MyResource.bt_save_b))
 
         title_bk = New ImageBrush(B2I(MyResource.title_bk00))
 
@@ -178,23 +181,6 @@ Public Class Sounds
         mu12 = Bass.CreateStream(MyResource.th07_12, 0, MyResource.th07_12.Length, BassFlags.Default)
         mu13 = Bass.CreateStream(MyResource.th07_13, 0, MyResource.th07_13.Length, BassFlags.Default)
         ding = Bass.CreateStream(MyResource.ding, 0, MyResource.ding.Length, BassFlags.Default)
-    End Sub
-    Public Shared Sub PlaySound(Sound As System.Windows.Media.MediaPlayer, Optional Volume As Double = 1)
-        Sound.Position = New TimeSpan(0)
-        Sound.Volume = Volume
-        Sound.Play()
-    End Sub
-    ''' <summary>
-    ''' 播放声音
-    ''' </summary>
-    ''' <param name="Sound">需要播放的声音</param>
-    ''' <param name="Volume">音量大小，默认为100%</param>
-    Public Shared Sub PlaySound(Sound As Integer, Optional Volume As Double = 1)
-        Bass.ChannelSetAttribute(Sound, ChannelAttribute.Volume, Volume)
-        Bass.ChannelPlay(Sound, True)
-    End Sub
-    Public Shared Sub StopSound(Sound As Integer)
-        Bass.ChannelStop(Sound)
     End Sub
 End Class
 
