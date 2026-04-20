@@ -45,6 +45,7 @@ Public Class ReplayFile
             Next
             Stages.Add(stage)
         Loop
+        fs.Close
     End Sub
     ''' <summary>
     ''' 保存回放文件
@@ -66,7 +67,7 @@ Public Class ReplayFile
             For Each d In stage.KeyData
                 writer.Write(d)
             Next
-            fs.Close()
         Next
+        fs.Close()
     End Sub
 End Class
