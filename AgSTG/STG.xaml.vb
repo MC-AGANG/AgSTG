@@ -27,6 +27,10 @@ Public Class STG
     ''' </summary>
     Public Shared WithEvents Player As Player
     ''' <summary>
+    ''' 获取或设置玩家机体编号
+    ''' </summary>
+    Public Shared PlayerID As Integer
+    ''' <summary>
     ''' 获取或设置历史最高分数
     ''' </summary>
     ''' <returns></returns>
@@ -94,7 +98,10 @@ Public Class STG
     ''' 获取或设置当前关卡列表
     ''' </summary>
     Public Shared Stages As New List(Of Stage)
-
+    ''' <summary>
+    ''' 获取或设置是否使用了续关
+    ''' </summary>
+    Public Shared Continued As Boolean = False
     Public Shared CurrentStage As Integer = 0
     Public Shared BackLayer As Grid
     Public Shared BackLayer_BlackHole As wpfpslib.BlackHoleEffect
@@ -118,9 +125,8 @@ Public Class STG
         Width = 384
         Objects.Add(Player)
         time0.Fill = Textures.number(0, 11)
-        AddHandler Player.GameOver, AddressOf Player_GameOver
     End Sub
-    Public Sub New(PlayerID As Integer, Difficulty As Difficulty)
+    Public Sub New()
         InitializeComponent()
         MainBoard = mb
         BackLayer = BL
@@ -143,7 +149,6 @@ Public Class STG
             Case 1
                 Player = New Player.Player1
         End Select
-        Me.Difficulty = Difficulty
     End Sub
     Public Sub Render()
         If Not ReplayMode Then
@@ -235,8 +240,15 @@ Public Class STG
         For Each e In Objects
             e.Clear()
         Next
-        Player = New Player.Player0
+        Select Case PlayerID
+            Case 0
+                Player = New Player.Player0
+            Case 1
+                Player = New Player.Player1
+        End Select
         Objects.Add(Player)
+        AddHandler Player.GameOver, AddressOf Player_GameOver
+        Continued = False
     End Sub
     ''' <summary>
     ''' 更新符卡计时器
@@ -347,7 +359,7 @@ Public Class STG
 
 
     End Sub
-    Private Sub Player_GameOver()
+    Public Shared Sub Player_GameOver()
         RaiseEvent GameOver()
     End Sub
 End Class
