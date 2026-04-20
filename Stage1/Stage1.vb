@@ -12,8 +12,7 @@ Public Class Stage1
 
     End Sub
     Public Overrides Sub Initialize()
-        Background = New Stage1bg
-        BG = Background
+        Reset()
     End Sub
 
     Public Overrides Sub Action()
@@ -43,7 +42,10 @@ Public Class Stage1
     End Sub
     Public Overrides Sub Reset()
         MyBase.Reset()
-        Stage1bg.Ticks = 0
+        Background = New Stage1bg
+        BG = Background
+        finished = False
+        EndFrame = 0
     End Sub
     Private Sub EnemySpawn()
         Select Case Ticks
@@ -345,8 +347,8 @@ Module St1Enm
             Canvas.SetTop(.Layer3, 16)
             .Layer3.Fill = Textures.boss(0, 0)
 
-            Sounds.StopSound(STG.CurrentMusic)
-            Sounds.PlaySound(Sounds.mu03)
+            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+            ResourcePack.Sounds.PlaySound(Sounds.mu03)
             Stage.Showmusic("スカーレット警察ゲットーパトロール24時")
             STG.CurrentMusic = Sounds.mu03
         End With
