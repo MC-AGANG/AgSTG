@@ -5,11 +5,10 @@ Imports AgSTG.Core
 ''' </summary>
 Public Class GamePage
     Inherits Page
-    Public Shared PlayerID As Integer = 0
     ''' <summary>
     ''' 获取或设置游戏区域。
     ''' </summary>
-    Public STG As New STG(PlayerID, Difficulty.Normal)
+    Public STG As New STG()
     ''' <summary>
     ''' 获取或设置属性面板。
     ''' </summary>
