@@ -12,8 +12,7 @@ Public Class Stage2
 
     End Sub
     Public Overrides Sub Initialize()
-        Background = New Stage2bg
-        BG = Background
+        Reset()
     End Sub
 
     Public Overrides Sub Action()
@@ -43,7 +42,10 @@ Public Class Stage2
     End Sub
     Public Overrides Sub Reset()
         MyBase.Reset()
-        BG.Ticks = 0
+        Background = New Stage2bg
+        BG = Background
+        Finished = False
+        EndFrame = 0
     End Sub
     Private Sub EnemySpawn()
         Select Case Ticks
@@ -478,7 +480,7 @@ Module St2Enm
             End If
             If .IsEnabled AndAlso .Ticks Mod 5 = 0 Then
                 For i = 0 To 2
-                    STG.Objects_Add.Add(New Bullet(BulletType.椭弹, 2, .X, .Y, 0.2, .Ticks * 4 + i * 120, 0) With {.Act = AddressOf .S2W1B1})
+                    STG.Objects_Add.Add(New Bullet(BulletType.椭弹, 2, .X, .Y, 0.2, .Ticks * 4 + i * 120, 0) With {.SoundEffect = -1, .Act = AddressOf .S2W1B1})
                     STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.品红, .X, .Y, 0.5, .Ticks * 4 + i * 120, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Act = AddressOf .S2W1B1})
                 Next
 
@@ -833,8 +835,8 @@ Module St2Enm
                 .IsEnabled = True
                 STG.NameArea.Initialize("Chen", 2)
                 .NextSpell()
-                Sounds.StopSound(STG.CurrentMusic)
-                Sounds.PlaySound(Sounds.mu05)
+                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+                ResourcePack.Sounds.PlaySound(Sounds.mu05)
                 Stage.Showmusic("Withered Leaf")
                 STG.CurrentMusic = Sounds.mu05
             End If
@@ -872,6 +874,7 @@ Module St2Enm
             Static n As Integer = 0
             If .Ticks < 16 Then
                 .Background = Textures.boss(2, 0)
+                n = 0
             End If
             If .X < 16 Then
                 .X = 16.1

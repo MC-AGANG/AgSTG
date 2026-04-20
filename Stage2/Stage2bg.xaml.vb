@@ -8,8 +8,8 @@ Public Class Stage2bg
     Public Sub Render()
         If Ticks = 0 Then
 
-            Sounds.StopSound(STG.CurrentMusic)
-            Sounds.PlaySound(Sounds.mu04)
+            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+            ResourcePack.Sounds.PlaySound(Sounds.mu04)
             STG.CurrentMusic = Sounds.mu04
         End If
         RenderBackground()
