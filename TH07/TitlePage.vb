@@ -31,6 +31,7 @@ Public Class TitlePage
     End Sub
 
     Private Sub BT_Start_Clicked() Handles BT_Start.Clicked
+        STG.ReplayMode = False
         Page.Activated = False
         MW.GP.Activated = True
         Page.Visibility = Visibility.Hidden
@@ -38,11 +39,12 @@ Public Class TitlePage
         STG.Reset()
     End Sub
     Private Sub BT_Replay_Clicked() Handles BT_Replay.Clicked
-        Dim ofd As New Microsoft.Win32.OpenFileDialog With {.Filter = "回放文件 (*.rep)|*.rep", .DefaultDirectory = Environment.CurrentDirectory + "\replay"}
+        Dim ofd As New Microsoft.Win32.OpenFileDialog With {.Filter = "回放文件 (*.rep)|*.rep", .InitialDirectory = Environment.CurrentDirectory + "\replay"}
         If ofd.ShowDialog() Then
             STG.ReplayMode = True
             STG.Replays.Clear()
             Dim rf As New ReplayFile(ofd.FileName)
+            STG.PlayerID = rf.Character
             For Each r In rf.Stages
                 STG.Replays.Add(r)
             Next

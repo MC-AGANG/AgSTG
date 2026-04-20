@@ -10,7 +10,7 @@ Class MainWindow
     Public PP As PausePage
     Public TP As TitlePage
     Public CP As ClearPage
-    Public InvinceMode As Boolean = False
+    Public FP As FailPage
     Private SW_FPS As New Stopwatch
     Private BR_Load As New ImageBrush(New BitmapImage(New Uri(Environment.CurrentDirectory + "\loadpage.png")))
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
@@ -61,15 +61,20 @@ Class MainWindow
         PP = New PausePage
         GameArea.Children.Add(PP.Page)
         CP = New ClearPage
+        FP = New FailPage
         GameArea.Children.Add(CP.Page)
+        GameArea.Children.Add(FP.Page)
         PP.Page.Visibility = Visibility.Hidden
         CP.Page.Visibility = Visibility.Hidden
+        FP.Page.Visibility = Visibility.Hidden
         TP.Page.Timer = Timer1
         PP.Page.Timer = Timer1
         GP.Timer = Timer1
         CP.Page.Timer = Timer1
+        FP.Page.Timer = Timer1
         PP.MW = Me
         CP.MW = Me
+        FP.MW = Me
         TP.Page.Activated = True
         GP.SetBackground(Textures.game_background)
         GP.Visibility = Visibility.Hidden
@@ -162,16 +167,33 @@ Class MainWindow
 
     End Sub
     Private Sub GameClear()
-        GP.Activated = False
-        CP.Page.Activated = True
-        CP.Page.Visibility = Visibility.Visible
-        STG.Blur.Radius = 5
+        If STG.ReplayMode Then
+            GP.Activated = False
+            TP.Page.Activated = True
+            TP.Page.Visibility = Visibility.Visible
+            GP.Visibility = Visibility.Hidden
+            ManagedBass.Bass.ChannelPause(STG.CurrentMusic)
+        Else
+            GP.Activated = False
+            CP.Page.Activated = True
+            CP.Page.Visibility = Visibility.Visible
+            STG.Blur.Radius = 5
+        End If
+
     End Sub
     Private Sub GameOver()
-        If Not InvinceMode Then
-            Timer1.Stop()
-            MsgBox("BAKA!")
-            Close()
+        If STG.ReplayMode Then
+            GP.Activated = False
+            TP.Page.Activated = True
+            TP.Page.Visibility = Visibility.Visible
+            GP.Visibility = Visibility.Hidden
+            ManagedBass.Bass.ChannelPause(STG.CurrentMusic)
+        Else
+            GP.Activated = False
+            FP.Page.Activated = True
+            FP.Page.Visibility = Visibility.Visible
+            STG.Blur.Radius = 5
         End If
+
     End Sub
 End Class

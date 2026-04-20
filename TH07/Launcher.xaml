@@ -33,6 +33,5 @@
         <Label Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3">选择你的英雄</Label>
         <RadioButton Grid.Row="7" Grid.Column="1" IsChecked="True" Name="RB_Reimu">博丽灵梦</RadioButton>
         <RadioButton Grid.Row="7" Grid.Column="3" Name="RB_Marisa">雾雨魔理沙</RadioButton>
-        <CheckBox Grid.Row="9" Grid.Column="1" Name="invince" Grid.ColumnSpan="3" IsChecked="False">启动无敌版</CheckBox>
     </Grid>
 </Window>
