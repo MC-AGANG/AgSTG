@@ -314,7 +314,7 @@ Public Class Sounds
     Public Shared timeout2 As Integer
     Public Shared trophy As Integer
     Public Shared wolf As Integer
-
+    Public Shared Sounds_Playing As New List(Of Integer)
     Public Shared Sub Load()
         Bass.Init()
         big = Bass.CreateStream(MyResource.se_big, 0, MyResource.se_big.Length, BassFlags.Default)
@@ -386,25 +386,18 @@ Public Class Sounds
         trophy = Bass.CreateStream(MyResource.se_trophy, 0, MyResource.se_trophy.Length, BassFlags.Default)
         wolf = Bass.CreateStream(MyResource.se_wolf, 0, MyResource.se_wolf.Length, BassFlags.Default)
     End Sub
-    ''' <summary>
-    ''' 播放声音
-    ''' </summary>
-    ''' <param name="Sound">需要播放的声音</param>
-    ''' <param name="Volume">音量大小，默认为100%</param>
-    Public Shared Sub PlaySound(Sound As System.Windows.Media.MediaPlayer, Optional Volume As Double = 1)
-        Sound.Position = New TimeSpan(0)
-        Sound.Volume = Volume
-        Sound.Play()
-    End Sub
+
     ''' <summary>
     ''' 播放声音
     ''' </summary>
     ''' <param name="Sound">需要播放的声音</param>
     ''' <param name="Volume">音量大小，默认为100%</param>
     Public Shared Sub PlaySound(Sound As Integer, Optional Volume As Double = 1)
-        Bass.ChannelSetAttribute(Sound, ChannelAttribute.Volume, Volume)
-        Bass.ChannelPlay(Sound, True)
-
+        If Not Sounds_Playing.Contains(Sound) Then
+            Bass.ChannelSetAttribute(Sound, ChannelAttribute.Volume, Volume)
+            Bass.ChannelPlay(Sound, True)
+            Sounds_Playing.Add(Sound)
+        End If
     End Sub
     Public Shared Sub StopSound(Sound As Integer)
         Bass.ChannelStop(Sound)
