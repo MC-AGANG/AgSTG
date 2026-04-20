@@ -2,7 +2,7 @@
 Imports ResourcePack.TH07
 Imports System.Runtime.CompilerServices
 Public Class Stage1bg
-    Public Shared Ticks As Long = 0
+    Public Ticks As Long = 0
     Public snows(23) As Particle
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         t1.Brush = Textures.st01a
@@ -88,9 +88,8 @@ Public Class Stage1bg
     End Sub
     Public Sub Render()
         If Ticks = 0 Then
-
-            Sounds.StopSound(STG.CurrentMusic)
-            Sounds.PlaySound(Sounds.mu02)
+            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+            ResourcePack.Sounds.PlaySound(Sounds.mu02)
             STG.CurrentMusic = Sounds.mu02
         End If
         For Each p In snows
