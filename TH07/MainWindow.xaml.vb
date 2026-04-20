@@ -9,6 +9,7 @@ Class MainWindow
     Public GP As GamePage
     Public PP As PausePage
     Public TP As TitlePage
+    Public CP As ClearPage
     Public InvinceMode As Boolean = False
     Private SW_FPS As New Stopwatch
     Private BR_Load As New ImageBrush(New BitmapImage(New Uri(Environment.CurrentDirectory + "\loadpage.png")))
@@ -59,17 +60,23 @@ Class MainWindow
         Timer1.Start()
         PP = New PausePage
         GameArea.Children.Add(PP.Page)
+        CP = New ClearPage
+        GameArea.Children.Add(CP.Page)
         PP.Page.Visibility = Visibility.Hidden
+        CP.Page.Visibility = Visibility.Hidden
         TP.Page.Timer = Timer1
         PP.Page.Timer = Timer1
         GP.Timer = Timer1
+        CP.Page.Timer = Timer1
         PP.MW = Me
+        CP.MW = Me
         TP.Page.Activated = True
         GP.SetBackground(Textures.game_background)
         GP.Visibility = Visibility.Hidden
         GP.Act = AddressOf GamePage_Action
         Timer1.Act.Add(AddressOf FpsUpdate)
         Timer1.Act.Add(AddressOf KeyUpdate)
+        Timer1.Act.Add(AddressOf ReleaseSounds)
         AddHandler STG.GameClear, AddressOf GameClear
         AddHandler STG.GameOver, AddressOf GameOver
     End Sub
@@ -89,6 +96,10 @@ Class MainWindow
                     WindowState = WindowState.Maximized
                 End If
                 Exit Select
+            Case Key.LeftCtrl
+                If STG.ReplayMode AndAlso GP.Activated Then
+                    Timer1.TPS = 240
+                End If
         End Select
     End Sub
 
@@ -97,6 +108,10 @@ Class MainWindow
             Case Key.Escape
                 KeyState.Escape = False
                 Exit Select
+            Case Key.LeftCtrl
+                If STG.ReplayMode Then
+                    Timer1.TPS = 60
+                End If
         End Select
     End Sub
     Private Sub GamePage_Action()
@@ -116,9 +131,8 @@ Class MainWindow
 
     End Sub
     Private Sub FpsUpdate()
-        Static tick As Integer = 0
         Static interval As Long
-        If tick = 120 Then
+        If Ticks Mod 120 = 0 Then
             Dim fps As Double = 1200000000 / SW_FPS.ElapsedTicks
             SW_FPS.Stop()
             interval = SW_FPS.ElapsedTicks
@@ -126,11 +140,8 @@ Class MainWindow
                                   LB_FPS.Content = fps.ToString("F2") + " fps"
                               End Sub)
             SW_FPS.Restart()
-            tick = 0
-        Else
-            tick += 1
         End If
-
+        Ticks += 1
     End Sub
     Private Sub KeyUpdate()
         Dispatcher.Invoke(Sub()
@@ -144,10 +155,17 @@ Class MainWindow
                           End Sub)
 
     End Sub
+    Private Sub ReleaseSounds()
+        If Ticks Mod 2 = 0 Then
+            ResourcePack.Sounds.Sounds_Playing.Clear()
+        End If
+
+    End Sub
     Private Sub GameClear()
-        Timer1.Stop()
-        MsgBox("是哪个April Fool得了" + CStr(STG.Score) + "分呢？")
-        Close()
+        GP.Activated = False
+        CP.Page.Activated = True
+        CP.Page.Visibility = Visibility.Visible
+        STG.Blur.Radius = 5
     End Sub
     Private Sub GameOver()
         If Not InvinceMode Then
