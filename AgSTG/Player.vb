@@ -344,6 +344,8 @@ Public MustInherit Class Player
             If STG.Spell > 0 AndAlso SpellFrame = 0 AndAlso FadeOutFrame <= 3 Then
                 SpellFrame = 300
                 Invin = 300
+                Sounds.PlaySound(Sounds.slash)
+                Sounds.PlaySound(Sounds.nep00)
                 STG.Spell -= 1
                 For i = 0 To 7
                     STG.Objects_Add.Add(New PlayerBullet.Pl0B(X, Y, i))

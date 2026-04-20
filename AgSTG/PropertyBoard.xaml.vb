@@ -27,6 +27,15 @@ Public Class PropertyBoard
     Public Sub Update()
         Dim i As Integer
         Dim score = STG.Score
+        If score = 0 Then
+            For i = 1 To 9
+                scorei(i).Visibility = Visibility.Hidden
+            Next
+            For i = 0 To 2
+                scoresi(i).Visibility = Visibility.Hidden
+            Next
+        End If
+
         Do While score > 0
             If scorei(i).Visibility = Visibility.Hidden Then scorei(i).Visibility = Visibility.Visible
             scorei(i).Fill = Textures.number(0, score Mod 10)
@@ -55,14 +64,25 @@ Public Class PropertyBoard
         Loop
         i = 0
         Dim graze = STG.Graze
-        Do While graze > 0
-            If grazei(i).Visibility = Visibility.Hidden Then grazei(i).Visibility = Visibility.Visible
-            grazei(i).Fill = Textures.number(1, graze Mod 10)
-            If i = 3 Then grazesi(0).Visibility = Visibility.Visible
-            If i = 6 Then grazesi(1).Visibility = Visibility.Visible
-            graze \= 10
-            i += 1
-        Loop
+        If graze = 0 Then
+            grazei(0).Fill = Textures.number(1, 0)
+            For i = 1 To 7
+                grazei(i).Visibility = Visibility.Hidden
+            Next
+            For i = 0 To 1
+                grazesi(i).Visibility = Visibility.Hidden
+            Next
+        Else
+            Do While graze > 0
+                If grazei(i).Visibility = Visibility.Hidden Then grazei(i).Visibility = Visibility.Visible
+                grazei(i).Fill = Textures.number(1, graze Mod 10)
+                If i = 3 Then grazesi(0).Visibility = Visibility.Visible
+                If i = 6 Then grazesi(1).Visibility = Visibility.Visible
+                graze \= 10
+                i += 1
+            Loop
+        End If
+
         For i = 0 To STG.Life - 1
             lifei(i).Fill = Textures.life_icon(5)
         Next

@@ -95,7 +95,7 @@ Public Class STG
     ''' </summary>
     Public Shared Stages As New List(Of Stage)
 
-    Public Shared CurrentStage As Integer = -1
+    Public Shared CurrentStage As Integer = 0
     Public Shared BackLayer As Grid
     Public Shared BackLayer_BlackHole As wpfpslib.BlackHoleEffect
     Public Shared timer10 As Rectangle
@@ -148,6 +148,8 @@ Public Class STG
     Public Sub Render()
         If Not ReplayMode Then
             Replays.Last.KeyData.Add(KeyState.Encode)
+        Else
+            KeyState.Decode(Replays(CurrentStage).KeyData(Stages(CurrentStage).Ticks))
         End If
         For Each obj In Objects
             obj.Ticks += 1
@@ -212,18 +214,12 @@ Public Class STG
     ''' 重置STG
     ''' </summary>
     Public Shared Sub Reset()
+        BackLayer_BlackHole.Radius = 0
         Stages(CurrentStage).Unload()
-
         For Each s In Stages
             s.Reset()
         Next
         CurrentStage = -1
-        NextStage()
-        For Each e In Objects
-            e.Clear()
-        Next
-        Player = New Player.Player0
-        Objects.Add(Player)
         Score = 0
         Life = 2
         LifePiece = 0
@@ -231,8 +227,16 @@ Public Class STG
         SpellPiece = 0
         Graze = 0
         PointValue = 10000
-        Power = 400
-        Replays.Clear()
+        Power = 100
+        If Not ReplayMode Then
+            Replays.Clear()
+        End If
+        NextStage()
+        For Each e In Objects
+            e.Clear()
+        Next
+        Player = New Player.Player0
+        Objects.Add(Player)
     End Sub
     ''' <summary>
     ''' 更新符卡计时器
@@ -295,18 +299,52 @@ Public Class STG
         If Not IsNothing(CurrentMusic) Then
             Sounds.StopSound(CurrentMusic)
         End If
-        If CurrentStage < Stages.Count - 1 Then
-            Dim seed As Double = Date.Now.Millisecond + Date.Now.Second * 1000
-            Randomize(seed)
-            If CurrentStage >= 0 Then
-                Stages(CurrentStage).Unload()
+        If Not ReplayMode Then
+            If CurrentStage < Stages.Count - 1 Then
+                Dim seed As Double = Date.Now.Millisecond + Date.Now.Second * 1000
+                Rnd(-1)
+                Randomize(seed)
+                If CurrentStage >= 0 Then
+                    Stages(CurrentStage).Unload()
+                End If
+                CurrentStage += 1
+                Stages(CurrentStage).Load()
+                Replays.Add(New Replay(seed))
+                Replays.Last.PropertyData.Add(Score)
+                Replays.Last.PropertyData.Add(Life)
+                Replays.Last.PropertyData.Add(LifePiece)
+                Replays.Last.PropertyData.Add(Spell)
+                Replays.Last.PropertyData.Add(SpellPiece)
+                Replays.Last.PropertyData.Add(Power)
+                Replays.Last.PropertyData.Add(PointValue)
+                Replays.Last.PropertyData.Add(Graze)
+            Else
+                RaiseEvent GameClear()
             End If
-            CurrentStage += 1
-            Stages(CurrentStage).Load()
-            Replays.Add(New Replay(seed))
         Else
-            RaiseEvent GameClear()
+            If CurrentStage < Stages.Count - 1 Then
+                Dim seed As Double = Replays(CurrentStage + 1).Seed
+                Rnd(-1)
+                Randomize(seed)
+                If CurrentStage >= 0 Then
+                    Stages(CurrentStage).Unload()
+                End If
+                CurrentStage += 1
+                Stages(CurrentStage).Load()
+
+                Score = Replays(CurrentStage).PropertyData(0)
+                Life = Replays(CurrentStage).PropertyData(1)
+                LifePiece = Replays(CurrentStage).PropertyData(2)
+                Spell = Replays(CurrentStage).PropertyData(3)
+                SpellPiece = Replays(CurrentStage).PropertyData(4)
+                Power = Replays(CurrentStage).PropertyData(5)
+                PointValue = Replays(CurrentStage).PropertyData(6)
+                Graze = Replays(CurrentStage).PropertyData(7)
+            Else
+                RaiseEvent GameClear()
+            End If
         End If
+
 
     End Sub
     Private Sub Player_GameOver()

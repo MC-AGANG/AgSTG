@@ -11,7 +11,7 @@ Public MustInherit Class Stage
     ''' 获取或设置关卡运行时间
     ''' </summary>
     ''' <returns></returns>
-    Public Shared Property Ticks As Long
+    Public Property Ticks As Long
     ''' <summary>
     ''' 获取或设置关卡难度
     ''' </summary>
@@ -92,6 +92,9 @@ Public MustInherit Class Stage
     ''' </summary>
     Public Overridable Sub Reset()
         Ticks = 0
+        If Not IsNothing(Background) AndAlso STG.BackLayer.Children.Contains(Background) Then
+            STG.BackLayer.Children.Remove(Background)
+        End If
     End Sub
     ''' <summary>
     ''' 通过当前关卡
