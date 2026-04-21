@@ -359,6 +359,13 @@ Public Class STG
 
 
     End Sub
+    ''' <summary>
+    ''' 添加对象
+    ''' </summary>
+    ''' <param name="obj">要添加的内容</param>
+    Public Shared Sub Add(obj As GameObject)
+        Objects_Add.Add(obj)
+    End Sub
     Public Shared Sub Player_GameOver()
         RaiseEvent GameOver()
     End Sub
