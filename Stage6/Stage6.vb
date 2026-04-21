@@ -51,8 +51,8 @@ Public Class Stage6
     Private Sub EnemySpawn()
         Select Case Ticks
             Case 120
-                STG.Objects_Add.Add(New Enemy(EnemyType.大蝴蝶, 0, 128, 160, 1000, "000000000055", 800))
-                STG.Objects_Add.Add(New Enemy(EnemyType.大蝴蝶, 0, 256, 160, 1000, "00000000003", 800))
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, 128, 160, 1000, "000000000055", 800))
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, 256, 160, 1000, "00000000003", 800))
             Case 1200
                 STG.Objects.Add(New Enemy.Boss(0, 192, -50) With {.Init = New Action(AddressOf .S6B8I), .Act = New Action(AddressOf .S6B8A)})
 
@@ -78,7 +78,7 @@ Public Class B8S0
         If Not AtSpell Then
             If Ticks > 60 AndAlso Ticks Mod 90 = 0 Then
                 For i = 0 To 342 Step 18
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, Owner.X, Owner.Y, 2 + Rnd(), i + Rnd() * 20 - 10, 0) With {.Act = AddressOf .B8S0B1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, Owner.X, Owner.Y, 2 + Rnd(), i + Rnd() * 20 - 10, 0) With {.Act = AddressOf .B8S0B1})
                 Next
             End If
 
@@ -88,12 +88,12 @@ Public Class B8S0
                 Stage6.BG.CB.Visibility = Visibility.Visible
             End If
             If Ticks = 10 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.中玉, 0, 0, -600 + 224, 0, 0, 0) With {.Breakable = False, .Act = AddressOf .B8S0B3})
-                STG.Objects_Add.Add(New Bullet(BulletType.中玉, 0, 0, 500 + 224, 0, 0, 0) With {.Breakable = False, .Act = AddressOf .B8S0B4})
+                STG.Add(New Bullet(BulletType.中玉, 0, 0, -600 + 224, 0, 0, 0) With {.Breakable = False, .Act = AddressOf .B8S0B3})
+                STG.Add(New Bullet(BulletType.中玉, 0, 0, 500 + 224, 0, 0, 0) With {.Breakable = False, .Act = AddressOf .B8S0B4})
             End If
             If Ticks > 10 AndAlso Ticks Mod 100 = 0 Then
                 For i = 0 To 330 Step 30
-                    STG.Objects_Add.Add(New Bullet(BulletType.刀弹, 2, Owner.X, Owner.Y, 1.2, i))
+                    STG.Add(New Bullet(BulletType.刀弹, 2, Owner.X, Owner.Y, 1.2, i))
                 Next
             End If
         End If
@@ -131,19 +131,19 @@ Public Class B8S1
         If Not AtSpell Then
             If Ticks Mod 300 = 60 Then
                 For i = 0 To 7
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, 128, 48 * i, 225, 16, 200, 120))
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, 256, 48 * i, 135, 16, 200, 120))
+                    STG.Add(New Bullet.Laser(BulletColor.品红, 128, 48 * i, 225, 16, 200, 120))
+                    STG.Add(New Bullet.Laser(BulletColor.品红, 256, 48 * i, 135, 16, 200, 120))
                 Next
             ElseIf Ticks Mod 300 = 120 Then
                 For i = 0 To 7
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, 96, 48 * i + 32, 1 + Rnd(), 30 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, 64, 48 * i + 64, 1 + Rnd(), 30 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, 32, 48 * i + 96, 1 + Rnd(), 30 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, 0, 48 * i + 128, 1 + Rnd(), 30 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, 288, 48 * i + 32, 1 + Rnd(), 285 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, 320, 48 * i + 64, 1 + Rnd(), 285 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, 352, 48 * i + 96, 1 + Rnd(), 285 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, 384, 48 * i + 128, 1 + Rnd(), 285 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, 96, 48 * i + 32, 1 + Rnd(), 30 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, 64, 48 * i + 64, 1 + Rnd(), 30 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, 32, 48 * i + 96, 1 + Rnd(), 30 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, 0, 48 * i + 128, 1 + Rnd(), 30 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, 288, 48 * i + 32, 1 + Rnd(), 285 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, 320, 48 * i + 64, 1 + Rnd(), 285 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, 352, 48 * i + 96, 1 + Rnd(), 285 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, 384, 48 * i + 128, 1 + Rnd(), 285 + Rnd() * 30, 0) With {.Act = AddressOf .B8S1B1})
                 Next
             End If
         Else
@@ -152,8 +152,8 @@ Public Class B8S1
                 Stage6.BG.CB.Visibility = Visibility.Visible
             End If
             If Ticks = 10 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.中玉, 0, 0, 128, 0, 0, 0) With {.Breakable = False, .Act = AddressOf .B8S1B2, .Tag = 200})
-                STG.Objects_Add.Add(New Bullet(BulletType.中玉, 1, 384, 128, 0, 0, 0) With {.Breakable = False, .Act = AddressOf .B8S1B3, .Tag = 200})
+                STG.Add(New Bullet(BulletType.中玉, 0, 0, 128, 0, 0, 0) With {.Breakable = False, .Act = AddressOf .B8S1B2, .Tag = 200})
+                STG.Add(New Bullet(BulletType.中玉, 1, 384, 128, 0, 0, 0) With {.Breakable = False, .Act = AddressOf .B8S1B3, .Tag = 200})
             End If
 
         End If
@@ -196,13 +196,13 @@ Public Class B8S2
             If Ticks Mod 240 = 60 Then
                 c = Rnd() * 45
                 For i = 0 To 315 Step 45
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, Owner.X, Owner.Y, c + i, 16, 240, 180) With {.Act = AddressOf .B8S2B1})
+                    STG.Add(New Bullet.Laser(BulletColor.品红, Owner.X, Owner.Y, c + i, 16, 240, 180) With {.Act = AddressOf .B8S2B1})
                 Next
             ElseIf Ticks Mod 240 = 180 Then
                 For i = 0 To 315 Step 45
                     For j = 0 To 5
-                        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X + 64 * j * Sin((c + i) / 180 * PI), Owner.Y - 64 * j * Cos((c + i) / 180 * PI), 0, c + i, 0) With {.Act = AddressOf .B8S2B2})
-                        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X + 64 * j * Sin((c + i) / 180 * PI), Owner.Y - 64 * j * Cos((c + i) / 180 * PI), 0, c + i, 0) With {.Act = AddressOf .B8S2B2})
+                        STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X + 64 * j * Sin((c + i) / 180 * PI), Owner.Y - 64 * j * Cos((c + i) / 180 * PI), 0, c + i, 0) With {.Act = AddressOf .B8S2B2})
+                        STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X + 64 * j * Sin((c + i) / 180 * PI), Owner.Y - 64 * j * Cos((c + i) / 180 * PI), 0, c + i, 0) With {.Act = AddressOf .B8S2B2})
                     Next
                 Next
             End If
@@ -216,8 +216,8 @@ Public Class B8S2
                 Owner.MoveTo(64 + Rnd() * 256, 64 + Rnd() * 320, 60)
                 c = Owner.Direction + 90
             ElseIf Ticks Mod 180 = 80 OrElse Ticks Mod 180 = 100 OrElse Ticks Mod 180 = 120 Then
-                STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, Owner.X, Owner.Y, c, 16, 320, 100) With {.Act = AddressOf .B8S2B3})
-                STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, Owner.X, Owner.Y, c + 180, 16, 320, 100) With {.Act = AddressOf .B8S2B3})
+                STG.Add(New Bullet.Laser(BulletColor.品红, Owner.X, Owner.Y, c, 16, 320, 100) With {.Act = AddressOf .B8S2B3})
+                STG.Add(New Bullet.Laser(BulletColor.品红, Owner.X, Owner.Y, c + 180, 16, 320, 100) With {.Act = AddressOf .B8S2B3})
             End If
         End If
     End Sub
@@ -254,11 +254,11 @@ Public Class B8S3
             If Ticks Mod 50 = 0 Then
                 Dim c As Double = Rnd() * 120
                 For i = 0 To 330 Step 30
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Act = AddressOf .B8S3B1, .Tag = 1})
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Act = AddressOf .B8S3B1, .Tag = 2})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Act = AddressOf .B8S3B1, .Tag = 1})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Act = AddressOf .B8S3B1, .Tag = 2})
                 Next
                 For i = 0 To 240 Step 120
-                    STG.Objects_Add.Add(New Bullet(BulletType.大玉, 1, Owner.X, Owner.Y, 1.5, i + c, 0))
+                    STG.Add(New Bullet(BulletType.大玉, 1, Owner.X, Owner.Y, 1.5, i + c, 0))
                 Next
             End If
             Dim d As Double = 448 - Ticks / 2
@@ -352,16 +352,16 @@ Public Class B8S4
     Public Sub Preset1()
         Dim c As Double = Rnd() * 360
         For i = 0 To 345 Step 15
-            STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0))
+            STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0))
         Next
     End Sub
     Public Sub Preset2()
         Dim c As Double = Rnd() * 360
         For i = 0 To 345 Step 15
             If i Mod 30 = 0 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B8S4B2})
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B8S4B2})
             Else
-                STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B8S4B2})
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B8S4B2})
             End If
         Next
     End Sub
@@ -369,9 +369,9 @@ Public Class B8S4
         Dim c As Double = Rnd() * 360
         For i = 0 To 345 Step 15
             If i Mod 30 = 0 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B8S4B3})
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B8S4B3})
             Else
-                STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B8S4B3})
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B8S4B3})
             End If
         Next
     End Sub
@@ -379,9 +379,9 @@ Public Class B8S4
         Dim c As Double = Rnd() * 360
         For i = 0 To 345 Step 15
             If i Mod 30 = 0 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B8S4B4})
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B8S4B4})
             Else
-                STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B8S4B4})
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B8S4B4})
             End If
         Next
     End Sub
@@ -390,19 +390,19 @@ Public Class B8S4
         tx = 48
         ty = Rnd() * 448
         td = Vector.AngleBetween(New Vector(0, -1), New Vector(192 - tx, 224 - ty)) + 180
-        STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, tx, ty, td, 8, 100, 90))
+        STG.Add(New Bullet.Laser(BulletColor.品红, tx, ty, td, 8, 100, 90))
         tx = 336
         ty = Rnd() * 448
         td = Vector.AngleBetween(New Vector(0, -1), New Vector(192 - tx, 224 - ty)) + 180
-        STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, tx, ty, td, 8, 100, 90))
+        STG.Add(New Bullet.Laser(BulletColor.品红, tx, ty, td, 8, 100, 90))
         tx = Rnd() * 384
         ty = 48
         td = Vector.AngleBetween(New Vector(0, -1), New Vector(192 - tx, 224 - ty)) + 180
-        STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, tx, ty, td, 8, 100, 90))
+        STG.Add(New Bullet.Laser(BulletColor.品红, tx, ty, td, 8, 100, 90))
         tx = Rnd() * 384
         ty = 400
         td = Vector.AngleBetween(New Vector(0, -1), New Vector(192 - tx, 224 - ty)) + 180
-        STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, tx, ty, td, 8, 100, 90))
+        STG.Add(New Bullet.Laser(BulletColor.品红, tx, ty, td, 8, 100, 90))
     End Sub
 
     Public Overrides Function Break() As Boolean
@@ -499,7 +499,7 @@ Module St6Enm
                 .Y += .Ticks * 0.03
             ElseIf .Ticks = 60 Then
                 .Break(False)
-                STG.Objects_Add.Add(New Bullet(BulletType.刀弹, 2, .X, .Y, 0) With {.Act = AddressOf .B8S0B2})
+                STG.Add(New Bullet(BulletType.刀弹, 2, .X, .Y, 0) With {.Act = AddressOf .B8S0B2})
             End If
         End With
     End Sub
@@ -526,12 +526,12 @@ Module St6Enm
             If .Ticks Mod 120 = 60 Then
                 For i = -20 To 20 Step 2.5
                     Dim d As Double = i + Vector.AngleBetween(New Vector(0, -1), New Vector(192 - .X, 224 - .Y))
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, .X + 512 * Sin(d / 180 * PI), .Y - 512 * Cos(d / 180 * PI), 1.5, d, 0) With {.Act = AddressOf .B8S0B5})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, .X + 512 * Sin(d / 180 * PI), .Y - 512 * Cos(d / 180 * PI), 1.5, d, 0) With {.Act = AddressOf .B8S0B5})
                 Next
             ElseIf .Ticks Mod 120 = 0 Then
                 For i = -20 To 20 Step 4
                     Dim d As Double = i + Vector.AngleBetween(New Vector(0, -1), New Vector(192 - .X, 224 - .Y))
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, .X + 512 * Sin(d / 180 * PI), .Y - 512 * Cos(d / 180 * PI), 1.5, d + 180, 0))
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.红, .X + 512 * Sin(d / 180 * PI), .Y - 512 * Cos(d / 180 * PI), 1.5, d + 180, 0))
                 Next
             End If
         End With
@@ -603,14 +603,14 @@ Module St6Enm
                     Dim tx As Double = .X + .Tag * Sin(i / 180 * PI)
                     Dim ty As Double = .Y - .Tag * Cos(i / 180 * PI)
                     Dim r As Double = Vector.AngleBetween(New Vector(0, -1), New Vector(.X - tx, .Y - ty))
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, tx, ty, 1, r + 225, 0) With {.Breakable = False, .Act = AddressOf .B8S1B4})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, tx, ty, 1, r + 225, 0) With {.Breakable = False, .Act = AddressOf .B8S1B4})
                 Next
             ElseIf .Ticks Mod 120 = 0 Then
                 For i = 0 To 359.9 Step 1440 / .Tag
                     Dim tx As Double = .X + .Tag * Sin(i / 180 * PI)
                     Dim ty As Double = .Y - .Tag * Cos(i / 180 * PI)
                     Dim r As Double = Vector.AngleBetween(New Vector(0, -1), New Vector(.X - tx, .Y - ty))
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, tx, ty, 1, r - 45, 0) With {.Breakable = False, .Act = AddressOf .B8S1B4})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, tx, ty, 1, r - 45, 0) With {.Breakable = False, .Act = AddressOf .B8S1B4})
                 Next
             End If
         End With
@@ -649,14 +649,14 @@ Module St6Enm
                     Dim tx As Double = .X + .Tag * Sin(i / 180 * PI)
                     Dim ty As Double = .Y - .Tag * Cos(i / 180 * PI)
                     Dim r As Double = Vector.AngleBetween(New Vector(0, -1), New Vector(.X - tx, .Y - ty))
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, tx, ty, 1, r + 225, 0) With {.Breakable = False, .Act = AddressOf .B8S1B4})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, tx, ty, 1, r + 225, 0) With {.Breakable = False, .Act = AddressOf .B8S1B4})
                 Next
             ElseIf .Ticks Mod 120 = 0 Then
                 For i = 0 To 359.9 Step 1440 / .Tag
                     Dim tx As Double = .X + .Tag * Sin(i / 180 * PI)
                     Dim ty As Double = .Y - .Tag * Cos(i / 180 * PI)
                     Dim r As Double = Vector.AngleBetween(New Vector(0, -1), New Vector(.X - tx, .Y - ty))
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, tx, ty, 1, r - 45, 0) With {.Breakable = False, .Act = AddressOf .B8S1B4})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, tx, ty, 1, r - 45, 0) With {.Breakable = False, .Act = AddressOf .B8S1B4})
                 Next
             End If
         End With
@@ -702,8 +702,8 @@ Module St6Enm
         With e
             If .Ticks = 90 Then
                 For i = 64 To 320 Step 64
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, .X + i * Sin(.Direction / 180 * PI), .Y - i * Cos(.Direction / 180 * PI), 0, .Direction + 90, 0) With {.Act = AddressOf .B8S2B4})
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, .X + i * Sin(.Direction / 180 * PI), .Y - i * Cos(.Direction / 180 * PI), 0, .Direction - 90, 0) With {.Act = AddressOf .B8S2B4})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, .X + i * Sin(.Direction / 180 * PI), .Y - i * Cos(.Direction / 180 * PI), 0, .Direction + 90, 0) With {.Act = AddressOf .B8S2B4})
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, .X + i * Sin(.Direction / 180 * PI), .Y - i * Cos(.Direction / 180 * PI), 0, .Direction - 90, 0) With {.Act = AddressOf .B8S2B4})
                 Next
             End If
         End With
@@ -795,7 +795,7 @@ Module St6Enm
             If .Tag < 10 AndAlso .BulletColor = BulletColor.红 Then
                 For Each b In STG.SearchBullet
                     If b.BulletType = BulletType.小玉 AndAlso b.BulletColor = BulletColor.品红 AndAlso New Vector(b.X - .X, b.Y - .Y).Length < 8 Then
-                        STG.Objects_Add.Add(New Bullet(BulletType.刀弹, 2, b.X, b.Y, 1.5, b.Direction, 0))
+                        STG.Add(New Bullet(BulletType.刀弹, 2, b.X, b.Y, 1.5, b.Direction, 0))
                         b.Break(False)
                         .Tag += 10
                         Exit For
