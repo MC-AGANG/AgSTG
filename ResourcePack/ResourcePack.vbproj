@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Reference Include="ManagedBass">
-      <HintPath>D:\dll\Bass\ManagedBass.dll</HintPath>
+      <HintPath>..\dll\Bass\ManagedBass.dll</HintPath>
     </Reference>
   </ItemGroup>
 
