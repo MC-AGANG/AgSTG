@@ -82,13 +82,13 @@ Public Class B7S0
                     Owner.MoveTo(STG.Player.X, STG.Player.Y, 60)
                 Case 120
                     c = Rnd() * 360
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.蓝, Owner.X, Owner.Y, c, 16, 64, 150))
+                    STG.Add(New Bullet.Laser(BulletColor.蓝, Owner.X, Owner.Y, c, 16, 64, 150))
                 Case 150
                     Dim tx As Double = Owner.X + 56 * Sin(c / 180 * PI)
                     Dim ty As Double = Owner.Y - 56 * Cos(c / 180 * PI)
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.蓝, tx, ty, Vector.AngleBetween(New Vector(0, -1), New Vector(STG.Player.X - tx, STG.Player.Y - ty)), 16, 512, 120))
+                    STG.Add(New Bullet.Laser(BulletColor.蓝, tx, ty, Vector.AngleBetween(New Vector(0, -1), New Vector(STG.Player.X - tx, STG.Player.Y - ty)), 16, 512, 120))
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.蓝, tx, ty, 2, i))
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.蓝, tx, ty, 2, i))
                     Next
             End Select
         End If
@@ -151,7 +151,7 @@ Public Class B7S1
     Private Sub Preset1()
         Dim r As Double = Rnd() * 360
         For i = 0 To 315 Step 45
-            STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, tx, ty, 0, i + r) With {.Act = AddressOf .B7S1B1})
+            STG.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, tx, ty, 0, i + r) With {.Act = AddressOf .B7S1B1})
         Next
     End Sub
     Public Overrides Function Break() As Boolean
@@ -182,15 +182,15 @@ Public Class B7S2
             If t = 60 Then
                 ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.ch00)
             ElseIf t = 90 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.大玉, 0, Owner.X, Owner.Y, 2) With {.Act = AddressOf .B7S2B1})
+                STG.Add(New Bullet(BulletType.大玉, 0, Owner.X, Owner.Y, 2) With {.Act = AddressOf .B7S2B1})
             ElseIf t = 270 Then
                 Owner.DefaultMove(30)
             ElseIf t = 360 Then
                 ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.ch00)
             ElseIf t >= 390 AndAlso t < 540 Then
                 If t Mod 5 = 0 Then
-                    STG.Objects_Add.Add(New Bullet(BulletType.环弹, BulletColor.品红, 74 + (t - 390) * 2, 64, 0, Rnd() * 4 - 2, 0) With {.Act = AddressOf .B7S2B2})
-                    STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.品红, 74 + (t - 390) * 2, 64, 0, Rnd() * 4 - 2, 0) With {.Act = AddressOf .B7S2B2})
+                    STG.Add(New Bullet(BulletType.环弹, BulletColor.品红, 74 + (t - 390) * 2, 64, 0, Rnd() * 4 - 2, 0) With {.Act = AddressOf .B7S2B2})
+                    STG.Add(New Bullet(BulletType.米弹, BulletColor.品红, 74 + (t - 390) * 2, 64, 0, Rnd() * 4 - 2, 0) With {.Act = AddressOf .B7S2B2})
                 End If
             ElseIf t = 570 Then
                 Owner.DefaultMove(30)
@@ -228,64 +228,64 @@ Public Class B7S3
                 Dim t As Integer = Ticks Mod 150
                 If t = 60 Then
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.天蓝, Owner.X, Owner.Y, 1.5, i + Rnd() * 4 - 2))
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.天蓝, Owner.X, Owner.Y, 1.5, i + Rnd() * 4 - 2))
                     Next
                 ElseIf t = 90 Then
                     ry = 32 + Rnd() * 384
                     rd = Vector.AngleBetween(New Vector(0, -1), New Vector(STG.Player.X - -4, STG.Player.Y - ry))
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.天蓝, -4, ry, rd, 16, 512, 90))
+                    STG.Add(New Bullet.Laser(BulletColor.天蓝, -4, ry, rd, 16, 512, 90))
                 ElseIf t = 120 Then
                     Dim r As Double = Rnd() * 320
                     For i = 0 To 7
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, -4 + r * Sin(rd / 180 * PI), ry - r * Cos(rd / 180 * PI), 2, Rnd() * 360))
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, -4 + r * Sin(rd / 180 * PI), ry - r * Cos(rd / 180 * PI), 2, Rnd() * 360))
                     Next
                 End If
             ElseIf Ticks < 1000 Then
                 Dim t As Integer = Ticks Mod 100
                 If t = 30 Then
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.天蓝, Owner.X, Owner.Y, 1.5, i + Rnd() * 4 - 2))
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.天蓝, Owner.X, Owner.Y, 1.5, i + Rnd() * 4 - 2))
                     Next
                 ElseIf t = 60 Then
                     ry = 32 + Rnd() * 384
                     rd = Vector.AngleBetween(New Vector(0, -1), New Vector(STG.Player.X - -4, STG.Player.Y - ry))
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.天蓝, -4, ry, rd, 16, 512, 90))
+                    STG.Add(New Bullet.Laser(BulletColor.天蓝, -4, ry, rd, 16, 512, 90))
                 ElseIf t = 90 Then
                     Dim r As Double = Rnd() * 320
                     For i = 0 To 7
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, -4 + r * Sin(rd / 180 * PI), ry - r * Cos(rd / 180 * PI), 2, Rnd() * 360))
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, -4 + r * Sin(rd / 180 * PI), ry - r * Cos(rd / 180 * PI), 2, Rnd() * 360))
                     Next
                 End If
             ElseIf Ticks < 1300 Then
                 Dim t As Integer = Ticks Mod 50
                 If t = 10 Then
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.天蓝, Owner.X, Owner.Y, 1.5, i + Rnd() * 4 - 2))
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.天蓝, Owner.X, Owner.Y, 1.5, i + Rnd() * 4 - 2))
                     Next
                 ElseIf t = 15 Then
                     ry = 32 + Rnd() * 384
                     rd = Vector.AngleBetween(New Vector(0, -1), New Vector(STG.Player.X - -4, STG.Player.Y - ry))
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.天蓝, -4, ry, rd, 16, 512, 90))
+                    STG.Add(New Bullet.Laser(BulletColor.天蓝, -4, ry, rd, 16, 512, 90))
                 ElseIf t = 45 Then
                     Dim r As Double = Rnd() * 320
                     For i = 0 To 7
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, -4 + r * Sin(rd / 180 * PI), ry - r * Cos(rd / 180 * PI), 2, Rnd() * 360))
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, -4 + r * Sin(rd / 180 * PI), ry - r * Cos(rd / 180 * PI), 2, Rnd() * 360))
                     Next
                 End If
             Else
                 Dim t As Integer = Ticks Mod 35
                 If t = 1 Then
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.天蓝, Owner.X, Owner.Y, 1.5, i + Rnd() * 4 - 2))
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.天蓝, Owner.X, Owner.Y, 1.5, i + Rnd() * 4 - 2))
                     Next
                 ElseIf t = 2 Then
                     ry = 32 + Rnd() * 384
                     rd = Vector.AngleBetween(New Vector(0, -1), New Vector(STG.Player.X - -4, STG.Player.Y - ry))
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.天蓝, -4, ry, rd, 16, 512, 90))
+                    STG.Add(New Bullet.Laser(BulletColor.天蓝, -4, ry, rd, 16, 512, 90))
                 ElseIf t = 32 Then
                     Dim r As Double = Rnd() * 320
                     For i = 0 To 7
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, -4 + r * Sin(rd / 180 * PI), ry - r * Cos(rd / 180 * PI), 2, Rnd() * 360))
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.品红, -4 + r * Sin(rd / 180 * PI), ry - r * Cos(rd / 180 * PI), 2, Rnd() * 360))
                     Next
                 End If
             End If
@@ -336,7 +336,7 @@ Public Class B7S4
                         Ticks = 10
                         Owner.Layer1.Visibility = Visibility.Hidden
                         For i = 1 To 5
-                            STG.Objects_Add.Add(New Bullet(BulletType.中玉, BulletColor.品红, Owner.X, Owner.Y, 0, 0, 0) With {.Act = AddressOf .B7S4B1, .Tag = i})
+                            STG.Add(New Bullet(BulletType.中玉, BulletColor.品红, Owner.X, Owner.Y, 0, 0, 0) With {.Act = AddressOf .B7S4B1, .Tag = i})
                         Next
                     End If
                 End If
@@ -355,7 +355,7 @@ Public Class B7S4
                     STG.Player.Speed = 5
                 End If
                 If Ticks = 239 Then
-                    STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, px, py + 32, 0, 64, 512, 62))
+                    STG.Add(New Bullet.Laser(BulletColor.品红, px, py + 32, 0, 64, 512, 62))
                 End If
             End If
 
@@ -459,12 +459,12 @@ Module St5Enm
     Public Sub B7S2B1(e As Bullet)
         With e
             If .Ticks Mod 20 = 0 Then
-                STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, .X, .Y, .Direction + 80 + Rnd() * 20, 16, 256, 120))
+                STG.Add(New Bullet.Laser(BulletColor.品红, .X, .Y, .Direction + 80 + Rnd() * 20, 16, 256, 120))
             ElseIf .Ticks Mod 20 = 10 Then
-                STG.Objects_Add.Add(New Bullet.Laser(BulletColor.品红, .X, .Y, .Direction - 80 - Rnd() * 20, 16, 256, 120))
+                STG.Add(New Bullet.Laser(BulletColor.品红, .X, .Y, .Direction - 80 - Rnd() * 20, 16, 256, 120))
             End If
             If .Ticks Mod 5 = 0 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.品红, .X, .Y, 0, Rnd() * 4 - 2, 0) With {.Act = AddressOf .B7S2B2})
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.品红, .X, .Y, 0, Rnd() * 4 - 2, 0) With {.Act = AddressOf .B7S2B2})
             End If
         End With
     End Sub
