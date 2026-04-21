@@ -44,6 +44,7 @@ Public Class TitlePage
             STG.ReplayMode = True
             STG.Replays.Clear()
             Dim rf As New ReplayFile(ofd.FileName)
+            STG.PlayerName = rf.Name
             STG.PlayerID = rf.Character
             For Each r In rf.Stages
                 STG.Replays.Add(r)
@@ -63,6 +64,7 @@ Public Class TitlePage
     Public Sub Page_ActivatedChanged(Activated As Boolean) Handles Page.ActivatedChanged
         If Activated Then
             ResourcePack.Sounds.PlaySound(Sounds.mu01)
+            STG.ReplayMode = False
         Else
             ManagedBass.Bass.ChannelStop(Sounds.mu01)
         End If

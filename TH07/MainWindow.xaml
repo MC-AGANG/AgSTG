@@ -16,7 +16,7 @@
             <Grid.RenderTransform>
                 <ScaleTransform x:Name="me_scale" CenterX="320" CenterY="240"/>
             </Grid.RenderTransform>
-            <Label Name="LB_FPS" Height="24" Width="64" Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" HorizontalContentAlignment="Right">
+            <Label Name="LB_FPS" Height="24" Width="640" Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="White" HorizontalContentAlignment="Right">
                 60.00 fps
             </Label>
         </Grid>
