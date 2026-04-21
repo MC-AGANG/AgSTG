@@ -114,9 +114,7 @@ Class MainWindow
                 KeyState.Escape = False
                 Exit Select
             Case Key.LeftCtrl
-                If STG.ReplayMode Then
-                    Timer1.TPS = 60
-                End If
+                Timer1.TPS = 60
         End Select
     End Sub
     Private Sub GamePage_Action()
@@ -142,7 +140,11 @@ Class MainWindow
             SW_FPS.Stop()
             interval = SW_FPS.ElapsedTicks
             Dispatcher.Invoke(Sub()
-                                  LB_FPS.Content = fps.ToString("F2") + " fps"
+                                  If STG.ReplayMode Then
+                                      LB_FPS.Content = "回放模式，机师：" + STG.PlayerName + " 长按Ctrl可快进。  " + fps.ToString("F2") + " fps"
+                                  Else
+                                      LB_FPS.Content = fps.ToString("F2") + " fps"
+                                  End If
                               End Sub)
             SW_FPS.Restart()
         End If
