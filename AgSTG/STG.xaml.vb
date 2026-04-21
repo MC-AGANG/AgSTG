@@ -89,6 +89,7 @@ Public Class STG
     ''' </summary>
     ''' <returns></returns>
     Public Shared Property ReplayMode As Boolean
+    Public Shared PlayerName As String
     Public Shared Replays As New List(Of Replay)
     ''' <summary>
     ''' 获取或设置当前难度
