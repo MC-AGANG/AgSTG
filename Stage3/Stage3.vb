@@ -51,115 +51,115 @@ Public Class Stage3
         Select Case Ticks
             Case 240 To 320
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
                 End If
             Case 360 To 440
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
                 End If
             Case 480 To 560
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
                 End If
             Case 600 To 680
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
                 End If
             Case 720
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "0011", 500, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "0011", 500, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "0011", 500, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "0011", 500, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 840
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 304, -16, 150, "0011", 800, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 80, -16, 150, "0011", 800, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 304, -16, 150, "0011", 800, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 80, -16, 150, "0011", 800, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 1200 To 1340
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
                 End If
             Case 1680 To 1860
                 If Ticks Mod 20 = 0 Then
                     Dim t As Integer = (Ticks - 1680) \ 20
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 400, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 265) With {.Act = AddressOf .S3W3})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 400, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 265) With {.Act = AddressOf .S3W3})
                 End If
             Case 1980 To 2160
                 If Ticks Mod 20 = 0 Then
                     Dim t As Integer = (Ticks - 1980) \ 20
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, -16, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 95) With {.Act = AddressOf .S3W3})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, -16, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 95) With {.Act = AddressOf .S3W3})
                 End If
             Case 2220
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 2340
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 320, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 64, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 320, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 64, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 2460
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 288, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 96, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 288, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 96, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 2580
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 256, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 128, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 256, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 128, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 2940
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 3060
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 320, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 64, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 320, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 64, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 3180
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 288, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 96, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 288, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 96, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 3300
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 256, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 128, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 256, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 128, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 3420
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 224, -16, 150, "00116", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 160, -16, 150, "00116", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 224, -16, 150, "00116", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 160, -16, 150, "00116", 1000, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 3540
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 256, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 128, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 256, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 128, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
             Case 3660
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 288, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 96, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 288, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 96, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
             Case 3780
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 320, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 64, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 320, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 64, -16, 150, "0011", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
             Case 3900
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "00116", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "00116", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "00116", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "00116", 1000, 0.33, 180) With {.Act = AddressOf .S3W4})
             Case 4200 To 4380
                 If Ticks Mod 20 = 0 Then
                     Dim t As Integer = (Ticks - 4200) \ 20
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 400, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 265) With {.Act = AddressOf .S3W3})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 400, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 265) With {.Act = AddressOf .S3W3})
                 End If
             Case 4500 To 4680
                 If Ticks Mod 20 = 0 Then
                     Dim t As Integer = (Ticks - 4500) \ 20
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, -16, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 95) With {.Act = AddressOf .S3W3})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, -16, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 95) With {.Act = AddressOf .S3W3})
                 End If
             Case 4860 To 5040
                 If Ticks Mod 20 = 0 Then
                     Dim t As Integer = (Ticks - 4860) \ 20
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 400, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 265) With {.Act = AddressOf .S3W3})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 400, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 265) With {.Act = AddressOf .S3W3})
                 End If
             Case 5160 To 5340
                 If Ticks Mod 20 = 0 Then
                     Dim t As Integer = (Ticks - 5160) \ 20
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, -16, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 95) With {.Act = AddressOf .S3W3})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, -16, 32 + 24 * (t Mod 5), 20, "01", 128, 3, 95) With {.Act = AddressOf .S3W3})
                 End If
             Case 5520 To 5600
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
                 End If
             Case 5640 To 5720
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
                 End If
             Case 5820 To 5900
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 96, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 96, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
                 End If
             Case 5940 To 6020
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 228, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 228, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
                 End If
             Case 6150
                 STG.Objects.Add(New Enemy.Boss(0, 192, -50) With {.Init = New Action(AddressOf .S3B3I), .Act = New Action(AddressOf .S3B3A)})
@@ -167,33 +167,33 @@ Public Class Stage3
 
             Case 7920 To 8000
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 32, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
                 End If
             Case 8040 To 8120
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 352, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
                 End If
             Case 8220 To 8300
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 96, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 96, -16, 20, "1", 240, 2, 180) With {.Tag = 1, .Act = AddressOf .S3W1})
                 End If
             Case 8340 To 8420
                 If Ticks Mod 20 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.阴阳玉, 0, 228, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 228, -16, 20, "0", 240, 2, 180) With {.Tag = 2, .Act = AddressOf .S3W1})
                 End If
             Case 8580
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "0011", 500, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "0011", 500, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 352, -16, 150, "0011", 500, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 32, -16, 150, "0011", 500, 0.33, 180) With {.Act = AddressOf .S3W2})
             Case 8700
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 304, -16, 150, "0011", 800, 0.33, 180) With {.Act = AddressOf .S3W2})
-                STG.Objects_Add.Add(New Enemy(EnemyType.中蝴蝶, 0, 80, -16, 150, "0011", 800, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 304, -16, 150, "0011", 800, 0.33, 180) With {.Act = AddressOf .S3W2})
+                STG.Add(New Enemy(EnemyType.中蝴蝶, 0, 80, -16, 150, "0011", 800, 0.33, 180) With {.Act = AddressOf .S3W2})
 
             Case 9480 To 9510
                 For i = 0 To 3
                     If Ticks = 9480 + i * 10 Then
                         For j = 0 To 2
-                            STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.白, 40 + i * 10, 360 - i * 10, 1 + j * 0.5))
-                            STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.白, 344 - i * 10, 360 - i * 10, 1 + j * 0.5))
+                            STG.Add(New Bullet(BulletType.点弹, BulletColor.白, 40 + i * 10, 360 - i * 10, 1 + j * 0.5))
+                            STG.Add(New Bullet(BulletType.点弹, BulletColor.白, 344 - i * 10, 360 - i * 10, 1 + j * 0.5))
                         Next
 
                     End If
@@ -203,7 +203,7 @@ Public Class Stage3
                     Dim r1 As Double = 32 + 128 * Rnd()
                     Dim r2 As Double = 32 + Rnd() * 256
                     For j = 0 To 2
-                        STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.白, r2, r1, 1 + j * 0.5))
+                        STG.Add(New Bullet(BulletType.点弹, BulletColor.白, r2, r1, 1 + j * 0.5))
                     Next
                 End If
             Case 9850
@@ -232,51 +232,51 @@ Public Class B3S0
         If Ticks Mod 900 = 120 Then
             For i = 0 To 3
                 For j = 150 To 210 Step 30
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1 + i * 0.5, j, 0))
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1 + i * 0.5, j, 0))
                 Next
             Next
         ElseIf Ticks Mod 900 = 140 Then
             For i = 0 To 3
                 For j = 168 To 192 Step 8
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.25 + i * 0.5, j, 0))
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.25 + i * 0.5, j, 0))
                 Next
             Next
         ElseIf Ticks Mod 900 = 160 Then
             For i = 0 To 3
                 For j = 135 To 225 Step 15
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1 + i * 0.5, j, 0))
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1 + i * 0.5, j, 0))
                 Next
             Next
         ElseIf Ticks Mod 900 = 420 Then
             For i = 0 To 3
-                STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1 + i * 0.5))
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1 + i * 0.5))
             Next
         ElseIf Ticks Mod 900 = 440 Then
             For i = 0 To 3
                 For j = -4 To 4 Step 8
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.25 + i * 0.5, j))
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 1.25 + i * 0.5, j))
                 Next
             Next
         ElseIf Ticks Mod 900 = 460 Then
             For i = 0 To 3
                 For j = -12 To 12 Step 12
-                    STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1 + i * 0.5, j))
+                    STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, Owner.X, Owner.Y, 1 + i * 0.5, j))
                 Next
             Next
         ElseIf Ticks Mod 900 = 720 Then
             For j = 105 To 255 Step 10
-                STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j + 1, 0))
-                STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j - 1, 0))
+                STG.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j + 1, 0))
+                STG.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j - 1, 0))
             Next
         ElseIf Ticks Mod 900 = 740 Then
             For j = 100 To 260 Step 10
-                STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j + 1, 0))
-                STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j - 1, 0))
+                STG.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j + 1, 0))
+                STG.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j - 1, 0))
             Next
         ElseIf Ticks Mod 900 = 760 Then
             For j = 105 To 255 Step 10
-                STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j + 1, 0))
-                STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j - 1, 0))
+                STG.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j + 1, 0))
+                STG.Add(New Bullet(BulletType.米弹, BulletColor.蓝, Owner.X, Owner.Y, 2, j - 1, 0))
             Next
         End If
     End Sub
@@ -307,15 +307,15 @@ Public Class B4S0
             For i = 90 To 150 Step 2
                 If Ticks Mod 600 = i Then
                     For j = 0 To 3
-                        STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.红, Owner.X, Owner.Y, 1 + Rnd() * 2, 100 + Rnd() * 160, 0))
+                        STG.Add(New Bullet(BulletType.棱弹, BulletColor.红, Owner.X, Owner.Y, 1 + Rnd() * 2, 100 + Rnd() * 160, 0))
                     Next
                 End If
             Next
             For i = 90 To 150 Step 5
                 If Ticks Mod 600 = i + 300 Then
                     For j = 0 To 315 Step 45
-                        STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.红, Owner.X, Owner.Y, 2.5, j + i * 2, 0) With {.Act = AddressOf .B4S0B1})
-                        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 2.5, j + i * 2 + 22.5, 0))
+                        STG.Add(New Bullet(BulletType.棱弹, BulletColor.红, Owner.X, Owner.Y, 2.5, j + i * 2, 0) With {.Act = AddressOf .B4S0B1})
+                        STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 2.5, j + i * 2 + 22.5, 0))
                     Next
                 End If
             Next
@@ -327,13 +327,13 @@ Public Class B4S0
             If Ticks > 60 Then
                 If Ticks Mod 8 = 0 Then
                     For i = 0 To 3
-                        STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.红, Owner.X, Owner.Y, 4, 40 + i * 4 + 30 * Sin(Ticks / 30)))
-                        STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.红, Owner.X, Owner.Y, 4, -40 - i * 4 - 30 * Sin(Ticks / 30)))
+                        STG.Add(New Bullet(BulletType.点弹, BulletColor.红, Owner.X, Owner.Y, 4, 40 + i * 4 + 30 * Sin(Ticks / 30)))
+                        STG.Add(New Bullet(BulletType.点弹, BulletColor.红, Owner.X, Owner.Y, 4, -40 - i * 4 - 30 * Sin(Ticks / 30)))
                     Next
 
                 End If
                 If Ticks Mod 4 = 0 AndAlso Ticks Mod 30 <= 20 Then
-                    STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.红, px, py, 3, pd, 0) With {.SoundEffect = ResourcePack.Sounds.kira00})
+                    STG.Add(New Bullet(BulletType.鳞弹, BulletColor.红, px, py, 3, pd, 0) With {.SoundEffect = ResourcePack.Sounds.kira00})
                 End If
                 If Ticks Mod 60 = 30 Then
                     Owner.DefaultMove(50)
@@ -381,13 +381,13 @@ Public Class B4S1
             For i = 90 To 150 Step 2
                 If Ticks Mod 600 = i Then
                     For j = 0 To 1
-                        STG.Objects_Add.Add(New Bullet(BulletType.环弹, BulletColor.蓝, Owner.X, Owner.Y, 0, Rnd() * 4 - 2, 0) With {.Act = AddressOf .B4S1B1})
+                        STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, Owner.X, Owner.Y, 0, Rnd() * 4 - 2, 0) With {.Act = AddressOf .B4S1B1})
                     Next
                     px = Rnd() * 64 - 32 + Owner.X
                     py = Rnd() * 64 - 32 + Owner.Y
                     If i Mod 10 = 0 Then
                         For j = 0 To 3
-                            STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.蓝, px, py, 1 + j * 0.4))
+                            STG.Add(New Bullet(BulletType.点弹, BulletColor.蓝, px, py, 1 + j * 0.4))
                         Next
                     End If
                 End If
@@ -395,7 +395,7 @@ Public Class B4S1
             For i = 90 To 150 Step 7
                 If Ticks Mod 600 = i + 300 Then
                     For j = 0 To 315 Step 45
-                        STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, Owner.X, Owner.Y, 2.5, j + i * 2 + 22.5, 0))
+                        STG.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, Owner.X, Owner.Y, 2.5, j + i * 2 + 22.5, 0))
                     Next
                 End If
             Next
@@ -407,7 +407,7 @@ Public Class B4S1
             If Ticks > 60 Then
                 If Ticks Mod 15 = 0 Then
                     For i = 0 To 7
-                        STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i * 45 + Ticks \ 2, 0) With {.Act = AddressOf .B4S1B2})
+                        STG.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i * 45 + Ticks \ 2, 0) With {.Act = AddressOf .B4S1B2})
 
                     Next
                 End If
@@ -448,8 +448,8 @@ Public Class B4S2
         If Ticks > 30 Then
             If Ticks Mod 4 = 0 Then
                 For i = 0 To 28 Step 8
-                    STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.黄, Owner.X, Owner.Y, 3, Ticks * 16 + i, 0))
-                    STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.黄, Owner.X, Owner.Y, 3, Ticks * 16 + i + 180, 0))
+                    STG.Add(New Bullet(BulletType.鳞弹, BulletColor.黄, Owner.X, Owner.Y, 3, Ticks * 16 + i, 0))
+                    STG.Add(New Bullet(BulletType.鳞弹, BulletColor.黄, Owner.X, Owner.Y, 3, Ticks * 16 + i + 180, 0))
                 Next
             End If
         End If
@@ -494,7 +494,7 @@ Module St3Enm
 
             End If
             If .Ticks = 100 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.环弹, BulletColor.红, .X, .Y, 1.5))
+                STG.Add(New Bullet(BulletType.环弹, BulletColor.红, .X, .Y, 1.5))
             End If
         End With
     End Sub
@@ -504,7 +504,7 @@ Module St3Enm
             If .Ticks = 160 Then
                 For i = -60 To 60 Step 30
                     For j = 0 To 2
-                        STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.白, .X, .Y, 1 + j * 0.8, i))
+                        STG.Add(New Bullet(BulletType.点弹, BulletColor.白, .X, .Y, 1 + j * 0.8, i))
                     Next
                 Next
             End If
@@ -515,7 +515,7 @@ Module St3Enm
         With e
             If .Ticks > 16 AndAlso Rnd() > 0.99 Then
                 For i = -40 To 40 Step 20
-                    STG.Objects_Add.Add(New Bullet(BulletType.环弹, BulletColor.白, .X, .Y, 2, i))
+                    STG.Add(New Bullet(BulletType.环弹, BulletColor.白, .X, .Y, 2, i))
                 Next
             End If
         End With
@@ -526,7 +526,7 @@ Module St3Enm
             If .Ticks = 160 Then
 
                 For j = 0 To 8
-                    STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.白, .X, .Y, 1 + j * 0.2))
+                    STG.Add(New Bullet(BulletType.点弹, BulletColor.白, .X, .Y, 1 + j * 0.2))
                 Next
 
             End If
