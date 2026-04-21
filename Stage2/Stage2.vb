@@ -50,125 +50,125 @@ Public Class Stage2
     Private Sub EnemySpawn()
         Select Case Ticks
             Case 30
-                STG.Objects_Add.Add(New Enemy(EnemyType.大蝴蝶, 0, 448, 64, 300, "111100006", 400, 2.8, 210) With {.Tag = 1, .Act = AddressOf .S2W1})
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, 448, 64, 300, "111100006", 400, 2.8, 210) With {.Tag = 1, .Act = AddressOf .S2W1})
             Case 240 To 320
                 For i = 0 To 8
                     If Ticks = 240 + i * 10 Then
-                        STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 64 + i * 32, -16, 20, "1", 240, 2.5, 180) With {.Act = AddressOf .S2W2})
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 64 + i * 32, -16, 20, "1", 240, 2.5, 180) With {.Act = AddressOf .S2W2})
                     End If
                 Next
             Case 450
-                STG.Objects_Add.Add(New Enemy(EnemyType.大蝴蝶, 0, -64, 64, 300, "111100006", 400, 2.8, 150) With {.Tag = 2, .Act = AddressOf .S2W1})
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, -64, 64, 300, "111100006", 400, 2.8, 150) With {.Tag = 2, .Act = AddressOf .S2W1})
             Case 660 To 740
                 For i = 0 To 8
                     If Ticks = 660 + i * 10 Then
-                        STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 320 - i * 32, -16, 20, "0", 240, 2.5, 180) With {.Act = AddressOf .S2W2})
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 320 - i * 32, -16, 20, "0", 240, 2.5, 180) With {.Act = AddressOf .S2W2})
                     End If
                 Next
             Case 870
-                STG.Objects_Add.Add(New Enemy(EnemyType.大蝴蝶, 0, 448, 64, 150, "111100004", 400, 2.8, 210) With {.Tag = 1, .Act = AddressOf .S2W1})
-                STG.Objects_Add.Add(New Enemy(EnemyType.大蝴蝶, 0, -64, 64, 150, "111100004", 400, 2.8, 150) With {.Tag = 2, .Act = AddressOf .S2W1})
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, 448, 64, 150, "111100004", 400, 2.8, 210) With {.Tag = 1, .Act = AddressOf .S2W1})
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, -64, 64, 150, "111100004", 400, 2.8, 150) With {.Tag = 2, .Act = AddressOf .S2W1})
             Case 1640
                 For i = 0 To 4
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 352, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 352, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
                 Next
             Case 1700
                 For i = 0 To 4
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 246, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 246, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
                 Next
             Case 1760
                 For i = 0 To 4
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 138, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 138, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
                 Next
             Case 1820
                 For i = 0 To 4
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 32, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 32, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
                 Next
             Case 1821 To 1836
-                STG.Objects_Add.Add(New Enemy(EnemyType.幽灵, 0, 352 - 20 * (Ticks - 1821) + Rnd() * 8 - 4, -16 + Rnd() * 8 - 4, 10, "1", 200, 4, 180) With {.Act = AddressOf .S2W4})
+                STG.Add(New Enemy(EnemyType.幽灵, 0, 352 - 20 * (Ticks - 1821) + Rnd() * 8 - 4, -16 + Rnd() * 8 - 4, 10, "1", 200, 4, 180) With {.Act = AddressOf .S2W4})
             Case 2040
                 For i = 0 To 4
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 32, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 32, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
                 Next
             Case 2100
                 For i = 0 To 4
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 138, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 138, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
                 Next
             Case 2160
                 For i = 0 To 4
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 246, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 246, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
                 Next
             Case 2220
                 For i = 0 To 4
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 352, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 352, -16, 20, "10", 160, 4 + i * 2.5, 180) With {.Act = AddressOf .S2W3, .Tag = i})
                 Next
             Case 2221 To 2236
-                STG.Objects_Add.Add(New Enemy(EnemyType.幽灵, 0, 32 + 20 * (Ticks - 2221) + Rnd() * 8 - 4, -16 + Rnd() * 8 - 4, 10, "0", 200, 4, 180) With {.Act = AddressOf .S2W4})
+                STG.Add(New Enemy(EnemyType.幽灵, 0, 32 + 20 * (Ticks - 2221) + Rnd() * 8 - 4, -16 + Rnd() * 8 - 4, 10, "0", 200, 4, 180) With {.Act = AddressOf .S2W4})
             Case 2530
-                STG.Objects_Add.Add(New Enemy(EnemyType.大蝴蝶, 0, -64, 64, 300, "111100006", 400, 2.8, 150) With {.Tag = 2, .Act = AddressOf .S2W1})
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, -64, 64, 300, "111100006", 400, 2.8, 150) With {.Tag = 2, .Act = AddressOf .S2W1})
             Case 2780
-                STG.Objects_Add.Add(New Enemy(EnemyType.大蝴蝶, 0, 448, 64, 300, "111100004", 400, 2.8, 210) With {.Tag = 1, .Act = AddressOf .S2W1})
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, 448, 64, 300, "111100004", 400, 2.8, 210) With {.Tag = 1, .Act = AddressOf .S2W1})
             Case 2940 To 3390
                 For j = 0 To 3
                     For i = 0 To 3
                         If 2940 + 30 * i + 120 * j = Ticks Then
-                            STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, -16, 192 - i * 32, 20, "10", 160, 1 + i * 0.75, 90) With {.Act = AddressOf .S2W5})
+                            STG.Add(New Enemy(EnemyType.小妖精, 0, -16, 192 - i * 32, 20, "10", 160, 1 + i * 0.75, 90) With {.Act = AddressOf .S2W5})
                         End If
                     Next
                 Next
             Case 3420 To 4030
                 If (Ticks - 20) Mod 50 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小蝴蝶, 1, 32 + 320 * Rnd(), -32, 50, "1100", 256, 4, 180) With {.Act = AddressOf .S2W6})
+                    STG.Add(New Enemy(EnemyType.小蝴蝶, 1, 32 + 320 * Rnd(), -32, 50, "1100", 256, 4, 180) With {.Act = AddressOf .S2W6})
                 End If
             Case 4150
                 STG.Objects.Add(New Enemy.Boss(0, 192, -50) With {.Init = New Action(AddressOf .S2B1I), .Act = New Action(AddressOf .S2B1A)})
             Case 6180 To 6250
                 If Ticks Mod 10 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 352, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 1})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 352, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 1})
                 End If
             Case 6300 To 6530
                 If Ticks Mod 45 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
+                    STG.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
                 End If
             Case 6540 To 6610
                 If Ticks Mod 10 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 32, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 2})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 32, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 2})
                 End If
             Case 6630 To 6720
                 If Ticks Mod 45 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
+                    STG.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
                 End If
             Case 6750 To 6800
                 If Ticks Mod 10 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 320, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 1})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 320, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 1})
                 End If
             Case 6820 To 6940
                 If Ticks Mod 45 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
+                    STG.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
                 End If
             Case 6950 To 7000
                 If Ticks Mod 45 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 64, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 2})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 64, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 2})
                 End If
             Case 7020 To 7140
                 If Ticks Mod 45 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
+                    STG.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
                 End If
             Case 7150 To 7200
                 If Ticks Mod 10 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 256, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 1})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 256, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 1})
                 End If
             Case 7230 To 7350
                 If Ticks Mod 45 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
+                    STG.Add(New Enemy(EnemyType.小妖精, 1, 32 + Rnd() * 320, 16 + Rnd() * 64, 30, "1100", 400, 0, 180) With {.Act = AddressOf .S2W8, .Tag = Int(Rnd() * 2)})
                 End If
             Case 7360 To 7410
                 If Ticks Mod 10 = 0 Then
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 128, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 2})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 128, -16, 30, "10", 400, 2, 180) With {.Act = AddressOf .S2W7, .Tag = 2})
                 End If
             Case 7680
                 For i = 0 To 7
-                    STG.Objects_Add.Add(New Enemy(EnemyType.小妖精, 0, 32 + Rnd() * 320, 16 + Rnd() * 128, 40, "1100", 400, 0, 180) With {.Act = AddressOf .S2W9})
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, 32 + Rnd() * 320, 16 + Rnd() * 128, 40, "1100", 400, 0, 180) With {.Act = AddressOf .S2W9})
 
                 Next
             Case 7950
@@ -206,28 +206,28 @@ Public Class B1S0
                 ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.ch02)
             ElseIf Ticks >= 300 AndAlso Ticks <= 410 Then
                 If Ticks Mod 10 = 0 Then
-                    STG.Objects_Add.Add(New Bullet(BulletType.中玉, 1, Owner.X, Owner.Y, 2, Rnd() * 360, 0) With {.Act = AddressOf .B1S0B1})
+                    STG.Add(New Bullet(BulletType.中玉, 1, Owner.X, Owner.Y, 2, Rnd() * 360, 0) With {.Act = AddressOf .B1S0B1})
                 End If
-            ElseIf ticks = 420 Then
+            ElseIf Ticks = 420 Then
                 Owner.IsEnabled = False
                 Owner.MoveTo(0, -128, 60)
             End If
         End If
     End Sub
     Private Sub Preset1(corner As Double)
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.8, corner))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.8, corner))
 
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.4, corner - 5))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.4, corner + 5))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.4, corner - 5))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.4, corner + 5))
 
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner - 8))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner + 8))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner - 8))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner + 8))
 
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner - 12))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner - 4))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner + 4))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner + 12))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner - 12))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner - 4))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner + 4))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner + 12))
     End Sub
     Public Overrides Function Break() As Boolean
         If AtSpell Then
@@ -267,8 +267,8 @@ Public Class B1S1
                 ElseIf Ticks Mod 180 = 160 Then
                     For Each b In STG.SearchBullet
                         If b.BulletType = BulletType.环弹 Then
-                            STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.白, b.X, b.Y, 1, Rnd() * 360, 0))
-                            STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.白, b.X, b.Y, 1, Rnd() * 360, 0))
+                            STG.Add(New Bullet(BulletType.点弹, BulletColor.白, b.X, b.Y, 1, Rnd() * 360, 0))
+                            STG.Add(New Bullet(BulletType.点弹, BulletColor.白, b.X, b.Y, 1, Rnd() * 360, 0))
                             STG.ShakeFrame = 20
                             b.Break(False)
                         End If
@@ -281,7 +281,7 @@ Public Class B1S1
     End Sub
     Private Sub Preset1()
         For i = 0 To 315 Step 45
-            STG.Objects_Add.Add(New Bullet(BulletType.环弹, BulletColor.白, Owner.X + 24 * Sin(i / 180 * PI), Owner.Y + 24 * Cos(i / 180 * PI), 0, 0, 0) With {.SoundEffect = ResourcePack.Sounds.kira00})
+            STG.Add(New Bullet(BulletType.环弹, BulletColor.白, Owner.X + 24 * Sin(i / 180 * PI), Owner.Y + 24 * Cos(i / 180 * PI), 0, 0, 0) With {.SoundEffect = ResourcePack.Sounds.kira00})
         Next
     End Sub
     Public Overrides Function Break() As Boolean
@@ -315,32 +315,32 @@ Public Class B2S0
                 Case 120
                     c = Rnd() * 360
                     For i = 0 To 348 Step 18
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B2S0B1})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B2S0B1})
                     Next
                 Case 140
                     c = Rnd() * 360
                     For i = 0 To 348 Step 18
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B2S0B1})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B2S0B1})
                     Next
                 Case 160
                     c = Rnd() * 360
                     For i = 0 To 348 Step 18
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B2S0B1})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.红, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B2S0B1})
                     Next
                 Case 300
                     c = Rnd() * 360
                     For i = 0 To 348 Step 18
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B2S0B1})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B2S0B1})
                     Next
                 Case 320
                     c = Rnd() * 360
                     For i = 0 To 348 Step 18
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B2S0B1})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 1, .Act = AddressOf .B2S0B1})
                     Next
                 Case 340
                     c = Rnd() * 360
                     For i = 0 To 348 Step 18
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B2S0B1})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.蓝, Owner.X, Owner.Y, 1.5, i + c, 0) With {.Tag = 2, .Act = AddressOf .B2S0B1})
                     Next
                 Case 530, 570, 630
                     Owner.DefaultMove(30)
@@ -355,12 +355,12 @@ Public Class B2S0
                 Owner.IsEnabled = True
             End If
             If Ticks = 60 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.大玉, 0, Owner.X, Owner.Y, 3) With {.Tag = "lan", .Breakable = False, .Act = AddressOf .B2S0B2})
+                STG.Add(New Bullet(BulletType.大玉, 0, Owner.X, Owner.Y, 3) With {.Tag = "lan", .Breakable = False, .Act = AddressOf .B2S0B2})
             End If
             If Ticks > 60 AndAlso Ticks Mod 50 = 0 Then
                 For i = 0 To 324 Step 36
-                    STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.天蓝, Owner.X, Owner.Y, 2, i))
-                    STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.天蓝, Owner.X, Owner.Y, 2.2, i))
+                    STG.Add(New Bullet(BulletType.米弹, BulletColor.天蓝, Owner.X, Owner.Y, 2, i))
+                    STG.Add(New Bullet(BulletType.米弹, BulletColor.天蓝, Owner.X, Owner.Y, 2.2, i))
                 Next
             End If
         End If
@@ -380,19 +380,19 @@ Public Class B2S0
         Return MyBase.Break()
     End Function
     Private Sub Preset2(corner As Double)
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.8, corner))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.8, corner))
 
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.4, corner - 5))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.4, corner + 5))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.4, corner - 5))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2.4, corner + 5))
 
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner - 8))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner + 8))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner - 8))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 2, corner + 8))
 
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner - 12))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner - 4))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner + 4))
-        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner + 12))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner - 12))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner - 4))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner + 4))
+        STG.Add(New Bullet(BulletType.小玉, BulletColor.绿, Owner.X, Owner.Y, 1.6, corner + 12))
     End Sub
 End Class
 Public Class B2S1
@@ -417,7 +417,7 @@ Public Class B2S1
                 If Ticks Mod 20 = 0 Then
                     For i = 0 To 315 Step 45
                         For j = 0 To 5
-                            STG.Objects_Add.Add(New Bullet(BulletType.苦无, BulletColor.橙, Owner.X, Owner.Y, 1 + j * 0.5, i))
+                            STG.Add(New Bullet(BulletType.苦无, BulletColor.橙, Owner.X, Owner.Y, 1 + j * 0.5, i))
                         Next
                     Next
                 End If
@@ -428,7 +428,7 @@ Public Class B2S1
                 Owner.IsEnabled = True
             End If
             If Ticks = 60 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.大玉, 0, Owner.X, Owner.Y, 1) With {.Tag = "zi", .Breakable = False, .Act = AddressOf .B2S1B1})
+                STG.Add(New Bullet(BulletType.大玉, 0, Owner.X, Owner.Y, 1) With {.Tag = "zi", .Breakable = False, .Act = AddressOf .B2S1B1})
             End If
         End If
     End Sub
@@ -458,7 +458,7 @@ Public Class B2S1
                 STG.DialogArea.LoadDialog(Texts.dialog0202b)
                 STG.DialogArea.Show()
             End If
-            Stage2.finished = True
+            Stage2.Finished = True
         End If
         Return MyBase.Break()
     End Function
@@ -480,8 +480,8 @@ Module St2Enm
             End If
             If .IsEnabled AndAlso .Ticks Mod 5 = 0 Then
                 For i = 0 To 2
-                    STG.Objects_Add.Add(New Bullet(BulletType.椭弹, 2, .X, .Y, 0.2, .Ticks * 4 + i * 120, 0) With {.SoundEffect = -1, .Act = AddressOf .S2W1B1})
-                    STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.品红, .X, .Y, 0.5, .Ticks * 4 + i * 120, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Act = AddressOf .S2W1B1})
+                    STG.Add(New Bullet(BulletType.椭弹, 2, .X, .Y, 0.2, .Ticks * 4 + i * 120, 0) With {.SoundEffect = -1, .Act = AddressOf .S2W1B1})
+                    STG.Add(New Bullet(BulletType.米弹, BulletColor.品红, .X, .Y, 0.5, .Ticks * 4 + i * 120, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Act = AddressOf .S2W1B1})
                 Next
 
             End If
@@ -498,7 +498,7 @@ Module St2Enm
         With e
             If .Ticks > 16 AndAlso .Ticks Mod 50 = 0 Then
                 For i = -1 To 1
-                    STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, .X, .Y, 0.5, 270 + i * 10, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Act = AddressOf .S2W2B1})
+                    STG.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, .X, .Y, 0.5, 270 + i * 10, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Act = AddressOf .S2W2B1})
 
                 Next
             End If
@@ -522,7 +522,7 @@ Module St2Enm
                 .Speed = 0
                 For i = 0 To 270 Step 90
                     For j = 0 To 2
-                        STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.品红, .X, .Y, 0.8 + j * 0.8, i, 0) With {.Tag = j, .Act = AddressOf .S2W3B1})
+                        STG.Add(New Bullet(BulletType.棱弹, BulletColor.品红, .X, .Y, 0.8 + j * 0.8, i, 0) With {.Tag = j, .Act = AddressOf .S2W3B1})
                     Next
                 Next
             ElseIf .Ticks = 96 Then
@@ -537,8 +537,8 @@ Module St2Enm
             If .Ticks < 64 Then
                 .Speed -= (0.8 + .Tag * 0.8) / 64
             ElseIf .Ticks = 64 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, .X, .Y, 1.5, 0, 0) With {.SoundEffect = ResourcePack.Sounds.kira00})
-                STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, .X, .Y, 1.5, 180, 0))
+                STG.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, .X, .Y, 1.5, 0, 0) With {.SoundEffect = ResourcePack.Sounds.kira00})
+                STG.Add(New Bullet(BulletType.棱弹, BulletColor.蓝, .X, .Y, 1.5, 180, 0))
                 .Break(False)
             End If
         End With
@@ -547,7 +547,7 @@ Module St2Enm
     Public Sub S2W4(e As Enemy)
         With e
             If .Ticks = 64 Then
-                STG.Objects_Add.Add(New Bullet(BulletType.环弹, BulletColor.红, .X, .Y, 1, Rnd() * 30 - 15))
+                STG.Add(New Bullet(BulletType.环弹, BulletColor.红, .X, .Y, 1, Rnd() * 30 - 15))
             ElseIf .Ticks <= 39 Then
                 .Speed -= 0.1
             ElseIf .Ticks = 80 Then
@@ -561,12 +561,12 @@ Module St2Enm
             If .Ticks = 50 Then
                 Dim r As Double = Rnd() * 360
                 For i = 0 To 315 Step 45
-                    STG.Objects_Add.Add(New Bullet(BulletType.中玉, 3, .X, .Y, 2.3, i + r, 0))
-                    STG.Objects_Add.Add(New Bullet(BulletType.中玉, 3, .X, .Y, 1.7, i + 22.5 + r, 0))
+                    STG.Add(New Bullet(BulletType.中玉, 3, .X, .Y, 2.3, i + r, 0))
+                    STG.Add(New Bullet(BulletType.中玉, 3, .X, .Y, 1.7, i + 22.5 + r, 0))
                 Next
                 For i = 0 To 324 Step 36
-                    STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.天蓝, .X, .Y, 2, i + r, 0))
-                    STG.Objects_Add.Add(New Bullet(BulletType.点弹, BulletColor.天蓝, .X, .Y, 1.4, i + 18 + r, 0))
+                    STG.Add(New Bullet(BulletType.点弹, BulletColor.天蓝, .X, .Y, 2, i + r, 0))
+                    STG.Add(New Bullet(BulletType.点弹, BulletColor.天蓝, .X, .Y, 1.4, i + 18 + r, 0))
                 Next
             End If
         End With
@@ -585,7 +585,7 @@ Module St2Enm
             End If
             If .Ticks = 1 Then
                 For i = 0 To 5
-                    STG.Objects_Add.Add(New Bullet(BulletType.中玉, 1, .X, .Y, .Speed, 180, 0) With {.Tag = i, .Act = AddressOf .S2W6B1})
+                    STG.Add(New Bullet(BulletType.中玉, 1, .X, .Y, .Speed, 180, 0) With {.Tag = i, .Act = AddressOf .S2W6B1})
                 Next
             End If
         End With
@@ -605,13 +605,13 @@ Module St2Enm
             End If
             If .Ticks >= 60 AndAlso .Ticks < 80 Then
                 If .Ticks Mod 5 = 0 Then
-                    STG.Objects_Add.Add(New Bullet(BulletType.米弹, BulletColor.品红, .X, .Y, 0, .Direction, 0) With {.Tag = e, .Act = AddressOf .S2W6B3})
+                    STG.Add(New Bullet(BulletType.米弹, BulletColor.品红, .X, .Y, 0, .Direction, 0) With {.Tag = e, .Act = AddressOf .S2W6B3})
                 End If
             ElseIf .Ticks = 120 Then
                 For Each b In STG.SearchBullet()
                     If Not IsNothing(b.Tag) AndAlso b.Tag.Equals(e) Then
-                        STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.品红, b.X, b.Y, 1, Rnd() * 60 - 30, 0) With {.Act = AddressOf .S2W6B2})
-                        STG.Objects_Add.Add(New Bullet(BulletType.棱弹, BulletColor.品红, b.X, b.Y, 1, Rnd() * 60 - 30, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Act = AddressOf .S2W6B2})
+                        STG.Add(New Bullet(BulletType.棱弹, BulletColor.品红, b.X, b.Y, 1, Rnd() * 60 - 30, 0) With {.Act = AddressOf .S2W6B2})
+                        STG.Add(New Bullet(BulletType.棱弹, BulletColor.品红, b.X, b.Y, 1, Rnd() * 60 - 30, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Act = AddressOf .S2W6B2})
                         b.Break(False)
                     End If
                 Next
@@ -682,11 +682,11 @@ Module St2Enm
             If .Ticks = 40 Then
                 For i = 0 To 340 Step 20
                     If c = 0 Then
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 4, i, 0) With {.Tag = 1, .Act = AddressOf .B1S0B2})
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 2, i, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Tag = 2, .Act = AddressOf .B1S0B2})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 4, i, 0) With {.Tag = 1, .Act = AddressOf .B1S0B2})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 2, i, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Tag = 2, .Act = AddressOf .B1S0B2})
                     Else
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.橙, .X, .Y, 4, i, 0) With {.Tag = 1, .Act = AddressOf .B1S0B2})
-                        STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.橙, .X, .Y, 2, i, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Tag = 2, .Act = AddressOf .B1S0B2})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.橙, .X, .Y, 4, i, 0) With {.Tag = 1, .Act = AddressOf .B1S0B2})
+                        STG.Add(New Bullet(BulletType.鳞弹, BulletColor.橙, .X, .Y, 2, i, 0) With {.SoundEffect = ResourcePack.Sounds.kira00, .Tag = 2, .Act = AddressOf .B1S0B2})
                     End If
                     .Break(False)
                 Next
@@ -732,7 +732,7 @@ Module St2Enm
             If .IsEnabled AndAlso .Ticks > 20 Then
                 If Rnd() > 0.999 Then
                     For i = -15 To 15 Step 10
-                        STG.Objects_Add.Add(New Bullet(BulletType.环弹, BulletColor.红, .X, .Y, 1.5, i))
+                        STG.Add(New Bullet(BulletType.环弹, BulletColor.红, .X, .Y, 1.5, i))
                     Next
 
                 End If
@@ -745,14 +745,14 @@ Module St2Enm
             If .Tag = 1 Then
                 If .Ticks = 60 Then
                     For i = -16 To 16 Step 8
-                        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.红, .X, .Y, 1.5, i))
+                        STG.Add(New Bullet(BulletType.小玉, BulletColor.红, .X, .Y, 1.5, i))
                     Next
                 End If
             Else
                 If .Ticks = 60 Then
                     For i = 0 To 5
-                        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, .X, .Y, 1 + 0.2 * i, -3))
-                        STG.Objects_Add.Add(New Bullet(BulletType.小玉, BulletColor.蓝, .X, .Y, 1 + 0.2 * i, 3))
+                        STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, .X, .Y, 1 + 0.2 * i, -3))
+                        STG.Add(New Bullet(BulletType.小玉, BulletColor.蓝, .X, .Y, 1 + 0.2 * i, 3))
                     Next
                 End If
             End If
@@ -761,7 +761,7 @@ Module St2Enm
             ElseIf .Ticks = 120 Then
                 For i = 0 To 2
                     For j = 0 To 4
-                        STG.Objects_Add.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, 1 + 0.2 * j, i * 120))
+                        STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, 1 + 0.2 * j, i * 120))
                     Next
                 Next
             End If
@@ -772,17 +772,17 @@ Module St2Enm
         With e
             If .Ticks = 10 Then
                 For i = 80 To 280 Step 10
-                    STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 1.5, i))
-                    STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 1.2, i))
+                    STG.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 1.5, i))
+                    STG.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 1.2, i))
                 Next
 
             ElseIf .Ticks = 12 Then
                 For i = 0 To 315 Step 45
-                    STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.黄, .X, .Y, 1, i))
+                    STG.Add(New Bullet(BulletType.鳞弹, BulletColor.黄, .X, .Y, 1, i))
                 Next
             ElseIf .Ticks = 14 Then
                 For i = 0 To 5
-                    STG.Objects_Add.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 1.2 + i * 0.2))
+                    STG.Add(New Bullet(BulletType.鳞弹, BulletColor.红, .X, .Y, 1.2 + i * 0.2))
                 Next
             ElseIf .Ticks = 90 Then
                 .Speed = 1
@@ -881,13 +881,13 @@ Module St2Enm
                 .Direction = 90 + Rnd() * 120 - 120
                 If n Mod 2 = 1 Then
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i + n * 2, 0))
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i + n * 2, 0))
                     Next
                 Else
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 2, i + n * 2, 0))
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 1.6, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 2, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 1.6, i + n * 2, 0))
                     Next
                 End If
                 n += 1
@@ -896,13 +896,13 @@ Module St2Enm
                 .Direction = 180 + Rnd() * 120 - 120
                 If n Mod 2 = 1 Then
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i + n * 2, 0))
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i + n * 2, 0))
                     Next
                 Else
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 2, i + n * 2, 0))
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 1.6, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 2, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 1.6, i + n * 2, 0))
                     Next
                 End If
                 n += 1
@@ -911,13 +911,13 @@ Module St2Enm
                 .Direction = 270 + Rnd() * 120 - 120
                 If n Mod 2 = 1 Then
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i + n * 2, 0))
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i + n * 2, 0))
                     Next
                 Else
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 2, i + n * 2, 0))
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 1.6, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 2, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 1.6, i + n * 2, 0))
                     Next
                 End If
                 n += 1
@@ -926,13 +926,13 @@ Module St2Enm
                 .Direction = 0 + Rnd() * 120 - 120
                 If n Mod 2 = 1 Then
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i + n * 2, 0))
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i + n * 2, 0))
                     Next
                 Else
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 2, i + n * 2, 0))
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 1.6, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 2, i + n * 2, 0))
+                        STG.Add(New Bullet(BulletType.蝶弹, 3, .X, .Y, 1.6, i + n * 2, 0))
                     Next
                 End If
                 n += 1
@@ -954,12 +954,12 @@ Module St2Enm
                     .Speed = 0
                 Case 180
                     For i = 0 To 300 Step 60
-                        STG.Objects_Add.Add(New Bullet.Laser(4, .X, .Y, .Direction + i, 16, 448, 180))
+                        STG.Add(New Bullet.Laser(4, .X, .Y, .Direction + i, 16, 448, 180))
                     Next
                 Case 190
                     For i = 0 To 340 Step 20
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i))
-                        STG.Objects_Add.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 2, i))
+                        STG.Add(New Bullet(BulletType.蝶弹, 1, .X, .Y, 1.6, i))
                     Next
             End Select
         End With
