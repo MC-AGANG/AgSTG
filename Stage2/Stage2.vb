@@ -811,8 +811,10 @@ Module St2Enm
     End Sub
     <Extension>
     Public Sub S2B2A(e As Enemy.Boss)
+        Static started As Boolean = False
         With e
             If .Ticks = 0 Then
+                started = False
                 Dim s() As String
                 .MoveToCenter(60)
                 If STG.Player.PlayerType = PlayerType.灵梦 Then
@@ -831,7 +833,8 @@ Module St2Enm
                     STG.DialogArea.Show()
                 End If
             End If
-            If STG.DialogArea.Finished AndAlso Not .IsEnabled Then
+            If STG.DialogArea.Finished AndAlso Not started Then
+                started = True
                 .IsEnabled = True
                 STG.NameArea.Initialize("Chen", 2)
                 .NextSpell()
