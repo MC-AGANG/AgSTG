@@ -1,0 +1,10 @@
+player,enemy,,,
+12,5,,,
+speaker,content,illustration,cd,auto
+1,停！我知道幕后黑手是谁了,0,60,0
+0,谁？,4,15,0
+1,你想想今天是几月几号,0,15,0
+0,四月一号？,0,15,0
+1,所以幕后黑手是,0,15,0
+1,April Fool！,1,15,0
+0,那April Fool是谁,3,15,0

@@ -811,8 +811,8 @@ Module St2Enm
     End Sub
     <Extension>
     Public Sub S2B2A(e As Enemy.Boss)
-        Static started As Boolean = False
         With e
+            Static started As Boolean = False
             If .Ticks = 0 Then
                 started = False
                 Dim s() As String

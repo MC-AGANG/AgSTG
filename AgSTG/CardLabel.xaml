@@ -130,13 +130,14 @@
                 </Rectangle.RenderTransform>
             </Rectangle>
         </Canvas>
-        <Grid Height="64" Width="256" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <Grid Height="128" Width="256" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="8"/>
                 <RowDefinition Height="24"/>
                 <RowDefinition Height="8"/>
                 <RowDefinition Height="16"/>
                 <RowDefinition Height="8"/>
+                <RowDefinition Height="128"/>
             </Grid.RowDefinitions>
             <Rectangle Name="bg" Grid.Row="1" Grid.RowSpan="3" Opacity="0"/>
             <Label x:FieldModifier="public" Name="cardname" Grid.Row="1" Foreground="White" FontSize="16" HorizontalContentAlignment="Right" Padding="0,0,0,0">
