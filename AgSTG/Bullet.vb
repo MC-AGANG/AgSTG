@@ -83,7 +83,7 @@ Public Class Bullet
     ''' <param name="Speed">子弹速度</param>
     ''' <param name="Direction">子弹方向</param>
     ''' <param name="Delta">随机附加的方向偏移量，默认为0</param>
-    Public Sub New(BulletType As BulletType, BulletColor As BulletColor, X As Double, Y As Double, Speed As Double, Direction As Double, Optional Delta As Double = 0)
+    Public Sub New(BulletType As BulletType, BulletColor As BulletColor, X As Double, Y As Double, Speed As Double, Direction As Double, Delta As Double)
         MyBase.New(ObjectType.Bullet, X, Y)
         Me.BulletType = BulletType
         Me.BulletColor = BulletColor
@@ -215,6 +215,37 @@ Public Class Bullet
         Public Property LaserWidth As Double
         Public Property LaserLength As Double
         Public Property Life As Integer
+        ''' <summary>
+        ''' 创建新的自机狙激光
+        ''' </summary>
+        ''' <param name="BulletColor">子弹颜色</param>
+        ''' <param name="X">端点X坐标</param>
+        ''' <param name="Y">端点Y坐标</param>
+        ''' <param name="Width">宽度</param>
+        ''' <param name="Length">长度</param>
+        ''' <param name="Life">存在时间</param>
+        Public Sub New(BulletColor As BulletColor, X As Double, Y As Double, Width As Double, Length As Double, Life As Integer)
+            MyBase.New(AgSTG.BulletType.激光, BulletColor, X, Y, 0)
+            SoundEffect = Sounds.lazer00
+            LaserWidth = Width
+            LaserLength = Length
+            SetSize(4, Length, 0)
+            Background = Textures.bullet(0, BulletColor)
+            Me_Rotate.Angle = Direction
+            Me_Translate.Y = -Length
+            Me.Life = Life
+            SoundEffect = Sounds.lazer00
+        End Sub
+        ''' <summary>
+        ''' 创建新的激光
+        ''' </summary>
+        ''' <param name="BulletColor">子弹颜色</param>
+        ''' <param name="X">端点X坐标</param>
+        ''' <param name="Y">端点Y坐标</param>
+        ''' <param name="Direction">方向</param>
+        ''' <param name="Width">宽度</param>
+        ''' <param name="Length">长度</param>
+        ''' <param name="Life">存在时间</param>
         Public Sub New(BulletColor As BulletColor, X As Double, Y As Double, Direction As Double, Width As Double, Length As Double, Life As Integer)
             MyBase.New(AgSTG.BulletType.激光, BulletColor, X, Y, 0, Direction, 0)
             SoundEffect = Sounds.lazer00
