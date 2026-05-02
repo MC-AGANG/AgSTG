@@ -1,4 +1,5 @@
 Imports System.IO
+Imports System.Threading.Channels
 Imports System.Windows.Media
 Imports System.Windows.Media.Imaging
 Imports ManagedBass
@@ -151,36 +152,117 @@ Public Class Textures
     End Function
 End Class
 Public Class Sounds
-    Public Shared mu01 As New Integer
-    Public Shared mu02 As New Integer
-    Public Shared mu03 As New Integer
-    Public Shared mu04 As New Integer
-    Public Shared mu05 As New Integer
-    Public Shared mu06 As New Integer
-    Public Shared mu07 As New Integer
-    Public Shared mu08 As New Integer
-    Public Shared mu09 As New Integer
-    Public Shared mu10 As New Integer
-    Public Shared mu11 As New Integer
-    Public Shared mu12 As New Integer
-    Public Shared mu13 As New Integer
+    Public Shared mu01 As Integer
+    Public Shared mu02 As Integer
+    Public Shared mu03 As Integer
+    Public Shared mu04 As Integer
+    Public Shared mu05 As Integer
+    Public Shared mu06 As Integer
+    Public Shared mu07 As Integer
+    Public Shared mu08 As Integer
+    Public Shared mu09 As Integer
+    Public Shared mu10 As Integer
+    Public Shared mu11 As Integer
+    Public Shared mu12 As Integer
+    Public Shared mu13 As Integer
 
-    Public Shared ding As New Integer
+    Public Shared lp01 As Double = 2.05
+    Public Shared lp02 As Double = 20.085
+    Public Shared lp03 As Double = 0
+    Public Shared lp04 As Double = 120.25
+    Public Shared lp05 As Double = 6.67
+    Public Shared lp06 As Double = 15.705
+    Public Shared lp07 As Double = 7.155
+    Public Shared lp08 As Double = 30.23
+    Public Shared lp09 As Double = 0.395
+    Public Shared lp10 As Double = 10.665
+    Public Shared lp11 As Double = 3.775
+    Public Shared lp12 As Double = 0.459
+    Public Shared lp13 As Double = 12.61
+
+    Public Shared ep01 As Double = 89.005
+    Public Shared ep02 As Double = 91.75
+    Public Shared ep03 As Double = 67.8
+    Public Shared ep04 As Double = 236
+    Public Shared ep05 As Double = 46.125
+    Public Shared ep06 As Double = 156
+    Public Shared ep07 As Double = 91.665
+    Public Shared ep08 As Double = 229.755
+    Public Shared ep09 As Double = 107.855
+    Public Shared ep10 As Double = 64
+    Public Shared ep11 As Double = 85.875
+    Public Shared ep12 As Double = 58.125
+    Public Shared ep13 As Double = 335.415
+
+    Public Shared ding As Integer
     Public Shared Sub Load()
-        mu01 = Bass.CreateStream(MyResource.th07_01, 0, MyResource.th07_01.Length, BassFlags.Default)
-        mu02 = Bass.CreateStream(MyResource.th07_02, 0, MyResource.th07_02.Length, BassFlags.Default)
-        mu03 = Bass.CreateStream(MyResource.th07_03, 0, MyResource.th07_03.Length, BassFlags.Default)
-        mu04 = Bass.CreateStream(MyResource.th07_04, 0, MyResource.th07_04.Length, BassFlags.Default)
-        mu05 = Bass.CreateStream(MyResource.th07_05, 0, MyResource.th07_05.Length, BassFlags.Default)
-        mu06 = Bass.CreateStream(MyResource.th07_06, 0, MyResource.th07_06.Length, BassFlags.Default)
-        mu07 = Bass.CreateStream(MyResource.th07_07, 0, MyResource.th07_07.Length, BassFlags.Default)
-        mu08 = Bass.CreateStream(MyResource.th07_08, 0, MyResource.th07_08.Length, BassFlags.Default)
-        mu09 = Bass.CreateStream(MyResource.th07_09, 0, MyResource.th07_09.Length, BassFlags.Default)
-        mu10 = Bass.CreateStream(MyResource.th07_10, 0, MyResource.th07_10.Length, BassFlags.Default)
-        mu11 = Bass.CreateStream(MyResource.th07_11, 0, MyResource.th07_11.Length, BassFlags.Default)
-        mu12 = Bass.CreateStream(MyResource.th07_12, 0, MyResource.th07_12.Length, BassFlags.Default)
-        mu13 = Bass.CreateStream(MyResource.th07_13, 0, MyResource.th07_13.Length, BassFlags.Default)
+        mu01 = Bass.CreateStream(MyResource.th07_01, 0, MyResource.th07_01.Length, BassFlags.Loop)
+        mu02 = Bass.CreateStream(MyResource.th07_02, 0, MyResource.th07_02.Length, BassFlags.Loop)
+        mu03 = Bass.CreateStream(MyResource.th07_03, 0, MyResource.th07_03.Length, BassFlags.Loop)
+        mu04 = Bass.CreateStream(MyResource.th07_04, 0, MyResource.th07_04.Length, BassFlags.Loop)
+        mu05 = Bass.CreateStream(MyResource.th07_05, 0, MyResource.th07_05.Length, BassFlags.Loop)
+        mu06 = Bass.CreateStream(MyResource.th07_06, 0, MyResource.th07_06.Length, BassFlags.Loop)
+        mu07 = Bass.CreateStream(MyResource.th07_07, 0, MyResource.th07_07.Length, BassFlags.Loop)
+        mu08 = Bass.CreateStream(MyResource.th07_08, 0, MyResource.th07_08.Length, BassFlags.Loop)
+        mu09 = Bass.CreateStream(MyResource.th07_09, 0, MyResource.th07_09.Length, BassFlags.Loop)
+        mu10 = Bass.CreateStream(MyResource.th07_10, 0, MyResource.th07_10.Length, BassFlags.Loop)
+        mu11 = Bass.CreateStream(MyResource.th07_11, 0, MyResource.th07_11.Length, BassFlags.Loop)
+        mu12 = Bass.CreateStream(MyResource.th07_12, 0, MyResource.th07_12.Length, BassFlags.Loop)
+        mu13 = Bass.CreateStream(MyResource.th07_13, 0, MyResource.th07_13.Length, BassFlags.Loop)
+
+        Bass.ChannelSetSync(mu01, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu01, ep01), AddressOf Loop01, IntPtr.Zero)
+        Bass.ChannelSetSync(mu02, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu02, ep02), AddressOf Loop02, IntPtr.Zero)
+        Bass.ChannelSetSync(mu03, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu03, ep03), AddressOf Loop03, IntPtr.Zero)
+        Bass.ChannelSetSync(mu04, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu04, ep04), AddressOf Loop04, IntPtr.Zero)
+        Bass.ChannelSetSync(mu05, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu05, ep05), AddressOf Loop05, IntPtr.Zero)
+        Bass.ChannelSetSync(mu06, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu06, ep06), AddressOf Loop06, IntPtr.Zero)
+        Bass.ChannelSetSync(mu07, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu07, ep07), AddressOf Loop07, IntPtr.Zero)
+        Bass.ChannelSetSync(mu08, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu08, ep08), AddressOf Loop08, IntPtr.Zero)
+        Bass.ChannelSetSync(mu09, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu09, ep09), AddressOf Loop09, IntPtr.Zero)
+        Bass.ChannelSetSync(mu10, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu10, ep10), AddressOf Loop10, IntPtr.Zero)
+        Bass.ChannelSetSync(mu11, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu11, ep11), AddressOf Loop11, IntPtr.Zero)
+        Bass.ChannelSetSync(mu12, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu12, ep12), AddressOf Loop12, IntPtr.Zero)
+        Bass.ChannelSetSync(mu13, SyncFlags.Position, Bass.ChannelSeconds2Bytes(mu13, ep13), AddressOf Loop13, IntPtr.Zero)
         ding = Bass.CreateStream(MyResource.ding, 0, MyResource.ding.Length, BassFlags.Default)
+    End Sub
+    Public Shared Sub Loop01(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp01))
+    End Sub
+    Public Shared Sub Loop02(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp02))
+    End Sub
+    Public Shared Sub Loop03(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp03))
+    End Sub
+    Public Shared Sub Loop04(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp04))
+    End Sub
+    Public Shared Sub Loop05(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp05))
+    End Sub
+    Public Shared Sub Loop06(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp06))
+    End Sub
+    Public Shared Sub Loop07(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp07))
+    End Sub
+    Public Shared Sub Loop08(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp08))
+    End Sub
+    Public Shared Sub Loop09(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp09))
+    End Sub
+    Public Shared Sub Loop10(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp10))
+    End Sub
+    Public Shared Sub Loop11(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp11))
+    End Sub
+    Public Shared Sub Loop12(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp12))
+    End Sub
+    Public Shared Sub Loop13(handle As Integer, channel As Integer, data As Integer, user As IntPtr)
+        Bass.ChannelSetPosition(channel, Bass.ChannelSeconds2Bytes(channel, lp13))
     End Sub
 End Class
 
