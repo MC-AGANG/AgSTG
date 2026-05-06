@@ -12,7 +12,6 @@ Class MainWindow
     Public CP As ClearPage
     Public FP As FailPage
     Private SW_FPS As New Stopwatch
-    Private BR_Load As New ImageBrush(New BitmapImage(New Uri(Environment.CurrentDirectory + "\loadpage.png")))
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
         If FillArea.ActualHeight / 3 > FillArea.ActualWidth / 4 Then
             me_scale.ScaleX = FillArea.ActualWidth / 640
@@ -24,7 +23,6 @@ Class MainWindow
     End Sub
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
-        GameArea.Background = BR_Load
         ResourcePack.Textures.Load()
         ResourcePack.Sounds.Load()
         Textures.Load()
