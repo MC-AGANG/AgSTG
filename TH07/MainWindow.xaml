@@ -9,7 +9,8 @@
         KeyDown="Window_KeyDown"
         KeyUp="Window_KeyUp"
         SizeChanged="Window_SizeChanged"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
     <Grid Name="FillArea">
         <Rectangle Fill="Black"/>
         <Grid Name="GameArea" HorizontalAlignment="Center" VerticalAlignment="Center" Height="480" Width="640" RenderOptions.BitmapScalingMode="NearestNeighbor">

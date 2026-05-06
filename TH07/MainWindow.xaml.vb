@@ -23,11 +23,6 @@ Class MainWindow
     End Sub
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
-        ResourcePack.Textures.Load()
-        ResourcePack.Sounds.Load()
-        Textures.Load()
-        Sounds.Load()
-        Texts.Load()
         If FullScreen Then
             Height += 480 - FillArea.ActualHeight
             Width += 640 - FillArea.ActualWidth
@@ -43,6 +38,8 @@ Class MainWindow
         End If
         GameArea.Height = 480
         GameArea.Width = 640
+    End Sub
+    Public Sub Start()
         GP = New GamePage
         GameArea.Children.Add(GP)
         STG.Stages.Add(New Stage1.Stage1(2))
@@ -195,5 +192,9 @@ Class MainWindow
             STG.Blur.Radius = 5
         End If
 
+    End Sub
+
+    Private Sub Window_Closing(sender As Object, e As ComponentModel.CancelEventArgs)
+        Application.Current.Shutdown()
     End Sub
 End Class

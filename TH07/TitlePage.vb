@@ -22,7 +22,6 @@ Public Class TitlePage
         Group.Buttons.Add(BT_Replay)
         Group.Buttons.Add(BT_Quit)
         Group.Opacity = 0
-        Page.Background.Opacity = 0
         Page.Act = AddressOf Action
     End Sub
     Public Sub New()
@@ -71,14 +70,9 @@ Public Class TitlePage
     End Sub
     Private Sub Action()
         Static Tick = 0
-        If Tick <= 150 Then
-            If Tick = 100 Then
-                Page.Background.Opacity = 1
-            ElseIf Tick < 150 Then
-                Group.Opacity = (Tick - 100) / 50
-            End If
+        If Tick <= 50 Then
+            Group.Opacity = Tick / 50
             Tick += 1
         End If
-
     End Sub
 End Class
