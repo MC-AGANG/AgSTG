@@ -152,10 +152,12 @@ Public Class STG
         End Select
     End Sub
     Public Sub Render()
-        If Not ReplayMode Then
-            Replays.Last.KeyData.Add(KeyState.Encode)
-        Else
-            KeyState.Decode(Replays(CurrentStage).KeyData(Stages(CurrentStage).Ticks))
+        If Stages.Count > 0 Then
+            If Not ReplayMode Then
+                Replays.Last.KeyData.Add(KeyState.Encode)
+            Else
+                KeyState.Decode(Replays(CurrentStage).KeyData(Stages(CurrentStage).Ticks))
+            End If
         End If
         For Each obj In Objects
             obj.Ticks += 1
@@ -175,8 +177,10 @@ Public Class STG
             Shake()
         End If
         DialogArea.Render()
-        If CurrentStage >= 0 Then
-            Stages(CurrentStage).Render()
+        If Stages.Count > 0 Then
+            If CurrentStage >= 0 Then
+                Stages(CurrentStage).Render()
+            End If
         End If
         NameArea.Render()
     End Sub
@@ -221,7 +225,9 @@ Public Class STG
     ''' </summary>
     Public Shared Sub Reset()
         BackLayer_BlackHole.Radius = 0
-        Stages(CurrentStage).Unload()
+        If Stages.Count > 0 Then
+            Stages(CurrentStage).Unload()
+        End If
         For Each s In Stages
             s.Reset()
         Next
@@ -237,7 +243,9 @@ Public Class STG
         If Not ReplayMode Then
             Replays.Clear()
         End If
-        NextStage()
+        If Stages.Count > 0 Then
+            NextStage()
+        End If
         For Each e In Objects
             e.Clear()
         Next
