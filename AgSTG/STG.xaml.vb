@@ -124,7 +124,6 @@ Public Class STG
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
-        Objects.Add(Player)
         time0.Fill = Textures.number(0, 11)
     End Sub
     Public Sub New()
@@ -144,12 +143,6 @@ Public Class STG
         MusicArea = LB_Music
         NameArea = BN
         Blur = Me_Blur
-        Select Case PlayerID
-            Case 0
-                Player = New Player.Player0
-            Case 1
-                Player = New Player.Player1
-        End Select
     End Sub
     Public Sub Render()
         If Stages.Count > 0 Then
