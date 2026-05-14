@@ -25,6 +25,10 @@ Public Class MediaTimer
     Private T As Task
     Private SW As Stopwatch
     ''' <summary>
+    ''' 获取最近的一个tick的计算消耗了多久
+    ''' </summary>
+    Public MSPT As Double
+    ''' <summary>
     ''' 创建新的MediaTimer
     ''' </summary>
     ''' <param name="TPS">定时器每秒运行的次数</param>
@@ -63,6 +67,7 @@ Public Class MediaTimer
                 Act(i).Invoke
             Next
             RaiseEvent Tick(SW.ElapsedTicks / 10000)
+            MSPT = SW.ElapsedTicks / 10000
             Do Until SW.ElapsedTicks >= (10000000 / TPS)
                 Thread.Sleep(0)
             Loop
