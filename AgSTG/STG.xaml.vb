@@ -186,28 +186,50 @@ Public Class STG
             End If
         Next
     End Sub
+    ''' <summary>
+    ''' 获取所有符合tag要求的子弹
+    ''' </summary>
+    ''' <param name="Tag"></param>
+    ''' <returns></returns>
     Public Shared Function SearchEnemy(Tag As Object) As List(Of Enemy)
         Dim output As New List(Of Enemy)
         For Each obj In Objects
-            If obj.ObjectType = ObjectType.Enemy AndAlso obj.Tag = Tag AndAlso obj.IsEnabled Then
+            If obj.ObjectType = ObjectType.Enemy AndAlso obj.Tag IsNot Nothing AndAlso obj.Tag.Equals(Tag) Then
                 output.Add(obj)
             End If
         Next
         Return output
     End Function
+    ''' <summary>
+    ''' 获取所有敌机
+    ''' </summary>
+    ''' <returns></returns>
     Public Shared Function SearchEnemy() As List(Of Enemy)
         Dim output As New List(Of Enemy)
         For Each obj In Objects
-            If obj.ObjectType = ObjectType.Enemy AndAlso obj.IsEnabled Then
+            If obj.ObjectType = ObjectType.Enemy Then
                 output.Add(obj)
             End If
         Next
         Return output
     End Function
+    Public Shared Function SearchBullet(Tag As Object) As List(Of Bullet)
+        Dim output As New List(Of Bullet)
+        For Each obj In Objects
+            If obj.ObjectType = ObjectType.Bullet AndAlso obj.Tag IsNot Nothing AndAlso obj.Tag.Equals(Tag) Then
+                output.Add(obj)
+            End If
+        Next
+        Return output
+    End Function
+    ''' <summary>
+    ''' 获取所有子弹
+    ''' </summary>
+    ''' <returns></returns>
     Public Shared Function SearchBullet() As List(Of Bullet)
         Dim output As New List(Of Bullet)
         For Each obj In Objects
-            If obj.ObjectType = ObjectType.Bullet AndAlso obj.IsEnabled Then
+            If obj.ObjectType = ObjectType.Bullet Then
                 output.Add(obj)
             End If
         Next
