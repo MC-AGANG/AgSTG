@@ -68,9 +68,15 @@ Public Class MediaTimer
             Next
             RaiseEvent Tick(SW.ElapsedTicks / 10000)
             MSPT = SW.ElapsedTicks / 10000
-            Do Until SW.ElapsedTicks >= (10000000 / TPS)
-                Thread.Sleep(0)
-            Loop
+            If SW.ElapsedTicks < (10000000 / TPS) Then
+                Dim sleeptime As Integer = 900 / TPS - SW.ElapsedTicks * (1000 / Stopwatch.Frequency)
+                If sleeptime > 0 Then
+                    Thread.Sleep(sleeptime)
+                End If
+                Do Until SW.ElapsedTicks >= (10000000 / TPS)
+                    Thread.Sleep(0)
+                Loop
+            End If
         Loop
         SW.Stop()
     End Sub
