@@ -53,6 +53,12 @@ Public Class Item
                 Background = Textures.item_spellpiece
                 SetSize(32, 32, 32)
                 Sounds.PlaySound(Sounds.bonus2)
+            Case 7
+                Background = Textures.item_bigpower
+                SetSize(32, 32, 32)
+            Case 8
+                Background = Textures.item_full
+                SetSize(32, 32, 32)
         End Select
     End Sub
     Public Overrides Sub Render()
@@ -119,6 +125,12 @@ Public Class Item
                 Case 6
                     Background = Textures.item_spellpiece_u
                     Exit Select
+                Case 7
+                    Background = Textures.item_bigpower_u
+                    Exit Select
+                Case 8
+                    Background = Textures.item_full_u
+                    Exit Select
                 Case Else
                     Exit Select
             End Select
@@ -142,6 +154,12 @@ Public Class Item
                     Exit Select
                 Case 6
                     Background = Textures.item_spellpiece
+                    Exit Select
+                Case 7
+                    Background = Textures.item_bigpower
+                    Exit Select
+                Case 8
+                    Background = Textures.item_full
                     Exit Select
                 Case Else
                     Exit Select
@@ -257,6 +275,32 @@ Public Class Item
                 End If
                 Clear()
                 Exit Select
+            Case 7
+                If STG.Power <= 300 Then
+                    STG.Power += 100
+                    ShowNumber(3, 0)
+                    Sounds.PlaySound(Sounds.powerup, 0.8)
+                ElseIf STG.Power < 400 Then
+                    STG.Power = 400
+                    ShowNumber(3, 0)
+                    Sounds.PlaySound(Sounds.powerup, 0.8)
+                Else
+                    STG.Score += 102400
+                    ShowNumber(1, 102400)
+                End If
+                FadeOutFrame = 1
+                Exit Select
+            Case 8
+                If STG.Power < 400 Then
+                    STG.Power = 400
+                    ShowNumber(3, 0)
+                    Sounds.PlaySound(Sounds.powerup, 0.8)
+                Else
+                    STG.Score += 512000
+                    ShowNumber(1, 512000)
+                End If
+                FadeOutFrame = 1
+                Exit Select
             Case Else
                 Clear()
                 Exit Select
@@ -295,4 +339,12 @@ Public Enum ItemType
     ''' 符卡（B）碎片
     ''' </summary>
     SpellPiece = 6
+    ''' <summary>
+    ''' 大P点
+    ''' </summary>
+    BigPower = 7
+    ''' <summary>
+    ''' 满火力道具
+    ''' </summary>
+    Full = 8
 End Enum

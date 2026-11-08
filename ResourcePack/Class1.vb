@@ -52,6 +52,8 @@ Public Class Textures
     Public Shared item_spellpiece_u As ImageBrush
     Public Shared item_pointvalue As ImageBrush
     Public Shared item_powerup As ImageBrush
+    Public Shared item_full As ImageBrush
+    Public Shared item_full_u As ImageBrush
 
     Public Shared player_hitbox As ImageBrush
     Public Shared player(1, 2, 7) As ImageBrush
@@ -178,6 +180,8 @@ Public Class Textures
         item_spellpiece_u = New ImageBrush(B2I(MyResource.item_spellpiece_u))
         item_pointvalue = New ImageBrush(B2I(MyResource.item_pointvalue))
         item_powerup = New ImageBrush(B2I(MyResource.item_powerup))
+        item_full = New ImageBrush(B2I(MyResource.item_full))
+        item_full_u = New ImageBrush(B2I(MyResource.item_full_u))
 
         player_hitbox = New ImageBrush(B2I(MyResource.player_hitbox))
         For i = 0 To 2
