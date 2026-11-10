@@ -1,7 +1,6 @@
 ﻿Imports System.Math
 Imports AgSTG.Core
 Imports ResourcePack
-Imports NAudio.Wave
 ''' <summary>
 ''' 表示按钮控件，此按钮使用键盘操作。
 ''' </summary>
