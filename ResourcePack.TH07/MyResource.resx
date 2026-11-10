@@ -556,4 +556,55 @@
   <data name="bt_save_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\bt_save_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="select00" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select00.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_pl0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_pl0.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_pl1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_pl1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="title_character" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\title_character.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_easy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_easy.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_easy_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_easy_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_extra" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_extra.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_extra_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_extra_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_hard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_hard.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_hard_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_hard_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_lunatic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_lunatic.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_lunatic_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_lunatic_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_normal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_normal_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_normal_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_phantasm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_phantasm.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="select_phantasm_b" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\select_phantasm_b.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="title_difficulty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\title_difficulty.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

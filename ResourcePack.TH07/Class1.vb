@@ -17,6 +17,24 @@ Public Class Textures
     Public Shared bt_quit(1) As ImageBrush
     Public Shared bt_save(1) As ImageBrush
 
+    Public Shared select_background As ImageBrush
+    Public Shared title_character As ImageBrush
+    Public Shared sl_pl0 As ImageBrush
+    Public Shared sl_pl1 As ImageBrush
+    Public Shared title_difficulty As ImageBrush
+    Public Shared sl_easy As ImageBrush
+    Public Shared sl_normal As ImageBrush
+    Public Shared sl_hard As ImageBrush
+    Public Shared sl_lunatic As ImageBrush
+    Public Shared sl_extra As ImageBrush
+    Public Shared sl_phantasm As ImageBrush
+    Public Shared sl_easy_b As ImageBrush
+    Public Shared sl_normal_b As ImageBrush
+    Public Shared sl_hard_b As ImageBrush
+    Public Shared sl_lunatic_b As ImageBrush
+    Public Shared sl_extra_b As ImageBrush
+    Public Shared sl_phantasm_b As ImageBrush
+
     Public Shared title_bk As ImageBrush
 
     Public Shared st01a As ImageBrush
@@ -45,6 +63,7 @@ Public Class Textures
     Public Shared circle_cyan As ImageBrush
     Public Shared circle_magenta As ImageBrush
     Public Shared Sub Load()
+
         game_background = New ImageBrush(B2I(MyResource.game_background))
         For i = 0 To 4
             boss(0, i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("boss000" + CStr(i))))
@@ -64,6 +83,24 @@ Public Class Textures
         For i = 0 To 3
             boss(5, i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("boss050" + CStr(i))))
         Next
+
+        select_background = New ImageBrush(B2I(MyResource.select00))
+        title_character = New ImageBrush(B2I(MyResource.title_character))
+        sl_pl0 = New ImageBrush(B2I(MyResource.select_pl0))
+        sl_pl1 = New ImageBrush(B2I(MyResource.select_pl1))
+        title_difficulty = New ImageBrush(B2I(MyResource.title_difficulty))
+        sl_easy = New ImageBrush(B2I(MyResource.select_easy))
+        sl_normal = New ImageBrush(B2I(MyResource.select_normal))
+        sl_hard = New ImageBrush(B2I(MyResource.select_hard))
+        sl_lunatic = New ImageBrush(B2I(MyResource.select_lunatic))
+        sl_extra = New ImageBrush(B2I(MyResource.select_extra))
+        sl_phantasm = New ImageBrush(B2I(MyResource.select_phantasm))
+        sl_easy_b = New ImageBrush(B2I(MyResource.select_easy_b))
+        sl_normal_b = New ImageBrush(B2I(MyResource.select_normal_b))
+        sl_hard_b = New ImageBrush(B2I(MyResource.select_hard_b))
+        sl_lunatic_b = New ImageBrush(B2I(MyResource.select_lunatic_b))
+        sl_extra_b = New ImageBrush(B2I(MyResource.select_extra_b))
+        sl_phantasm_b = New ImageBrush(B2I(MyResource.select_phantasm_b))
 
         Dim it0(0) As ImageBrush
         Dim it1(3) As ImageBrush
