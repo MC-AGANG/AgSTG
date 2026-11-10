@@ -7,10 +7,12 @@ Class MainWindow
     Public WithEvents Timer1 As MediaTimer
     Public Ticks As Long
     Public GP As GamePage
+    Public SP As SelectionPage
     Public PP As PausePage
     Public TP As TitlePage
     Public CP As ClearPage
     Public FP As FailPage
+
     Private SW_FPS As New Stopwatch
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
         If FillArea.ActualHeight / 3 > FillArea.ActualWidth / 4 Then
@@ -74,6 +76,11 @@ Class MainWindow
         GP.SetBackground(Textures.game_background)
         GP.Visibility = Visibility.Hidden
         GP.Act = AddressOf GamePage_Action
+        SP = New SelectionPage
+        SP.MW = Me
+        GameArea.Children.Add(SP.Page)
+        SP.Page.Timer = Timer1
+        SP.Page.Visibility = Visibility.Hidden
         Timer1.Act.Add(AddressOf FpsUpdate)
         Timer1.Act.Add(AddressOf KeyUpdate)
         Timer1.Act.Add(AddressOf ReleaseSounds)

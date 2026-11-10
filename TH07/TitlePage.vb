@@ -32,9 +32,9 @@ Public Class TitlePage
     Private Sub BT_Start_Clicked() Handles BT_Start.Clicked
         STG.ReplayMode = False
         Page.Activated = False
-        MW.GP.Activated = True
+        MW.SP.Page.Activated = True
         Page.Visibility = Visibility.Hidden
-        MW.GP.Visibility = Visibility.Visible
+        MW.SP.Page.Visibility = Visibility.Visible
         STG.Reset()
     End Sub
     Private Sub BT_Replay_Clicked() Handles BT_Replay.Clicked
@@ -65,7 +65,7 @@ Public Class TitlePage
             ResourcePack.Sounds.PlaySound(Sounds.mu01)
             STG.ReplayMode = False
         Else
-            ManagedBass.Bass.ChannelStop(Sounds.mu01)
+            'ManagedBass.Bass.ChannelStop(Sounds.mu01)
         End If
     End Sub
     Private Sub Action()
