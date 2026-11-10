@@ -20,31 +20,33 @@ Public Class GroupBox
     ''' 运行主循环。
     ''' </summary>
     Public Overrides Sub Render()
-        Static switchcd As Integer = 0
-        If KeyState.Down Then
-            If switchcd = 0 Then
-                Buttons(SelectedIndex).Selected = False
-                SelectedIndex += 1
-                If SelectedIndex >= Buttons.Count Then SelectedIndex = 0
-                Buttons(SelectedIndex).Selected = True
-                switchcd = 10
-                Sounds.PlaySound(Sounds.select00)
+        If IsEnabled Then
+            Static switchcd As Integer = 0
+            If KeyState.Down OrElse KeyState.Right Then
+                If switchcd = 0 Then
+                    Buttons(SelectedIndex).Selected = False
+                    SelectedIndex += 1
+                    If SelectedIndex >= Buttons.Count Then SelectedIndex = 0
+                    Buttons(SelectedIndex).Selected = True
+                    switchcd = 10
+                    Sounds.PlaySound(Sounds.select00)
+                End If
+            ElseIf KeyState.Up OrElse KeyState.Left Then
+                If switchcd = 0 Then
+                    Buttons(SelectedIndex).Selected = False
+                    SelectedIndex -= 1
+                    If SelectedIndex < 0 Then SelectedIndex = Buttons.Count - 1
+                    Buttons(SelectedIndex).Selected = True
+                    switchcd = 10
+                    Sounds.PlaySound(Sounds.select00)
+                End If
             End If
-        ElseIf KeyState.Up Then
-            If switchcd = 0 Then
-                Buttons(SelectedIndex).Selected = False
-                SelectedIndex -= 1
-                If SelectedIndex < 0 Then SelectedIndex = Buttons.Count - 1
-                Buttons(SelectedIndex).Selected = True
-                switchcd = 10
-                Sounds.PlaySound(Sounds.select00)
+            If switchcd > 0 Then
+                switchcd -= 1
             End If
-        End If
-        If switchcd > 0 Then
-            switchcd -= 1
-        End If
-        If Buttons.Count > 0 Then
-            Buttons(SelectedIndex).Render()
+            If Buttons.Count > 0 Then
+                Buttons(SelectedIndex).Render()
+            End If
         End If
     End Sub
     ''' <summary>
