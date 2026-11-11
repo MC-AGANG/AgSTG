@@ -84,6 +84,7 @@ Public Class SelectionPage
         MW.GP.Visibility = Visibility.Visible
         STG.Reset()
         ManagedBass.Bass.ChannelStop(Sounds.mu01)
+        MW.GP.PropertyBoard.SetDifficulty(difficulty)
     End Sub
 
     Private Sub BT_Player1_Clicked() Handles BT_Player1.Clicked
@@ -102,6 +103,7 @@ Public Class SelectionPage
         MW.GP.Visibility = Visibility.Visible
         STG.Reset()
         ManagedBass.Bass.ChannelStop(Sounds.mu01)
+        MW.GP.PropertyBoard.SetDifficulty(difficulty)
     End Sub
 
     Private Sub BT_Player0_SelectionChanged(sender As Object, Selected As Boolean) Handles BT_Player0.SelectionChanged

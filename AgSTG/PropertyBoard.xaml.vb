@@ -265,4 +265,20 @@ Public Class PropertyBoard
         Height = 480
         Width = 224
     End Sub
+    Public Sub SetDifficulty(value As Difficulty)
+        Select Case value
+            Case Difficulty.Easy
+                p_difficulty.Fill = Textures.icon_easy
+            Case Difficulty.Normal
+                p_difficulty.Fill = Textures.icon_normal
+            Case Difficulty.Hard
+                p_difficulty.Fill = Textures.icon_hard
+            Case Difficulty.Lunatic
+                p_difficulty.Fill = Textures.icon_lunatic
+            Case Difficulty.Extra
+                p_difficulty.Fill = Textures.icon_extra
+            Case Difficulty.Phantasm
+                p_difficulty.Fill = Textures.icon_phantasm
+        End Select
+    End Sub
 End Class
