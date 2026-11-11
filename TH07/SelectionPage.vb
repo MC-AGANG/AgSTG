@@ -120,14 +120,6 @@ Public Class SelectionPage
         Page.FreezeTime = 15
     End Sub
 
-    'Private Sub BT_Start_Clicked() Handles BT_Start.Clicked
-    '    STG.ReplayMode = False
-    '    Page.Activated = False
-    '    MW.GP.Activated = True
-    '    Page.Visibility = Visibility.Hidden
-    '    MW.GP.Visibility = Visibility.Visible
-    '    STG.Reset()
-    'End Sub
     Private Sub SetDifficulty(value As Difficulty)
         KeyState.Shoot = False
         Page.FreezeTime = 15
