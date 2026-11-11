@@ -77,6 +77,7 @@ Public Class SelectionPage
         STG.Stages.Add(New Stage4.Stage4(difficulty))
         STG.Stages.Add(New Stage5.Stage5(difficulty))
         STG.Stages.Add(New Stage6.Stage6(difficulty))
+        STG.Difficulty = difficulty
         STG.PlayerID = 0
         MW.GP.Activated = True
         Page.Visibility = Visibility.Hidden
@@ -96,6 +97,7 @@ Public Class SelectionPage
         STG.Stages.Add(New Stage4.Stage4(difficulty))
         STG.Stages.Add(New Stage5.Stage5(difficulty))
         STG.Stages.Add(New Stage6.Stage6(difficulty))
+        STG.Difficulty = difficulty
         STG.PlayerID = 1
         MW.GP.Activated = True
         Page.Visibility = Visibility.Hidden

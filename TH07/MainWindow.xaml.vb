@@ -44,12 +44,6 @@ Class MainWindow
     Public Sub Start()
         GP = New GamePage
         GameArea.Children.Add(GP)
-        'STG.Stages.Add(New Stage1.Stage1(2))
-        'STG.Stages.Add(New Stage2.Stage2(2))
-        'STG.Stages.Add(New Stage3.Stage3(2))
-        'STG.Stages.Add(New Stage4.Stage4(2))
-        'STG.Stages.Add(New Stage5.Stage5(2))
-        'STG.Stages.Add(New Stage6.Stage6(2))
         TP = New TitlePage
         TP.MW = Me
         GameArea.Children.Add(TP.Page)

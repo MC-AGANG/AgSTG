@@ -121,6 +121,7 @@ Public Class STG
     Public Shared Event GameOver()
     Public Shared Blur As Effects.BlurEffect
     Public Shared CurrentMusic As Integer
+    Private Shared _CurrentStage As Stage = Nothing
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
@@ -239,6 +240,10 @@ Public Class STG
     ''' 重置STG
     ''' </summary>
     Public Shared Sub Reset()
+        If _CurrentStage IsNot Nothing AndAlso _CurrentStage.Background IsNot Nothing AndAlso BackLayer.Children.Contains(_CurrentStage.Background) Then
+            _CurrentStage.Reset()
+            _CurrentStage = Nothing
+        End If
         BackLayer_BlackHole.Radius = 0
         If Stages.Count > 0 Then
             Stages(CurrentStage).Unload()
@@ -354,6 +359,7 @@ Public Class STG
                 Replays.Last.PropertyData.Add(Power)
                 Replays.Last.PropertyData.Add(PointValue)
                 Replays.Last.PropertyData.Add(Graze)
+                _CurrentStage = Stages(CurrentStage)
             Else
                 RaiseEvent GameClear()
             End If
@@ -376,6 +382,7 @@ Public Class STG
                 Power = Replays(CurrentStage).PropertyData(5)
                 PointValue = Replays(CurrentStage).PropertyData(6)
                 Graze = Replays(CurrentStage).PropertyData(7)
+                _CurrentStage = Stages(CurrentStage)
             Else
                 RaiseEvent GameClear()
             End If
@@ -393,4 +400,5 @@ Public Class STG
     Public Shared Sub Player_GameOver()
         RaiseEvent GameOver()
     End Sub
+
 End Class

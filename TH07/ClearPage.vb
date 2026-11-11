@@ -33,7 +33,7 @@ Public Class ClearPage
             Dim name As String = InputBox("输入你的昵称", "保存回放", "Save")
             Dim sd As New Microsoft.Win32.SaveFileDialog With {.Filter = "回放文件 (*.rep)|*.rep", .FileName = name + ".rep", .InitialDirectory = Environment.CurrentDirectory + "\replay"}
             If sd.ShowDialog() Then
-                Dim rf As New ReplayFile(2, STG.PlayerID, name)
+                Dim rf As New ReplayFile(STG.Difficulty, STG.PlayerID, name)
                 For Each r In STG.Replays
                     rf.Stages.Add(r)
                 Next

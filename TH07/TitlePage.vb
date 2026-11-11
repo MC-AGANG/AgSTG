@@ -47,11 +47,20 @@ Public Class TitlePage
             For Each r In rf.Stages
                 STG.Replays.Add(r)
             Next
+            STG.Stages.Clear()
+            STG.Stages.Add(New Stage1.Stage1(rf.Difficulty))
+            STG.Stages.Add(New Stage2.Stage2(rf.Difficulty))
+            STG.Stages.Add(New Stage3.Stage3(rf.Difficulty))
+            STG.Stages.Add(New Stage4.Stage4(rf.Difficulty))
+            STG.Stages.Add(New Stage5.Stage5(rf.Difficulty))
+            STG.Stages.Add(New Stage6.Stage6(rf.Difficulty))
             STG.Reset()
+            MW.GP.PropertyBoard.SetDifficulty(rf.Difficulty)
             Page.Activated = False
             MW.GP.Activated = True
             Page.Visibility = Visibility.Hidden
             MW.GP.Visibility = Visibility.Visible
+            ManagedBass.Bass.ChannelStop(Sounds.mu01)
         End If
     End Sub
     Private Sub BT_Quit_Clicked() Handles BT_Quit.Clicked
