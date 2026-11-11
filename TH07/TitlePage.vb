@@ -30,12 +30,11 @@ Public Class TitlePage
     End Sub
 
     Private Sub BT_Start_Clicked() Handles BT_Start.Clicked
-        STG.ReplayMode = False
         Page.Activated = False
         MW.SP.Page.Activated = True
         Page.Visibility = Visibility.Hidden
         MW.SP.Page.Visibility = Visibility.Visible
-        STG.Reset()
+        MW.SP.Reset()
     End Sub
     Private Sub BT_Replay_Clicked() Handles BT_Replay.Clicked
         Dim ofd As New Microsoft.Win32.OpenFileDialog With {.Filter = "回放文件 (*.rep)|*.rep", .InitialDirectory = Environment.CurrentDirectory + "\replay"}
@@ -64,8 +63,6 @@ Public Class TitlePage
         If Activated Then
             ResourcePack.Sounds.PlaySound(Sounds.mu01)
             STG.ReplayMode = False
-        Else
-            'ManagedBass.Bass.ChannelStop(Sounds.mu01)
         End If
     End Sub
     Private Sub Action()

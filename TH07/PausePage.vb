@@ -33,6 +33,7 @@ Public Class PausePage
         ManagedBass.Bass.ChannelPlay(STG.CurrentMusic, False)
     End Sub
     Private Sub BT_Title_Clicked() Handles BT_Title.Clicked
+        STG.Stages(STG.CurrentStage).Reset()
         Page.Visibility = Visibility.Hidden
         Page.Activated = False
         MW.TP.Page.Activated = True
