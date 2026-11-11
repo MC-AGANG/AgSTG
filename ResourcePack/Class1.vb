@@ -32,6 +32,12 @@ Public Class Textures
     Public Shared icon_graze As ImageBrush
     Public Shared life_icon(5) As ImageBrush
     Public Shared spell_icon(5) As ImageBrush
+    Public Shared icon_easy As ImageBrush
+    Public Shared icon_normal As ImageBrush
+    Public Shared icon_hard As ImageBrush
+    Public Shared icon_lunatic As ImageBrush
+    Public Shared icon_extra As ImageBrush
+    Public Shared icon_phantasm As ImageBrush
 
     Public Shared enemy(6, 7, 11) As ImageBrush
 
@@ -126,6 +132,12 @@ Public Class Textures
         icon_power = New ImageBrush(B2I(MyResource.icon_power))
         icon_pointvalue = New ImageBrush(B2I(MyResource.icon_pointvalue))
         icon_graze = New ImageBrush(B2I(MyResource.icon_graze))
+        icon_easy = New ImageBrush(B2I(MyResource.icon_easy))
+        icon_normal = New ImageBrush(B2I(MyResource.icon_normal))
+        icon_hard = New ImageBrush(B2I(MyResource.icon_hard))
+        icon_lunatic = New ImageBrush(B2I(MyResource.icon_lunatic))
+        icon_extra = New ImageBrush(B2I(MyResource.icon_extra))
+        icon_phantasm = New ImageBrush(B2I(MyResource.icon_phantasm))
         For i = 0 To 5
             life_icon(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("life_i" + i.ToString("D1"))))
         Next
