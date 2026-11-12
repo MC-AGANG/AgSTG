@@ -40,7 +40,7 @@ Public Class GamePage
         Dispatcher.Invoke(Sub()
                               STG.Render()
                               PropertyBoard.Update()
-                          End Sub)
+                          End Sub, Threading.DispatcherPriority.Render)
     End Sub
     Private Sub GamePage_ActivatedChanged(Activated As Boolean) Handles Me.ActivatedChanged
         If Activated Then

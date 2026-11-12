@@ -51,8 +51,8 @@ Public Class Stage6
     Private Sub EnemySpawn()
         Select Case Ticks
             Case 120
-                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, 128, 160, 1000, "000000000055", 800))
-                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, 256, 160, 1000, "00000000003", 800))
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, 128, 160, 1000, "111111111155", 800))
+                STG.Add(New Enemy(EnemyType.大蝴蝶, 0, 256, 160, 1000, "11111111118", 800))
             Case 1200
                 STG.Objects.Add(New Enemy.Boss(0, 192, -50) With {.Init = New Action(AddressOf .S6B8I), .Act = New Action(AddressOf .S6B8A)})
 
