@@ -20,6 +20,7 @@ Public Class Button
                 ForeLayer.Visibility = Visibility.Visible
             Else
                 ForeLayer.Visibility = Visibility.Hidden
+                Tick = 0
             End If
             RaiseEvent SelectionChanged(Me, value)
         End Set
