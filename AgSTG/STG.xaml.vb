@@ -183,7 +183,7 @@ Public Class STG
         For Each obj In Objects
             If obj.ObjectType = ObjectType.Bullet Then
                 temp = obj
-                temp.Break(True)
+                temp.BreakCountDown = temp.GetDistance(Player) \ 16
             End If
         Next
     End Sub
