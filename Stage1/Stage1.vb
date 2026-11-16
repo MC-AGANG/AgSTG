@@ -12,13 +12,13 @@ Public Class Stage1
         MyBase.New(Difficulty)
         Select Case Difficulty
             Case Difficulty.Easy
-                EnemySpawn = AddressOf EnemySpawnN
+                EnemySpawn = AddressOf EnemySpawnE
             Case Difficulty.Normal
                 EnemySpawn = AddressOf EnemySpawnN
             Case Difficulty.Hard
                 EnemySpawn = AddressOf EnemySpawnH
             Case Difficulty.Lunatic
-                EnemySpawn = AddressOf EnemySpawnH
+                EnemySpawn = AddressOf EnemySpawnL
         End Select
     End Sub
     Public Overrides Sub Initialize()
@@ -56,6 +56,87 @@ Public Class Stage1
         BG = Background
         finished = False
         EndFrame = 0
+    End Sub
+
+    Private Sub EnemySpawnE()
+        Select Case Ticks
+            Case 480 To 535
+                If Ticks Mod 5 = 0 Then
+                    If Ticks Mod 10 Then
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 320 + Rnd() * 10 - 5, -16, 10, "1", 200, 4, 180) With {.Tag = 1, .Act = AddressOf .S1W1E})
+                    Else
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 300 + Rnd() * 10 - 5, -16, 10, "1", 200, 4, 180) With {.Tag = 1, .Act = AddressOf .S1W1E})
+                    End If
+                End If
+            Case 720 To 775
+                If Ticks Mod 5 = 0 Then
+                    If Ticks Mod 10 Then
+                        STG.Add(New Enemy(EnemyType.小妖精, 1, 64 + Rnd() * 16 - 8, -16, 10, "0", 200, 4, 180) With {.Tag = 2, .Act = AddressOf .S1W1E})
+                    Else
+                        STG.Add(New Enemy(EnemyType.小妖精, 1, 84 + Rnd() * 16 - 8, -16, 10, "0", 200, 4, 180) With {.Tag = 2, .Act = AddressOf .S1W1E})
+                    End If
+                End If
+            Case 900 To 955
+                If Ticks Mod 5 = 0 Then
+                    If Ticks Mod 10 Then
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 320 + Rnd() * 10 - 5, -16, 10, "1", 200, 4, 180) With {.Tag = 1, .Act = AddressOf .S1W1E})
+                    Else
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 300 + Rnd() * 10 - 5, -16, 10, "1", 200, 4, 180) With {.Tag = 1, .Act = AddressOf .S1W1E})
+                    End If
+                End If
+            Case 1080 To 1135
+                If Ticks Mod 5 = 0 Then
+                    If Ticks Mod 10 Then
+                        STG.Add(New Enemy(EnemyType.小妖精, 1, 64 + Rnd() * 16 - 8, -16, 10, "0", 200, 4, 180) With {.Tag = 2, .Act = AddressOf .S1W1E})
+                    Else
+                        STG.Add(New Enemy(EnemyType.小妖精, 1, 84 + Rnd() * 16 - 8, -16, 10, "0", 200, 4, 180) With {.Tag = 2, .Act = AddressOf .S1W1E})
+                    End If
+                End If
+            Case 1200 To 1800
+                If Ticks Mod 50 = 0 Then
+                    STG.Add(New Enemy(EnemyType.小妖精, 3, 192 + Rnd() * 256 - 128, -16, 40, "10", 400, 2, 180) With {.Act = AddressOf .S1W2E})
+                End If
+            Case 2040 To 2059
+                STG.Add(New Enemy(EnemyType.小妖精, 2, 192 + Rnd() * 256 - 128, -16, 10, "01", 400, 2, 180) With {.Act = AddressOf .S1W3E})
+            Case 2250
+                For x = 64 To 320 Step 64
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, x, -16, 10, "0011", 400, 2, 180) With {.Act = AddressOf .S1W4E})
+                Next
+            Case 2400
+                For x = 72 To 312 Step 80
+                    STG.Add(New Enemy(EnemyType.小妖精, 1, x, -16, 10, "0011", 400, 2, 180) With {.Act = AddressOf .S1W4E})
+                Next
+            Case 2500
+                For x = 64 To 320 Step 64
+                    STG.Add(New Enemy(EnemyType.小妖精, 3, x, -16, 10, "0011", 400, 2, 180) With {.Act = AddressOf .S1W5E})
+                Next
+            Case 2650
+                STG.Objects.Add(New Enemy.Boss(0, 192, -50) With {.Init = New Action(AddressOf .S1B0IE), .Act = New Action(AddressOf .S1B0AE)})
+        End Select
+        Select Case Ticks
+            Case 1400 To 1480
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 2, -32, 128, 20, "1", 200, 2.5, 90))
+                End If
+            Case 1600 To 1680
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 2, 416, 160, 20, "1", 200, 2.5, 270))
+                End If
+            Case 1720 To 1800
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 416, 138, 20, "0", 200, 2.5, 270))
+                End If
+            Case 1820 To 1890
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, -32, 118, 20, "0", 200, 2.5, 90))
+                End If
+            Case 1920 To 2000
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 1, -32, 128, 20, "01", 200, 2.5, 90))
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 1, 416, 128, 20, "01", 200, 2.5, 270))
+                End If
+        End Select
+
     End Sub
 
     Private Sub EnemySpawnN()
@@ -138,6 +219,7 @@ Public Class Stage1
         End Select
 
     End Sub
+
     Private Sub EnemySpawnH()
         Select Case Ticks
             Case 480 To 535
@@ -218,8 +300,346 @@ Public Class Stage1
         End Select
 
     End Sub
+
+    Private Sub EnemySpawnL()
+        Select Case Ticks
+            Case 480 To 535
+                If Ticks Mod 5 = 0 Then
+                    If Ticks Mod 10 Then
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 320 + Rnd() * 10 - 5, -16, 10, "1", 200, 4, 180) With {.Tag = 1, .Act = AddressOf .S1W1L})
+                    Else
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 300 + Rnd() * 10 - 5, -16, 10, "1", 200, 4, 180) With {.Tag = 1, .Act = AddressOf .S1W1L})
+                    End If
+                End If
+            Case 720 To 775
+                If Ticks Mod 5 = 0 Then
+                    If Ticks Mod 10 Then
+                        STG.Add(New Enemy(EnemyType.小妖精, 1, 64 + Rnd() * 16 - 8, -16, 10, "0", 200, 4, 180) With {.Tag = 2, .Act = AddressOf .S1W1L})
+                    Else
+                        STG.Add(New Enemy(EnemyType.小妖精, 1, 84 + Rnd() * 16 - 8, -16, 10, "0", 200, 4, 180) With {.Tag = 2, .Act = AddressOf .S1W1L})
+                    End If
+                End If
+            Case 900 To 955
+                If Ticks Mod 5 = 0 Then
+                    If Ticks Mod 10 Then
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 320 + Rnd() * 10 - 5, -16, 10, "1", 200, 4, 180) With {.Tag = 1, .Act = AddressOf .S1W1L})
+                    Else
+                        STG.Add(New Enemy(EnemyType.小妖精, 0, 300 + Rnd() * 10 - 5, -16, 10, "1", 200, 4, 180) With {.Tag = 1, .Act = AddressOf .S1W1L})
+                    End If
+                End If
+            Case 1080 To 1135
+                If Ticks Mod 5 = 0 Then
+                    If Ticks Mod 10 Then
+                        STG.Add(New Enemy(EnemyType.小妖精, 1, 64 + Rnd() * 16 - 8, -16, 10, "0", 200, 4, 180) With {.Tag = 2, .Act = AddressOf .S1W1L})
+                    Else
+                        STG.Add(New Enemy(EnemyType.小妖精, 1, 84 + Rnd() * 16 - 8, -16, 10, "0", 200, 4, 180) With {.Tag = 2, .Act = AddressOf .S1W1L})
+                    End If
+                End If
+            Case 1200 To 1800
+                If Ticks Mod 50 = 0 Then
+                    STG.Add(New Enemy(EnemyType.小妖精, 3, 192 + Rnd() * 256 - 128, -16, 40, "10", 400, 2, 180) With {.Act = AddressOf .S1W2L})
+                End If
+            Case 2040 To 2059
+                STG.Add(New Enemy(EnemyType.小妖精, 2, 192 + Rnd() * 256 - 128, -16, 10, "01", 400, 2, 180) With {.Act = AddressOf .S1W3L})
+            Case 2250
+                For x = 64 To 320 Step 64
+                    STG.Add(New Enemy(EnemyType.小妖精, 0, x, -16, 10, "0011", 400, 2, 180) With {.Act = AddressOf .S1W4L})
+                Next
+            Case 2400
+                For x = 72 To 312 Step 80
+                    STG.Add(New Enemy(EnemyType.小妖精, 1, x, -16, 10, "0011", 400, 2, 180) With {.Act = AddressOf .S1W4L})
+                Next
+            Case 2500
+                For x = 64 To 320 Step 64
+                    STG.Add(New Enemy(EnemyType.小妖精, 3, x, -16, 10, "0011", 400, 2, 180) With {.Act = AddressOf .S1W5L})
+                Next
+            Case 2650
+                STG.Objects.Add(New Enemy.Boss(0, 192, -50) With {.Init = New Action(AddressOf .S1B0IL), .Act = New Action(AddressOf .S1B0AL)})
+        End Select
+        Select Case Ticks
+            Case 1400 To 1480
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 2, -32, 128, 20, "1", 200, 2.5, 90))
+                End If
+            Case 1600 To 1680
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 2, 416, 160, 20, "1", 200, 2.5, 270))
+                End If
+            Case 1720 To 1800
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, 416, 138, 20, "0", 200, 2.5, 270))
+                End If
+            Case 1820 To 1890
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 0, -32, 118, 20, "0", 200, 2.5, 90))
+                End If
+            Case 1920 To 2000
+                If Ticks Mod 10 = 0 Then
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 1, -32, 128, 20, "01", 200, 2.5, 90))
+                    STG.Add(New Enemy(EnemyType.阴阳玉, 1, 416, 128, 20, "01", 200, 2.5, 270))
+                End If
+        End Select
+
+    End Sub
 End Class
 
+#Region "Easy"
+Public Class B0S0E
+    Inherits SpellCard
+    Private Delta As Double
+    Public Sub New(owner As Enemy.Boss)
+        MyBase.New(owner)
+        Type = SpellType.None
+        UsualHP = 1800
+        UsualTime = 1800
+        HaveUsual = True
+        Items = "000000000011111111114"
+        Score = 10
+    End Sub
+    Public Overrides Sub Render()
+        MyBase.Render()
+        For i = 0 To 14
+            Delta += Rnd() * 2 - 1
+            If Ticks Mod 360 = i * 10 + 60 Then
+                For c = 0 To 330 Step 30
+                    STG.Add(New Bullet(BulletType.中玉, 1, Owner.X + i * 18 * Sin((c + Delta) / 180 * PI), Owner.Y - i * 18 * Cos((c + Delta) / 180 * PI), 0.8, c + Delta, 0) With {.Act = AddressOf .B1S0B1H})
+                Next
+            End If
+        Next
+
+    End Sub
+End Class
+Public Class B0S1E
+    Inherits SpellCard
+    Public Sub New(owner As Enemy.Boss)
+        MyBase.New(owner)
+        Type = SpellType.None
+        UsualHP = 1800
+        UsualTime = 1800
+        HaveUsual = True
+        Items = "000000000011111111114"
+        Score = 10
+    End Sub
+    Public Overrides Sub Render()
+        MyBase.Render()
+        If Ticks >= 30 AndAlso Ticks Mod 15 = 0 Then
+            For i = 0 To 7
+                Preset(Owner.X + 32 * Sin(Ticks * 2 / 180 * PI), Owner.Y + 32 * Cos(Ticks * 2 / 180 * PI), i * 72 + Ticks)
+            Next
+        End If
+
+
+    End Sub
+    Private Sub Preset(x As Double, y As Double, corner As Double)
+        For i = -3 To 3
+            STG.Add(New Bullet(BulletType.椭弹, 3, x, y, 3 - Abs(i / 10), corner + i * 0.8, 0))
+        Next
+
+    End Sub
+End Class
+Public Class B0S2E
+    Inherits SpellCard
+    Public Sub New(owner As Enemy.Boss)
+        MyBase.New(owner)
+        Type = SpellType.None
+        UsualHP = 1800
+        UsualTime = 1800
+        HaveUsual = True
+        Items = "000000000011111111114"
+        Score = 10
+    End Sub
+    Public Overrides Sub Render()
+        MyBase.Render()
+        If Ticks > 30 Then
+            Dim t As Integer = Abs((Ticks - 30) Mod 320)
+            If t < 80 Then
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 2.5, Rnd() * 360, 0))
+            ElseIf t < 160 Then
+                If Ticks Mod 15 = 0 Then
+                    For i = 0 To 4
+                        Preset2(Owner.X + 32 * Sin(Ticks * 2 / 180 * PI), Owner.Y + 32 * Cos(Ticks * 2 / 180 * PI), i * 72 + Ticks)
+                    Next
+                End If
+            ElseIf t < 240 Then
+                If t Mod 12 = 0 Then
+                    Dim c As Double = Rnd() * 15
+                    For i = 0 To 330 Step 30
+                        STG.Add(New Bullet(BulletType.心弹, 6, Owner.X, Owner.Y, 2.5, i + c, 2))
+                    Next
+                End If
+            Else
+                STG.Add(New Bullet(BulletType.中玉, 5, Owner.X, Owner.Y + (Ticks Mod 64) - 32, 3, Rnd() * 360, 0))
+            End If
+
+        End If
+
+
+
+    End Sub
+    Private Sub Preset2(x As Double, y As Double, corner As Double)
+        For i = -3 To 3
+            STG.Add(New Bullet(BulletType.椭弹, 3, x, y, 3 - Abs(i / 10), corner + i * 0.8, 0))
+        Next
+
+    End Sub
+    Public Overrides Function Break() As Boolean
+        Dim s() As String
+        If STG.Player.PlayerType = PlayerType.灵梦 Then
+            Texts.dialog0101a.ReadLine()
+            s = Texts.dialog0101a.ReadLine().Split(",")
+            STG.DialogArea.LoadPlayer(Textures.illustrations(s(0)))
+            STG.DialogArea.LoadEnemy(Textures.illustrations(s(1)))
+            STG.DialogArea.LoadDialog(Texts.dialog0101a)
+            STG.DialogArea.Show()
+        Else
+            Texts.dialog0101b.ReadLine()
+            s = Texts.dialog0101b.ReadLine().Split(",")
+            STG.DialogArea.LoadPlayer(Textures.illustrations(s(0)))
+            STG.DialogArea.LoadEnemy(Textures.illustrations(s(1)))
+            STG.DialogArea.LoadDialog(Texts.dialog0101b)
+            STG.DialogArea.Show()
+        End If
+        Stage1.finished = True
+        Return MyBase.Break()
+    End Function
+End Class
+Module St1EnmE
+    <Extension>
+    Public Sub S1W1E(e As Enemy)
+        With e
+            If .Ticks < 55 Then
+                .Speed -= 0.07
+            ElseIf .Ticks = 55 Then
+                .Speed = 0
+            ElseIf .Ticks = 60 Then
+                If .Tag = 1 Then
+                    .Speed = 2
+                    .Direction = 240
+                Else
+                    .Speed = 2
+                    .Direction = 120
+                End If
+
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1W2E(e As Enemy)
+        With e
+            If .Ticks = 50 Then
+                .Speed = 0
+            ElseIf .Ticks = 100 Then
+                .Speed = 1
+                .Direction = 180 + Rnd() * 240 - 120
+            ElseIf .Ticks = 150 Then
+                .Direction = 180 + Rnd() * 240 - 120
+                STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, 1))
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1W3E(e As Enemy)
+        With e
+            If .Ticks = 50 Then
+                .Speed = 0
+            ElseIf .Ticks = 100 Then
+                .Speed = 1
+                .Direction = 180 + Rnd() * 120 - 60
+                If Rnd() > 0.9 Then
+                    For i = 1.2 To 1.5 Step 0.15
+                        STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, i))
+                    Next
+                End If
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1W4E(e As Enemy)
+        With e
+            If .Ticks = 50 Then
+                .Speed = 0
+            ElseIf .Ticks = 100 Then
+                .Speed = 1
+                .Direction = 180 + Rnd() * 120 - 60
+                For i = 1.2 To 1.5 Step 0.15
+                    STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, i))
+                Next
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1W5E(e As Enemy)
+        With e
+            If .Ticks = 50 Then
+                .Speed = 0
+            ElseIf .Ticks = 100 Then
+                .Speed = 1
+                .Direction = 0
+                For i = 1.2 To 1.5 Step 0.15
+                    For j = -90 To 90 Step 60
+                        STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, i, j))
+                    Next
+                Next
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1B0IE(e As Enemy.Boss)
+        With e
+            For i = 0 To 4
+                .NormalTextures.Add(Textures.boss(0, i))
+            Next
+            .SpellCards.Add(New B0S0E(e))
+            .SpellCards.Add(New B0S1E(e))
+            .SpellCards.Add(New B0S2E(e))
+            .Layer3.Height = 96
+            .Layer3.Width = 96
+            .Layer3_scale.CenterY = 48
+            Canvas.SetLeft(.Layer3, 16)
+            Canvas.SetTop(.Layer3, 16)
+            .Layer3.Fill = Textures.boss(0, 0)
+
+            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+            ResourcePack.Sounds.PlaySound(Sounds.mu03)
+            Stage.Showmusic("スカーレット警察ゲットーパトロール24時")
+            STG.CurrentMusic = Sounds.mu03
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1B0AE(e As Enemy.Boss)
+        With e
+            Dim t As Integer = .Ticks Mod 24
+            If .Ticks = 0 Then
+                .MoveToCenter(60)
+            End If
+            If .Ticks = 65 Then
+                .IsEnabled = True
+                STG.NameArea.Initialize("Funky", 3)
+                .NextSpell()
+            End If
+            If t < 8 Then
+                .Layer3_scale.ScaleY = 1 - (t / 60)
+            Else
+                .Layer3_scale.ScaleY = 1 + Abs((t - 8) / 60)
+            End If
+
+        End With
+    End Sub
+    <Extension>
+    Public Sub B1S0B1E(e As Bullet)
+        With e
+            If .Ticks < 60 Then
+                .Speed -= 0.02
+            ElseIf .Ticks = 60 Then
+                .Speed = -1
+            Else
+                .Speed -= 0.025
+            End If
+        End With
+    End Sub
+
+End Module
+#End Region
 
 #Region "Noraml"
 Public Class B0S0N
@@ -239,7 +659,7 @@ Public Class B0S0N
         For i = 0 To 14
             Delta += Rnd() * 2 - 1
             If Ticks Mod 360 = i * 10 + 60 Then
-                For c = 0 To 345 Step 15
+                For c = 0 To 340 Step 20
                     STG.Add(New Bullet(BulletType.中玉, 1, Owner.X + i * 18 * Sin((c + Delta) / 180 * PI), Owner.Y - i * 18 * Cos((c + Delta) / 180 * PI), 0.8, c + Delta, 0) With {.Act = AddressOf .B1S0B1H})
                 Next
             End If
@@ -261,8 +681,8 @@ Public Class B0S1N
     Public Overrides Sub Render()
         MyBase.Render()
         If Ticks >= 30 AndAlso Ticks Mod 15 = 0 Then
-            For i = 0 To 7
-                Preset(Owner.X + 32 * Sin(Ticks * 2 / 180 * PI), Owner.Y + 32 * Cos(Ticks * 2 / 180 * PI), i * 45 + Ticks)
+            For i = 0 To 5
+                Preset(Owner.X + 32 * Sin(Ticks * 2 / 180 * PI), Owner.Y + 32 * Cos(Ticks * 2 / 180 * PI), i * 60 + Ticks)
             Next
         End If
 
@@ -293,23 +713,22 @@ Public Class B0S2N
             If t < 80 Then
                 STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 3, Rnd() * 360, 0))
                 STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 3, Rnd() * 360, 0))
-                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 3, Rnd() * 360, 0))
             ElseIf t < 160 Then
                 If Ticks Mod 15 = 0 Then
-                    For i = 0 To 7
-                        Preset2(Owner.X + 32 * Sin(Ticks * 2 / 180 * PI), Owner.Y + 32 * Cos(Ticks * 2 / 180 * PI), i * 45 + Ticks)
+                    For i = 0 To 5
+                        Preset2(Owner.X + 32 * Sin(Ticks * 2 / 180 * PI), Owner.Y + 32 * Cos(Ticks * 2 / 180 * PI), i * 60 + Ticks)
                     Next
                 End If
             ElseIf t < 240 Then
                 If t Mod 12 = 0 Then
                     Dim c As Double = Rnd() * 15
-                    For i = 0 To 345 Step 15
+                    For i = 0 To 340 Step 20
                         STG.Add(New Bullet(BulletType.心弹, 6, Owner.X, Owner.Y, 3, i + c, 2))
                     Next
                 End If
             Else
-                STG.Add(New Bullet(BulletType.中玉, 5, Owner.X, Owner.Y + (Ticks Mod 64) - 32, 3, Rnd() * 360, 0))
-                STG.Add(New Bullet(BulletType.中玉, 5, Owner.X, Owner.Y + (Ticks Mod 64) - 32, 3, Rnd() * 360, 0))
+                STG.Add(New Bullet(BulletType.中玉, 4, Owner.X, Owner.Y + (Ticks Mod 64) - 32, 3, Rnd() * 360, 0))
+                STG.Add(New Bullet(BulletType.中玉, 4, Owner.X, Owner.Y + (Ticks Mod 64) - 32, 3, Rnd() * 360, 0))
             End If
 
         End If
@@ -374,8 +793,8 @@ Module St1EnmN
                 .Direction = 180 + Rnd() * 240 - 120
             ElseIf .Ticks = 150 Then
                 .Direction = 180 + Rnd() * 240 - 120
+                STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, 0.8))
                 STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, 1))
-                STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, 1.2))
             End If
         End With
     End Sub
@@ -387,7 +806,7 @@ Module St1EnmN
             ElseIf .Ticks = 100 Then
                 .Speed = 1
                 .Direction = 180 + Rnd() * 120 - 60
-                If Rnd() > 0.8 Then
+                If Rnd() > 0.85 Then
                     For i = 1.2 To 1.6 Step 0.1
                         STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, i))
                     Next
@@ -403,7 +822,7 @@ Module St1EnmN
             ElseIf .Ticks = 100 Then
                 .Speed = 1
                 .Direction = 180 + Rnd() * 120 - 60
-                For i = 1.2 To 1.6 Step 0.1
+                For i = 1.2 To 1.5 Step 0.1
                     STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, i))
                 Next
             End If
@@ -417,7 +836,7 @@ Module St1EnmN
             ElseIf .Ticks = 100 Then
                 .Speed = 1
                 .Direction = 0
-                For i = 1.2 To 1.6 Step 0.1
+                For i = 1.2 To 1.5 Step 0.1
                     For j = -90 To 90 Step 45
                         STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, i, j))
                     Next
@@ -431,9 +850,9 @@ Module St1EnmN
             For i = 0 To 4
                 .NormalTextures.Add(Textures.boss(0, i))
             Next
-            .SpellCards.Add(New B0S0H(e))
-            .SpellCards.Add(New B0S1H(e))
-            .SpellCards.Add(New B0S2H(e))
+            .SpellCards.Add(New B0S0N(e))
+            .SpellCards.Add(New B0S1N(e))
+            .SpellCards.Add(New B0S2N(e))
             .Layer3.Height = 96
             .Layer3.Width = 96
             .Layer3_scale.CenterY = 48
@@ -731,6 +1150,271 @@ Module St1EnmH
     End Sub
     <Extension>
     Public Sub B1S0B1H(e As Bullet)
+        With e
+            If .Ticks < 60 Then
+                .Speed -= 0.02
+            ElseIf .Ticks = 60 Then
+                .Speed = -1
+            Else
+                .Speed -= 0.025
+            End If
+        End With
+    End Sub
+
+End Module
+#End Region
+
+#Region "Lunatic"
+Public Class B0S0L
+    Inherits SpellCard
+    Private Delta As Double
+    Public Sub New(owner As Enemy.Boss)
+        MyBase.New(owner)
+        Type = SpellType.None
+        UsualHP = 1800
+        UsualTime = 1800
+        HaveUsual = True
+        Items = "000000000011111111114"
+        Score = 10
+    End Sub
+    Public Overrides Sub Render()
+        MyBase.Render()
+        For i = 0 To 14
+            Delta += Rnd() * 2 - 1
+            If Ticks Mod 360 = i * 10 + 60 Then
+                For c = 0 To 350 Step 10
+                    STG.Add(New Bullet(BulletType.中玉, 1, Owner.X + i * 18 * Sin((c + Delta) / 180 * PI), Owner.Y - i * 18 * Cos((c + Delta) / 180 * PI), 0.8, c + Delta, 0) With {.Act = AddressOf .B1S0B1L})
+                Next
+            End If
+        Next
+
+    End Sub
+End Class
+Public Class B0S1L
+    Inherits SpellCard
+    Public Sub New(owner As Enemy.Boss)
+        MyBase.New(owner)
+        Type = SpellType.None
+        UsualHP = 1800
+        UsualTime = 1800
+        HaveUsual = True
+        Items = "000000000011111111114"
+        Score = 10
+    End Sub
+    Public Overrides Sub Render()
+        MyBase.Render()
+        If Ticks >= 30 AndAlso Ticks Mod 15 = 0 Then
+            For i = 0 To 9
+                Preset(Owner.X + 32 * Sin(Ticks * 2 / 180 * PI), Owner.Y + 32 * Cos(Ticks * 2 / 180 * PI), i * 38 + Ticks)
+            Next
+        End If
+
+
+    End Sub
+    Private Sub Preset(x As Double, y As Double, corner As Double)
+        For i = -5 To 5
+            STG.Add(New Bullet(BulletType.椭弹, 3, x, y, 3 - Abs(i / 10), corner + i * 0.8, 0))
+        Next
+
+    End Sub
+End Class
+Public Class B0S2L
+    Inherits SpellCard
+    Public Sub New(owner As Enemy.Boss)
+        MyBase.New(owner)
+        Type = SpellType.None
+        UsualHP = 1800
+        UsualTime = 1800
+        HaveUsual = True
+        Items = "000000000011111111114"
+        Score = 10
+    End Sub
+    Public Overrides Sub Render()
+        MyBase.Render()
+        If Ticks > 30 Then
+            Dim t As Integer = Abs((Ticks - 30) Mod 320)
+            If t < 80 Then
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 3, Rnd() * 360, 0))
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 3, Rnd() * 360, 0))
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 3, Rnd() * 360, 0))
+                STG.Add(New Bullet(BulletType.小玉, BulletColor.红, Owner.X, Owner.Y, 3, Rnd() * 360, 0))
+            ElseIf t < 160 Then
+                If Ticks Mod 15 = 0 Then
+                    For i = 0 To 9
+                        Preset2(Owner.X + 32 * Sin(Ticks * 2 / 180 * PI), Owner.Y + 32 * Cos(Ticks * 2 / 180 * PI), i * 36 + Ticks)
+                    Next
+                End If
+            ElseIf t < 240 Then
+                If t Mod 12 = 0 Then
+                    Dim c As Double = Rnd() * 15
+                    For i = 0 To 350 Step 10
+                        STG.Add(New Bullet(BulletType.心弹, 6, Owner.X, Owner.Y, 3, i + c, 2))
+                    Next
+                End If
+            Else
+                STG.Add(New Bullet(BulletType.中玉, 5, Owner.X, Owner.Y + (Ticks Mod 64) - 32, 3, Rnd() * 360, 0))
+                STG.Add(New Bullet(BulletType.中玉, 5, Owner.X, Owner.Y + (Ticks Mod 64) - 32, 3, Rnd() * 360, 0))
+                STG.Add(New Bullet(BulletType.中玉, 5, Owner.X, Owner.Y + (Ticks Mod 64) - 32, 3, Rnd() * 360, 0))
+            End If
+
+        End If
+
+
+
+    End Sub
+    Private Sub Preset2(x As Double, y As Double, corner As Double)
+        For i = -5 To 5
+            STG.Add(New Bullet(BulletType.椭弹, 3, x, y, 3 - Abs(i / 10), corner + i * 0.8, 0))
+        Next
+
+    End Sub
+    Public Overrides Function Break() As Boolean
+        Dim s() As String
+        If STG.Player.PlayerType = PlayerType.灵梦 Then
+            Texts.dialog0101a.ReadLine()
+            s = Texts.dialog0101a.ReadLine().Split(",")
+            STG.DialogArea.LoadPlayer(Textures.illustrations(s(0)))
+            STG.DialogArea.LoadEnemy(Textures.illustrations(s(1)))
+            STG.DialogArea.LoadDialog(Texts.dialog0101a)
+            STG.DialogArea.Show()
+        Else
+            Texts.dialog0101b.ReadLine()
+            s = Texts.dialog0101b.ReadLine().Split(",")
+            STG.DialogArea.LoadPlayer(Textures.illustrations(s(0)))
+            STG.DialogArea.LoadEnemy(Textures.illustrations(s(1)))
+            STG.DialogArea.LoadDialog(Texts.dialog0101b)
+            STG.DialogArea.Show()
+        End If
+        Stage1.finished = True
+        Return MyBase.Break()
+    End Function
+End Class
+Module St1EnmL
+    <Extension>
+    Public Sub S1W1L(e As Enemy)
+        With e
+            If .Ticks < 55 Then
+                .Speed -= 0.07
+            ElseIf .Ticks = 55 Then
+                .Speed = 0
+            ElseIf .Ticks = 60 Then
+                If .Tag = 1 Then
+                    .Speed = 2
+                    .Direction = 240
+                Else
+                    .Speed = 2
+                    .Direction = 120
+                End If
+
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1W2L(e As Enemy)
+        With e
+            If .Ticks = 50 Then
+                .Speed = 0
+            ElseIf .Ticks = 100 Then
+                .Speed = 1
+                .Direction = 180 + Rnd() * 240 - 120
+            ElseIf .Ticks = 150 Then
+                .Direction = 180 + Rnd() * 240 - 120
+                STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, 0.8))
+                STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, 1))
+                STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, 1.2))
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1W3L(e As Enemy)
+        With e
+            If .Ticks = 50 Then
+                .Speed = 0
+            ElseIf .Ticks = 100 Then
+                .Speed = 1
+                .Direction = 180 + Rnd() * 120 - 60
+                If Rnd() > 0.75 Then
+                    For i = 1.3 To 1.8 Step 0.1
+                        STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, i))
+                    Next
+                End If
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1W4L(e As Enemy)
+        With e
+            If .Ticks = 50 Then
+                .Speed = 0
+            ElseIf .Ticks = 100 Then
+                .Speed = 1
+                .Direction = 180 + Rnd() * 120 - 60
+                For i = 1.3 To 1.8 Step 0.1
+                    STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, i))
+                Next
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1W5L(e As Enemy)
+        With e
+            If .Ticks = 50 Then
+                .Speed = 0
+            ElseIf .Ticks = 100 Then
+                .Speed = 1
+                .Direction = 0
+                For i = 1.3 To 1.8 Step 0.1
+                    For j = -90 To 90 Step 30
+                        STG.Add(New Bullet(BulletType.环弹, BulletColor.蓝, .X, .Y, i, j))
+                    Next
+                Next
+            End If
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1B0IL(e As Enemy.Boss)
+        With e
+            For i = 0 To 4
+                .NormalTextures.Add(Textures.boss(0, i))
+            Next
+            .SpellCards.Add(New B0S0L(e))
+            .SpellCards.Add(New B0S1L(e))
+            .SpellCards.Add(New B0S2L(e))
+            .Layer3.Height = 96
+            .Layer3.Width = 96
+            .Layer3_scale.CenterY = 48
+            Canvas.SetLeft(.Layer3, 16)
+            Canvas.SetTop(.Layer3, 16)
+            .Layer3.Fill = Textures.boss(0, 0)
+
+            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
+            ResourcePack.Sounds.PlaySound(Sounds.mu03)
+            Stage.Showmusic("スカーレット警察ゲットーパトロール24時")
+            STG.CurrentMusic = Sounds.mu03
+        End With
+    End Sub
+    <Extension>
+    Public Sub S1B0AL(e As Enemy.Boss)
+        With e
+            Dim t As Integer = .Ticks Mod 24
+            If .Ticks = 0 Then
+                .MoveToCenter(60)
+            End If
+            If .Ticks = 65 Then
+                .IsEnabled = True
+                STG.NameArea.Initialize("Funky", 3)
+                .NextSpell()
+            End If
+            If t < 8 Then
+                .Layer3_scale.ScaleY = 1 - (t / 60)
+            Else
+                .Layer3_scale.ScaleY = 1 + Abs((t - 8) / 60)
+            End If
+
+        End With
+    End Sub
+    <Extension>
+    Public Sub B1S0B1L(e As Bullet)
         With e
             If .Ticks < 60 Then
                 .Speed -= 0.02
