@@ -73,7 +73,7 @@ Public Class SelectionPage
         STG.Stages.Clear()
         'STG.Stages.Add(New Stage1.Stage1(difficulty))
         'STG.Stages.Add(New Stage2.Stage2(difficulty))
-        STG.Stages.Add(New Stage3.Stage3(difficulty))
+        'STG.Stages.Add(New Stage3.Stage3(difficulty))
         STG.Stages.Add(New Stage4.Stage4(difficulty))
         STG.Stages.Add(New Stage5.Stage5(difficulty))
         STG.Stages.Add(New Stage6.Stage6(difficulty))
