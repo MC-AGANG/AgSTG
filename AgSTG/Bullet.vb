@@ -74,12 +74,6 @@ Public Class Bullet
     Public Act As Action
     Private FadeOutFrame As Byte
     ''' <summary>
-    ''' 获取或设置子弹的消弹倒计时
-    ''' </summary>
-    ''' <returns></returns>
-    Public Property BreakCountDown As Integer = -1
-
-    ''' <summary>
     ''' 创建新的子弹
     ''' </summary>
     ''' <param name="BulletType">子弹种类</param>
@@ -167,12 +161,6 @@ Public Class Bullet
             If FadeOutFrame >= 32 Then
                 Clear()
             End If
-        End If
-        If FadeOutFrame = 0 AndAlso BreakCountDown >= 0 Then
-            If BreakCountDown = 0 Then
-                Break(True)
-            End If
-            BreakCountDown -= 1
         End If
         If Not IsNothing(Act) AndAlso IsEnabled Then
             Act()
