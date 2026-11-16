@@ -72,7 +72,7 @@ Public Class SelectionPage
         STG.ReplayMode = False
         STG.Stages.Clear()
         'STG.Stages.Add(New Stage1.Stage1(difficulty))
-        STG.Stages.Add(New Stage2.Stage2(difficulty))
+        'STG.Stages.Add(New Stage2.Stage2(difficulty))
         STG.Stages.Add(New Stage3.Stage3(difficulty))
         STG.Stages.Add(New Stage4.Stage4(difficulty))
         STG.Stages.Add(New Stage5.Stage5(difficulty))
@@ -93,7 +93,7 @@ Public Class SelectionPage
     Private Sub BT_Player1_Clicked() Handles BT_Player1.Clicked
         STG.ReplayMode = False
         STG.Stages.Clear()
-        'STG.Stages.Add(New Stage1.Stage1(difficulty))
+        STG.Stages.Add(New Stage1.Stage1(difficulty))
         STG.Stages.Add(New Stage2.Stage2(difficulty))
         STG.Stages.Add(New Stage3.Stage3(difficulty))
         STG.Stages.Add(New Stage4.Stage4(difficulty))
