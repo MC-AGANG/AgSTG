@@ -122,6 +122,7 @@ Public Class STG
     Public Shared Blur As Effects.BlurEffect
     Public Shared CurrentMusic As Integer
     Private Shared _CurrentStage As Stage = Nothing
+    Private Shared NoBulletTick As Integer = 0
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
@@ -158,9 +159,20 @@ Public Class STG
             obj.Render()
             obj.Move()
         Next
-        For Each obj In Objects_Add
-            Objects.Add(obj)
-        Next
+        If NoBulletTick > 0 Then
+            For Each obj In Objects_Add
+                Objects.Add(obj)
+                If obj.ObjectType = ObjectType.Bullet Then
+                    CType(obj, Bullet).BreakCountDown = 8
+                    CType(obj, Bullet).Act = Nothing
+                End If
+            Next
+            NoBulletTick -= 1
+        Else
+            For Each obj In Objects_Add
+                Objects.Add(obj)
+            Next
+        End If
         Objects_Add.Clear()
         For Each obj In Objects_rm
             Objects.Remove(obj)
@@ -183,9 +195,13 @@ Public Class STG
         For Each obj In Objects
             If obj.ObjectType = ObjectType.Bullet Then
                 temp = obj
-                temp.BreakCountDown = temp.GetDistance(Player) \ 16
+                If temp.Breakable Then
+                    temp.BreakCountDown = temp.GetDistance(Player) \ 16
+                    temp.Act = Nothing
+                End If
             End If
         Next
+        NoBulletTick = 8
     End Sub
     ''' <summary>
     ''' 获取所有符合tag要求的子弹

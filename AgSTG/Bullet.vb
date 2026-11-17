@@ -285,6 +285,12 @@ Public Class Bullet
             If FadeOutFrame = 0 AndAlso Ticks > 30 Then
                 Opacity = 0.8 + 0.2 * Sin(Ticks)
             End If
+            If FadeOutFrame = 0 AndAlso BreakCountDown >= 0 Then
+                If BreakCountDown = 0 Then
+                    Break(True)
+                End If
+                BreakCountDown -= 1
+            End If
             If FadeOutFrame = 0 AndAlso Ticks > Life Then
                 Break(False)
             ElseIf FadeOutFrame > 0 Then
