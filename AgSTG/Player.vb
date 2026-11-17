@@ -341,7 +341,7 @@ Public MustInherit Class Player
             End If
         End Sub
         Public Sub Spell()
-            If STG.Spell > 0 AndAlso SpellFrame = 0 AndAlso FadeOutFrame <= 3 Then
+            If STG.Spell > 0 AndAlso SpellFrame = 0 AndAlso FadeOutFrame <= 5 Then
                 SpellFrame = 300
                 Invin = 300
                 Sounds.PlaySound(Sounds.slash)
@@ -407,7 +407,7 @@ Public MustInherit Class Player
             End If
         End Sub
         Public Sub Spell()
-            If STG.Spell > 0 AndAlso SpellFrame = 0 AndAlso FadeOutFrame <= 3 Then
+            If STG.Spell > 0 AndAlso SpellFrame = 0 AndAlso FadeOutFrame <= 5 Then
                 SpellFrame = 300
                 Invin = 300
                 STG.Spell -= 1

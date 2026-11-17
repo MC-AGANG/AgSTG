@@ -391,6 +391,7 @@ Public Class B7S4E
                 STG.DialogArea.LoadDialog(Texts.dialog0502a)
                 STG.DialogArea.Show()
             Else
+                STG.Player.Speed = 5
                 Texts.dialog0502b.ReadLine()
                 s = Texts.dialog0502b.ReadLine().Split(",")
                 STG.DialogArea.LoadPlayer(Textures.illustrations(s(0)))
