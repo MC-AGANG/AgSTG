@@ -71,10 +71,10 @@ Public Class SelectionPage
     Private Sub BT_Player0_Clicked() Handles BT_Player0.Clicked
         STG.ReplayMode = False
         STG.Stages.Clear()
-        'STG.Stages.Add(New Stage1.Stage1(difficulty))
-        'STG.Stages.Add(New Stage2.Stage2(difficulty))
-        'STG.Stages.Add(New Stage3.Stage3(difficulty))
-        'STG.Stages.Add(New Stage4.Stage4(difficulty))
+        STG.Stages.Add(New Stage1.Stage1(difficulty))
+        STG.Stages.Add(New Stage2.Stage2(difficulty))
+        STG.Stages.Add(New Stage3.Stage3(difficulty))
+        STG.Stages.Add(New Stage4.Stage4(difficulty))
         STG.Stages.Add(New Stage5.Stage5(difficulty))
         STG.Stages.Add(New Stage6.Stage6(difficulty))
         STG.Difficulty = difficulty
@@ -86,8 +86,6 @@ Public Class SelectionPage
         STG.Reset()
         ManagedBass.Bass.ChannelStop(Sounds.mu01)
         MW.GP.PropertyBoard.SetDifficulty(difficulty)
-        STG.Power = 400
-        STG.Life = 6
     End Sub
 
     Private Sub BT_Player1_Clicked() Handles BT_Player1.Clicked
