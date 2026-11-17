@@ -82,15 +82,27 @@ Public Class CardLabel
         End If
         If FadeOutFrame > 0 Then
             FadeOutFrame -= 1
-            getbonus.Opacity = FadeOutFrame / 60
             If FadeOutFrame = 0 Then
                 Visibility = Visibility.Hidden
             End If
         ElseIf FadeOutFrame < 0 Then
             FadeOutFrame += 1
-            bonusfailed.Opacity = Math.Abs(FadeOutFrame) / 60
             If FadeOutFrame = 0 Then
                 Visibility = Visibility.Hidden
+            End If
+        End If
+        If bonusfailed.Opacity <> 0 Then
+            If bonusfailed.Opacity > 0.02 Then
+                bonusfailed.Opacity -= 0.01
+            Else
+                bonusfailed.Opacity = 0
+            End If
+        End If
+        If getbonus.Opacity <> 0 Then
+            If getbonus.Opacity > 0.02 Then
+                getbonus.Opacity -= 0.01
+            Else
+                getbonus.Opacity = 0
             End If
         End If
     End Sub
@@ -130,8 +142,6 @@ Public Class CardLabel
             scorei(i).Opacity = 0
         Next
         FadeOutFrame = 0
-        getbonus.Opacity = 0
-        bonusfailed.Opacity = 0
         failed.Visibility = Visibility.Hidden
         Sounds.PlaySound(Sounds.cat00, 0.8)
     End Sub
@@ -143,6 +153,7 @@ Public Class CardLabel
         For i = 0 To 7
             scorei(i).Visibility = Visibility.Hidden
         Next
+        getbonus.Opacity = 1
     End Sub
     Public Sub Fail()
         FadeOutFrame = -120
@@ -152,6 +163,7 @@ Public Class CardLabel
         For i = 0 To 7
             scorei(i).Visibility = Visibility.Hidden
         Next
+        bonusfailed.Opacity = 1
     End Sub
     Public Sub Sca_Render()
         r1_r.Angle += 2

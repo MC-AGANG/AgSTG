@@ -161,11 +161,10 @@
                 <Rectangle Width="8" Height="9" Canvas.Left="142" Name="score2"/>
                 <Rectangle Width="8" Height="9" Canvas.Left="149" Name="score1"/>
                 <Rectangle Width="30" Height="9" Canvas.Left="112" Name="failed" Visibility="Hidden"/>
-                <Rectangle Width="256" Height="32" Name="getbonus" Canvas.Left="-64" Canvas.Top="64" Opacity="0"/>
-                <Rectangle Width="160" Height="32" Name="bonusfailed" Canvas.Left="-16" Canvas.Top="64" Opacity="0"/>
             </Canvas>
-
         </Grid>
+        <Rectangle Width="256" Height="32" Name="getbonus" Opacity="0" VerticalAlignment="Top" Margin="0,128,0,0"/>
+        <Rectangle Width="160" Height="32" Name="bonusfailed" Opacity="0" VerticalAlignment="Top" Margin="0,128,0,0"/>
     </Grid>
 
 </UserControl>
