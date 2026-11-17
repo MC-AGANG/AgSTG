@@ -148,13 +148,15 @@ Class MainWindow
     End Sub
     Private Sub KeyUpdate()
         Dispatcher.Invoke(Sub()
-                              KeyState.Up = Keyboard.IsKeyDown(Key.Up)
-                              KeyState.Down = Keyboard.IsKeyDown(Key.Down)
-                              KeyState.Left = Keyboard.IsKeyDown(Key.Left)
-                              KeyState.Right = Keyboard.IsKeyDown(Key.Right)
-                              KeyState.Slow = Keyboard.IsKeyDown(Key.LeftShift)
-                              KeyState.Shoot = Keyboard.IsKeyDown(Key.Z)
-                              KeyState.Bomb = Keyboard.IsKeyDown(Key.X)
+                              If IsActive Then
+                                  KeyState.Up = Keyboard.IsKeyDown(Key.Up)
+                                  KeyState.Down = Keyboard.IsKeyDown(Key.Down)
+                                  KeyState.Left = Keyboard.IsKeyDown(Key.Left)
+                                  KeyState.Right = Keyboard.IsKeyDown(Key.Right)
+                                  KeyState.Slow = Keyboard.IsKeyDown(Key.LeftShift)
+                                  KeyState.Shoot = Keyboard.IsKeyDown(Key.Z)
+                                  KeyState.Bomb = Keyboard.IsKeyDown(Key.X)
+                              End If
                           End Sub)
 
     End Sub
