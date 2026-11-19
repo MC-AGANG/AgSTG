@@ -1208,10 +1208,10 @@ Module St2EnmE
                 .IsEnabled = True
                 STG.NameArea.Initialize("Chen", 2)
                 .NextSpell()
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu05)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu05)
                 Stage.Showmusic("Withered Leaf")
-                STG.CurrentMusic = Sounds.mu05
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu05
             End If
         End With
     End Sub
@@ -1982,10 +1982,10 @@ Module St2EnmN
                 .IsEnabled = True
                 STG.NameArea.Initialize("Chen", 2)
                 .NextSpell()
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu05)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu05)
                 Stage.Showmusic("Withered Leaf")
-                STG.CurrentMusic = Sounds.mu05
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu05
             End If
         End With
     End Sub
@@ -2767,10 +2767,10 @@ Module St2EnmH
                 .IsEnabled = True
                 STG.NameArea.Initialize("Chen", 2)
                 .NextSpell()
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu05)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu05)
                 Stage.Showmusic("Withered Leaf")
-                STG.CurrentMusic = Sounds.mu05
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu05
             End If
         End With
     End Sub
@@ -3575,10 +3575,10 @@ Module St2EnmL
                 .IsEnabled = True
                 STG.NameArea.Initialize("Chen", 2)
                 .NextSpell()
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu05)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu05)
                 Stage.Showmusic("Withered Leaf")
-                STG.CurrentMusic = Sounds.mu05
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu05
             End If
         End With
     End Sub

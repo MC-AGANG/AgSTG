@@ -120,9 +120,9 @@ Public Class STG
     Public Shared Event GameClear()
     Public Shared Event GameOver()
     Public Shared Blur As Effects.BlurEffect
-    Public Shared CurrentMusic As Integer
     Private Shared _CurrentStage As Stage = Nothing
     Private Shared NoBulletTick As Integer = 0
+
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
@@ -357,8 +357,9 @@ Public Class STG
     ''' 进入下一关
     ''' </summary>
     Public Shared Sub NextStage()
-        If Not IsNothing(CurrentMusic) Then
-            Sounds.StopSound(CurrentMusic)
+        If Not IsNothing(Sounds.CurrentMusic) Then
+            Sounds.StopSound(Sounds.CurrentMusic)
+            Sounds.CurrentMusic = -1
         End If
         If Not ReplayMode Then
             If CurrentStage < Stages.Count - 1 Then
@@ -420,5 +421,4 @@ Public Class STG
     Public Shared Sub Player_GameOver()
         RaiseEvent GameOver()
     End Sub
-
 End Class

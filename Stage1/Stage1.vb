@@ -599,10 +599,10 @@ Module St1EnmE
             Canvas.SetTop(.Layer3, 16)
             .Layer3.Fill = Textures.boss(0, 0)
 
-            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-            ResourcePack.Sounds.PlaySound(Sounds.mu03)
+            ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+            ResourcePack.Sounds.PlayMusic(Sounds.mu03)
             Stage.Showmusic("スカーレット警察ゲットーパトロール24時")
-            STG.CurrentMusic = Sounds.mu03
+            ResourcePack.Sounds.CurrentMusic = Sounds.mu03
         End With
     End Sub
     <Extension>
@@ -860,10 +860,10 @@ Module St1EnmN
             Canvas.SetTop(.Layer3, 16)
             .Layer3.Fill = Textures.boss(0, 0)
 
-            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-            ResourcePack.Sounds.PlaySound(Sounds.mu03)
+            ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+            ResourcePack.Sounds.PlayMusic(Sounds.mu03)
             Stage.Showmusic("スカーレット警察ゲットーパトロール24時")
-            STG.CurrentMusic = Sounds.mu03
+            ResourcePack.Sounds.CurrentMusic = Sounds.mu03
         End With
     End Sub
     <Extension>
@@ -1122,10 +1122,10 @@ Module St1EnmH
             Canvas.SetTop(.Layer3, 16)
             .Layer3.Fill = Textures.boss(0, 0)
 
-            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-            ResourcePack.Sounds.PlaySound(Sounds.mu03)
+            ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+            ResourcePack.Sounds.PlayMusic(Sounds.mu03)
             Stage.Showmusic("スカーレット警察ゲットーパトロール24時")
-            STG.CurrentMusic = Sounds.mu03
+            ResourcePack.Sounds.CurrentMusic = Sounds.mu03
         End With
     End Sub
     <Extension>
@@ -1387,10 +1387,10 @@ Module St1EnmL
             Canvas.SetTop(.Layer3, 16)
             .Layer3.Fill = Textures.boss(0, 0)
 
-            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-            ResourcePack.Sounds.PlaySound(Sounds.mu03)
+            ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+            ResourcePack.Sounds.PlayMusic(Sounds.mu03)
             Stage.Showmusic("スカーレット警察ゲットーパトロール24時")
-            STG.CurrentMusic = Sounds.mu03
+            ResourcePack.Sounds.CurrentMusic = Sounds.mu03
         End With
     End Sub
     <Extension>

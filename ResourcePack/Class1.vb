@@ -262,6 +262,21 @@ Public Class Textures
 End Class
 
 Public Class Sounds
+    Public Shared Property EffectVolume As Integer = 100
+    Public Shared Property MusicVolume As Integer
+        Set(value As Integer)
+            _MusicVolume = value
+            If CurrentMusic <> -1 Then
+                Bass.ChannelSetAttribute(CurrentMusic, ChannelAttribute.Volume, value / 100)
+            End If
+        End Set
+        Get
+            Return _MusicVolume
+        End Get
+    End Property
+    Private Shared _MusicVolume As Integer = 100
+    Public Shared Property CurrentMusic As Integer = -1
+
     Public Shared big As Integer
     Public Shared bonus As Integer
     Public Shared bonus2 As Integer
@@ -410,11 +425,24 @@ Public Class Sounds
     ''' <param name="Volume">音量大小，默认为100%</param>
     Public Shared Sub PlaySound(Sound As Integer, Optional Volume As Double = 1)
         If Not Sounds_Playing.Contains(Sound) Then
-            Bass.ChannelSetAttribute(Sound, ChannelAttribute.Volume, Volume)
+            Bass.ChannelSetAttribute(Sound, ChannelAttribute.Volume, Volume * EffectVolume / 100)
             Bass.ChannelPlay(Sound, True)
             Sounds_Playing.Add(Sound)
         End If
     End Sub
+    ''' <summary>
+    ''' 播放音乐
+    ''' </summary>
+    ''' <param name="Sound">需要播放的音乐</param>
+    Public Shared Sub PlayMusic(Sound As Integer)
+        If CurrentMusic <> Sound AndAlso CurrentMusic <> -1 Then
+            StopSound(CurrentMusic)
+        End If
+        Bass.ChannelSetAttribute(Sound, ChannelAttribute.Volume, MusicVolume / 100)
+        Bass.ChannelPlay(Sound, True)
+        CurrentMusic = Sound
+    End Sub
+
     Public Shared Sub StopSound(Sound As Integer)
         Bass.ChannelStop(Sound)
     End Sub

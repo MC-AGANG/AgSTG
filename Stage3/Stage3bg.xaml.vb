@@ -4,9 +4,9 @@ Public Class Stage3bg
     Public Ticks As Long
     Public Sub Render()
         If Ticks = 0 Then
-            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-            ResourcePack.Sounds.PlaySound(Sounds.mu06)
-            STG.CurrentMusic = Sounds.mu06
+            ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+            ResourcePack.Sounds.PlayMusic(Sounds.mu06)
+            ResourcePack.Sounds.CurrentMusic = Sounds.mu06
         End If
         If Ticks <= 9480 Then
             Canvas.SetTop(BK1, -3136 + (Ticks / 9480 * 3136))

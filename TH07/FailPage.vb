@@ -42,7 +42,7 @@ Public Class FailPage
         Page.Activated = False
         MW.GP.Activated = True
         Page.Visibility = Visibility.Hidden
-        ManagedBass.Bass.ChannelPlay(STG.CurrentMusic, False)
+        ManagedBass.Bass.ChannelPlay(ResourcePack.Sounds.CurrentMusic, False)
         STG.Continued = True
     End Sub
     Private Sub BT_Save_Clicked() Handles BT_Save.Clicked
@@ -77,7 +77,7 @@ Public Class FailPage
     End Sub
     Private Sub Page_ActivatedChanged(Activated As Boolean) Handles Page.ActivatedChanged
         If Activated Then
-            ManagedBass.Bass.ChannelPause(STG.CurrentMusic)
+            ManagedBass.Bass.ChannelPause(ResourcePack.Sounds.CurrentMusic)
         End If
     End Sub
     Private Sub Action()

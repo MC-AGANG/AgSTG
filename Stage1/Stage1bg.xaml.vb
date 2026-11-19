@@ -88,9 +88,9 @@ Public Class Stage1bg
     End Sub
     Public Sub Render()
         If Ticks = 0 Then
-            ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-            ResourcePack.Sounds.PlaySound(Sounds.mu02)
-            STG.CurrentMusic = Sounds.mu02
+            ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+            ResourcePack.Sounds.PlayMusic(Sounds.mu02)
+            ResourcePack.Sounds.CurrentMusic = Sounds.mu02
         End If
         For Each p In snows
             p.Render()

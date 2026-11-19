@@ -175,7 +175,7 @@ Class MainWindow
             TP.Page.Activated = True
             TP.Page.Visibility = Visibility.Visible
             GP.Visibility = Visibility.Hidden
-            ManagedBass.Bass.ChannelPause(STG.CurrentMusic)
+            ManagedBass.Bass.ChannelPause(ResourcePack.Sounds.CurrentMusic)
         Else
             GP.Activated = False
             CP.Page.Activated = True
@@ -190,7 +190,7 @@ Class MainWindow
             TP.Page.Activated = True
             TP.Page.Visibility = Visibility.Visible
             GP.Visibility = Visibility.Hidden
-            ManagedBass.Bass.ChannelPause(STG.CurrentMusic)
+            ManagedBass.Bass.ChannelPause(ResourcePack.Sounds.CurrentMusic)
         Else
             GP.Activated = False
             FP.Page.Activated = True

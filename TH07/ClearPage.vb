@@ -62,7 +62,7 @@ Public Class ClearPage
     End Sub
     Private Sub Page_ActivatedChanged(Activated As Boolean) Handles Page.ActivatedChanged
         If Activated Then
-            ManagedBass.Bass.ChannelPause(STG.CurrentMusic)
+            ManagedBass.Bass.ChannelPause(ResourcePack.Sounds.CurrentMusic)
         End If
     End Sub
     Private Sub Action()

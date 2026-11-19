@@ -528,10 +528,10 @@ Module St6EnmE
                 started = True
                 STG.NameArea.Initialize("Shion", 5)
 
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu13)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu13)
                 Stage.Showmusic("縁から外れた名前")
-                STG.CurrentMusic = Sounds.mu13
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu13
                 .NextSpell()
 
             End If
@@ -1276,10 +1276,10 @@ Module St6EnmN
                 started = True
                 STG.NameArea.Initialize("Shion", 5)
 
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu13)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu13)
                 Stage.Showmusic("縁から外れた名前")
-                STG.CurrentMusic = Sounds.mu13
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu13
                 .NextSpell()
 
             End If
@@ -2026,10 +2026,10 @@ Module St6EnmH
                 started = True
                 STG.NameArea.Initialize("Shion", 5)
 
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu13)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu13)
                 Stage.Showmusic("縁から外れた名前")
-                STG.CurrentMusic = Sounds.mu13
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu13
                 .NextSpell()
 
             End If
@@ -2776,10 +2776,10 @@ Module St6EnmL
                 started = True
                 STG.NameArea.Initialize("Shion", 5)
 
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu13)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu13)
                 Stage.Showmusic("縁から外れた名前")
-                STG.CurrentMusic = Sounds.mu13
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu13
                 .NextSpell()
 
             End If

@@ -1177,10 +1177,10 @@ Module St4EnmE
             If .Ticks = 65 Then
                 .IsEnabled = True
                 STG.NameArea.Initialize("Lily White", 4)
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu09)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu09)
                 Stage.Showmusic("云霄之上的花与舞")
-                STG.CurrentMusic = Sounds.mu09
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu09
                 .NextSpell()
             End If
         End With
@@ -1888,10 +1888,10 @@ Module St4EnmN
             If .Ticks = 65 Then
                 .IsEnabled = True
                 STG.NameArea.Initialize("Lily White", 4)
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu09)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu09)
                 Stage.Showmusic("云霄之上的花与舞")
-                STG.CurrentMusic = Sounds.mu09
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu09
                 .NextSpell()
             End If
         End With
@@ -2599,10 +2599,10 @@ Module St4EnmH
             If .Ticks = 65 Then
                 .IsEnabled = True
                 STG.NameArea.Initialize("Lily White", 4)
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu09)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu09)
                 Stage.Showmusic("云霄之上的花与舞")
-                STG.CurrentMusic = Sounds.mu09
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu09
                 .NextSpell()
             End If
         End With
@@ -3310,10 +3310,10 @@ Module St4EnmL
             If .Ticks = 65 Then
                 .IsEnabled = True
                 STG.NameArea.Initialize("Lily White", 4)
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu09)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu09)
                 Stage.Showmusic("云霄之上的花与舞")
-                STG.CurrentMusic = Sounds.mu09
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu09
                 .NextSpell()
             End If
         End With

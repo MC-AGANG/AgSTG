@@ -85,7 +85,6 @@ Public Class SelectionPage
         Page.Activated = False
         MW.GP.Visibility = Visibility.Visible
         STG.Reset()
-        ManagedBass.Bass.ChannelStop(Sounds.mu01)
         MW.GP.PropertyBoard.SetDifficulty(difficulty)
     End Sub
 
@@ -105,7 +104,6 @@ Public Class SelectionPage
         Page.Activated = False
         MW.GP.Visibility = Visibility.Visible
         STG.Reset()
-        ManagedBass.Bass.ChannelStop(Sounds.mu01)
         MW.GP.PropertyBoard.SetDifficulty(difficulty)
     End Sub
 

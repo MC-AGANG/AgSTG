@@ -1111,10 +1111,10 @@ Module St3EnmE
                 .IsEnabled = True
                 STG.NameArea.Initialize("Alice", 3)
                 .NextSpell()
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu07)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu07)
                 Stage.Showmusic("the Grimoire of Alice")
-                STG.CurrentMusic = Sounds.mu07
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu07
             End If
         End With
     End Sub
@@ -1553,10 +1553,10 @@ Module St3EnmN
                 .IsEnabled = True
                 STG.NameArea.Initialize("Alice", 3)
                 .NextSpell()
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu07)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu07)
                 Stage.Showmusic("the Grimoire of Alice")
-                STG.CurrentMusic = Sounds.mu07
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu07
             End If
         End With
     End Sub
@@ -1997,10 +1997,10 @@ Module St3EnmH
                 .IsEnabled = True
                 STG.NameArea.Initialize("Alice", 3)
                 .NextSpell()
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu07)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu07)
                 Stage.Showmusic("the Grimoire of Alice")
-                STG.CurrentMusic = Sounds.mu07
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu07
             End If
         End With
     End Sub
@@ -2441,10 +2441,10 @@ Module St3EnmL
                 .IsEnabled = True
                 STG.NameArea.Initialize("Alice", 3)
                 .NextSpell()
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu07)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu07)
                 Stage.Showmusic("the Grimoire of Alice")
-                STG.CurrentMusic = Sounds.mu07
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu07
             End If
         End With
     End Sub

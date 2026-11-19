@@ -30,7 +30,7 @@ Public Class PausePage
         Page.Activated = False
         MW.GP.Activated = True
         Page.Visibility = Visibility.Hidden
-        ManagedBass.Bass.ChannelPlay(STG.CurrentMusic, False)
+        ManagedBass.Bass.ChannelPlay(ResourcePack.Sounds.CurrentMusic, False)
     End Sub
     Private Sub BT_Title_Clicked() Handles BT_Title.Clicked
         Page.Visibility = Visibility.Hidden
@@ -47,7 +47,7 @@ Public Class PausePage
     End Sub
     Private Sub Page_ActivatedChanged(Activated As Boolean) Handles Page.ActivatedChanged
         If Activated Then
-            ManagedBass.Bass.ChannelPause(STG.CurrentMusic)
+            ManagedBass.Bass.ChannelPause(ResourcePack.Sounds.CurrentMusic)
         End If
     End Sub
     Private Sub Action()
@@ -56,7 +56,7 @@ Public Class PausePage
             MW.GP.Activated = True
             Page.Visibility = Visibility.Hidden
             ResourcePack.Sounds.PlaySound(ResourcePack.Sounds.cancel00)
-            ManagedBass.Bass.ChannelPlay(STG.CurrentMusic, False)
+            ManagedBass.Bass.ChannelPlay(ResourcePack.Sounds.CurrentMusic, False)
         End If
     End Sub
 End Class

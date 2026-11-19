@@ -60,7 +60,6 @@ Public Class TitlePage
             MW.GP.Activated = True
             Page.Visibility = Visibility.Hidden
             MW.GP.Visibility = Visibility.Visible
-            ManagedBass.Bass.ChannelStop(Sounds.mu01)
         End If
     End Sub
     Private Sub BT_Quit_Clicked() Handles BT_Quit.Clicked
@@ -70,7 +69,7 @@ Public Class TitlePage
 
     Public Sub Page_ActivatedChanged(Activated As Boolean) Handles Page.ActivatedChanged
         If Activated Then
-            ResourcePack.Sounds.PlaySound(Sounds.mu01)
+            ResourcePack.Sounds.PlayMusic(Sounds.mu01)
             STG.ReplayMode = False
         End If
     End Sub

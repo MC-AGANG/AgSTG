@@ -457,10 +457,10 @@ Module St5EnmE
                 .IsEnabled = True
                 started = True
                 STG.NameArea.Initialize("Konpaku Youmu", 5)
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu11)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu11)
                 Stage.Showmusic("広有射怪鳥事 ～ Till When?")
-                STG.CurrentMusic = Sounds.mu11
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu11
                 .NextSpell()
 
             End If
@@ -898,10 +898,10 @@ Module St5EnmN
                 .IsEnabled = True
                 started = True
                 STG.NameArea.Initialize("Konpaku Youmu", 5)
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu11)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu11)
                 Stage.Showmusic("広有射怪鳥事 ～ Till When?")
-                STG.CurrentMusic = Sounds.mu11
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu11
                 .NextSpell()
 
             End If
@@ -1339,10 +1339,10 @@ Module St5EnmH
                 .IsEnabled = True
                 started = True
                 STG.NameArea.Initialize("Konpaku Youmu", 5)
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu11)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu11)
                 Stage.Showmusic("広有射怪鳥事 ～ Till When?")
-                STG.CurrentMusic = Sounds.mu11
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu11
                 .NextSpell()
 
             End If
@@ -1780,10 +1780,10 @@ Module St5EnmL
                 .IsEnabled = True
                 started = True
                 STG.NameArea.Initialize("Konpaku Youmu", 5)
-                ResourcePack.Sounds.StopSound(STG.CurrentMusic)
-                ResourcePack.Sounds.PlaySound(Sounds.mu11)
+                ResourcePack.Sounds.StopSound(ResourcePack.Sounds.CurrentMusic)
+                ResourcePack.Sounds.PlayMusic(Sounds.mu11)
                 Stage.Showmusic("広有射怪鳥事 ～ Till When?")
-                STG.CurrentMusic = Sounds.mu11
+                ResourcePack.Sounds.CurrentMusic = Sounds.mu11
                 .NextSpell()
 
             End If
