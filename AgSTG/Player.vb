@@ -342,6 +342,11 @@ Public MustInherit Class Player
         End Sub
         Public Sub Spell()
             If STG.Spell > 0 AndAlso SpellFrame = 0 AndAlso FadeOutFrame <= 5 Then
+                For Each obj In STG.Objects
+                    If obj.ObjectType = ObjectType.Item Then
+                        CType(obj, Item).ForceCollect = True
+                    End If
+                Next
                 SpellFrame = 300
                 Invin = 300
                 Sounds.PlaySound(Sounds.slash)
@@ -408,6 +413,11 @@ Public MustInherit Class Player
         End Sub
         Public Sub Spell()
             If STG.Spell > 0 AndAlso SpellFrame = 0 AndAlso FadeOutFrame <= 5 Then
+                For Each obj In STG.Objects
+                    If obj.ObjectType = ObjectType.Item Then
+                        CType(obj, Item).ForceCollect = True
+                    End If
+                Next
                 SpellFrame = 300
                 Invin = 300
                 STG.Spell -= 1
