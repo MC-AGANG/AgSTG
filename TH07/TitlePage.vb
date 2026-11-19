@@ -7,7 +7,8 @@ Public Class TitlePage
     Private Group As New GroupBox(430, 256, 160, 96)
     Private WithEvents BT_Start As New Button(0, 0, 160, 24)
     Private WithEvents BT_Replay As New Button(0, 24, 160, 24)
-    Private WithEvents BT_Quit As New Button(0, 48, 160, 24)
+    Private WithEvents BT_Option As New Button(0, 48, 160, 24)
+    Private WithEvents BT_Quit As New Button(0, 72, 160, 24)
     Public MW As MainWindow
     Public Sub Initialize()
         Page.Background = Textures.title_bk
@@ -15,11 +16,14 @@ Public Class TitlePage
         BT_Start.BackLayer.Fill = Textures.bt_start(1)
         BT_Replay.ForeLayer.Fill = Textures.bt_replay(0)
         BT_Replay.BackLayer.Fill = Textures.bt_replay(1)
+        BT_Option.ForeLayer.Fill = Textures.bt_option(0)
+        BT_Option.BackLayer.Fill = Textures.bt_option(1)
         BT_Quit.ForeLayer.Fill = Textures.bt_quit(0)
         BT_Quit.BackLayer.Fill = Textures.bt_quit(1)
         Page.Controls.Add(Group)
         Group.Buttons.Add(BT_Start)
         Group.Buttons.Add(BT_Replay)
+        Group.Buttons.Add(BT_Option)
         Group.Buttons.Add(BT_Quit)
         Group.Opacity = 0
         Page.Act = AddressOf Action

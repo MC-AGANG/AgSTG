@@ -45,6 +45,7 @@ Class MainWindow
             WindowStyle = WindowStyle.None
             WindowState = WindowState.Maximized
         End If
+        Settings.ReadVolume()
     End Sub
     Public Sub Start()
         GP = New GamePage
@@ -229,6 +230,30 @@ Public Class Settings
     End Function
 
     Public Shared Sub ReadVolume()
+        ResourcePack.Sounds.EffectVolume = IniTool.ReadValue("TH07APRIL", "EffectVolume", "100", Environment.CurrentDirectory + "\Settings.ini")
+        ResourcePack.Sounds.MusicVolume = IniTool.ReadValue("TH07APRIL", "MusicVolume", "100", Environment.CurrentDirectory + "\Settings.ini")
+    End Sub
 
+    Public Shared Sub WriteKeys()
+        IniTool.WriteValue("TH07APRIL", "Key_Up", Key_Up, Environment.CurrentDirectory + "\Settings.ini")
+        IniTool.WriteValue("TH07APRIL", "Key_Down", Key_Down, Environment.CurrentDirectory + "\Settings.ini")
+        IniTool.WriteValue("TH07APRIL", "Key_Left", Key_Left, Environment.CurrentDirectory + "\Settings.ini")
+        IniTool.WriteValue("TH07APRIL", "Key_Right", Key_Right, Environment.CurrentDirectory + "\Settings.ini")
+        IniTool.WriteValue("TH07APRIL", "Key_Shoot", Key_Shoot, Environment.CurrentDirectory + "\Settings.ini")
+        IniTool.WriteValue("TH07APRIL", "Key_Bomb", Key_Bomb, Environment.CurrentDirectory + "\Settings.ini")
+        IniTool.WriteValue("TH07APRIL", "Key_Slow", Key_Slow, Environment.CurrentDirectory + "\Settings.ini")
+    End Sub
+
+    Public Shared Sub WriteWindowStage(FullScreen As Boolean)
+        If FullScreen Then
+            IniTool.WriteValue("TH07APRIL", "WindowState", "FullScreen", Environment.CurrentDirectory + "\Settings.ini")
+        Else
+            IniTool.WriteValue("TH07APRIL", "WindowState", "Windowed", Environment.CurrentDirectory + "\Settings.ini")
+        End If
+    End Sub
+
+    Public Shared Sub WriteVolume()
+        IniTool.WriteValue("TH07APRIL", "EffectVolume", ResourcePack.Sounds.EffectVolume, Environment.CurrentDirectory + "\Settings.ini")
+        IniTool.WriteValue("TH07APRIL", "MusicVolume", ResourcePack.Sounds.MusicVolume, Environment.CurrentDirectory + "\Settings.ini")
     End Sub
 End Class
