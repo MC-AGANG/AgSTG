@@ -83,8 +83,8 @@ Public MustInherit Class SpellCard
     ''' 所有符卡必须重写这个方法
     ''' </summary>
     Public Overridable Sub Render()
-        STG.timerarea.Visibility = Visibility.Visible
         If Ticks = 0 Then
+            STG.timerarea.Visibility = Visibility.Visible
             If Not HaveUsual Then
                 AtSpell = True
                 Owner.HP = SpellHP

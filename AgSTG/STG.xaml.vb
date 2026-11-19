@@ -294,6 +294,10 @@ Public Class STG
         Objects.Add(Player)
         AddHandler Player.GameOver, AddressOf Player_GameOver
         Continued = False
+        DialogArea.Hide()
+        SpellCardLabel.Visibility = Visibility.Hidden
+        timerarea.Visibility = Visibility.Hidden
+        NameArea.Visibility = Visibility.Hidden
     End Sub
     ''' <summary>
     ''' 更新符卡计时器
