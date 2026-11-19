@@ -41,6 +41,7 @@ Public Class SelectionPage
         GB_Character.Buttons.Add(BT_Player1)
         GB_Character.IsEnabled = False
         GB_Character.Visibility = Visibility.Hidden
+        GB_Character.Direction = GroupDirection.Both
         Page.Controls.Add(GB_Character)
         BT_Player0.Visibility = Visibility.Visible
         BT_Player1.Visibility = Visibility.Hidden

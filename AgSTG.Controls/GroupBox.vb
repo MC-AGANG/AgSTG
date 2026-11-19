@@ -17,12 +17,17 @@ Public Class GroupBox
     Public SelectedIndex As Integer = 0
     Public CV_Main As New Canvas
     ''' <summary>
+    ''' 获取或设置组的排布逻辑
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property Direction As GroupDirection = GroupDirection.Vertical
+    ''' <summary>
     ''' 运行主循环。
     ''' </summary>
     Public Overrides Sub Render()
         If IsEnabled Then
             Static switchcd As Integer = 0
-            If KeyState.Down OrElse KeyState.Right Then
+            If (KeyState.Down AndAlso Direction.HasFlag(GroupDirection.Vertical)) OrElse (KeyState.Right AndAlso Direction.HasFlag(GroupDirection.Horizontal)) Then
                 If switchcd = 0 Then
                     Buttons(SelectedIndex).Selected = False
                     SelectedIndex += 1
@@ -31,7 +36,7 @@ Public Class GroupBox
                     switchcd = 10
                     Sounds.PlaySound(Sounds.select00)
                 End If
-            ElseIf KeyState.Up OrElse KeyState.Left Then
+            ElseIf (KeyState.Up AndAlso Direction.HasFlag(GroupDirection.Vertical)) OrElse (KeyState.Left AndAlso Direction.HasFlag(GroupDirection.Horizontal)) Then
                 If switchcd = 0 Then
                     Buttons(SelectedIndex).Selected = False
                     SelectedIndex -= 1
@@ -87,3 +92,20 @@ Public Class GroupBox
         End If
     End Sub
 End Class
+''' <summary>
+''' 枚举排列方向
+''' </summary>
+Public Enum GroupDirection
+    ''' <summary>
+    ''' 垂直排布
+    ''' </summary>
+    Vertical = 1
+    ''' <summary>
+    ''' 水平排布
+    ''' </summary>
+    Horizontal = 2
+    ''' <summary>
+    ''' 垂直+水平
+    ''' </summary>
+    Both = 3
+End Enum
