@@ -40,6 +40,11 @@ Class MainWindow
         End If
         GameArea.Height = 480
         GameArea.Width = 640
+        Settings.ReadKeys()
+        If Settings.ReadWindowState = "FullScreen" Then
+            WindowStyle = WindowStyle.None
+            WindowState = WindowState.Maximized
+        End If
     End Sub
     Public Sub Start()
         GP = New GamePage
@@ -149,22 +154,20 @@ Class MainWindow
     Private Sub KeyUpdate()
         Dispatcher.Invoke(Sub()
                               If IsActive Then
-                                  KeyState.Up = Keyboard.IsKeyDown(Key.Up)
-                                  KeyState.Down = Keyboard.IsKeyDown(Key.Down)
-                                  KeyState.Left = Keyboard.IsKeyDown(Key.Left)
-                                  KeyState.Right = Keyboard.IsKeyDown(Key.Right)
-                                  KeyState.Slow = Keyboard.IsKeyDown(Key.LeftShift)
-                                  KeyState.Shoot = Keyboard.IsKeyDown(Key.Z)
-                                  KeyState.Bomb = Keyboard.IsKeyDown(Key.X)
+                                  KeyState.Up = Keyboard.IsKeyDown(Settings.Key_Up)
+                                  KeyState.Down = Keyboard.IsKeyDown(Settings.Key_Down)
+                                  KeyState.Left = Keyboard.IsKeyDown(Settings.Key_Left)
+                                  KeyState.Right = Keyboard.IsKeyDown(Settings.Key_Right)
+                                  KeyState.Slow = Keyboard.IsKeyDown(Settings.Key_Slow)
+                                  KeyState.Shoot = Keyboard.IsKeyDown(Settings.Key_Shoot)
+                                  KeyState.Bomb = Keyboard.IsKeyDown(Settings.Key_Bomb)
                               End If
                           End Sub)
-
     End Sub
     Private Sub ReleaseSounds()
         If Ticks Mod 2 = 0 Then
             ResourcePack.Sounds.Sounds_Playing.Clear()
         End If
-
     End Sub
     Private Sub GameClear()
         If STG.ReplayMode Then
@@ -199,5 +202,33 @@ Class MainWindow
 
     Private Sub Window_Closing(sender As Object, e As ComponentModel.CancelEventArgs)
         Application.Current.Shutdown()
+    End Sub
+End Class
+
+Public Class Settings
+    Public Shared Key_Up As Integer = 24
+    Public Shared Key_Down As Integer = 26
+    Public Shared Key_Left As Integer = 23
+    Public Shared Key_Right As Integer = 25
+    Public Shared Key_Shoot As Integer = 69
+    Public Shared Key_Bomb As Integer = 67
+    Public Shared Key_Slow As Integer = 116
+
+    Public Shared Sub ReadKeys()
+        Key_Up = IniTool.ReadValue("TH07APRIL", "Key_Up", "24", Environment.CurrentDirectory + "\Settings.ini")
+        Key_Down = IniTool.ReadValue("TH07APRIL", "Key_Down", "26", Environment.CurrentDirectory + "\Settings.ini")
+        Key_Left = IniTool.ReadValue("TH07APRIL", "Key_Left", "23", Environment.CurrentDirectory + "\Settings.ini")
+        Key_Right = IniTool.ReadValue("TH07APRIL", "Key_Right", "25", Environment.CurrentDirectory + "\Settings.ini")
+        Key_Shoot = IniTool.ReadValue("TH07APRIL", "Key_Shoot", "69", Environment.CurrentDirectory + "\Settings.ini")
+        Key_Bomb = IniTool.ReadValue("TH07APRIL", "Key_Bomb", "67", Environment.CurrentDirectory + "\Settings.ini")
+        Key_Slow = IniTool.ReadValue("TH07APRIL", "Key_Slow", "116", Environment.CurrentDirectory + "\Settings.ini")
+    End Sub
+
+    Public Shared Function ReadWindowState() As String
+        Return IniTool.ReadValue("TH07APRIL", "WindowState", "Windowed", Environment.CurrentDirectory + "\Settings.ini")
+    End Function
+
+    Public Shared Sub ReadVolume()
+
     End Sub
 End Class
