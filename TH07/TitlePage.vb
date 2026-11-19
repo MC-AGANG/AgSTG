@@ -66,6 +66,12 @@ Public Class TitlePage
             MW.GP.Visibility = Visibility.Visible
         End If
     End Sub
+    Private Sub BT_Option_Clicked() Handles BT_Option.Clicked
+        Page.Activated = False
+        MW.OP.Page.Activated = True
+        Page.Visibility = Visibility.Hidden
+        MW.OP.Page.Visibility = Visibility.Visible
+    End Sub
     Private Sub BT_Quit_Clicked() Handles BT_Quit.Clicked
         MW.Timer1.Stop()
         MW.Close()

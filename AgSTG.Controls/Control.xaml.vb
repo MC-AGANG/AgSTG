@@ -7,6 +7,16 @@ Public MustInherit Class Control
     ''' </summary>
     ''' <returns></returns>
     Public Property Tick As Long = 0
+    Public Property Text As String
+        Set(value As String)
+            _Text = value
+            LB_Main.Content = _Text
+        End Set
+        Get
+            Return _Text
+        End Get
+    End Property
+    Private _Text As String
     Public Property X As Double
         Get
             Return _X

@@ -12,6 +12,7 @@ Class MainWindow
     Public TP As TitlePage
     Public CP As ClearPage
     Public FP As FailPage
+    Public OP As OptionPage
 
     Private SW_FPS As New Stopwatch
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
@@ -48,45 +49,62 @@ Class MainWindow
         Settings.ReadVolume()
     End Sub
     Public Sub Start()
-        GP = New GamePage
-        GameArea.Children.Add(GP)
+        Timer1 = New MediaTimer(60)
+        InitializePages()
+        Timer1.Act.Add(AddressOf FpsUpdate)
+        Timer1.Act.Add(AddressOf KeyUpdate)
+        Timer1.Act.Add(AddressOf ReleaseSounds)
+        Timer1.Start()
+        AddHandler STG.GameClear, AddressOf GameClear
+        AddHandler STG.GameOver, AddressOf GameOver
+    End Sub
+
+    Private Sub InitializePages()
+        '标题
         TP = New TitlePage
         TP.MW = Me
-        GameArea.Children.Add(TP.Page)
-        Timer1 = New MediaTimer(60)
-        Timer1.Start()
-        PP = New PausePage
-        GameArea.Children.Add(PP.Page)
-        CP = New ClearPage
-        FP = New FailPage
-        GameArea.Children.Add(CP.Page)
-        GameArea.Children.Add(FP.Page)
-        PP.Page.Visibility = Visibility.Hidden
-        CP.Page.Visibility = Visibility.Hidden
-        FP.Page.Visibility = Visibility.Hidden
         TP.Page.Timer = Timer1
-        PP.Page.Timer = Timer1
-        GP.Timer = Timer1
-        CP.Page.Timer = Timer1
-        FP.Page.Timer = Timer1
-        PP.MW = Me
-        CP.MW = Me
-        FP.MW = Me
         TP.Page.Activated = True
+        GameArea.Children.Add(TP.Page)
+        '游戏
+        GP = New GamePage
+        GameArea.Children.Add(GP)
+        GP.Timer = Timer1
         GP.SetBackground(Textures.game_background)
         GP.Visibility = Visibility.Hidden
         GP.Act = AddressOf GamePage_Action
+        '暂停
+        PP = New PausePage
+        GameArea.Children.Add(PP.Page)
+        PP.Page.Visibility = Visibility.Hidden
+        PP.Page.Timer = Timer1
+        PP.MW = Me
+        '通关
+        CP = New ClearPage
+        GameArea.Children.Add(CP.Page)
+        CP.Page.Visibility = Visibility.Hidden
+        CP.Page.Timer = Timer1
+        CP.MW = Me
+        '失败
+        FP = New FailPage
+        GameArea.Children.Add(FP.Page)
+        FP.Page.Visibility = Visibility.Hidden
+        FP.Page.Timer = Timer1
+        FP.MW = Me
+        '选择
         SP = New SelectionPage
         SP.MW = Me
         GameArea.Children.Add(SP.Page)
         SP.Page.Timer = Timer1
         SP.Page.Visibility = Visibility.Hidden
-        Timer1.Act.Add(AddressOf FpsUpdate)
-        Timer1.Act.Add(AddressOf KeyUpdate)
-        Timer1.Act.Add(AddressOf ReleaseSounds)
-        AddHandler STG.GameClear, AddressOf GameClear
-        AddHandler STG.GameOver, AddressOf GameOver
+        '设置
+        OP = New OptionPage
+        OP.MW = Me
+        GameArea.Children.Add(OP.Page)
+        OP.Page.Timer = Timer1
+        OP.Page.Visibility = Visibility.Hidden
     End Sub
+
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)
         Select Case e.Key
             Case Key.Escape
@@ -99,6 +117,9 @@ Class MainWindow
                     Height = MinHeight
                     Width = MinWidth
                 Else
+                    If WindowState = WindowState.Maximized Then
+                        WindowState = WindowState.Normal
+                    End If
                     WindowStyle = WindowStyle.None
                     WindowState = WindowState.Maximized
                 End If

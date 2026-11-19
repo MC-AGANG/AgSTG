@@ -8,6 +8,10 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Loaded="UserControl_Loaded">
     <Grid Name="GD_Main">
-            
+        <Label x:FieldModifier="public" Name="LB_Main" Foreground="White" VerticalContentAlignment="Center" FontSize="18">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
     </Grid>
 </UserControl>

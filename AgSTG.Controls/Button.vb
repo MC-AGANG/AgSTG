@@ -18,9 +18,11 @@ Public Class Button
             _Selected = value
             If value Then
                 ForeLayer.Visibility = Visibility.Visible
+                LB_Main.Opacity = 1
             Else
                 ForeLayer.Visibility = Visibility.Hidden
                 Tick = 0
+                LB_Main.Opacity = 0.5
             End If
             RaiseEvent SelectionChanged(Me, value)
         End Set
@@ -87,6 +89,5 @@ Public Class Button
         BackLayer.Height = Height
         ForeLayer.Width = Width
         ForeLayer.Height = Height
-
     End Sub
 End Class
