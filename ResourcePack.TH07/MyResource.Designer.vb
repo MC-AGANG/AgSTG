@@ -527,6 +527,26 @@ Namespace My.Resources
         '''<summary>
         '''  查找 System.Byte[] 类型的本地化资源。
         '''</summary>
+        Friend Shared ReadOnly Property bt_playerdata() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bt_playerdata", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
+        Friend Shared ReadOnly Property bt_playerdata_b() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("bt_playerdata_b", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  查找 System.Byte[] 类型的本地化资源。
+        '''</summary>
         Friend Shared ReadOnly Property bt_quit() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("bt_quit", resourceCulture)

@@ -14,6 +14,7 @@ Class MainWindow
     Public CP As ClearPage
     Public FP As FailPage
     Public OP As OptionPage
+    Public DP As DataPage
 
     Private SW_FPS As New Stopwatch
     Private Sub Window_SizeChanged(sender As Object, e As SizeChangedEventArgs)
@@ -115,6 +116,12 @@ Class MainWindow
         GameArea.Children.Add(OP.Page)
         OP.Page.Timer = Timer1
         OP.Page.Visibility = Visibility.Hidden
+        '数据
+        DP = New DataPage
+        DP.MW = Me
+        GameArea.Children.Add(DP.Page)
+        DP.Page.Timer = Timer1
+        DP.Page.Visibility = Visibility.Hidden
     End Sub
 
     Private Sub Window_KeyDown(sender As Object, e As KeyEventArgs)

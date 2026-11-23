@@ -4,11 +4,12 @@ Imports AgSTG.Controls
 Imports ResourcePack.TH07
 Public Class TitlePage
     Public WithEvents Page As New Page
-    Private Group As New GroupBox(430, 256, 160, 96)
+    Private Group As New GroupBox(430, 232, 160, 120)
     Private WithEvents BT_Start As New Button(0, 0, 160, 24)
     Private WithEvents BT_Replay As New Button(0, 24, 160, 24)
-    Private WithEvents BT_Option As New Button(0, 48, 160, 24)
-    Private WithEvents BT_Quit As New Button(0, 72, 160, 24)
+    Private WithEvents BT_PlayerData As New Button(0, 48, 160, 24)
+    Private WithEvents BT_Option As New Button(0, 72, 160, 24)
+    Private WithEvents BT_Quit As New Button(0, 96, 160, 24)
     Public MW As MainWindow
     Public Sub Initialize()
         Page.Background = Textures.title_bk
@@ -16,6 +17,8 @@ Public Class TitlePage
         BT_Start.BackLayer.Fill = Textures.bt_start(1)
         BT_Replay.ForeLayer.Fill = Textures.bt_replay(0)
         BT_Replay.BackLayer.Fill = Textures.bt_replay(1)
+        BT_PlayerData.ForeLayer.Fill = Textures.bt_playerdata(0)
+        BT_PlayerData.BackLayer.Fill = Textures.bt_playerdata(1)
         BT_Option.ForeLayer.Fill = Textures.bt_option(0)
         BT_Option.BackLayer.Fill = Textures.bt_option(1)
         BT_Quit.ForeLayer.Fill = Textures.bt_quit(0)
@@ -23,6 +26,7 @@ Public Class TitlePage
         Page.Controls.Add(Group)
         Group.Buttons.Add(BT_Start)
         Group.Buttons.Add(BT_Replay)
+        Group.Buttons.Add(BT_PlayerData)
         Group.Buttons.Add(BT_Option)
         Group.Buttons.Add(BT_Quit)
         Group.Opacity = 0
@@ -71,6 +75,12 @@ Public Class TitlePage
         MW.OP.Page.Activated = True
         Page.Visibility = Visibility.Hidden
         MW.OP.Page.Visibility = Visibility.Visible
+    End Sub
+    Private Sub BT_PlayerData_Clicked() Handles BT_PlayerData.Clicked
+        Page.Activated = False
+        MW.DP.Page.Activated = True
+        Page.Visibility = Visibility.Hidden
+        MW.DP.Page.Visibility = Visibility.Visible
     End Sub
     Private Sub BT_Quit_Clicked() Handles BT_Quit.Clicked
         MW.Timer1.Stop()

@@ -17,6 +17,7 @@ Public Class Textures
     Public Shared bt_quit(1) As ImageBrush
     Public Shared bt_save(1) As ImageBrush
     Public Shared bt_option(1) As ImageBrush
+    Public Shared bt_playerdata(1) As ImageBrush
 
     Public Shared select_background As ImageBrush
     Public Shared title_character As ImageBrush
@@ -147,6 +148,8 @@ Public Class Textures
         bt_save(1) = New ImageBrush(B2I(MyResource.bt_save_b))
         bt_option(0) = New ImageBrush(B2I(MyResource.bt_option))
         bt_option(1) = New ImageBrush(B2I(MyResource.bt_option_b))
+        bt_playerdata(0) = New ImageBrush(B2I(MyResource.bt_playerdata))
+        bt_playerdata(1) = New ImageBrush(B2I(MyResource.bt_playerdata_b))
 
         title_bk = New ImageBrush(B2I(MyResource.title_bk00))
 
