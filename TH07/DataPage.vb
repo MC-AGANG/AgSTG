@@ -62,6 +62,7 @@ Public Class DataPage
     Public Sub Page_ActivatedChanged(Activated As Boolean) Handles Page.ActivatedChanged
         If Activated Then
             Page.FreezeTime = 15
+            UpdateData()
         End If
     End Sub
 
