@@ -2,21 +2,13 @@
 Public Class CardLabel
     Public FadeInFrame As Integer
     Public FadeOutFrame As Integer
-    Public scorei(7) As Rectangle
     Private scah(5, 5) As Rectangle
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         bg.Fill = Textures.cardlabelbg
         failed.Fill = Textures.labelfailed
         getbonus.Fill = Textures.getbonus
         bonusfailed.Fill = Textures.bonusfailed
-        scorei(0) = score1
-        scorei(1) = score2
-        scorei(2) = score3
-        scorei(3) = score4
-        scorei(4) = score5
-        scorei(5) = score6
-        scorei(6) = score7
-        scorei(7) = score8
+        NL_Score.Textures = Textures.number(4)
         scar1.Fill = Textures.spellattack
         scar2.Fill = Textures.spellattack
         scar3.Fill = Textures.spellattack
@@ -72,9 +64,7 @@ Public Class CardLabel
         ElseIf FadeInFrame > 0 Then
             FadeInFrame -= 1
             bg.Opacity = (30 - FadeInFrame) / 30
-            For i = 0 To 7
-                scorei(i).Opacity = (30 - FadeInFrame) / 30
-            Next
+            NL_Score.Opacity = (30 - FadeInFrame) / 30
         End If
         If FadeInFrame > 0 Then
             scarea.Opacity = FadeInFrame / 200
@@ -109,9 +99,7 @@ Public Class CardLabel
 
     Public Sub Update(Score As Long)
         If Score = 0 Then
-            For i = 0 To 7
-                scorei(i).Visibility = Visibility.Hidden
-            Next
+            NL_Score.Visibility = Visibility.Hidden
             If FadeOutFrame = 0 Then
                 failed.Visibility = Visibility.Visible
             End If
@@ -119,10 +107,8 @@ Public Class CardLabel
         Else
             failed.Visibility = Visibility.Hidden
             If FadeOutFrame = 0 Then
-                For i = 0 To 7
-                    scorei(i).Visibility = Visibility.Visible
-                    scorei(i).Fill = Textures.number(4)((Score \ 10 ^ i) Mod 10)
-                Next
+                NL_Score.Visibility = Visibility.Visible
+                NL_Score.Update(Score)
             End If
         End If
     End Sub
@@ -137,11 +123,9 @@ Public Class CardLabel
         Me.cardname.Opacity = 0
         bg.Opacity = 0
         cn_translate.Y = 360
-        For i = 0 To 7
-            scorei(i).Visibility = Visibility.Visible
-            scorei(i).Opacity = 0
-        Next
-        FadeOutFrame = 0
+        NL_Score.Visibility = Visibility.Visible
+            NL_Score.Opacity = 0
+            FadeOutFrame = 0
         failed.Visibility = Visibility.Hidden
         Sounds.PlaySound(Sounds.cat00, 0.8)
     End Sub
@@ -150,19 +134,15 @@ Public Class CardLabel
         bg.Visibility = Visibility.Hidden
         cardname.Visibility = Visibility.Hidden
         failed.Visibility = Visibility.Hidden
-        For i = 0 To 7
-            scorei(i).Visibility = Visibility.Hidden
-        Next
-        getbonus.Opacity = 1
+        NL_Score.Visibility = Visibility.Hidden
+            getbonus.Opacity = 1
     End Sub
     Public Sub Fail()
         FadeOutFrame = -120
         bg.Visibility = Visibility.Hidden
         cardname.Visibility = Visibility.Hidden
         failed.Visibility = Visibility.Hidden
-        For i = 0 To 7
-            scorei(i).Visibility = Visibility.Hidden
-        Next
+        NL_Score.Visibility = Visibility.Hidden
         bonusfailed.Opacity = 1
     End Sub
     Public Sub Sca_Render()

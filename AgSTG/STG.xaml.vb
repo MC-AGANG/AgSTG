@@ -106,11 +106,7 @@ Public Class STG
     Public Shared CurrentStage As Integer = 0
     Public Shared BackLayer As Grid
     Public Shared BackLayer_BlackHole As wpfpslib.BlackHoleEffect
-    Public Shared timer10 As Rectangle
-    Public Shared timer1 As Rectangle
-    Public Shared timer01 As Rectangle
-    Public Shared timer001 As Rectangle
-    Public Shared timerarea As Canvas
+    Public Shared timerarea As NumberLabel
     Public Shared SpellCardLabel As CardLabel
     Public Shared bonusfail As Boolean = False
     Public Shared WithEvents DialogArea As DialogArea
@@ -126,18 +122,14 @@ Public Class STG
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
-        time0.Fill = Textures.number(0)(11)
+        NL_Time.Textures = Textures.number(0)
     End Sub
     Public Sub New()
         InitializeComponent()
         MainBoard = mb
         BackLayer = BL
         BackLayer_BlackHole = BL_BH
-        timer10 = time10
-        timer1 = time1
-        timer01 = time01
-        timer001 = time001
-        timerarea = timearea
+        timerarea = NL_Time
 
         SpellCardLabel = SA
         DialogArea = DA
@@ -305,42 +297,23 @@ Public Class STG
     ''' <param name="Value">倒计时剩余时间</param>
     Public Shared Sub UpdateTime(Value As Integer)
         If Value >= 6000 Then
-            Value = 5999
+            timerarea.Update("99.99")
         ElseIf Value < 0 Then
-            Value = 0
-        End If
-        If Value Mod 60 = 0 Then
-            If Value <= 180 Then
-                Sounds.PlaySound(Sounds.timeout, 0.8)
-            ElseIf Value <= 540 Then
-                Sounds.PlaySound(Sounds.timeout2, 0.8)
-            End If
-        End If
-        If Value <= 540 Then
-            timer10.Fill = Textures.number(2)(Value \ 600)
-            Value = Value Mod 600
-            timer1.Fill = Textures.number(2)(Value \ 60)
-            Value = Value Mod 60
-            timer01.Fill = Textures.number(2)(Value \ 6)
-            Value = Value Mod 6
-            If Value = 0 Then
-                timer001.Fill = Textures.number(2)(0)
-            Else
-                timer001.Fill = Textures.number(2)((Value * 2) - 1)
-            End If
+            timerarea.Update("0.00")
         Else
-            timer10.Fill = Textures.number(0)(Value \ 600)
-            Value = Value Mod 600
-            timer1.Fill = Textures.number(0)(Value \ 60)
-            Value = Value Mod 60
-            timer01.Fill = Textures.number(0)(Value \ 6)
-            Value = Value Mod 6
-            If Value = 0 Then
-                timer001.Fill = Textures.number(0)(0)
-            Else
-                timer001.Fill = Textures.number(0)((Value * 2) - 1)
+            If Value Mod 60 = 0 Then
+                If Value <= 180 Then
+                    Sounds.PlaySound(Sounds.timeout, 0.8)
+                ElseIf Value <= 540 Then
+                    Sounds.PlaySound(Sounds.timeout2, 0.8)
+                End If
             End If
-
+            If Value <= 540 Then
+                timerarea.Textures = Textures.number(2)
+            Else
+                timerarea.Textures = Textures.number(0)
+            End If
+            timerarea.Update((Value / 60).ToString("00.00"))
         End If
     End Sub
     Private Sub Shake()

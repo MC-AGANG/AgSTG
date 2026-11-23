@@ -7,6 +7,11 @@ Public Class NumberLabel
     Private LS_RC As New List(Of Rectangle)
     Private Shadows Content As String
     ''' <summary>
+    ''' 获取或设置字符间距（多少倍贴图宽度）
+    ''' </summary>
+    ''' <returns></returns>
+    Public Property Gap As Double = 0.75
+    ''' <summary>
     ''' 更新显示的数字<br/>
     ''' </summary>
     ''' <param name="content">要显示的内容</param>
@@ -27,28 +32,28 @@ Public Class NumberLabel
                 Dim c As Char = content(i)
                 If c >= "0" AndAlso c <= "9" Then
                     LS_RC(i + (LS_RC.Count - content.Length)).Fill = Textures(Val(c))
-                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * 0.75 * (content.Length - i)) + compensation)
+                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * Gap * (content.Length - i)) + compensation)
                     Canvas.SetTop(LS_RC(i + (LS_RC.Count - content.Length)), 0)
                 ElseIf c = "/" Then
                     LS_RC(i + (LS_RC.Count - content.Length)).Fill = Textures(10)
-                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * 0.75 * (content.Length - i)) + compensation)
+                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * Gap * (content.Length - i)) + compensation)
                     Canvas.SetTop(LS_RC(i + (LS_RC.Count - content.Length)), 0)
                 ElseIf c = "." Then
                     LS_RC(i + (LS_RC.Count - content.Length)).Fill = Textures(11)
-                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * 0.75 * (content.Length - i)) + compensation + 5)
+                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * Gap * (content.Length - i)) + compensation + 5)
                     Canvas.SetTop(LS_RC(i + (LS_RC.Count - content.Length)), 0)
                     compensation += 7
                 ElseIf c = "s" Then
                     LS_RC(i + (LS_RC.Count - content.Length)).Fill = Textures(12)
-                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * 0.75 * (content.Length - i)) + compensation)
+                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * Gap * (content.Length - i)) + compensation)
                     Canvas.SetTop(LS_RC(i + (LS_RC.Count - content.Length)), 0)
                 ElseIf c = "x" Then
                     LS_RC(i + (LS_RC.Count - content.Length)).Fill = Textures(13)
-                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * 0.75 * (content.Length - i)) + compensation)
+                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * Gap * (content.Length - i)) + compensation)
                     Canvas.SetTop(LS_RC(i + (LS_RC.Count - content.Length)), 0)
                 ElseIf c = "," Then
                     LS_RC(i + (LS_RC.Count - content.Length)).Fill = Textures(14)
-                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * 0.75 * (content.Length - i)) + compensation + 7)
+                    Canvas.SetLeft(LS_RC(i + (LS_RC.Count - content.Length)), ActualWidth - (Textures(0).ImageSource.Width * Gap * (content.Length - i)) + compensation + 7)
                     Canvas.SetTop(LS_RC(i + (LS_RC.Count - content.Length)), 3)
                     compensation += 7
                 End If

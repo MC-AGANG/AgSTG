@@ -152,14 +152,7 @@
                 </Label.RenderTransform>
             </Label>
             <Canvas Grid.Row="3">
-                <Rectangle Width="8" Height="9" Canvas.Left="100" Name="score8"/>
-                <Rectangle Width="8" Height="9" Canvas.Left="107" Name="score7"/>
-                <Rectangle Width="8" Height="9" Canvas.Left="114" Name="score6"/>
-                <Rectangle Width="8" Height="9" Canvas.Left="121" Name="score5"/>
-                <Rectangle Width="8" Height="9" Canvas.Left="128" Name="score4"/>
-                <Rectangle Width="8" Height="9" Canvas.Left="135" Name="score3"/>
-                <Rectangle Width="8" Height="9" Canvas.Left="142" Name="score2"/>
-                <Rectangle Width="8" Height="9" Canvas.Left="149" Name="score1"/>
+                <local:NumberLabel x:Name="NL_Score" Gap="0.875" Canvas.Left="80" Height="9" Width="80"></local:NumberLabel>
                 <Rectangle Width="30" Height="9" Canvas.Left="112" Name="failed" Visibility="Hidden"/>
             </Canvas>
         </Grid>
