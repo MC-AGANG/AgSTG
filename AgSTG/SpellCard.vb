@@ -84,11 +84,12 @@ Public MustInherit Class SpellCard
     ''' </summary>
     Public Overridable Sub Render()
         If Ticks = 0 Then
-            STG.timerarea.Visibility = Visibility.Visible
             If Not HaveUsual Then
                 AtSpell = True
                 Owner.HP = SpellHP
             End If
+        ElseIf Ticks = 1 Then
+            STG.timerarea.Visibility = Visibility.Visible
         End If
         If AtSpell Then
             If Ticks = 1 Then
