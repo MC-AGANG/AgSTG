@@ -1,5 +1,5 @@
 ﻿''' <summary>
-''' 表示一个关卡回放文件
+''' 表示一个关卡回放
 ''' </summary>
 Public Class Replay
     ''' <summary>

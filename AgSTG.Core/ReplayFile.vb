@@ -1,5 +1,7 @@
 ﻿Imports System.IO
-
+''' <summary>
+''' 表示回放文件
+''' </summary>
 Public Class ReplayFile
     ''' <summary>
     ''' 获取或设置玩家机签

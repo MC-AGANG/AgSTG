@@ -3,6 +3,9 @@
 ''' 可以使用贴图展示数字
 ''' </summary>
 Public Class NumberLabel
+    ''' <summary>
+    ''' 获取或设置贴图贴图
+    ''' </summary>
     Public Textures As ImageBrush()
     Private LS_RC As New List(Of Rectangle)
     Private Shadows Content As String
