@@ -17,6 +17,10 @@ Public Class PropertyBoard
     End Sub
     Public Sub Update()
         Dim i As Integer
+        If STG.Score > STG.HiScore Then
+            STG.HiScore = STG.Score
+        End If
+        NL_HiScore.Update(STG.HiScore.ToString("N0"))
         NL_Score.Update(STG.Score.ToString("N0"))
         NL_Power.Update((STG.Power / 100).ToString("F2") + "/4.00")
         NL_PointValue.Update(STG.PointValue.ToString("N0"))

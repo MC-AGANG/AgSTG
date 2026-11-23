@@ -31,8 +31,8 @@ Public Class ScoreFile
         Dim fs As New FileStream(Path, FileMode.Open)
         Dim reader As New BinaryReader(fs)
         RankLimit = reader.ReadInt32
-        Dim rankcount As Integer = reader.ReadInt32 - 1
-        For i = 0 To rankcount
+        Dim rankcount As Integer = reader.ReadInt32
+        For i = 0 To rankcount - 1
             Dim rs As New Ranking
             Results.Add(rs)
             rs.Difficulty = reader.ReadInt32
@@ -41,10 +41,10 @@ Public Class ScoreFile
                 rs.Scores.Add(New ScoreData With {.PlayerName = reader.ReadString, .Score = reader.ReadInt64})
             Next
             rs.Sort()
-            Do While fs.Position <= fs.Length - 1
-                SpellCards.Add(New SpellCardHistory With {.ClassName = reader.ReadString, .SpellName = reader.ReadString, .Total = reader.ReadInt32, .Success = reader.ReadInt32})
-            Loop
         Next
+        Do While fs.Position < fs.Length - 1
+            SpellCards.Add(New SpellCardHistory With {.ClassName = reader.ReadString, .SpellName = reader.ReadString, .Total = reader.ReadInt32, .Success = reader.ReadInt32})
+        Loop
         fs.Close()
     End Sub
     ''' <summary>

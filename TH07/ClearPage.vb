@@ -30,7 +30,7 @@ Public Class ClearPage
         If STG.Continued Then
             MsgBox("由于使用了续关，无法保存回放！", MsgBoxStyle.Exclamation, "保存回放")
         Else
-            Dim name As String = InputBox("输入你的昵称", "保存回放", "Save")
+            Dim name As String = InputBox("输入你的昵称", "保存回放")
             Dim sd As New Microsoft.Win32.SaveFileDialog With {.Filter = "回放文件 (*.rep)|*.rep", .FileName = name + ".rep", .InitialDirectory = Environment.CurrentDirectory + "\replay"}
             If sd.ShowDialog() Then
                 Dim rf As New ReplayFile(STG.Difficulty, STG.PlayerID, name)
@@ -38,12 +38,12 @@ Public Class ClearPage
                     rf.Stages.Add(r)
                 Next
                 rf.Save(sd.FileName)
+                Page.Visibility = Visibility.Hidden
+                Page.Activated = False
+                MW.TP.Page.Activated = True
+                MW.TP.Page.Visibility = Visibility.Visible
+                MW.GP.Visibility = Visibility.Hidden
             End If
-            Page.Visibility = Visibility.Hidden
-            Page.Activated = False
-            MW.TP.Page.Activated = True
-            MW.TP.Page.Visibility = Visibility.Visible
-            MW.GP.Visibility = Visibility.Hidden
         End If
     End Sub
     Private Sub BT_Title_Clicked() Handles BT_Title.Clicked
@@ -63,6 +63,16 @@ Public Class ClearPage
     Private Sub Page_ActivatedChanged(Activated As Boolean) Handles Page.ActivatedChanged
         If Activated Then
             ManagedBass.Bass.ChannelPause(ResourcePack.Sounds.CurrentMusic)
+            For Each rk In STG.ScoreRecord.Results
+                If rk.Character = STG.PlayerID AndAlso rk.Difficulty = STG.Difficulty Then
+                    If STG.Score > rk.Scores(9).Score Then
+                        Dim name As String = InputBox("输入你的昵称", "得分上榜")
+                        rk.Scores.Add(New ScoreData With {.PlayerName = name, .Score = STG.Score})
+                        STG.ScoreRecord.Save(Environment.CurrentDirectory + "\score.bin")
+                    End If
+                    Exit For
+                End If
+            Next
         End If
     End Sub
     Private Sub Action()

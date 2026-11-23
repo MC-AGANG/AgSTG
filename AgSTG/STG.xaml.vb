@@ -118,6 +118,7 @@ Public Class STG
     Public Shared Blur As Effects.BlurEffect
     Private Shared _CurrentStage As Stage = Nothing
     Private Shared NoBulletTick As Integer = 0
+    Public Shared ScoreRecord As ScoreFile
 
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
@@ -260,6 +261,14 @@ Public Class STG
             s.Reset()
         Next
         CurrentStage = -1
+        If Not IsNothing(ScoreRecord) Then
+            For Each rk In ScoreRecord.Results
+                If rk.Character = PlayerID AndAlso rk.Difficulty = Difficulty Then
+                    HiScore = rk.Scores(0).Score
+                    Exit For
+                End If
+            Next
+        End If
         Score = 0
         Life = 2
         LifePiece = 0

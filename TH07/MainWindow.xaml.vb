@@ -2,6 +2,7 @@
 Imports AgSTG.Core
 Imports AgSTG.Controls
 Imports ResourcePack.TH07
+Imports System.IO
 Class MainWindow
     Public FullScreen As Boolean
     Public WithEvents Timer1 As MediaTimer
@@ -47,6 +48,17 @@ Class MainWindow
             WindowState = WindowState.Maximized
         End If
         Settings.ReadVolume()
+        If File.Exists(Environment.CurrentDirectory + "\Score.bin") Then
+            STG.ScoreRecord = New ScoreFile(Environment.CurrentDirectory + "\Score.bin")
+        Else
+            STG.ScoreRecord = New ScoreFile
+            For i = 0 To 1
+                For j = 1 To 4
+                    STG.ScoreRecord.Results.Add(New Ranking With {.Character = i, .Difficulty = j})
+                Next
+            Next
+            STG.ScoreRecord.Save(Environment.CurrentDirectory + "\Score.bin")
+        End If
     End Sub
     Public Sub Start()
         Timer1 = New MediaTimer(60)
