@@ -93,7 +93,22 @@ Public MustInherit Class SpellCard
         End If
         If AtSpell Then
             If Ticks = 1 Then
-                STG.SpellCardLabel.Show(SpellName)
+                If STG.ScoreRecord IsNot Nothing Then
+                    Dim flag As Boolean = False
+                    For Each sc In STG.ScoreRecord.SpellCards
+                        If sc.ClassName = Me.GetType.Name AndAlso sc.SpellName = SpellName Then
+                            STG.SpellCardLabel.Show(SpellName, sc.Success & "/" & sc.Total)
+                            flag = True
+                            Exit For
+                        End If
+                    Next
+                    If Not flag Then
+                        STG.ScoreRecord.SpellCards.Add(New Core.SpellCardHistory With {.ClassName = Me.GetType.Name, .SpellName = SpellName, .Total = 0, .Success = 0})
+                        STG.SpellCardLabel.Show(SpellName, "0/0")
+                    End If
+                Else
+                    STG.SpellCardLabel.Show(SpellName)
+                End If
                 STG.bonusfail = False
             ElseIf Ticks > 1 Then
                 If STG.bonusfail = True Then
@@ -139,6 +154,17 @@ Public MustInherit Class SpellCard
                 IsEnabled = False
                 STG.timerarea.Visibility = Visibility.Hidden
                 STG.NameArea.Break()
+                If STG.ScoreRecord IsNot Nothing Then
+                    For Each sc In STG.ScoreRecord.SpellCards
+                        If sc.ClassName = Me.GetType.Name AndAlso sc.SpellName = SpellName Then
+                            sc.Total += 1
+                            If Score > 0 Then
+                                sc.Success += 1
+                            End If
+                            Exit For
+                        End If
+                    Next
+                End If
                 Return True
             Else
                 Ticks = 0
@@ -147,6 +173,7 @@ Public MustInherit Class SpellCard
                 Return False
             End If
         End If
+
     End Function
 End Class
 ''' <summary>

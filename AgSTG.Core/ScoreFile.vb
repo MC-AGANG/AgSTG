@@ -105,7 +105,7 @@ End Class
 ''' <summary>
 ''' 表示单次游戏的分数
 ''' </summary>
-Public Structure ScoreData
+Public Class ScoreData
     ''' <summary>
     ''' 获取或设置玩家机签
     ''' </summary>
@@ -114,11 +114,11 @@ Public Structure ScoreData
     ''' 获取或设置分数
     ''' </summary>
     Public Property Score As Long
-End Structure
+End Class
 ''' <summary>
 ''' 表示一个符卡的历史记录
 ''' </summary>
-Public Structure SpellCardHistory
+Public Class SpellCardHistory
     ''' <summary>
     ''' 获取或设置符卡对应的类名
     ''' </summary>
@@ -139,4 +139,4 @@ Public Structure SpellCardHistory
     ''' </summary>
     ''' <returns></returns>
     Public Property Success As Integer
-End Structure
+End Class

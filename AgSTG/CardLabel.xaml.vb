@@ -9,6 +9,7 @@ Public Class CardLabel
         getbonus.Fill = Textures.getbonus
         bonusfailed.Fill = Textures.bonusfailed
         NL_Score.Textures = Textures.number(4)
+        NL_History.Textures = Textures.number(4)
         scar1.Fill = Textures.spellattack
         scar2.Fill = Textures.spellattack
         scar3.Fill = Textures.spellattack
@@ -65,6 +66,7 @@ Public Class CardLabel
             FadeInFrame -= 1
             bg.Opacity = (30 - FadeInFrame) / 30
             NL_Score.Opacity = (30 - FadeInFrame) / 30
+            NL_History.Opacity = (30 - FadeInFrame) / 30
         End If
         If FadeInFrame > 0 Then
             scarea.Opacity = FadeInFrame / 200
@@ -109,6 +111,7 @@ Public Class CardLabel
             If FadeOutFrame = 0 Then
                 NL_Score.Visibility = Visibility.Visible
                 NL_Score.Update(Score)
+                NL_History.Visibility = Visibility.Visible
             End If
         End If
     End Sub
@@ -124,8 +127,29 @@ Public Class CardLabel
         bg.Opacity = 0
         cn_translate.Y = 360
         NL_Score.Visibility = Visibility.Visible
-            NL_Score.Opacity = 0
-            FadeOutFrame = 0
+        NL_Score.Opacity = 0
+        NL_History.Update("")
+        FadeOutFrame = 0
+        failed.Visibility = Visibility.Hidden
+        Sounds.PlaySound(Sounds.cat00, 0.8)
+    End Sub
+    Public Sub Show(CardName As String, history As String)
+        Visibility = Visibility.Visible
+        Me.cardname.Content = CardName
+        bg.Visibility = Visibility.Visible
+        Me.cardname.Visibility = Visibility.Visible
+        FadeInFrame = 90
+        cn_scale.ScaleX = 3
+        cn_scale.ScaleY = 3
+        Me.cardname.Opacity = 0
+        bg.Opacity = 0
+        cn_translate.Y = 360
+        NL_Score.Visibility = Visibility.Visible
+        NL_Score.Opacity = 0
+        NL_History.Visibility = Visibility.Visible
+        NL_History.Opacity = 0
+        NL_History.Update(history)
+        FadeOutFrame = 0
         failed.Visibility = Visibility.Hidden
         Sounds.PlaySound(Sounds.cat00, 0.8)
     End Sub
@@ -135,7 +159,8 @@ Public Class CardLabel
         cardname.Visibility = Visibility.Hidden
         failed.Visibility = Visibility.Hidden
         NL_Score.Visibility = Visibility.Hidden
-            getbonus.Opacity = 1
+        NL_History.Visibility = Visibility.Hidden
+        getbonus.Opacity = 1
     End Sub
     Public Sub Fail()
         FadeOutFrame = -120
@@ -143,6 +168,7 @@ Public Class CardLabel
         cardname.Visibility = Visibility.Hidden
         failed.Visibility = Visibility.Hidden
         NL_Score.Visibility = Visibility.Hidden
+        NL_History.Visibility = Visibility.Hidden
         bonusfailed.Opacity = 1
     End Sub
     Public Sub Sca_Render()

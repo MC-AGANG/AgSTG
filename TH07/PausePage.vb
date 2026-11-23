@@ -38,12 +38,14 @@ Public Class PausePage
         MW.TP.Page.Activated = True
         MW.TP.Page.Visibility = Visibility.Visible
         MW.GP.Visibility = Visibility.Hidden
+        STG.ScoreRecord.Save(Environment.CurrentDirectory + "\score.bin")
     End Sub
     Private Sub BT_Retry_Clicked() Handles BT_Retry.Clicked
         STG.Reset()
         Page.Activated = False
         MW.GP.Activated = True
         Page.Visibility = Visibility.Hidden
+        STG.ScoreRecord.Save(Environment.CurrentDirectory + "\score.bin")
     End Sub
     Private Sub Page_ActivatedChanged(Activated As Boolean) Handles Page.ActivatedChanged
         If Activated Then
