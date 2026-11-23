@@ -121,7 +121,7 @@ Public Class CardLabel
             If FadeOutFrame = 0 Then
                 For i = 0 To 7
                     scorei(i).Visibility = Visibility.Visible
-                    scorei(i).Fill = Textures.number(4, (Score \ 10 ^ i) Mod 10)
+                    scorei(i).Fill = Textures.number(4)((Score \ 10 ^ i) Mod 10)
                 Next
             End If
         End If

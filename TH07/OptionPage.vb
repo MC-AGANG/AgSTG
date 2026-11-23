@@ -223,7 +223,6 @@ Public Class OptionPage
 
     Private Sub Page_KeyDown(sender As Object, e As KeyEventArgs) Handles MW.KeyDown
         Dim flag As Boolean = False
-
         If BT_Key_Up.Text = "(请按下按键)" Then
             Pre_Up = e.Key
             flag = True

@@ -17,6 +17,9 @@
     <Compile Update="HPBar.xaml.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="NumberLabel.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Particle.xaml.vb">
       <SubType>Code</SubType>
     </Compile>

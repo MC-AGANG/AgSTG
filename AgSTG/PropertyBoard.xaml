@@ -31,9 +31,9 @@
         </Grid.ColumnDefinitions>
         <Rectangle Name="p_difficulty" Grid.Row="1" Grid.ColumnSpan="1" Grid.Column="1"></Rectangle>
         <Rectangle Name="p_hiscore" Grid.Row="2" Grid.Column="1"></Rectangle>
-        <Canvas Name="p_hiscorearea" Grid.Row="2" Grid.Column="1"></Canvas>
+        <local:NumberLabel x:Name="NL_HiScore" Grid.Row="2" Grid.Column="1"></local:NumberLabel>
         <Rectangle Name="p_score" Grid.Row="3" Grid.Column="1"></Rectangle>
-        <Canvas Name="p_scorearea" Grid.Row="3" Grid.Column="1"></Canvas>
+        <local:NumberLabel x:Name="NL_Score" Grid.Row="3" Grid.Column="1"></local:NumberLabel>
         <Rectangle Name="p_life" Grid.Row="5" Grid.Column="1"></Rectangle>
         <Canvas Name="p_lifearea" Grid.Row="5" Grid.Column="1">
 
@@ -45,16 +45,16 @@
         </Canvas>
         <Rectangle Name="p_spellcardpiece" Grid.Row="8" Grid.Column="1"></Rectangle>
         <Rectangle Name="p_power" Grid.Row="10" Grid.Column="1"></Rectangle>
-        <Canvas Name="p_powerarea" Grid.Row="10" Grid.Column="1">
+        <local:NumberLabel x:Name="NL_Power" Grid.Row="10" Grid.Column="1">
 
-        </Canvas>
+        </local:NumberLabel>
         <Rectangle Name="p_pointvalue" Grid.Row="11" Grid.Column="1"></Rectangle>
-        <Canvas Name="p_pointvaluearea" Grid.Row="11" Grid.Column="1">
+        <local:NumberLabel x:Name="NL_PointValue" Grid.Row="11" Grid.Column="1">
 
-        </Canvas>
+        </local:NumberLabel>
         <Rectangle Name="p_graze" Grid.Row="12" Grid.Column="1"></Rectangle>
-        <Canvas Name="p_grazearea" Grid.Row="12" Grid.Column="1">
+        <local:NumberLabel x:Name="NL_Graze" Grid.Row="12" Grid.Column="1">
 
-        </Canvas>
+        </local:NumberLabel>
     </Grid>
 </UserControl>

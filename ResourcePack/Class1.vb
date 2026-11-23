@@ -5,7 +5,7 @@ Imports System.IO
 Imports ManagedBass
 Public Class Textures
 
-    Public Shared number(4, 14) As ImageBrush
+    Public Shared number(4)() As ImageBrush
 
     Public Shared bullet(20, 15) As ImageBrush
 
@@ -72,16 +72,26 @@ Public Class Textures
     Public Shared enemyspell As ImageBrush
 
     Public Shared Sub Load()
-
-        For i = 0 To 3
-            For j = 0 To 14
-                number(i, j) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("number_big" + i.ToString("D2") + j.ToString("D2"))))
-            Next
+        '10£º/ 11£º. 14£º,
+        Dim n0(14) As ImageBrush
+        Dim n1(14) As ImageBrush
+        Dim n2(14) As ImageBrush
+        Dim n3(14) As ImageBrush
+        For i = 0 To 14
+            n0(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("number_big00" + i.ToString("D2"))))
+            n1(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("number_big01" + i.ToString("D2"))))
+            n2(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("number_big02" + i.ToString("D2"))))
+            n3(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("number_big03" + i.ToString("D2"))))
         Next
+        number(0) = n0
+        number(1) = n1
+        number(2) = n2
+        number(3) = n3
+        Dim n4(10) As ImageBrush
         For i = 0 To 10
-            number(4, i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("number_small00" + i.ToString("D2"))))
+            n4(i) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("number_small00" + i.ToString("D2"))))
         Next
-
+        number(4) = n4
         For i = 0 To 10
             For j = 0 To 15
                 bullet(i, j) = New ImageBrush(B2I(MyResource.ResourceManager.GetObject("bullet" + i.ToString("D2") + j.ToString("D2"))))

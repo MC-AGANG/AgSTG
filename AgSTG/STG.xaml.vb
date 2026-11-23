@@ -126,7 +126,7 @@ Public Class STG
     Private Sub UserControl_Loaded(sender As Object, e As RoutedEventArgs)
         Height = 448
         Width = 384
-        time0.Fill = Textures.number(0, 11)
+        time0.Fill = Textures.number(0)(11)
     End Sub
     Public Sub New()
         InitializeComponent()
@@ -317,28 +317,28 @@ Public Class STG
             End If
         End If
         If Value <= 540 Then
-            timer10.Fill = Textures.number(2, Value \ 600)
+            timer10.Fill = Textures.number(2)(Value \ 600)
             Value = Value Mod 600
-            timer1.Fill = Textures.number(2, Value \ 60)
+            timer1.Fill = Textures.number(2)(Value \ 60)
             Value = Value Mod 60
-            timer01.Fill = Textures.number(2, Value \ 6)
+            timer01.Fill = Textures.number(2)(Value \ 6)
             Value = Value Mod 6
             If Value = 0 Then
-                timer001.Fill = Textures.number(2, 0)
+                timer001.Fill = Textures.number(2)(0)
             Else
-                timer001.Fill = Textures.number(2, (Value * 2) - 1)
+                timer001.Fill = Textures.number(2)((Value * 2) - 1)
             End If
         Else
-            timer10.Fill = Textures.number(0, Value \ 600)
+            timer10.Fill = Textures.number(0)(Value \ 600)
             Value = Value Mod 600
-            timer1.Fill = Textures.number(0, Value \ 60)
+            timer1.Fill = Textures.number(0)(Value \ 60)
             Value = Value Mod 60
-            timer01.Fill = Textures.number(0, Value \ 6)
+            timer01.Fill = Textures.number(0)(Value \ 6)
             Value = Value Mod 6
             If Value = 0 Then
-                timer001.Fill = Textures.number(0, 0)
+                timer001.Fill = Textures.number(0)(0)
             Else
-                timer001.Fill = Textures.number(0, (Value * 2) - 1)
+                timer001.Fill = Textures.number(0)((Value * 2) - 1)
             End If
 
         End If
